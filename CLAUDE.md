@@ -34,10 +34,10 @@ allforyou-bit.github.io/
 ├── 310s.html                ← 310S 퀴즈 (120문제) ✅
 ├── 308a.html                ← 308A 퀴즈 (100문제) ✅
 ├── exam-guide.html          ← 시험 등록 가이드 (1,500단어+, FAQ Schema) ✅
-├── study-guide.html         ← 학습 가이드
+├── study-guide.html         ← 학습 가이드 (5개 trade 탭 포함) ✅
 ├── about.html               ← 소개 페이지 (저자 바이오, E-E-A-T) ✅
 ├── contact.html             ← 연락처 (lidbil515@gmail.com) ✅
-├── privacy.html             ← 개인정보처리방침
+├── privacy.html             ← 개인정보처리방침 ✅
 ├── terms.html               ← 이용약관 ✅
 ├── disclaimer.html          ← 면책조항 ✅
 ├── ads.txt                  ← AdSense 소유권 인증
@@ -113,8 +113,15 @@ allforyou-bit.github.io/
 - [x] terms.html + disclaimer.html (AdSense 정책 요구사항)
 - [x] robots.txt
 - [x] 쿠키 동의 배너 (GDPR)
-- [x] 전체 페이지 nav/footer 통일
+- [x] 전체 페이지 nav/footer 통일 (19개 파일 표준화, sticky nav, min-height:52px)
 - [x] 8개 기사 Related Guides 내부 링크 연결
+- [x] Open Graph (og:title/description/url/type) + Twitter Card 메타 태그 — 전체 13개 페이지
+- [x] canonical 태그 — 전체 article 페이지 + 퀴즈 페이지
+- [x] nav 링크 순서 통일 — Home | 421A | 310T | 309A | 310S | 308A | Exam Guide | Study Guide | About
+- [x] 전 도 apprenticeship 연락처 URL 수정 (12개 province/territory)
+- [x] study-guide.html 전면 재작성 (5개 trade 탭 인터페이스)
+- [x] privacy.html nav/footer 표준화 + 제목 수정
+- [x] .gitignore 생성 (.claude/settings.local.json 제외)
 
 ---
 
