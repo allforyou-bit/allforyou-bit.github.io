@@ -644,6 +644,578 @@ const questions = [
     answer:1,
     explanation:'<strong>Continuous pull = unequal force at cylinders.</strong> An internal seal bypass in one steering cylinder allows oil to bypass without generating force, causing the other side to dominate. Unequal cylinder sizing (wrong part) has the same effect. Air causes spongy/erratic steering, not a consistent pull.',
     keyConcept:'Consistent pull = cylinder bypass or mechanical binding. Erratic/spongy = air in system.'
+  },
+
+  // ── SAFETY & TOOLS (continued) ──
+  {
+    id:31, topic:'safety', topicLabel:'Safety & Tools', diff:'easy',
+    text: 'Under WHMIS 2015, a Safety Data Sheet (SDS) must contain how many sections?',
+    options:['A) 8 sections','B) 10 sections','C) 16 sections','D) 20 sections'],
+    answer:2,
+    explanation:'<strong>SDS = 16 sections</strong> under WHMIS 2015 (aligned with GHS). Key sections include: hazard identification (2), composition (3), first-aid measures (4), fire-fighting (5), handling and storage (7), exposure controls/PPE (8). All 16 must be present.',
+    keyConcept:'WHMIS 2015 SDS = 16 sections. Memorize the count — it appears regularly on safety exam questions.'
+  },
+  {
+    id:32, topic:'safety', topicLabel:'Safety & Tools', diff:'medium',
+    text: 'Before entering a confined space, which test should be performed FIRST?',
+    options:['A) Oxygen content test','B) Flammable gas test','C) Test for toxic vapours','D) Ventilate the space for 10 minutes'],
+    answer:0,
+    explanation:'<strong>Oxygen content first.</strong> Acceptable range is 19.5%–23%. Below 19.5% is oxygen-deficient and immediately dangerous. Without sufficient O₂, all other tests are meaningless because the air meter sensors may not function correctly, and entry without adequate oxygen is fatal.',
+    keyConcept:'Confined space air testing order: 1) O₂ level, 2) Flammable/explosive, 3) Toxic substances.'
+  },
+  {
+    id:33, topic:'safety', topicLabel:'Safety & Tools', diff:'easy',
+    text: 'When working under a raised machine or component supported only by a hydraulic jack, a technician MUST:',
+    options:['A) Keep the engine running to maintain hydraulic pressure','B) Use approved jack stands or blocking before working under the load','C) Work quickly to minimize time under the machine','D) Have a coworker hold the hydraulic control lever'],
+    answer:1,
+    explanation:'<strong>Always use approved support — never rely on hydraulics alone.</strong> Hydraulic jacks can fail (seal leaks, valve drift, accidental lever contact). Jack stands or solid blocking provide mechanical support that cannot fail unexpectedly. This is a zero-tolerance safety rule.',
+    keyConcept:'Hydraulic jack = lifting only. Approved jack stands or cribbing = working support. Never work under a load supported only by hydraulics.'
+  },
+  {
+    id:34, topic:'safety', topicLabel:'Safety & Tools', diff:'easy',
+    text: 'Which class of fire extinguisher is rated for flammable liquids such as hydraulic fluid and diesel fuel?',
+    options:['A) Class A','B) Class B','C) Class C','D) Class D'],
+    answer:1,
+    explanation:'<strong>Class B = flammable liquids.</strong> This covers diesel fuel, hydraulic fluid, oil, and gasoline fires. Class A is for ordinary combustibles (wood, paper). Class C is for energized electrical equipment. Class D is for combustible metals.',
+    keyConcept:'Class A=wood/paper | B=flammable liquid | C=electrical | D=metals | K=cooking oils.'
+  },
+  {
+    id:35, topic:'safety', topicLabel:'Safety & Tools', diff:'medium',
+    text: 'A lockout/tagout procedure is being performed on a machine with MULTIPLE energy sources (hydraulic, electrical, pneumatic). The CORRECT approach is:',
+    options:['A) Lock out only the main electrical power — it controls all systems','B) Lock out and verify zero energy for each energy source individually','C) Tag only — locks are not required if the machine is shut down','D) One lock per shift supervisor is sufficient for the whole crew'],
+    answer:1,
+    explanation:'<strong>Every energy source requires its own lockout.</strong> A machine may have residual hydraulic pressure, pneumatic pressure, electrical capacitance, gravity loads, and spring tension simultaneously. Each must be isolated, locked, and verified at zero energy before work begins.',
+    keyConcept:'LOTO: isolate ALL energy sources — hydraulic, electrical, pneumatic, gravity, spring — and verify zero energy before touching anything.'
+  },
+  {
+    id:36, topic:'safety', topicLabel:'Safety & Tools', diff:'medium',
+    text: 'When using an angle grinder, which PPE is the MINIMUM requirement?',
+    options:['A) Safety glasses only','B) Safety glasses and gloves','C) Full face shield, hearing protection, and gloves','D) Goggles and a dust mask'],
+    answer:2,
+    explanation:'<strong>Grinders require face shield + hearing + gloves minimum.</strong> Grinding discs can shatter and send fragments at high velocity — safety glasses alone do not protect the face. Noise levels exceed 90dB. Gloves protect against sparks and contact. Never use a damaged or wrong-rated disc.',
+    keyConcept:'Angle grinder minimum PPE: full face shield (over safety glasses), hearing protection, gloves. Check disc RPM rating matches grinder.'
+  },
+  {
+    id:37, topic:'safety', topicLabel:'Safety & Tools', diff:'hard',
+    text: 'A technician is working near a diesel engine exhaust system in an enclosed building. The PRIMARY hazard is:',
+    options:['A) CO₂ (carbon dioxide) buildup causing fire risk','B) CO (carbon monoxide) — colourless, odourless, and immediately dangerous to life','C) NOx causing corrosion of tools','D) Particulate matter reducing visibility'],
+    answer:1,
+    explanation:'<strong>Carbon monoxide (CO) is the primary threat.</strong> Diesel exhaust contains CO which binds to hemoglobin 240x more effectively than oxygen — you cannot smell or see it. Symptoms appear rapidly in enclosed spaces. Ensure adequate ventilation or use CO monitors whenever running engines indoors.',
+    keyConcept:'Indoor exhaust = CO risk. CO = colourless, odourless, deadly. Always ventilate or use CO detector when running engines in enclosed spaces.'
+  },
+  {
+    id:38, topic:'safety', topicLabel:'Safety & Tools', diff:'hard',
+    text: 'When torquing cylinder head bolts on a diesel engine, the CORRECT procedure typically is:',
+    options:['A) Tighten all bolts to final torque in one pass, starting from the outside','B) Use multiple passes from the center outward, following the manufacturer pattern','C) Tighten to spec in one pass following the firing order sequence','D) Impact wrench to snug, then final torque with a torque wrench from any sequence'],
+    answer:1,
+    explanation:'<strong>Multiple passes center-outward following the manufacturer pattern.</strong> This distributes clamping force evenly, preventing head warping. Starting from outside would concentrate stress. Final step is often an angle torque (degrees of rotation) rather than ft-lb in modern engines.',
+    keyConcept:'Head bolt torque: center-out, multiple passes, follow manufacturer pattern. Modern engines often use torque-to-yield (TTY) bolts that are single-use.'
+  },
+
+  // ── DIESEL ENGINE (continued) ──
+  {
+    id:39, topic:'engine', topicLabel:'Diesel Engine', diff:'easy',
+    text: 'In the correct order, the four strokes of a diesel engine cycle are:',
+    options:['A) Power, Intake, Compression, Exhaust','B) Intake, Compression, Power, Exhaust','C) Compression, Intake, Power, Exhaust','D) Intake, Power, Compression, Exhaust'],
+    answer:1,
+    explanation:'<strong>Intake → Compression → Power → Exhaust.</strong> During intake, air fills the cylinder. Compression heats the air to ~500°C+. Diesel injected at TDC auto-ignites (power stroke). Exhaust gases are expelled. Diesel engines have no spark plugs — compression alone ignites the fuel.',
+    keyConcept:'4-stroke diesel: Intake, Compression, Power (injection), Exhaust. Memorize the sequence.'
+  },
+  {
+    id:40, topic:'engine', topicLabel:'Diesel Engine', diff:'easy',
+    text: 'What is the primary function of glow plugs in a diesel engine?',
+    options:['A) To ignite fuel during normal operation','B) To pre-heat the combustion chamber for cold-weather starting','C) To measure cylinder temperature','D) To increase fuel pressure during starting'],
+    answer:1,
+    explanation:'<strong>Glow plugs pre-heat for cold starts.</strong> Diesel relies on compression heat to ignite fuel. In cold weather, heat is lost to the cold cylinder walls, reducing compression temperature below the ignition point. Glow plugs heat the pre-chamber or combustion chamber to assist starting.',
+    keyConcept:'Glow plugs = cold-start heaters. Not used during normal operation. White smoke at startup often indicates glow plug issues in cold weather.'
+  },
+  {
+    id:41, topic:'engine', topicLabel:'Diesel Engine', diff:'easy',
+    text: 'An engine produces WHITE smoke only during cold startup that clears after warmup. The MOST likely cause is:',
+    options:['A) Worn piston rings','B) Blown head gasket','C) Normal combustion of unburned fuel during cold start','D) Fuel injector stuck open'],
+    answer:2,
+    explanation:'<strong>White smoke during cold start is usually normal.</strong> Cold cylinder walls prevent complete combustion of diesel. As the engine warms, combustion improves and white smoke disappears. Persistent white smoke at operating temperature indicates a real problem (coolant in combustion, injector timing).',
+    keyConcept:'White smoke cold start = normal. White smoke at operating temp = suspect coolant leak or injection timing.'
+  },
+  {
+    id:42, topic:'engine', topicLabel:'Diesel Engine', diff:'easy',
+    text: 'What does the engine oil viscosity rating 15W-40 indicate?',
+    options:['A) The oil is 15 parts synthetic, 40 parts conventional','B) 15W = winter cold flow, 40 = high-temperature viscosity at 100°C','C) 15 = summer rating, 40 = winter rating','D) 15 = viscosity index, 40 = base oil grade'],
+    answer:1,
+    explanation:'<strong>Multi-grade oil: two performance ratings.</strong> "15W" means the oil flows like a 15-weight oil in cold (winter) conditions. "40" means it performs like a 40-weight oil at 100°C operating temperature. The W stands for Winter. Wider number range = greater temperature range capability.',
+    keyConcept:'15W-40: 15W = cold-weather flow | 40 = hot operating viscosity. More W = flows better in cold. Higher second number = thicker when hot.'
+  },
+  {
+    id:43, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text: 'A diesel engine has low power, excessive black smoke, and the turbocharger is noisy with shaft play. The MOST likely diagnosis is:',
+    options:['A) Restricted air filter causing boost starvation','B) Worn turbocharger bearings causing turbine/compressor contact and loss of boost','C) Injector return line restricted','D) EGR valve stuck open'],
+    answer:1,
+    explanation:'<strong>Shaft play + noise + low boost = worn turbo bearings.</strong> When turbo bearings wear, the shaft deflects, allowing the turbine or compressor wheel to contact the housing. This causes scoring, noise, reduced efficiency, and eventually complete failure. Shaft play should be checked as part of diagnostics.',
+    keyConcept:'Turbo shaft radial play > 0.1mm or axial play > 0.08mm = replacement needed. Shaft play + noise + low boost = worn bearings.'
+  },
+  {
+    id:44, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text: 'The function of the Exhaust Gas Recirculation (EGR) system is to:',
+    options:['A) Increase oxygen in the combustion chamber for more power','B) Recirculate exhaust gas into the intake to reduce combustion temperature and lower NOx emissions','C) Regenerate the diesel particulate filter','D) Cool the turbocharger during high-load operation'],
+    answer:1,
+    explanation:'<strong>EGR reduces NOx by lowering combustion temperature.</strong> Inert exhaust gas dilutes the air-fuel mixture, reducing peak combustion temperatures. NOx (oxides of nitrogen) forms at high temperatures — EGR is one of the primary methods to control it without reducing power significantly.',
+    keyConcept:'EGR = exhaust gas into intake = lower combustion temp = lower NOx. EGR can cause carbon buildup over time.'
+  },
+  {
+    id:45, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text: 'A diesel engine cranks but will NOT start. The fuel system has been verified. The NEXT most likely cause to check is:',
+    options:['A) Low compression — check with compression or leak-down test','B) Alternator failure','C) Faulty park brake switch','D) Low coolant temperature sensor'],
+    answer:0,
+    explanation:'<strong>No-start with verified fuel = check compression.</strong> Diesel ignition requires sufficient compression heat (~450°C minimum). Worn rings, burnt valves, or a blown head gasket can reduce compression below ignition threshold. Cranking speed also affects compression — check battery and starter too.',
+    keyConcept:'Diesel no-start diagnostic order: fuel → compression → cranking speed → timing → glow plugs.'
+  },
+  {
+    id:46, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text: 'Engine oil pressure drops suddenly at operating temperature. The FIRST component to inspect is:',
+    options:['A) Engine oil cooler','B) Oil pump and oil pressure relief valve','C) Oil filter bypass valve','D) Crankshaft ventilation system'],
+    answer:1,
+    explanation:'<strong>Sudden pressure loss = pump or relief valve first.</strong> A stuck-open relief valve bleeds off pressure prematurely. A failing oil pump cannot maintain adequate pressure at operating temperature. These are the primary high-probability causes before considering bearing clearances or pickup tube issues.',
+    keyConcept:'Low oil pressure: check oil level first → then pump/relief valve → then bearing clearances. Never run an engine with low oil pressure.'
+  },
+  {
+    id:47, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text: 'A BLUE smoke condition that is worse on startup and clears after the engine warms up MOST likely indicates:',
+    options:['A) Coolant leaking into the combustion chamber','B) Worn valve stem seals allowing oil to enter the combustion chamber overnight','C) Over-fueling from a faulty injector','D) Incorrect oil viscosity'],
+    answer:1,
+    explanation:'<strong>Blue smoke worst at startup = valve seal leak.</strong> Overnight, oil seeps past worn valve stem seals into the intake ports. On first startup this oil burns, producing blue smoke. As the engine warms and oil thins, pressure at the stems reduces and the symptom clears. Compare to blue smoke under load = ring wear.',
+    keyConcept:'Blue smoke at cold startup = valve stem seals. Blue smoke under load = piston rings. Blue smoke always = oil burning.'
+  },
+  {
+    id:48, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text: 'A diesel particulate filter (DPF) requires regeneration when:',
+    options:['A) The engine oil is due for a change','B) Soot accumulation reaches a threshold level — warning light illuminates or back-pressure rises','C) The coolant temperature drops below 70°C','D) Fuel economy decreases by 5%'],
+    answer:1,
+    explanation:'<strong>DPF regenerates when soot load is excessive.</strong> The ECM monitors back-pressure or a soot model. Passive regeneration happens automatically at highway speeds (exhaust temperature >550°C). Active regeneration injects extra fuel to raise exhaust temp. Forced regeneration can be triggered with a scan tool.',
+    keyConcept:'DPF regen = burn off soot accumulation. Passive (automatic, highway speed) → Active (ECM-triggered) → Forced (scan tool). High back-pressure = clogged DPF.'
+  },
+  {
+    id:49, topic:'engine', topicLabel:'Diesel Engine', diff:'hard',
+    text: 'A common rail system shows low fuel rail pressure at high load but normal pressure at idle. The MOST likely cause is:',
+    options:['A) Clogged fuel return line','B) Fuel pressure regulator stuck fully OPEN (always returns too much fuel)','C) High-pressure pump worn — cannot maintain pressure under demand','D) Rail pressure sensor fault'],
+    answer:2,
+    explanation:'<strong>Low pressure under load but normal at idle = HP pump capacity issue.</strong> At idle, demand is low and even a worn pump can maintain pressure. Under high load, flow demand exceeds the pump\'s worn capacity. A stuck-open regulator would cause low pressure at all conditions.',
+    keyConcept:'Low pressure only at high load = HP pump wear (can\'t keep up with demand). Low pressure always = regulator stuck open or major leak.'
+  },
+  {
+    id:50, topic:'engine', topicLabel:'Diesel Engine', diff:'hard',
+    text: 'Connecting rod bearing clearance is checked using:',
+    options:['A) Feeler gauge between the rod and crankshaft','B) Plastigage — a precision plastic thread squeezed between bearing and journal','C) Dial indicator on the crankshaft','D) Micrometer on the crankshaft journal only'],
+    answer:1,
+    explanation:'<strong>Plastigage measures oil clearance directly.</strong> The plastic thread is placed across the journal, the cap is torqued to spec, then the cap is removed. The flattened Plastigage width is compared to a reference card. Typical clearance is 0.025–0.075mm. Feeler gauges cannot access the bearing surface.',
+    keyConcept:'Plastigage = bearing clearance measurement. Wider = more clearance. Typical rod bearing clearance: 0.025–0.075mm.'
+  },
+  {
+    id:51, topic:'engine', topicLabel:'Diesel Engine', diff:'hard',
+    text: 'Crankshaft end play is measured using a:',
+    options:['A) Plastigage','B) Dial indicator with the crankshaft pushed fully forward then pulled back','C) Feeler gauge at the main bearing cap','D) Micrometer across the thrust journal'],
+    answer:1,
+    explanation:'<strong>End play = axial movement measured with a dial indicator.</strong> Set the dial indicator against the crankshaft snout. Push the crank fully rearward (zero indicator), then pry forward. The indicator reading is the end play. Excessive end play (>0.25mm typical) indicates worn thrust bearings.',
+    keyConcept:'End play = axial crank movement. Measured with dial indicator. Excessive end play = worn thrust bearings. Symptom: in/out knock, clutch chatter.'
+  },
+  {
+    id:52, topic:'engine', topicLabel:'Diesel Engine', diff:'hard',
+    text: 'After rebuilding a diesel engine, it knocks heavily when cold but the knock disappears at operating temperature. The MOST likely cause is:',
+    options:['A) Incorrect injection timing','B) Excessive piston-to-cylinder wall clearance (piston slap)','C) Rod bearing clearance too tight','D) Valve clearance set too small'],
+    answer:1,
+    explanation:'<strong>Cold knock that clears when warm = piston slap.</strong> Pistons expand with heat. If the clearance was set too large during rebuild (or wrong-sized pistons installed), the piston rocks in the bore when cold, creating a slapping noise. As the piston expands to fit the bore, the noise decreases.',
+    keyConcept:'Cold knock → disappears warm = piston slap (excessive piston-to-wall clearance). Opposite: tight clearance causes seizure when hot.'
+  },
+  {
+    id:53, topic:'engine', topicLabel:'Diesel Engine', diff:'hard',
+    text: 'An engine\'s combustion analysis shows consistently HIGH levels of silicon (Si) in the engine oil sample. The MOST likely cause is:',
+    options:['A) Worn piston rings','B) Air entering through a damaged intake/air filter — ingesting dust (silica)','C) Coolant contamination','D) Fuel dilution of the oil'],
+    answer:1,
+    explanation:'<strong>High silicon in oil analysis = dirt ingestion.</strong> Silicon is the primary element in soil and dust (silica). Elevated silicon indicates air filter bypass, torn filter, loose air duct clamp, or cracked intake hose. It causes rapid abrasive wear. Coolant contamination shows sodium/potassium. Fuel dilution = fuel elements.',
+    keyConcept:'Oil analysis key indicators: Silicon = dirt ingestion | Sodium/potassium = coolant | Fuel elements = fuel dilution | Iron = component wear.'
+  },
+  {
+    id:54, topic:'engine', topicLabel:'Diesel Engine', diff:'hard',
+    text: 'An engine retarder (Jake Brake / engine brake) works by:',
+    options:['A) Applying the hydraulic service brakes when throttle is released','B) Opening exhaust valves near TDC of the compression stroke to release compressed air','C) Engaging a friction clutch on the crankshaft','D) Increasing fuel injection to slow the engine via compression'],
+    answer:1,
+    explanation:'<strong>Engine brake = exhaust valve opens at top of compression stroke.</strong> Normally, compressed air in the cylinder would push the piston back down (power stroke). The engine brake opens the exhaust valve at TDC, releasing the compressed air — removing the energy that would return to the drivetrain, creating engine braking.',
+    keyConcept:'Engine brake: opens exhaust valve at compression TDC → releases compressed air → no power return → strong engine braking effect.'
+  },
+
+  // ── ELECTRICAL SYSTEMS (continued) ──
+  {
+    id:55, topic:'electrical', topicLabel:'Electrical Systems', diff:'easy',
+    text: 'In a series circuit with three resistors of 4Ω, 6Ω, and 10Ω connected to a 12V battery, what is the total current?',
+    options:['A) 3A','B) 0.6A','C) 2A','D) 1.2A'],
+    answer:1,
+    explanation:'<strong>Series total resistance = sum of all resistors.</strong> R_total = 4+6+10 = 20Ω. Using Ohm\'s Law: I = V/R = 12/20 = <strong>0.6A</strong>. In series circuits, current is the same through every component.',
+    keyConcept:'Series circuit: R_total = R1+R2+R3. Current same throughout. Voltage divides across each resistor proportionally.'
+  },
+  {
+    id:56, topic:'electrical', topicLabel:'Electrical Systems', diff:'easy',
+    text: 'In a PARALLEL circuit, what is always the same across all branches?',
+    options:['A) Current','B) Resistance','C) Voltage','D) Power'],
+    answer:2,
+    explanation:'<strong>Voltage is equal across all parallel branches.</strong> Each branch connects directly between the same two nodes (positive and negative), so all branches see identical voltage. Current divides based on each branch\'s resistance — lower resistance = more current.',
+    keyConcept:'Parallel: voltage same in all branches, current splits. Total current = sum of branch currents. Total resistance less than smallest branch.'
+  },
+  {
+    id:57, topic:'electrical', topicLabel:'Electrical Systems', diff:'easy',
+    text: 'A diode in an electrical circuit allows current to flow:',
+    options:['A) In both directions','B) In one direction only — from anode (+) to cathode (-)','C) Only when voltage exceeds 12V','D) Only in AC circuits'],
+    answer:1,
+    explanation:'<strong>Diode = one-way electrical valve.</strong> Current flows from anode to cathode when forward biased (anode positive). In reverse bias, diode blocks current (except Zener diodes). Used in alternators to convert AC to DC, and in circuits to prevent reverse-polarity damage.',
+    keyConcept:'Diode: current anode → cathode (forward bias). Reverse bias = blocked. Alternator rectifier uses 6 diodes to convert 3-phase AC to DC.'
+  },
+  {
+    id:58, topic:'electrical', topicLabel:'Electrical Systems', diff:'medium',
+    text: 'A relay is used in heavy equipment electrical circuits primarily to:',
+    options:['A) Measure current draw in the circuit','B) Allow a low-current control signal to switch a high-current load circuit','C) Convert AC current to DC','D) Regulate voltage from the alternator'],
+    answer:1,
+    explanation:'<strong>Relay = remote-controlled switch.</strong> A small control current (through the coil) creates a magnetic field that closes or opens contacts carrying a much larger current. This protects switches and wiring from high current loads. Example: starter relay allows a small ignition switch to control 400+ amp starter current.',
+    keyConcept:'Relay coil = low current control. Relay contacts = high current load. Allows thin wires to control heavy loads remotely.'
+  },
+  {
+    id:59, topic:'electrical', topicLabel:'Electrical Systems', diff:'medium',
+    text: 'A battery that reads 12.4V at rest (no load) has a state of charge of approximately:',
+    options:['A) 100% — fully charged','B) 75% — partially discharged','C) 50% — half charged','D) 25% — mostly depleted'],
+    answer:1,
+    explanation:'<strong>12.4V ≈ 75% state of charge.</strong> Reference: 12.6–12.7V = 100%, 12.4V = ~75%, 12.2V = ~50%, 12.0V = ~25%, below 11.8V = discharged. These measurements are taken with no load after a 2-hour rest. A hydrometer (specific gravity) gives similar information for flooded batteries.',
+    keyConcept:'Battery open circuit voltage: 12.6V+=100% | 12.4V=75% | 12.2V=50% | 12.0V=25% | <11.8V=discharged.'
+  },
+  {
+    id:60, topic:'electrical', topicLabel:'Electrical Systems', diff:'medium',
+    text: 'During a charging system test, the alternator output voltage is 13.2V at 2000 RPM with all accessories on. What does this indicate?',
+    options:['A) Alternator is performing normally','B) Alternator is undercharging — voltage should be 13.8–14.8V','C) Alternator is overcharging — voltage is too low','D) Voltage is normal for a 12V system'],
+    answer:1,
+    explanation:'<strong>Normal charging voltage = 13.8–14.8V.</strong> At 13.2V, the alternator is not producing enough voltage to fully charge the battery and supply loads. This will cause progressive battery discharge over time. Possible causes: worn brushes, faulty voltage regulator, slipping belt.',
+    keyConcept:'Charging system spec: 13.8–14.8V at operating RPM. Below 13.5V = undercharging. Above 15V = overcharging (kills batteries).'
+  },
+  {
+    id:61, topic:'electrical', topicLabel:'Electrical Systems', diff:'medium',
+    text: 'A starter motor draws NORMAL current but cranks very slowly. The MOST likely cause is:',
+    options:['A) Faulty starter motor brushes','B) High resistance in the battery cables causing excessive voltage drop to the starter','C) Starter solenoid contacts worn','D) Battery has too many cold cranking amps (CCA)'],
+    answer:1,
+    explanation:'<strong>Normal current but slow crank = voltage not reaching the motor.</strong> High cable resistance causes a large voltage drop. The starter draws its rated current, but at reduced voltage (8V instead of 12V), it produces much less power and torque. Perform a voltage drop test on both positive and negative cables while cranking.',
+    keyConcept:'Slow crank, normal current draw = high resistance (voltage drop). Slow crank, high current draw = seized engine or mechanical drag. Slow crank, low current = open in circuit.'
+  },
+  {
+    id:62, topic:'electrical', topicLabel:'Electrical Systems', diff:'hard',
+    text: 'On a J1939 CAN bus network, what is the purpose of the 120-ohm termination resistors?',
+    options:['A) To limit current through the bus and protect the modules','B) To prevent signal reflection on the bus that would cause data errors','C) To set the bus communication speed','D) To provide backup power to modules during voltage drops'],
+    answer:1,
+    explanation:'<strong>Termination resistors prevent signal reflections.</strong> At high data speeds, the CAN bus behaves like a transmission line. Without termination, electrical signals reflect back from the open ends of the bus, corrupting data packets. Two 120Ω resistors (one at each end) absorb the signal. Measure across CAN-H and CAN-L: should read ~60Ω with both terminations.',
+    keyConcept:'J1939 termination: 120Ω at each bus end. Total across CAN-H/L = 60Ω. Missing terminator = ~120Ω reading. Used to diagnose bus integrity.'
+  },
+  {
+    id:63, topic:'electrical', topicLabel:'Electrical Systems', diff:'hard',
+    text: 'A PWM (Pulse Width Modulation) signal controls a variable-speed cooling fan. If the duty cycle increases from 30% to 80%, what happens to the fan?',
+    options:['A) Fan slows down — less time at voltage','B) Fan speeds up — more time at full voltage per cycle','C) Fan switches to a different circuit','D) Duty cycle has no effect on fan speed'],
+    answer:1,
+    explanation:'<strong>Higher duty cycle = more ON time = faster fan.</strong> PWM rapidly switches power on and off. Duty cycle = percentage of time the signal is HIGH (on). 30% = on 30% of each cycle (slow). 80% = on 80% (fast). Average voltage seen by the fan = duty cycle × supply voltage.',
+    keyConcept:'PWM duty cycle: 100% = full speed, 0% = off. Higher duty cycle = more average voltage = faster motor/brighter light/hotter heater element.'
+  },
+  {
+    id:64, topic:'electrical', topicLabel:'Electrical Systems', diff:'hard',
+    text: 'A coolant temperature sensor (NTC thermistor) shows a fault code for high signal voltage. This indicates:',
+    options:['A) Coolant is overheating','B) Open circuit in the sensor or wiring (sensor disconnected)','C) Short to ground in the sensor circuit','D) ECM reference voltage is too high'],
+    answer:1,
+    explanation:'<strong>NTC (Negative Temperature Coefficient) = resistance drops as temperature rises.</strong> ECM supplies a 5V reference through a pull-up resistor. With an open circuit (broken wire or disconnected sensor), the full 5V reference appears at the ECM input = high voltage code. Short to ground = low voltage code.',
+    keyConcept:'NTC sensor: resistance high = cold = high voltage at ECM. Open circuit = full 5V = high voltage code. Short to ground = 0V = low voltage code.'
+  },
+  {
+    id:65, topic:'electrical', topicLabel:'Electrical Systems', diff:'hard',
+    text: 'Two 12V batteries wired in SERIES provide what voltage and capacity compared to a single battery?',
+    options:['A) 12V at double the capacity (amp-hours)','B) 24V at the same capacity (amp-hours) as one battery','C) 24V at double the capacity','D) 12V at the same capacity as one battery'],
+    answer:1,
+    explanation:'<strong>Series batteries: voltage adds, capacity stays the same.</strong> 12V + 12V = 24V. Amp-hours (capacity) remain equal to one battery. Contrast with parallel: voltage stays the same, capacity doubles. Series = used to power 24V systems on large equipment.',
+    keyConcept:'Series batteries: voltage adds (24V). Same AH capacity. Parallel batteries: same voltage (12V). AH capacity adds. Large equipment uses 24V series configuration.'
+  },
+
+  // ── HYDRAULIC SYSTEMS (continued) ──
+  {
+    id:66, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'easy',
+    text: 'Pascal\'s Law states that pressure applied to a confined fluid:',
+    options:['A) Decreases as the fluid moves through smaller lines','B) Is transmitted equally in all directions throughout the fluid','C) Increases proportionally with fluid velocity','D) Is absorbed by the fluid and converted to heat'],
+    answer:1,
+    explanation:'<strong>Pascal\'s Law: pressure transmits equally in all directions.</strong> This is the fundamental principle of all hydraulic systems. A pump creates pressure that acts with equal force on all surfaces of the confined fluid simultaneously — allowing a small piston to exert enormous force on a large piston.',
+    keyConcept:'Pascal\'s Law: pressure applied = equal in all directions. Force = Pressure × Area. Basis of all hydraulic leverage.'
+  },
+  {
+    id:67, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'easy',
+    text: 'A hydraulic cylinder with a bore diameter of 4 inches is subjected to 2,000 PSI. What is the approximate force output?',
+    options:['A) 8,000 lbs','B) 25,133 lbs','C) 50,000 lbs','D) 6,280 lbs'],
+    answer:1,
+    explanation:'<strong>Force = Pressure × Area.</strong> Area = π × r² = 3.14159 × (2)² = 12.57 in². Force = 2,000 × 12.57 = <strong>25,133 lbs</strong>. This relationship explains why hydraulic systems generate enormous forces from compact components.',
+    keyConcept:'Force = PSI × Area (in²). Area of circle = π × r². Know this formula — force/area calculations appear regularly on the exam.'
+  },
+  {
+    id:68, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'easy',
+    text: 'What is the difference between an OPEN CENTER and CLOSED CENTER hydraulic system?',
+    options:['A) Open center uses variable displacement pumps; closed center uses fixed displacement','B) Open center allows free flow through the control valve in neutral; closed center blocks all flow in neutral','C) Open center is for cylinders; closed center is for hydraulic motors','D) Open center = high pressure; closed center = low pressure'],
+    answer:1,
+    explanation:'<strong>Open center: fluid circulates at low pressure in neutral.</strong> When controls are centered (neutral), oil flows freely back to tank through the valve. Closed center: oil is blocked in neutral, maintained at system pressure. Open center is simpler and used with fixed displacement pumps. Closed center enables priority and complex multiple-function control.',
+    keyConcept:'Open center neutral = oil flows freely to tank (low pressure). Closed center neutral = oil blocked, stays at pressure. Closed center needs variable pump or unloading valve.'
+  },
+  {
+    id:69, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'medium',
+    text: 'A counterbalance valve is used in a hydraulic circuit to:',
+    options:['A) Balance flow between two pumps','B) Prevent a load from dropping uncontrolled if a hose fails or the control valve opens too quickly','C) Equalize pressure between the rod and cap ends of a cylinder','D) Balance the pressure between primary and secondary circuits'],
+    answer:1,
+    explanation:'<strong>Counterbalance valve = load-holding safety device.</strong> Installed at the cylinder port, it requires pilot pressure from the opposite line to open. If a hose ruptures, the counterbalance valve stays closed — the load cannot fall. It also prevents load-induced runaway when lowering heavy loads on a slope.',
+    keyConcept:'Counterbalance valve: requires pilot pressure to open. Holds load if hose fails. Prevents runaway on lowering. Common on boom/arm cylinders.'
+  },
+  {
+    id:70, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'medium',
+    text: 'A priority valve in a hydraulic system ensures that:',
+    options:['A) All hydraulic functions operate at the same pressure','B) Steering or braking gets flow first before other functions','C) The main pump always operates at maximum pressure','D) Auxiliary hydraulic functions are prioritized over working functions'],
+    answer:1,
+    explanation:'<strong>Priority valve directs flow to critical systems first.</strong> On heavy equipment, steering and brakes are safety-critical. The priority valve routes adequate flow to these circuits before allowing excess flow to reach other functions (boom, bucket). Even if the operator demands full working function, steering always gets its required flow.',
+    keyConcept:'Priority valve: safety-critical circuits (steering, brakes) get flow first. Excess goes to work circuits. Critical for machines with load-sensing steering.'
+  },
+  {
+    id:71, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'medium',
+    text: 'A hydraulic accumulator is used in heavy equipment systems primarily to:',
+    options:['A) Filter hydraulic fluid','B) Store pressurized fluid to supplement pump flow during peak demand or maintain pressure after shutdown','C) Cool the hydraulic fluid during operation','D) Convert hydraulic pressure to electrical energy'],
+    answer:1,
+    explanation:'<strong>Accumulator = pressurized fluid reservoir.</strong> Uses a gas charge (nitrogen) separated from oil by a bladder or piston. Functions: 1) Stores energy for peak demand (faster cylinder response), 2) Maintains brake/steering pressure after engine off, 3) Dampens pressure spikes. NEVER cut open an accumulator — high-pressure nitrogen is dangerous.',
+    keyConcept:'Accumulator uses nitrogen gas + oil. Functions: energy storage, pressure maintenance, shock dampening. Must be depressurized before servicing.'
+  },
+  {
+    id:72, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'medium',
+    text: 'Hydraulic oil is foamy (full of air bubbles) after running the machine. The MOST likely cause is:',
+    options:['A) Oil is too thick (high viscosity)','B) Air entering the suction line — loose fitting, cracked hose, or fluid level too low','C) Relief valve pressure set too high','D) Oil cooler restriction causing overheating'],
+    answer:1,
+    explanation:'<strong>Foamy oil = aeration = air entering suction side.</strong> The pump creates a partial vacuum on the suction port. Any leak on the inlet side (below atmospheric pressure) draws air in rather than leaking oil out. Low fluid level can also expose the suction port. Aeration causes spongy controls, cavitation, and accelerated wear.',
+    keyConcept:'Aeration: air IN the oil. Sources: suction leak, low fluid level, return line above oil surface. Foam visible in reservoir. Different from cavitation (vapor bubbles from low suction pressure).'
+  },
+  {
+    id:73, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'medium',
+    text: 'A hydraulic cylinder extends normally but retracts very slowly. The control valve and pump have been verified as good. The MOST likely cause is:',
+    options:['A) Relief valve pressure too high','B) Rod seal is severely leaking, allowing oil bypass on retraction','C) Restriction on the rod-end return line','D) Cylinder piston seal bypassing on extension stroke'],
+    answer:2,
+    explanation:'<strong>Slow retraction only = restriction on rod-end return.</strong> During retraction, rod-end oil must return to tank. A blocked or restricted return line (kinked hose, dirty filter in that circuit, partially closed valve) restricts the oil return, slowing retraction. Extension is unaffected because oil takes a different path.',
+    keyConcept:'Cylinder slow one direction: check the RETURN line for that stroke. Slow retraction = rod-end return restricted. Slow extension = cap-end return restricted.'
+  },
+  {
+    id:74, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'hard',
+    text: 'In a load-sensing hydraulic system, the pump displacement is controlled by:',
+    options:['A) A fixed pressure relief valve at 3,000 PSI','B) The difference between system pressure and load pressure — pump only produces what is demanded','C) Engine RPM through a mechanical governor','D) The operator through a manual pressure adjustment valve'],
+    answer:1,
+    explanation:'<strong>Load-sensing: pump output = actual demand only.</strong> The system measures the difference (margin) between pump output pressure and the actual load pressure at the actuator (typically 200–300 PSI margin). If no work is demanded, the pump destroke to minimum. This saves fuel and reduces heat compared to fixed displacement systems.',
+    keyConcept:'Load-sensing (LS): pump pressure = load pressure + margin (typically 200–300 PSI). Pump destroke when no demand = high efficiency. Low LS signal = pump at minimum displacement.'
+  },
+  {
+    id:75, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'hard',
+    text: 'A hydraulic motor\'s CASE DRAIN line becomes hot and shows high pressure. This indicates:',
+    options:['A) The hydraulic motor is working efficiently','B) Worn motor internals causing internal bypass — excessive case pressure','C) The motor is running too fast','D) System relief valve is set correctly'],
+    answer:1,
+    explanation:'<strong>High case drain pressure = worn motor bypassing internally.</strong> Case drain removes leakage oil from inside the motor housing. Excessive internal bypass (worn pistons, valve plate) increases case drain flow and pressure. This oil returns at low pressure — restriction or excessive flow indicates motor wear. Case pressure >50 PSI on most motors = internal damage.',
+    keyConcept:'Case drain: always check on piston motors. High case drain flow/pressure = internal wear/bypass. Case drain must return to tank (NOT to main return line on some designs).'
+  },
+  {
+    id:76, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'hard',
+    text: 'A differential cylinder (unequal area) extends and retracts at the SAME speed when the regenerative circuit is active. This is because:',
+    options:['A) The regenerative circuit doubles the pump flow','B) Rod-end oil is fed back to the cap end, adding to pump flow on extension — compensating for the smaller cap-end area','C) The load causes the cylinder to extend faster due to gravity','D) The pump automatically adjusts displacement for equal speeds'],
+    answer:1,
+    explanation:'<strong>Regenerative circuit: rod-end return is fed to cap end during extension.</strong> Normally extension is slower than retraction (smaller net area). In regenerative mode, return oil from the rod end is added to pump flow on the cap end, increasing extension speed to match retraction speed. The cylinder speed equals: flow / rod area (not piston area).',
+    keyConcept:'Regenerative extension: rod return → cap end. Extension speed = pump flow ÷ rod area. Allows equal extend/retract speed. Used in fast-cycle applications.'
+  },
+  {
+    id:77, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'hard',
+    text: 'When performing a hydraulic pump efficiency test (flow test), what TWO measurements are required?',
+    options:['A) Temperature and viscosity of the oil','B) Actual output flow (GPM or L/min) at rated pressure compared to theoretical maximum flow','C) Pump inlet vacuum and outlet pressure only','D) Pump RPM and drive shaft torque'],
+    answer:1,
+    explanation:'<strong>Pump efficiency = actual flow ÷ theoretical flow × 100%.</strong> Theoretical flow = pump displacement × RPM. Actual flow is measured with a flow meter at rated operating pressure. Volumetric efficiency below 85% typically indicates pump replacement is needed. Always test at operating temperature.',
+    keyConcept:'Pump efficiency test: flow meter + pressure gauge + RPM. Volumetric efficiency = actual GPM ÷ theoretical GPM × 100%. Below 85% = worn pump.'
+  },
+
+  // ── POWERTRAIN (continued) ──
+  {
+    id:78, topic:'powertrain', topicLabel:'Powertrain', diff:'easy',
+    text: 'What is the primary function of a differential in a heavy equipment drive axle?',
+    options:['A) To increase ground clearance','B) To allow drive wheels to rotate at different speeds when turning','C) To increase the gear ratio for more pulling power','D) To disengage drive power during braking'],
+    answer:1,
+    explanation:'<strong>Differential allows speed difference between drive wheels.</strong> On a turn, the outer wheel travels farther than the inner wheel and must rotate faster. Without a differential, tires would scrub and drivetrain stress would be extreme. The differential uses bevel gears to split torque while allowing different wheel speeds.',
+    keyConcept:'Differential: equal torque to both wheels, allows different speeds. Without it: tire scrub, binding, drivetrain damage on turns.'
+  },
+  {
+    id:79, topic:'powertrain', topicLabel:'Powertrain', diff:'easy',
+    text: 'A transfer case on a 4WD machine provides:',
+    options:['A) Torque converter fluid management','B) A second gear reduction and splits power between front and rear axles','C) Differential action between left and right wheels','D) Final drive reduction to the wheels'],
+    answer:1,
+    explanation:'<strong>Transfer case: splits power and provides low-range reduction.</strong> It receives power from the transmission output and splits it to front and rear axles. In low range (4LO), an additional gear reduction multiplies torque — critical for extreme off-road conditions. High range (4HI) provides no additional reduction.',
+    keyConcept:'Transfer case: power distribution (front/rear) + optional low-range gear reduction. 4HI = same ratio as 2WD with 4WD. 4LO = multiplied torque for tough terrain.'
+  },
+  {
+    id:80, topic:'powertrain', topicLabel:'Powertrain', diff:'medium',
+    text: 'A differential lock is engaged on a machine stuck in mud. Once the machine is free, the operator MUST:',
+    options:['A) Leave it engaged for better traction on the road','B) Disengage the diff lock before turning or driving at normal speeds','C) Shift to a higher gear immediately','D) Rev the engine to seat the lock before releasing'],
+    answer:1,
+    explanation:'<strong>Diff lock must be disengaged before turning.</strong> Diff lock forces both wheels to rotate at identical speed. During a turn, the outer wheel needs to rotate faster — with diff lock engaged, tires scrub, drivetrain is stressed, and steering becomes very difficult. Only use on straight, low-traction surfaces.',
+    keyConcept:'Diff lock: straight-line traction only. Must disengage before turning. Engaging while turning can cause severe drivetrain damage.'
+  },
+  {
+    id:81, topic:'powertrain', topicLabel:'Powertrain', diff:'medium',
+    text: 'In a powershift transmission, clutch engagement is controlled by:',
+    options:['A) A mechanical foot clutch pedal','B) Hydraulic pressure directed by the transmission control valve or solenoids','C) Engine vacuum and a centrifugal governor','D) Manual lever directly linked to the clutch packs'],
+    answer:1,
+    explanation:'<strong>Powershift = hydraulically actuated, electronically controlled clutch packs.</strong> Gear shifts occur by hydraulically engaging one clutch pack while releasing another — no interruption in power delivery. The operator uses a selector switch or lever that signals solenoid valves which clutch packs to pressurize.',
+    keyConcept:'Powershift trans: clutch packs applied by hydraulic pressure, controlled by solenoid valves. No power interruption during shifts. Common on loaders, excavators, motor graders.'
+  },
+  {
+    id:82, topic:'powertrain', topicLabel:'Powertrain', diff:'medium',
+    text: 'A hydrostatic drive system on a skid steer shows normal operation in one direction but weak movement in reverse. The MOST likely cause is:',
+    options:['A) Low hydraulic oil level','B) Worn internal bypass in one direction of the drive pump (check valves or rotating group)','C) Low engine RPM','D) Relief valve for the forward circuit stuck open'],
+    answer:1,
+    explanation:'<strong>Weak in one direction = pump internal bypass in that circuit.</strong> Hydrostatic pumps are bidirectional. The pump contains internal check valves and rotating group that functions differently in each direction. Wear or damage specific to one flow direction causes weakness only in that direction of travel.',
+    keyConcept:'Hydrostatic drive: weak one direction only = pump or motor internal issue on that circuit. Both directions weak = charge pressure problem or overall pump wear.'
+  },
+  {
+    id:83, topic:'powertrain', topicLabel:'Powertrain', diff:'medium',
+    text: 'What is the purpose of the INCHING pedal on a powershift transmission machine?',
+    options:['A) To increase engine speed while reducing ground speed by modulating torque converter slip','B) To engage all-wheel drive temporarily','C) To lock the differential for better traction','D) To apply the parking brake gradually'],
+    answer:0,
+    explanation:'<strong>Inching pedal: modulates transmission clutch to slip torque converter while increasing engine RPM.</strong> Used on wheel loaders during bucket loading — the operator can increase engine speed for more hydraulic power (to push the bucket) while controlling ground speed with the inching pedal. It partially disengages the transmission.',
+    keyConcept:'Inching pedal: disconnects transmission partially. Allows high engine RPM (hydraulic power) while controlling ground speed. Essential for loader bucket fill operations.'
+  },
+  {
+    id:84, topic:'powertrain', topicLabel:'Powertrain', diff:'hard',
+    text: 'In a planetary gear set where the RING GEAR is the input, the PLANET CARRIER is held (stationary), and the SUN GEAR is the output — what type of motion results?',
+    options:['A) Speed increase (overdrive) with rotation reversal','B) Speed reduction with same direction rotation','C) 1:1 ratio — no gear change','D) The system locks up — no output is possible with carrier held'],
+    answer:0,
+    explanation:'<strong>Ring input + carrier held + sun output = speed increase + direction reversal.</strong> The planets walk around the stationary carrier and drive the sun gear in the opposite direction at a multiplied speed. Ratio = 1 + (R/S), but since sun is output: sun spins faster than ring AND in reverse. This is used in reverse gear on some transmissions.',
+    keyConcept:'Planetary combinations: input/held/output determines ratio and direction. Ring input + carrier held + sun output = overdrive + reversal. Know all three basic combinations.'
+  },
+  {
+    id:85, topic:'powertrain', topicLabel:'Powertrain', diff:'hard',
+    text: 'A wheel loader transmission modulating valve is responsible for:',
+    options:['A) Controlling the pressure and timing of clutch engagement to produce smooth, controlled shifts','B) Reducing maximum engine speed during gear changes','C) Bypassing the torque converter during shifts','D) Equalizing pressure between all clutch packs simultaneously'],
+    answer:0,
+    explanation:'<strong>Modulating valve: controls rate of clutch pressure application for smooth shifts.</strong> If clutch pressure rises too fast, the shift is harsh and jerks the machine. The modulating valve ramps pressure up gradually over a set time (trim time). Worn modulating valve = harsh shifts. Wrong oil = shifts affected because viscosity changes valve timing.',
+    keyConcept:'Modulating valve = shift quality control. Fast pressure = harsh shift. Slow pressure = slipping during shift. Transmission oil type critical — viscosity affects modulation.'
+  },
+  {
+    id:86, topic:'powertrain', topicLabel:'Powertrain', diff:'hard',
+    text: 'After a final drive repair, the ring gear backlash must be set to specification. Excessive backlash causes:',
+    options:['A) Higher gear ratio and better fuel economy','B) Impact loading on gear teeth, noise, and premature gear failure','C) Reduced final drive ratio','D) Overheating of the drive oil'],
+    answer:1,
+    explanation:'<strong>Excessive backlash = impact loading each time load direction changes.</strong> Gears must have some clearance (backlash) to allow oil film and thermal expansion, but too much allows the teeth to "slap" together every direction change. This causes chipping, spalling, and noise. Too little backlash causes binding and overheating.',
+    keyConcept:'Final drive backlash: too much = impact wear/noise. Too little = binding/overheating. Checked with dial indicator on ring gear with pinion held. Spec typically 0.15–0.35mm.'
+  },
+  {
+    id:87, topic:'powertrain', topicLabel:'Powertrain', diff:'hard',
+    text: 'Charge pressure in a hydrostatic drive system is typically maintained by a:',
+    options:['A) High-pressure relief valve on the main pump outlet','B) Charge pump (gear pump) that supplies oil to replenish the closed loop and maintain minimum circuit pressure','C) Accumulator connected to the main pump case drain','D) Variable restriction valve on the pump outlet'],
+    answer:1,
+    explanation:'<strong>Charge pump replenishes the closed hydrostatic loop.</strong> The main pump and motor form a closed loop, but oil leaks through internal seals (case drain). The charge pump (typically a small gear pump) supplies make-up oil at 200–400 PSI to keep the loop full. Low charge pressure causes cavitation in the main pump — a common failure mode.',
+    keyConcept:'Hydrostatic drive: charge pump (gear pump) maintains loop pressure 200–400 PSI. Low charge pressure = cavitation = pump damage. Always check charge pressure first in hydrostatic diagnosis.'
+  },
+
+  // ── BRAKES & STEERING (continued) ──
+  {
+    id:88, topic:'brakes', topicLabel:'Brakes & Steering', diff:'easy',
+    text: 'What is the function of an air dryer in an air brake system?',
+    options:['A) To cool the compressed air before it enters the tanks','B) To remove moisture and contaminants from compressed air before it enters the system','C) To reduce air pressure from the compressor to system pressure','D) To supply additional air volume during heavy braking'],
+    answer:1,
+    explanation:'<strong>Air dryer removes moisture and oil from compressed air.</strong> Moisture in the air system causes corrosion, valve freeze-up in cold weather, and brake fade. The dryer uses a desiccant cartridge and an automatic purge valve. The cartridge must be replaced at regular intervals. Oily air (compressor ring wear) saturates the cartridge rapidly.',
+    keyConcept:'Air dryer: removes moisture + oil mist. Prevents freeze-up, corrosion, brake fade. Purge valve exhausts moisture on each compressor cycle. Replace desiccant at specified intervals.'
+  },
+  {
+    id:89, topic:'brakes', topicLabel:'Brakes & Steering', diff:'easy',
+    text: 'The SUPPLY line (blue) glad hand on a trailer air brake coupling is used for:',
+    options:['A) Service brake application signal','B) Charging the trailer emergency reservoir','C) Spring brake application','D) ABS communication to the trailer'],
+    answer:1,
+    explanation:'<strong>Blue (supply/emergency) = charges trailer reservoir.</strong> The blue line provides continuous air supply to maintain the trailer\'s air reservoir. If this line loses pressure (hose breaks, tractor-trailer separation), the trailer spring brakes apply automatically — this is the fail-safe emergency brake function.',
+    keyConcept:'Glad hands: Blue = supply (emergency) — charges trailer reservoir. Red = service (control) — applies service brakes. Blue loss = trailer spring brakes apply automatically.'
+  },
+  {
+    id:90, topic:'brakes', topicLabel:'Brakes & Steering', diff:'easy',
+    text: 'A "Type 30" brake chamber designation refers to:',
+    options:['A) Maximum air pressure rating in PSI','B) The effective area of the brake chamber diaphragm in square inches','C) The number of brake applications before service','D) The spring force in pounds'],
+    answer:1,
+    explanation:'<strong>Brake chamber number = diaphragm area in square inches.</strong> A Type 30 chamber has 30 square inches of effective diaphragm area. Force = Pressure × Area, so a larger chamber generates more brake force at the same air pressure. Common sizes: Type 20, 24, 30, 36. Type 30 is most common on drive axles.',
+    keyConcept:'Brake chamber type number = diaphragm area (sq in). Type 30 = 30 sq in. Larger number = more force = larger brakes.'
+  },
+  {
+    id:91, topic:'brakes', topicLabel:'Brakes & Steering', diff:'medium',
+    text: 'A quick-release valve is installed close to the brake chambers. Its function is to:',
+    options:['A) Limit maximum brake application pressure','B) Exhaust brake air rapidly at the chamber to reduce brake release time','C) Provide a secondary pressure source for emergency braking','D) Balance pressure between front and rear axle brakes'],
+    answer:1,
+    explanation:'<strong>Quick-release valve exhausts air locally at the brake chamber.</strong> When the driver releases the brake pedal, air must exhaust. Without a quick-release valve, air would have to travel all the way back to the foot valve to exhaust — slow release means slow brake release (brake drag). The quick-release valve vents air at the chamber immediately.',
+    keyConcept:'Quick-release valve: exhausts air at the brake chamber on release. Faster brake release = less brake drag = cooler brakes. Location: as close to chamber as possible.'
+  },
+  {
+    id:92, topic:'brakes', topicLabel:'Brakes & Steering', diff:'medium',
+    text: 'Spring brakes on a machine have lost air pressure and cannot be caged (no caging bolt available). To safely move the machine, a technician should:',
+    options:['A) Build air pressure to 90 PSI to release the brakes temporarily','B) Never attempt to move the machine — get it pressure to release springs or use a tow with brakes dragging','C) Remove the spring brake chamber from the axle','D) Cut the spring with a torch to release the brake'],
+    answer:0,
+    explanation:'<strong>Build air pressure (90 PSI minimum) to release spring brakes.</strong> Spring brakes release when air pressure overcomes the spring force — typically at 60 PSI release, fully released at 90 PSI+. If a compressor is available or an auxiliary air source, building pressure is the correct method. Never disassemble a spring brake — the internal spring stores enormous energy and can cause fatal injury.',
+    keyConcept:'Spring brake release: 60–90 PSI air pressure. NEVER disassemble spring brake chambers — internal spring is lethal. Caging bolt only works if the spring coils are intact.'
+  },
+  {
+    id:93, topic:'brakes', topicLabel:'Brakes & Steering', diff:'medium',
+    text: 'Brake fade on a machine operating on steep grades is MOST likely caused by:',
+    options:['A) Too much brake application pressure','B) Excessive heat from prolonged braking reducing brake lining effectiveness','C) Air pressure dropping below 60 PSI','D) Brake adjustment being too tight'],
+    answer:1,
+    explanation:'<strong>Brake fade = heat destroying friction material effectiveness.</strong> Prolonged braking generates extreme heat. Organic brake linings lose coefficient of friction when overheated (chemical fade). Even metallic linings can experience fluid boil (disc brakes) or drum expansion beyond lining contact. Engine/retarder braking reduces heat buildup.',
+    keyConcept:'Brake fade: heat reduces braking force. Use engine/retarder braking on grades to reduce heat buildup. Allow brakes to cool before descending again if fade occurs.'
+  },
+  {
+    id:94, topic:'brakes', topicLabel:'Brakes & Steering', diff:'medium',
+    text: 'A machine equipped with wet disc brakes shows reduced braking performance. The brake discs and plates are within specification. The MOST likely cause is:',
+    options:['A) Brake cooling oil flow restricted or wrong oil type used','B) Air in the brake cooling circuit','C) Brake actuating pressure too high','D) Brake disc surface is too smooth'],
+    answer:0,
+    explanation:'<strong>Wet disc brakes depend on cooling oil quality and flow.</strong> The oil both lubricates and cools the discs. Wrong oil type (incorrect friction coefficient additives) or restricted cooling flow causes overheating and glazing. Wet disc brakes are sensitive to oil specification — always use manufacturer-specified oil.',
+    keyConcept:'Wet disc brakes: oil type critical. Wrong oil = wrong friction coefficient = brake performance change. Cooling flow restriction = overheating. Never substitute oil types.'
+  },
+  {
+    id:95, topic:'brakes', topicLabel:'Brakes & Steering', diff:'hard',
+    text: 'During an ABS (Anti-Lock Brake System) event on heavy equipment, the ABS modulator:',
+    options:['A) Increases brake pressure to prevent wheel lock-up','B) Rapidly cycles brake pressure to maintain wheel rotation near the slip threshold for maximum brake force','C) Completely releases the brakes when slip is detected','D) Applies the opposite wheel brake to compensate for locking'],
+    answer:1,
+    explanation:'<strong>ABS cycles pressure to maintain optimal slip (10–30%).</strong> Maximum braking force occurs just before wheel lock-up (~10% slip). ABS wheel speed sensors detect when a wheel decelerates too quickly (about to lock). The modulator reduces, holds, then reapplies pressure rapidly — keeping the wheel in the optimal braking zone, maintaining steering control.',
+    keyConcept:'ABS: does NOT fully release brakes. Modulates pressure to keep ~10–30% slip = maximum brake force without lockup. Maintains steerability during hard braking.'
+  },
+  {
+    id:96, topic:'brakes', topicLabel:'Brakes & Steering', diff:'hard',
+    text: 'The brake governor on an air compressor is set to cut-out at 125 PSI and cut-in at 100 PSI. If the system reaches 140 PSI, the MOST likely cause is:',
+    options:['A) Normal operation — system self-adjusts above cut-out','B) Stuck-open governor — compressor continues to run without unloading','C) Stuck-closed safety relief valve — pressure builds until it opens','D) Air dryer restriction causing pressure buildup'],
+    answer:1,
+    explanation:'<strong>Pressure above cut-out = governor stuck open (not sending unload signal).</strong> The governor should unload the compressor at 125 PSI by venting the compressor unloader valve. If the governor doesn\'t signal, the compressor keeps running, driving pressure to the safety relief valve (~150 PSI). A stuck governor = safety valve cycling = serious fault.',
+    keyConcept:'Governor stuck open: compressor won\'t stop at cut-out. Pressure climbs until safety valve lifts (usually 150 PSI). Safety valve popping = check governor immediately.'
+  },
+  {
+    id:97, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'easy',
+    text: 'What does a hydraulic system filter bypass indicator (pop-up or gauge) signal?',
+    options:['A) The system pressure has exceeded maximum','B) The filter element is clogged and oil is bypassing the filter unfiltered','C) The hydraulic oil needs to be completely drained','D) The pump is cavitating due to low oil level'],
+    answer:1,
+    explanation:'<strong>Bypass indicator = filter is clogged.</strong> A differential pressure indicator monitors the pressure drop across the filter. When the filter is saturated with contaminants, flow bypasses the media through the bypass valve — unfiltered oil enters the system. A popped indicator means immediate filter replacement is required.',
+    keyConcept:'Filter bypass indicator triggers when filter is clogged. Bypassed oil = unfiltered = accelerated wear on all downstream components. Replace filter immediately.'
+  },
+  {
+    id:98, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text: 'An engine cooling system pressure test reveals the pressure drops rapidly. There are no external leaks visible. The MOST likely cause is:',
+    options:['A) Faulty pressure cap allowing pressure to vent','B) Internal coolant leak into the engine oil or combustion chamber (head gasket/cracked head)','C) Coolant pump impeller cavitation','D) Thermostat stuck open'],
+    answer:1,
+    explanation:'<strong>Pressure loss without external leaks = internal leak.</strong> Coolant can enter the combustion chamber (causing white smoke and hydro-lock risk) or mix with engine oil (causing milky oil). Check for white smoke from exhaust, bubbles in the coolant reservoir, or milky dipstick reading. Combustion leak tester (chemical) confirms head gasket failure.',
+    keyConcept:'Cooling system pressure drops + no external leak = internal leak. Check: white exhaust smoke (combustion chamber), milky oil (crankcase), bubbles in reservoir. Use combustion leak test kit.'
+  },
+  {
+    id:99, topic:'powertrain', topicLabel:'Powertrain', diff:'easy',
+    text: 'Final drive gears are responsible for:',
+    options:['A) Providing the last gear reduction between the transmission output and the drive wheel/sprocket','B) Connecting the engine to the torque converter','C) Controlling differential lock engagement','D) Regulating hydraulic pressure to the transmission clutches'],
+    answer:0,
+    explanation:'<strong>Final drive = last mechanical reduction.</strong> Located at each driven wheel or sprocket, the final drive provides a large gear reduction (typically 4:1 to 20:1) to multiply torque at the wheel. This allows the transmission to operate at higher, more efficient speeds while still providing the enormous torque needed at the ground.',
+    keyConcept:'Final drive: last gear reduction before the wheel/sprocket. High reduction ratio = massive torque multiplication. Oil level and seal inspection critical at every service.'
+  },
+  {
+    id:100, topic:'electrical', topicLabel:'Electrical Systems', diff:'medium',
+    text: 'A technician suspects a parasitic draw (key-off battery drain) on a machine. The correct method to test is:',
+    options:['A) Measure voltage across the battery with the key on','B) Connect an ammeter in series with the negative battery cable (key off, all accessories off) and measure current','C) Start the machine and measure alternator output','D) Check battery specific gravity with a hydrometer'],
+    answer:1,
+    explanation:'<strong>Parasitic draw test: ammeter in series, key off.</strong> Disconnect the negative cable, connect the ammeter between the cable and battery post. Wait 10+ minutes for modules to sleep. Normal parasitic draw is typically less than 50mA. Higher draw means a module is staying active. Pull fuses one at a time to isolate the circuit drawing excess current.',
+    keyConcept:'Parasitic draw: ammeter in series, key off, modules asleep. Acceptable: <50mA. Find source: pull fuses one at a time and watch ammeter. Never connect voltmeter in series — it will show nearly full battery voltage.'
   }
 ];
 
