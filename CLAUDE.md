@@ -51,7 +51,8 @@ allforyou-bit.github.io/
 │   ├── what-is-red-seal-certification-canada.html
 │   ├── how-to-become-truck-transport-mechanic-canada.html
 │   ├── construction-electrician-309a-career-canada.html
-│   └── automotive-service-technician-310s-career-canada.html
+│   ├── automotive-service-technician-310s-career-canada.html
+│   └── hvac-refrigeration-mechanic-308a-career-canada.html
 │
 └── CLAUDE.md                ← 이 파일
 ```
@@ -70,7 +71,7 @@ allforyou-bit.github.io/
 
 ---
 
-## 장문 기사 현황 (7개 완성)
+## 장문 기사 현황 (8개 완성)
 
 모두 800~1,400단어, E-E-A-T 신호 포함, 실제 경험자 톤으로 작성됨.
 
@@ -81,6 +82,7 @@ allforyou-bit.github.io/
 5. **How to Become a Truck & Transport Mechanic** — 310T 커리어 가이드
 6. **Construction Electrician Career Guide** — 309A 커리어 가이드
 7. **Automotive Service Technician Career Guide** — 310S 커리어 가이드
+8. **Refrigeration & AC Mechanic Career Guide** — 308A 커리어 가이드 (신규)
 
 ---
 
@@ -110,9 +112,12 @@ allforyou-bit.github.io/
 ## 앞으로 할 일 (우선순위 순)
 
 ### 높음 — AdSense 승인 가능성 높이기
-- [ ] 기사 추가 (308A HVAC 커리어 가이드)
-- [ ] About 페이지 개선 — 실제 저자 바이오 추가 (E-E-A-T 강화)
-- [ ] 기존 7개 기사에 내부 링크 연결 (서로 연결되게)
+- [x] 기사 추가 (308A HVAC 커리어 가이드) ✅ hvac-refrigeration-mechanic-308a-career-canada.html
+- [x] About 페이지 개선 — 저자 바이오, 미션, E-E-A-T 신호 ✅
+- [x] Contact 페이지 — 실제 이메일(lidbil515@gmail.com) + GitHub 링크 ✅
+- [x] 기존 8개 기사에 Related Guides 내부 링크 연결 ✅
+- [x] 홈페이지에 전체 8개 기사 노출 (기존 3개만 → 전체) ✅
+- [x] 전체 20개 페이지 nav/footer 통일 ✅
 
 ### 중간 — 문제 은행 확장
 - [ ] 421A: 100 → 목표 없음 (현재 충분)
