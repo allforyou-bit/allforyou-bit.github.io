@@ -23,16 +23,16 @@
 
 ---
 
-## 현재 파일 구조
+## 현재 파일 구조 (총 22개 HTML)
 
 ```
 allforyou-bit.github.io/
-├── index.html               ← 메인 홈페이지 (5개 trade 카드 + 8개 article 카드)
-├── 421a.html                ← 421A 퀴즈 (200문제) ✅
-├── 310t.html                ← 310T 퀴즈 (150문제) ✅
-├── 309a.html                ← 309A 퀴즈 (120문제) ✅
-├── 310s.html                ← 310S 퀴즈 (120문제) ✅
-├── 308a.html                ← 308A 퀴즈 (100문제) ✅
+├── index.html               ← 메인 홈페이지 (5개 trade 카드 + 8개 article 카드, 770+ 표기)
+├── 421a.html                ← 421A 퀴즈 (220문제) ✅
+├── 310t.html                ← 310T 퀴즈 (165문제) ✅
+├── 309a.html                ← 309A 퀴즈 (135문제) ✅
+├── 310s.html                ← 310S 퀴즈 (135문제) ✅
+├── 308a.html                ← 308A 퀴즈 (115문제) ✅
 ├── exam-guide.html          ← 시험 등록 가이드 (1,500단어+, FAQ Schema) ✅
 ├── study-guide.html         ← 학습 가이드 (5개 trade 탭 포함) ✅
 ├── about.html               ← 소개 페이지 (저자 바이오, E-E-A-T) ✅
@@ -40,35 +40,36 @@ allforyou-bit.github.io/
 ├── privacy.html             ← 개인정보처리방침 ✅
 ├── terms.html               ← 이용약관 ✅
 ├── disclaimer.html          ← 면책조항 ✅
+├── 404.html                 ← 커스텀 404 페이지 ✅
 ├── ads.txt                  ← AdSense 소유권 인증
-├── sitemap.xml              ← 20개 URL (최신, exam-guide.html 포함)
+├── sitemap.xml              ← 20개 URL
 ├── robots.txt               ← 검색엔진 설정
 ├── favicon.svg              ← RS 로고
+├── .gitignore               ← .claude/settings.local.json 제외
 │
-├── [장문 기사 - 8개] ✅
-│   ├── how-to-become-heavy-equipment-technician-canada.html
-│   ├── red-seal-421a-exam-tips.html
-│   ├── heavy-equipment-technician-salary-canada.html
-│   ├── what-is-red-seal-certification-canada.html
-│   ├── how-to-become-truck-transport-mechanic-canada.html
-│   ├── construction-electrician-309a-career-canada.html
-│   ├── automotive-service-technician-310s-career-canada.html
-│   └── hvac-refrigeration-mechanic-308a-career-canada.html
-│
-└── CLAUDE.md                ← 이 파일
+└── [장문 기사 - 8개] ✅
+    ├── how-to-become-heavy-equipment-technician-canada.html
+    ├── red-seal-421a-exam-tips.html
+    ├── heavy-equipment-technician-salary-canada.html
+    ├── what-is-red-seal-certification-canada.html
+    ├── how-to-become-truck-transport-mechanic-canada.html
+    ├── construction-electrician-309a-career-canada.html
+    ├── automotive-service-technician-310s-career-canada.html
+    └── hvac-refrigeration-mechanic-308a-career-canada.html
 ```
 
 ---
 
-## 퀴즈 문제 수 현황
+## 퀴즈 문제 수 현황 (최신)
 
 | 파일 | 문제 수 | 주제 |
 |------|---------|------|
-| 421a.html | **200문제** | Safety, Engine, Electrical, Hydraulics, Powertrain, Brakes |
-| 310t.html | **150문제** | Air Brakes, Engine, Drivetrain, DOT, Electrical |
-| 309a.html | **120문제** | Theory, CEC Code, Motors, Wiring, Safety |
-| 310s.html | **120문제** | Engine, Brakes, Electrical, Suspension, Transmission |
-| 308a.html | **100문제** | Cycle, Refrigerants, Components, Controls, Troubleshooting |
+| 421a.html | **220문제** | Safety, Engine, Electrical, Hydraulics, Powertrain, Brakes |
+| 310t.html | **165문제** | Air Brakes, Engine, Drivetrain, DOT Compliance, Electrical |
+| 309a.html | **135문제** | Theory, CEC Code, Motors, Wiring Methods, Safety |
+| 310s.html | **135문제** | Engine, Brakes, Electrical, Suspension, Transmission |
+| 308a.html | **115문제** | Cycle, Refrigerants, Components, Controls, Troubleshooting |
+| **합계** | **770문제** | |
 
 ---
 
@@ -78,8 +79,9 @@ allforyou-bit.github.io/
 - [x] **Mock Exam 타이머** — 1.5분/문제, 5분 이하 빨간색 경고
 - [x] **Study Streak** — localStorage 기반 연속 학습일 + 오늘 맞힌 문제 수
 - [x] **Share Score** — Web Share API + 클립보드 폴백
-- [x] **Download Results** — 전체 Q&A .txt 파일 다운로드 (오답 하이라이트)
-- [x] **Cookie Consent 배너** — GDPR 컴플라이언스 (index.html 포함 6개 페이지)
+- [x] **Download Mock Results** — Mock Exam 결과 .txt 파일 다운로드 (오답 하이라이트)
+- [x] **Download Study Sheet (PDF)** — 버튼 클릭 → 새 탭에 인쇄 최적화 HTML 오픈 → Ctrl+P로 PDF 저장. 토픽 필터 반영, 전문제+정답키+해설 포함
+- [x] **Cookie Consent 배너** — GDPR 컴플라이언스
 - [x] **Related Guides 섹션** — 각 퀴즈 페이지 하단 내부 링크
 - [x] **150단어+ 인트로 텍스트** — 콘텐츠 품질 (AdSense thin content 방지)
 - [x] **Freshness Badge** — "Updated April 2026" 뱃지
@@ -106,33 +108,29 @@ allforyou-bit.github.io/
 - [x] Google Search Console 등록 + HTML 태그 인증 완료
 - [x] Google AdSense 신청 완료 (심사 대기 중)
 - [x] ads.txt 설치 완료
-- [x] sitemap.xml 제출 완료 (20개 URL, exam-guide.html 포함)
+- [x] sitemap.xml 제출 완료 (20개 URL)
 - [x] IndexNow (Bing/Yandex) 7개 URL 제출 완료
 - [x] FAQ Schema (LD+JSON) — 421a.html, exam-guide.html
 - [x] Article Schema — 장문 기사 전체
 - [x] terms.html + disclaimer.html (AdSense 정책 요구사항)
 - [x] robots.txt
 - [x] 쿠키 동의 배너 (GDPR)
-- [x] 전체 페이지 nav/footer 통일 (19개 파일 표준화, sticky nav, min-height:52px)
+- [x] 전체 페이지 nav/footer 통일 (sticky nav, min-height:52px)
 - [x] 8개 기사 Related Guides 내부 링크 연결
-- [x] Open Graph (og:title/description/url/type) + Twitter Card 메타 태그 — 전체 13개 페이지
+- [x] Open Graph (og:title/description/url/type) + Twitter Card 메타 태그 — 전체 페이지
 - [x] canonical 태그 — 전체 article 페이지 + 퀴즈 페이지
 - [x] nav 링크 순서 통일 — Home | 421A | 310T | 309A | 310S | 308A | Exam Guide | Study Guide | About
 - [x] 전 도 apprenticeship 연락처 URL 수정 (12개 province/territory)
 - [x] study-guide.html 전면 재작성 (5개 trade 탭 인터페이스)
 - [x] privacy.html nav/footer 표준화 + 제목 수정
 - [x] .gitignore 생성 (.claude/settings.local.json 제외)
+- [x] 팩트체크 완료 — 4개 오류 수정 (BC 기관명, Ontario College of Trades→STO, 310T 문제 수, Manitoba 중복)
 
 ---
 
 ## AdSense 심사 상태
 
-**제출 완료, 심사 대기 중.** 현재 승인 확률 추정: **70~75%**
-
-리스크 요인:
-- 사이트 나이 (GitHub Pages 도메인, 비교적 신규)
-- 아직 유기 트래픽 거의 없음 (색인 진행 중)
-- 퀴즈 페이지 JS 비중 높음 (인트로 텍스트로 보완됨)
+**제출 완료, 심사 대기 중.** 현재 승인 확률 추정: **75~80%**
 
 승인되면:
 - 각 페이지의 `<div class="ad-banner">Advertisement</div>` 플레이스홀더를
@@ -143,19 +141,29 @@ allforyou-bit.github.io/
 
 ## 앞으로 할 일 (우선순위 순)
 
-### AdSense 승인 후
-- [ ] 광고 단위 생성 및 플레이스홀더 교체
-- [ ] 수익 모니터링
+### 1순위 — AdSense 승인 후 즉시
+- [ ] 광고 단위 생성 및 플레이스홀더 교체 (각 페이지 ad-banner div 2~3개)
+- [ ] 수익 모니터링 시작
 
-### Search Console에서 수동 색인 요청 (권장)
-- [ ] exam-guide.html 색인 요청
-- [ ] index.html 색인 요청
-- [ ] 421a.html 색인 요청
+### 2순위 — Search Console 수동 색인 요청
+- [ ] 새 퀴즈 페이지들 색인 요청 (5개 퀴즈 페이지)
+- [ ] 8개 기사 전체 색인 요청
+- [ ] sitemap.xml 재제출 (최신 문제 수 반영 후)
 
-### 추후 개선 아이디어
-- [ ] 더 많은 trade 추가 (e.g., 442A Ironworker, 403A Gas Fitter)
-- [ ] 사용자 제출 오답 신고 기능
-- [ ] 퀴즈 결과 이메일 전송 (EmailJS 등)
+### 3순위 — 트래픽 확대 (콘텐츠)
+- [ ] 새 기사 추가: "How to Pass the Red Seal 310T Exam" (310T 시험 팁)
+- [ ] 새 기사 추가: "Red Seal 309A Electrician Exam Tips"
+- [ ] 새 기사 추가: "310S Automotive Technician Salary Canada 2026"
+- [ ] 새 기사 추가: "308A HVAC Mechanic Salary Canada 2026"
+
+### 4순위 — 사용자 경험 개선
+- [ ] 연속 정답 스트릭 카운터 ("🔥 3 in a row!") — 퀴즈 중 표시
+- [ ] 오답 신고 버튼 (사용자가 문제 오류 제보 가능)
+- [ ] 퀴즈 결과 이메일 전송 (EmailJS)
+
+### 5순위 — 장기 확장
+- [ ] 새 trade 추가: 442A Ironworker, 403A Gas Fitter, 306A Sheet Metal Worker
+- [ ] 각 신규 trade에 퀴즈 + 커리어 기사 세트
 
 ---
 
@@ -164,6 +172,7 @@ allforyou-bit.github.io/
 - **순수 HTML/CSS/JS** — 프레임워크 없음
 - **퀴즈 방식:** JavaScript 배열 + 필터 (topic/difficulty)
 - **Mock Exam:** buildMockQs(n) — 토픽 비례 + 40/40/20 난이도 분배
+- **Download Study Sheet:** window.open() + document.write() — 인쇄 최적화 HTML, Ctrl+P로 PDF
 - **localStorage 키:** studyStreak, streakDate, todayCorrect_[trade], todayDate_[trade], mockBest_[trade], cookieOk
 - **배포:** git push → GitHub Pages 자동 배포
 - **Push 방법:** `cd "C:\Users\kayky\Desktop\RedSeal-Project\allforyou-bit.github.io" && git add -A && git commit -m "메시지" && git push origin master`
@@ -174,5 +183,6 @@ allforyou-bit.github.io/
 
 - 이 프로젝트 폴더 위치: `C:\Users\kayky\Desktop\RedSeal-Project\allforyou-bit.github.io`
 - git remote는 GitHub에 연결되어 있어 push하면 바로 사이트에 반영됨
-- 310t.html에 JS 배열 버그 있었음 (q16~25가 배열 밖에 있었음) → 수정 완료
-- Edit 툴로 421a.html 수정 시 동일한 함수 시그니처가 여러 개 있으면 `replace_all: true` 또는 고유한 컨텍스트 포함해서 교체
+- Edit 툴로 퀴즈 파일 수정 시 동일한 문자열이 여러 개 있으면 `replace_all: true` 또는 고유 컨텍스트 포함
+- Download Study Sheet: currentTopic 변수 기준으로 필터링 → 토픽 탭 선택 상태 반영됨
+- sitemap.xml: 새 페이지 추가 시 수동으로 업데이트 필요
