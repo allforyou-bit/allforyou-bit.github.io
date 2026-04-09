@@ -5,17 +5,17 @@
 <meta name="google-site-verification" content="AySEYGsNWhilNyl3EpVTQu6a3p0l6E1ZCe7P0EUN8O8" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>309A Red Seal Construction Electrician – 120 Free Practice Questions 2026</title>
-<meta name="description" content="Free 309A Red Seal Construction Electrician practice exam questions for Canada. 120 questions covering Canadian Electrical Code, circuits, motors, wiring methods, and safety.">
+<title>309A Red Seal Construction Electrician – 135 Free Practice Questions 2026</title>
+<meta name="description" content="Free 309A Red Seal Construction Electrician practice exam questions for Canada. 135 questions covering Canadian Electrical Code, circuits, motors, wiring methods, and safety.">
 <meta name="keywords" content="309A Red Seal, Construction Electrician Canada, electrician exam practice, Canadian Electrical Code, 309A practice questions 2026">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://allforyou-bit.github.io/309a.html">
-<meta property="og:title" content="309A Construction Electrician – 120 Free Red Seal Practice Questions">
+<meta property="og:title" content="309A Construction Electrician – 135 Free Red Seal Practice Questions">
 <meta property="og:description" content="120 free 309A Red Seal practice questions covering Canadian Electrical Code, circuits, motors, wiring methods, and electrical safety. Mock Exam mode included.">
 <meta property="og:url" content="https://allforyou-bit.github.io/309a.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="309A Construction Electrician – 120 Free Red Seal Practice Questions">
+<meta name="twitter:title" content="309A Construction Electrician – 135 Free Red Seal Practice Questions">
 <meta name="twitter:description" content="120 free 309A Red Seal practice questions + Mock Exam mode.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6709396576574623" crossorigin="anonymous"></script>
 <style>
@@ -157,6 +157,10 @@ footer a{color:var(--accent);margin:0 8px;text-decoration:none}
     <button class="diff-btn medium" onclick="setDiff('medium',this)">Medium</button>
     <button class="diff-btn hard" onclick="setDiff('hard',this)">Hard</button>
     <button class="diff-btn" style="background:#e8eaf6;color:#3949ab" onclick="setDiff('all',this)">All</button>
+  </div>
+  <!-- DOWNLOAD STUDY SHEET -->
+  <div style="display:flex;justify-content:flex-end;margin-bottom:14px">
+    <button onclick="downloadStudySheet()" style="background:#1a3a5c;color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px" onmouseover="this.style.background='#2d6a9f'" onmouseout="this.style.background='#1a3a5c'">📄 Download Study Sheet (PDF)</button>
   </div>
   <div class="question-card">
     <div class="q-header"><span class="q-topic" id="qTopic">Electrical Theory</span><span class="q-diff easy" id="qDiff">Easy</span></div>
@@ -927,7 +931,97 @@ const questions=[
    options:['A) A 15kV system has no arc flash approach boundaries — high voltage equipment only requires a shock protection boundary','B) Arc flash boundary (AFB) must be calculated by incident energy analysis for 15kV equipment. Limited Approach Boundary and Restricted Approach Boundary are determined by CSA Z462 Table based on voltage. At 15kV, these boundaries are significantly larger than at 600V — unqualified persons are excluded from the arc flash boundary entirely.','C) Approach boundaries at 15kV are the same as 600V since both are below 25kV threshold','D) Only licensed high-voltage electricians are permitted within 10m of any 15kV equipment'],
    answer:1,
    explanation:'<strong>High voltage (15kV): all approach boundaries are larger — full arc flash hazard analysis and CSA Z462 required.</strong> At 15kV: Limited Approach Boundary (unqualified persons must stop here) and Restricted Approach Boundary (only qualified persons with PPE) are much greater than at low voltage. The arc flash incident energy at 15kV can be extremely high — requiring high-cal PPE or remote operation. Incident energy analysis per IEEE 1584 is required. Working on energized 15kV equipment requires specialized training and procedures beyond standard electrical safety training.',
-   keyConcept:'High voltage approach boundaries (CSA Z462): increases significantly with voltage. 15kV: Limited Approach = several meters, Restricted Approach = 380mm minimum (closer requires full insulating equipment). Arc flash boundary: determined by incident energy analysis. 15kV fault energy: extremely high — arc flash suits of 40+ cal/cm² may be required. Best practice: always de-energize and establish ESWC for high-voltage maintenance. Only utility-qualified workers on distribution-class voltages.'}
+   keyConcept:'High voltage approach boundaries (CSA Z462): increases significantly with voltage. 15kV: Limited Approach = several meters, Restricted Approach = 380mm minimum (closer requires full insulating equipment). Arc flash boundary: determined by incident energy analysis. 15kV fault energy: extremely high — arc flash suits of 40+ cal/cm² may be required. Best practice: always de-energize and establish ESWC for high-voltage maintenance. Only utility-qualified workers on distribution-class voltages.'},
+  {id:121,topic:'theory',topicLabel:'Electrical Theory',diff:'medium',
+   text:'A 240V single-phase circuit has a measured power factor of 0.72 lagging. The apparent power is 8 kVA. What is the true (real) power consumed by the load?',
+   options:['A) 8 kW — apparent power equals real power on all single-phase circuits','B) 5.76 kW — real power = apparent power × power factor (8 kVA × 0.72 = 5.76 kW)','C) 11.1 kW — real power is always greater than apparent power','D) 5.76 kVAR — the reactive component, not real power'],
+   answer:1,
+   explanation:'<strong>Real power (W) = Apparent power (VA) × Power Factor. 8000 × 0.72 = 5,760 W = 5.76 kW.</strong> Power factor of 0.72 lagging indicates a largely inductive load. The reactive component (kVAR) = √(kVA²−kW²) = √(64−33.18) = √30.82 ≈ 5.55 kVAR. Power factor correction capacitors can be added to bring PF closer to unity, reducing reactive current draw and improving efficiency.',
+   keyConcept:'Power triangle: P (kW, real power) = S (kVA) × PF. Q (kVAR, reactive power) = S × sin(θ). PF = cos(θ) = P/S. Lagging PF = inductive load (motors). Leading PF = capacitive load. Unity PF = purely resistive. Low PF = higher current for same real power = larger conductors, higher utility demand charges. Power factor correction: add capacitors in parallel with inductive loads. Target PF ≥ 0.90 for commercial facilities.'},
+  {id:122,topic:'cec',topicLabel:'CEC Code',diff:'medium',
+   text:'Under CEC Rule 4-022, what is the maximum overcurrent protection permitted for a 10 AWG copper conductor (rated 30A) in a general branch circuit?',
+   options:['A) 30A — the conductor is rated 30A so 30A overcurrent protection is permitted','B) 30A is permitted if the conductor\'s ampacity equals or exceeds the OCPD rating. However, CEC Rule 14-104 limits the standard ratings — the next standard fuse/breaker size below 30A (if 30A is not a standard size for that circuit type) applies','C) 15A — CEC requires conductors to be protected at 50% of their ampacity','D) 40A — overcurrent protection may be the next size up if the exact ampacity rating is not a standard size'],
+   answer:0,
+   explanation:'<strong>CEC Rule 4-022: OCPD rating must not exceed conductor ampacity.</strong> 10 AWG copper = 30A ampacity (at 60°C or 75°C depending on insulation). Therefore, maximum OCPD = 30A. Rule 14-104 allows the next larger standard size only when the conductor ampacity does not correspond to a standard OCPD rating — but 30A is a standard rating. So the answer is 30A maximum. Using larger OCPD on a 30A conductor = code violation and fire hazard.',
+   keyConcept:'CEC conductor ampacity (Table 2): 14 AWG copper = 15A, 12 AWG = 20A, 10 AWG = 30A, 8 AWG = 40A, 6 AWG = 55A (approx, 60°C rating). OCPD must not exceed conductor ampacity (Rule 4-022). Exception: Rule 14-104 — next larger standard size permitted when ampacity does not match standard rating. Derating applies for: high temperature, conduit fill (>3 current-carrying conductors), underground burial.'},
+  {id:123,topic:'motors',topicLabel:'Motors & Controls',diff:'medium',
+   text:'A 3-phase motor contactor is operated by a control circuit. The control circuit uses a normally-open pushbutton (start) wired in parallel with the contactor\'s auxiliary contact. What is the purpose of the auxiliary contact wired this way?',
+   options:['A) The auxiliary contact protects the motor from overload by opening when current is excessive','B) The auxiliary contact provides a "seal-in" or "holding" circuit — once energized, the contactor holds itself in even after the start button is released','C) The auxiliary contact is a safety interlock that prevents the motor from starting if a fault is detected','D) The auxiliary contact connects a pilot light to indicate the motor is running'],
+   answer:1,
+   explanation:'<strong>Auxiliary (seal-in) contact: holds the contactor coil energized after the start button is released.</strong> When the start button is pressed, the coil energizes, closing the main contacts AND the auxiliary contact. The auxiliary contact in parallel with the start button now provides a current path to keep the coil energized. Releasing the start button opens, but the auxiliary contact holds the circuit. The only way to de-energize is to open the stop button (normally-closed, in series with the coil).',
+   keyConcept:'Motor starter control circuit: L1 → Stop (NC pushbutton) → Start (NO pushbutton) parallel with auxiliary contact → coil → L2. Seal-in: auxiliary contact (NO) in parallel with start button. Stops: stop button (NC) in series. OL relay: normally-closed contacts in series with coil — open on overload. Three-wire control (with holding circuit) vs two-wire control (maintains state through maintained contact). Memory: START = momentary → seal-in holds; STOP = break the seal-in circuit.'},
+  {id:124,topic:'motors',topicLabel:'Motors & Controls',diff:'hard',
+   text:'A variable frequency drive (VFD) is installed to control a 75 HP pump motor. After installation, the motor runs hot and trips on thermal overload at 60 Hz output, but runs fine at reduced frequencies. What is the MOST likely cause?',
+   options:['A) The VFD is too small for the motor — a larger VFD must be installed','B) The motor\'s cooling fan is shaft-mounted and provides reduced airflow at lower speeds, but at 60 Hz the motor is running above its designed speed curve due to incorrect VFD base frequency programming','C) The motor\'s internal cooling is inadequate at full speed because the VFD output voltage contains harmonics that increase iron core heating; a line reactor is required','D) The overload relay is set incorrectly — the motor is not actually overheating'],
+   answer:2,
+   explanation:'<strong>VFD output harmonics cause additional motor heating (iron losses and copper losses) beyond what the motor was designed for at power-line frequency.</strong> PWM-driven VFDs produce non-sinusoidal voltage waveforms with high harmonic content. This causes increased eddy current and hysteresis losses in the motor core, and additional I²R losses from harmonic currents. Solutions: install a load reactor (output reactor) between VFD and motor, use an inverter-duty rated motor (designed for VFD use), verify motor insulation class.',
+   keyConcept:'VFD motor heating issues: 1) Harmonic heating: output reactor (load-side reactor) reduces harmonics. Use inverter-duty motors with Class F or H insulation. 2) Shaft-mounted cooling: at low speeds, cooling fan reduces — use separately-powered blower for constant-speed cooling if motor runs at low speed for extended periods. 3) Voltage reflection: long cable runs cause voltage spikes at motor terminals — use output reactor or dV/dt filter. VFD-rated cable and motor recommended for installations >30m cable run.'},
+  {id:125,topic:'wiring',topicLabel:'Wiring Methods',diff:'medium',
+   text:'Under the CEC, what is the minimum burial depth for a 120V direct-buried cable (NMW or TECK90) in a residential yard where the cable may be disturbed by cultivation?',
+   options:['A) 150 mm (6 inches) is sufficient for any direct-buried cable in residential applications','B) Direct-burial NMW cable: 600 mm (24 inches) minimum. TECK90 armoured cable: 600 mm minimum in cultivated areas. Under concrete slabs: reduced to 150 mm.','C) All underground cables in residential yards require 300 mm (12 inches) minimum regardless of type','D) Direct-buried cables are not permitted in residential yards — all underground runs require conduit'],
+   answer:1,
+   explanation:'<strong>CEC Rule 12-012: direct burial depths vary by cable type and location.</strong> General direct-buried cable minimum = 600 mm in areas subject to cultivation or disturbance. Under concrete driveways, slabs, or buildings: 150 mm minimum. Under streets, roads: 900 mm (or 600 mm if TECK). Always verify the specific CEC Table for the cable type being installed. Damage protection (locates) required for all underground work.',
+   keyConcept:'CEC Rule 12-012 underground cable burial depths: Residential yard (cultivated/disturbed): 600mm minimum. Under concrete slabs/buildings: 150mm. Under road/street: 750-900mm. TECK90: armoured cable — may have reduced depth in some locations. Direct-buried cable marked "DB" on insulation. Always call before digging (1-800-dig-safe / BC1call / ON1call). Locates required 3 business days before excavation. All underground cables must be tagged with caution tape above at 300mm depth.'},
+  {id:126,topic:'wiring',topicLabel:'Wiring Methods',diff:'hard',
+   text:'A three-phase 600V panelboard is being installed with a calculated load of 180A. The electrician selects a 200A breaker as the main disconnect. What wire size (copper, THWN-2) is required for the service conductors feeding this panel?',
+   options:['A) 3/0 AWG copper — rated 200A at 75°C','B) 250 kcmil copper — service conductors must be rated for 125% of the calculated load (180A × 1.25 = 225A), requiring conductors rated at least 225A','C) 4/0 AWG copper — rated 230A, sufficient for a 200A main breaker','D) 2/0 AWG copper — this is sufficient because the breaker provides overcurrent protection'],
+   answer:2,
+   explanation:'<strong>Service conductors must have an ampacity at least equal to the calculated load (180A), but sized for the main overcurrent device (200A).</strong> CEC requires service conductors to be sized for the main OCPD (200A here). 4/0 AWG THWN-2 copper = 230A ampacity at 75°C — sufficient for a 200A OCPD. 3/0 AWG = 200A at 75°C (marginal but permitted if termination temperature rating is 75°C). Most authorities require 4/0 for a 200A service for temperature derating margin.',
+   keyConcept:'CEC service conductor sizing: must meet or exceed the OCPD rating. 200A service: use 4/0 AWG copper THWN-2 (230A @ 75°C) or 350 kcmil aluminum. Common copper wire ampacity (75°C THWN/THWN-2): 12AWG=20A, 10AWG=30A, 8AWG=50A, 6AWG=65A, 4AWG=85A, 2AWG=115A, 1AWG=130A, 1/0=150A, 2/0=175A, 3/0=200A, 4/0=230A, 250kcmil=255A, 350kcmil=310A. Derating required for >3 conductors in conduit and ambient temperature >30°C.'},
+  {id:127,topic:'theory',topicLabel:'Electrical Theory',diff:'easy',
+   text:'What does a clamp-on ammeter measure, and how does it work?',
+   options:['A) It measures voltage by clamping onto a conductor and sensing the electric field','B) It measures current (amperage) by sensing the magnetic field produced by current flowing through a conductor — the conductor does not need to be disconnected','C) It measures resistance by injecting a test current through the clamp jaws','D) It measures insulation resistance — the clamp jaw is an insulation probe'],
+   answer:1,
+   explanation:'<strong>Clamp-on ammeter uses electromagnetic induction to measure current without breaking the circuit.</strong> AC current flowing through a conductor creates a magnetic field. The meter\'s split-core transformer clamps around the conductor and measures the induced voltage, which is proportional to current. Advantages: safe (no need to open circuit), fast. Limitation: standard clamp meters measure AC only; "true RMS" models handle non-sinusoidal waveforms; DC clamp meters use Hall-effect sensors.',
+   keyConcept:'Clamp-on ammeter: measures AC (and some models DC) current via magnetic field induction. Clamp one conductor only (not both wires of a circuit — fields cancel). True RMS meters needed for VFD/non-sinusoidal loads. DC clamp meter: Hall-effect sensor (not transformer). Use: motor current measurement, circuit loading without disconnecting. Minimum detectable current: typically 0.1–1A depending on meter. For low currents: wrap conductor multiple times through jaw and divide reading by number of turns.'},
+  {id:128,topic:'safety',topicLabel:'Electrical Safety',diff:'medium',
+   text:'Before working on de-energized electrical equipment under LOTO (Lockout/Tagout), what is the required sequence of steps after the equipment is isolated and locked out?',
+   options:['A) Test with a voltage tester, then proceed — no additional steps required after lockout','B) After applying lock and tag: 1) Attempt to start the equipment to verify isolation. 2) Test with a calibrated voltage tester on all phases and between phases and ground. 3) Apply grounds if required. 4) Only then proceed with work.','C) After lockout, the supervisor must verbally confirm de-energization — no physical testing is required','D) Ground the equipment first, then test with a voltage tester, then apply lockout'],
+   answer:1,
+   explanation:'<strong>After lockout/isolation: always verify with a calibrated tester — attempt to start, then test voltage before touching anything.</strong> The test-before-touch rule: never assume de-energization — always verify. Sequence: 1) Normal shutdown. 2) Isolate energy sources. 3) Apply LOTO devices. 4) Release or restrain stored energy (bleed air, discharge capacitors). 5) Attempt to start (verify control circuit de-energized). 6) Test with calibrated voltage tester on all terminals. 7) Apply grounds if required. 8) Proceed with work.',
+   keyConcept:'LOTO / ESWC (Establishing an Electrically Safe Work Condition — CSA Z462): 1) Identify all energy sources. 2) Notify affected persons. 3) Shut down. 4) Isolate (open disconnect). 5) Apply LOTO. 6) Release stored energy. 7) Verify absence of voltage (calibrated tester — test known live source first, then test the work area, then test known live source again to confirm tester is working). 8) Apply grounds. Each worker applies their own lock — never share a lock. Tagout = warning only, not a lock.'},
+  {id:129,topic:'cec',topicLabel:'CEC Code',diff:'hard',
+   text:'Under CEC Rule 26-712, what is required for a receptacle outlet installed in a bathroom of a dwelling unit?',
+   options:['A) Any receptacle within 1.5m of a water source requires GFCI protection','B) All 15A and 20A receptacles installed in bathroom areas of dwelling units must be GFCI protected. The GFCI device must be located so the reset button is accessible. Additionally, receptacles must not be installed within a shower or bathtub enclosure.','C) Bathroom receptacles require AFCI protection — GFCI is only required within 1m of water','D) No special requirements for bathroom receptacles in dwelling units — standard grounded receptacles are acceptable'],
+   answer:1,
+   explanation:'<strong>CEC Rule 26-712: GFCI protection required for all 15A/20A receptacles in dwelling unit bathrooms.</strong> Ground fault circuit interrupters trip at 4–6mA of ground fault current — protecting against electrocution from water contact. Requirements also extend to: garages, unfinished basements, outdoors, near kitchen sinks (within 1.5m), near laundry tubs, boathouses. GFCI protection can be provided by a GFCI receptacle, GFCI breaker, or GFCI receptacle protecting downstream outlets.',
+   keyConcept:'CEC GFCI requirements (Rule 26-712 and related): Bathrooms, garages, unfinished basements, outdoors, near swimming pools, boathouses, within 1.5m of kitchen sink. GFCI trips at 4–6mA ground fault. Test monthly (TEST/RESET buttons). GFCI receptacle can protect downstream outlets on the same circuit. AFCI (Arc Fault Circuit Interrupter) required for bedroom branch circuits (Rule 26-710). GFCI ≠ AFCI: GFCI protects from shock, AFCI protects from arc-caused fires.'},
+  {id:130,topic:'motors',topicLabel:'Motors & Controls',diff:'easy',
+   text:'What does a motor\'s "service factor" (SF) indicate on its nameplate?',
+   options:['A) The ratio of motor efficiency at full load compared to no load','B) The permissible overload as a multiplier of the nameplate horsepower — a motor with SF 1.15 can continuously operate at 115% of rated HP without damage under rated conditions','C) The number of times the motor can be started per hour before overheating','D) The percentage of full-load current at which the overload relay must trip'],
+   answer:1,
+   explanation:'<strong>Service Factor = multiplier indicating permissible continuous overload.</strong> A 10 HP motor with SF 1.15 can safely run continuously at 11.5 HP under standard temperature and altitude conditions. Service factor does not mean the motor should normally be operated at that level — it is a safety margin. At SF load, the motor will run hotter than at nameplate HP. Altitude reduces SF: above 1000m, SF should be derated. SF is not available on all motors.',
+   keyConcept:'Motor nameplate values: HP (horsepower), V (voltage), FLA (full load amps), RPM (synchronous/nameplate), Hz (frequency), Phase, Insulation class (A/B/F/H — max winding temperature), Service Factor (SF), Duty cycle, Frame size (NEMA), Efficiency (IE class). SF 1.0 = no overload allowed. SF 1.15 = 15% overload permitted. Motor selection: size motor for normal load; use SF as emergency margin only. Overload relay set to: FLA × SF (if SF known and motor is running at service factor load).'},
+  {id:131,topic:'wiring',topicLabel:'Wiring Methods',diff:'easy',
+   text:'What is the purpose of a bonding conductor in an electrical installation?',
+   options:['A) Bonding provides the return path for current during normal operation — it carries load current','B) Bonding connects all metallic enclosures, raceways, and equipment to create a low-impedance path back to the source, ensuring overcurrent devices operate quickly during a fault','C) Bonding prevents static electricity buildup — it is only required in flammable/explosive locations','D) Bonding is another term for the neutral conductor — they serve the same function'],
+   answer:1,
+   explanation:'<strong>Bonding creates a low-impedance fault current path to ensure rapid OCPD operation during a ground fault.</strong> Without bonding, a fault from a live conductor to a metal enclosure would result in the enclosure becoming energized at line voltage — dangerous touch voltage. With proper bonding, fault current flows freely back to the source through the bonding/grounding system, causing the fuse or breaker to operate within milliseconds and clearing the fault.',
+   keyConcept:'Bonding vs grounding: Grounding = connection to earth (ground rod, water pipe). Bonding = connection between metallic components in the electrical system. Both required. Bonding provides fault current path; grounding stabilizes voltage and provides lightning/static protection. Equipment bonding conductor (EBC) = green or bare copper. Bonding jumper: connects service equipment to grounding electrode system. Proper bonding: fault current of thousands of amps flows safely, trips OCPD in <0.1 second. Improper bonding: fault energizes enclosure, electrocution risk.'},
+  {id:132,topic:'cec',topicLabel:'CEC Code',diff:'easy',
+   text:'Under the CEC, what colour is required for a neutral (identified) conductor in a 120/240V single-phase system?',
+   options:['A) Green or bare — these are the standard neutral colours','B) White or grey — these are the required colours for identified (neutral) conductors in Canada','C) Black — neutrals must be black to distinguish them from ground conductors','D) Any colour except green, bare, or white — the other colours are reserved for hot conductors'],
+   answer:1,
+   explanation:'<strong>CEC Rule 4-040: neutral/identified conductors must be white or grey.</strong> The identified conductor (neutral) must be clearly distinguishable from ungrounded (hot) conductors. White = neutral in Canada. Green or bare = equipment grounding conductor. Black, red, blue = ungrounded (hot) conductors in Canada. Note: American NEC uses similar but not identical conventions. Multi-wire branch circuits: each hot conductor must be a different colour.',
+   keyConcept:'CEC conductor colour code: White/Grey = neutral (identified conductor). Green or bare = equipment grounding conductor (EGC/bonding). Black = ungrounded (hot) conductor. Red = second hot conductor (240V circuits). Blue = hot in multi-wire circuits. Orange = high-leg delta (208V leg). Do not use white for any purpose other than neutral/identified. If a white conductor is used as a hot conductor, it must be re-identified with black tape at each end. 3-phase: L1=black, L2=red, L3=blue (standard).'},
+  {id:133,topic:'theory',topicLabel:'Electrical Theory',diff:'hard',
+   text:'A single-phase transformer has a turns ratio of 10:1 (primary:secondary). The primary is connected to 2400V, drawing 2A. Ignoring losses, what are the secondary voltage and current?',
+   options:['A) Secondary: 240V, 2A — transformers maintain the same current on both sides','B) Secondary: 240V, 20A — voltage steps down by turns ratio, current steps up inversely','C) Secondary: 24V, 200A — both voltage and current step down by the turns ratio','D) Secondary: 2400V, 20A — transformers only change current, not voltage'],
+   answer:1,
+   explanation:'<strong>Transformer: V decreases by turns ratio, I increases inversely (conservation of power).</strong> Vs = Vp / turns ratio = 2400 / 10 = 240V. Is = Ip × turns ratio = 2A × 10 = 20A. Power: Pp = 2400V × 2A = 4800W. Ps = 240V × 20A = 4800W. Power is conserved (ignoring losses). Step-down transformers: lower voltage, higher current. Step-up transformers: higher voltage, lower current.',
+   keyConcept:'Transformer relationships: Vs/Vp = Ns/Np (turns ratio). Is/Ip = Np/Ns (inverse turns ratio). P = V×I (power conserved). Efficiency: η = Pout/Pin × 100%. Transformer losses: core losses (hysteresis + eddy currents, constant regardless of load), copper losses (I²R in windings, varies with load). KVA rating = full-load apparent power. No-load test: measures core losses. Short-circuit test: measures copper losses. Transformer nameplate: kVA, primary/secondary voltage, impedance (%).'},
+  {id:134,topic:'safety',topicLabel:'Electrical Safety',diff:'easy',
+   text:'What class of fire extinguisher is appropriate for an electrical panel fire?',
+   options:['A) Class A — wood and paper extinguisher for electrical panels','B) Class C — non-conductive agent suitable for energized electrical equipment fires','C) Class B — flammable liquid extinguisher is appropriate for all equipment fires','D) Class D — metal fire extinguisher for electrical equipment'],
+   answer:1,
+   explanation:'<strong>Class C extinguishers use non-conductive agents (CO₂, dry chemical) and are rated for energized electrical equipment.</strong> Water (Class A) conducts electricity and must never be used on energized electrical fires. CO₂ (carbon dioxide) is excellent for electrical fires — it smothers the fire without leaving residue that can damage equipment. Dry chemical (ABC or BC) also works but leaves corrosive residue. Always de-energize electrical equipment before fighting the fire if possible.',
+   keyConcept:'Fire extinguisher classes: A = ordinary combustibles (wood, paper, cloth) — water OK. B = flammable liquids (oil, grease, gasoline). C = energized electrical equipment — non-conductive agents only (CO₂, dry chemical, halon substitute). D = combustible metals (magnesium, titanium, sodium). K = kitchen fires (cooking oils). CO₂ extinguisher: best for electrical panels — no residue damage. ABC dry chemical: versatile but leaves residue. Never use water on Class C. De-energize first when safe to do so.'},
+  {id:135,topic:'cec',topicLabel:'CEC Code',diff:'medium',
+   text:'Under CEC Rule 14-010, when is it permissible to use the next larger standard fuse or circuit breaker size when the exact conductor ampacity does not correspond to a standard size?',
+   options:['A) Only when the conductor is rated 100A or more — small conductors must always be exactly matched to OCPD rating','B) When the ampacity of the conductor does not correspond exactly to a standard fuse or breaker rating, the next higher standard size is permitted, provided the circuit is not rated above 800A','C) The next size up is never permitted — conductors must always be derated to match available fuse/breaker sizes','D) The next size up is always permitted for any conductor size — there is no upper limit'],
+   answer:1,
+   explanation:'<strong>CEC Rule 14-104: next larger standard OCPD size permitted when conductor ampacity does not match a standard rating, up to 800A maximum.</strong> Example: conductor rated 110A — no standard 110A fuse exists. Next standard size (125A) is permitted. This rule applies when conductor ampacity falls between standard OCPD sizes. Above 800A, the conductor must be sized to match the OCPD exactly (use multiple conductors in parallel if needed).',
+   keyConcept:'CEC Rule 14-104 (next larger OCPD): applies when conductor ampacity is between standard fuse/breaker sizes. Maximum: 800A OCPD. Standard fuse/breaker sizes: 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, 200, 225, 250, 300, 350, 400, 450, 500, 600, 700, 800, 1000, 1200A. Example: 100A conductor — 100A is standard, use 100A. 90A conductor — next standard below is 90A (standard), so use 90A. If 97A conductor — use 100A (next standard up, under 800A limit).'}
 ];
 
 let currentTopic='all',currentDiff='easy',currentIdx=0,answered=false,totalCorrect=0,totalAnswered=0,filteredQs=[];
@@ -1117,6 +1211,79 @@ let mockTimer=null;
 function startMockTimer(n){clearInterval(mockTimer);let secs=Math.min(n*90,10800);function tick(){const el=document.getElementById('mockTimerEl');if(!el)return;const m=Math.floor(secs/60),s=secs%60;el.textContent=`⏱ ${m}:${s.toString().padStart(2,'0')}`;el.style.background=secs<=300?'rgba(231,76,60,.5)':'rgba(255,255,255,.12)';if(secs<=0){clearInterval(mockTimer);showMockResults();}secs--;}tick();mockTimer=setInterval(tick,1000);}
 function shareMockScore(pct,total,name){const txt=`I scored ${pct}% on the ${name} Red Seal mock exam (${total} questions)! Free practice at allforyou-bit.github.io`;if(navigator.share){navigator.share({title:'Red Seal Exam Score',text:txt}).catch(()=>{});}else{navigator.clipboard.writeText(txt).then(()=>alert('Score copied! Share it with your study group.')).catch(()=>alert(txt));}}
 function downloadMockResults(pct,total,correct,name){const date=new Date().toLocaleDateString('en-CA');let txt=`RED SEAL ${name} MOCK EXAM RESULTS\nDate: ${date}  |  Score: ${pct}%  (${correct}/${total})  |  ${pct>=70?'PASS':'NEEDS IMPROVEMENT'}\n`+'='.repeat(60)+'\n\n';mockQs.forEach((q,i)=>{const ua=mockAns[i],ok=ua===q.answer;txt+=`Q${i+1}. [${ok?'CORRECT':'WRONG  '}] ${q.text}\n`;q.options.forEach((opt,j)=>{txt+=`   ${j===q.answer?'> ':(j===ua&&!ok?'X ':'  ')}${opt}\n`;});if(!ok&&q.explanation)txt+=`   Explanation: ${q.explanation}\n`;if(!ok&&q.keyConcept)txt+=`   Key Concept: ${q.keyConcept}\n`;txt+='\n';});txt+='\nDownloaded from allforyou-bit.github.io | Free Red Seal Exam Practice';const blob=new Blob([txt],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`RedSeal-${name}-Results-${date}.txt`;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);}
+
+// ── DOWNLOAD STUDY SHEET ──
+function downloadStudySheet() {
+  const qs = currentTopic === 'all' ? questions : questions.filter(q => q.topic === currentTopic);
+  const topicLabel = currentTopic === 'all' ? 'All Topics' : (qs[0] ? qs[0].topicLabel : 'All Topics');
+  const tradeName = '309A Construction Electrician';
+  const date = new Date().toLocaleDateString('en-CA');
+  const letters = ['A','B','C','D','E'];
+  const groups = {};
+  qs.forEach(q => {
+    if (!groups[q.topicLabel]) groups[q.topicLabel] = [];
+    groups[q.topicLabel].push(q);
+  });
+  let body = '';
+  const ansKey = [];
+  let n = 1;
+  Object.keys(groups).forEach(tl => {
+    body += `<div class="section-title">${tl} — ${groups[tl].length} questions</div>`;
+    groups[tl].forEach(q => {
+      body += `<div class="q"><div class="qn">Q${n}. <span class="diff diff-${q.diff}">${q.diff}</span></div>`;
+      body += `<div class="qt">${q.text}</div>`;
+      q.options.forEach(opt => { body += `<div class="opt">${opt}</div>`; });
+      body += `</div>`;
+      ansKey.push({n, answer: letters[q.answer], text: q.options[q.answer], expl: (q.explanation||'').replace(/<[^>]+>/g,''), key: q.keyConcept||''});
+      n++;
+    });
+  });
+  let keyHtml = '';
+  ansKey.forEach(a => {
+    keyHtml += `<div class="ak"><strong>Q${a.n}.</strong> <span class="correct">${a.answer}) ${a.text}</span>`;
+    if (a.expl) keyHtml += `<div class="expl">${a.expl}</div>`;
+    if (a.key) keyHtml += `<div class="kc"><strong>Key Concept:</strong> ${a.key}</div>`;
+    keyHtml += `</div>`;
+  });
+  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>${tradeName} Study Sheet</title>
+<style>
+  body{font-family:Arial,sans-serif;max-width:820px;margin:0 auto;padding:20px 24px;color:#2c3e50;font-size:12.5px;line-height:1.5}
+  .print-tip{background:#1a3a5c;color:#fff;padding:12px 16px;border-radius:8px;margin-bottom:20px;font-size:13px}
+  .print-tip button{background:#f0a500;color:#fff;border:none;padding:6px 14px;border-radius:6px;font-weight:700;cursor:pointer;margin-left:12px}
+  h1{color:#1a3a5c;border-bottom:3px solid #f0a500;padding-bottom:8px;font-size:17px;margin-bottom:4px}
+  .meta{color:#7f8c8d;font-size:11px;margin-bottom:16px}
+  .section-title{background:#1a3a5c;color:#fff;padding:7px 12px;border-left:4px solid #f0a500;margin:22px 0 12px;font-size:13px;font-weight:700}
+  .q{margin:0 0 14px;padding:10px 12px;border:1px solid #e0e6ef;border-radius:6px;page-break-inside:avoid}
+  .qn{font-weight:700;color:#1a3a5c;margin-bottom:4px}
+  .diff{font-size:10px;padding:1px 7px;border-radius:9px;font-weight:600}
+  .diff-easy{background:#d5f5e3;color:#1e8449}
+  .diff-medium{background:#fdebd0;color:#d35400}
+  .diff-hard{background:#fadbd8;color:#c0392b}
+  .qt{font-weight:600;margin-bottom:8px;font-size:13px}
+  .opt{margin:2px 0 2px 16px;color:#2c3e50}
+  .answer-key{margin-top:36px;border-top:3px solid #1a3a5c;padding-top:16px}
+  .answer-key h2{color:#1a3a5c;font-size:15px;margin-bottom:12px}
+  .ak{margin:8px 0;padding:8px 10px;background:#f9fbfd;border-radius:4px;page-break-inside:avoid}
+  .correct{color:#27ae60;font-weight:700}
+  .expl{font-size:11px;color:#555;margin:4px 0 2px 12px}
+  .kc{font-size:11px;color:#b7770d;margin:2px 0 0 12px}
+  .footer{margin-top:24px;border-top:1px solid #ddd;padding-top:10px;color:#aaa;font-size:10px;text-align:center}
+  @media print{.print-tip{display:none}body{padding:8px 12px;font-size:11px}.q{page-break-inside:avoid;margin-bottom:10px}}
+</style></head><body>
+<div class="print-tip">📄 <strong>Save as PDF:</strong> Press Ctrl+P (Windows) or ⌘+P (Mac) → Choose "Save as PDF" as the printer <button onclick="window.print()">🖨 Print / Save PDF</button></div>
+<h1>📋 ${tradeName} Red Seal Practice — Study Sheet</h1>
+<div class="meta">Based on 2023 Red Seal Occupational Standard (RSOS) · ${qs.length} questions${currentTopic!=='all'?' · Topic: '+topicLabel:''} · Generated ${date} · allforyou-bit.github.io</div>
+${body}
+<div class="answer-key"><h2>📌 Answer Key with Explanations</h2>${keyHtml}</div>
+<div class="footer">Canada Red Seal Exam Prep · allforyou-bit.github.io · Free practice questions based on 2023 RSOS · Not affiliated with the official Red Seal Program</div>
+</body></html>`;
+  const w = window.open('', '_blank');
+  if (!w) { alert('Please allow pop-ups to use the study sheet download.'); return; }
+  w.document.write(html);
+  w.document.close();
+  w.focus();
+}
 </script>
 
 <!-- COOKIE CONSENT -->
