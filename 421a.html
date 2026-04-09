@@ -1241,6 +1241,418 @@ const questions = [
     answer:1,
     explanation:'<strong>Parasitic draw test: ammeter in series, key off.</strong> Disconnect the negative cable, connect the ammeter between the cable and battery post. Wait 10+ minutes for modules to sleep. Normal parasitic draw is typically less than 50mA. Higher draw means a module is staying active. Pull fuses one at a time to isolate the circuit drawing excess current.',
     keyConcept:'Parasitic draw: ammeter in series, key off, modules asleep. Acceptable: <50mA. Find source: pull fuses one at a time and watch ammeter. Never connect voltmeter in series — it will show nearly full battery voltage.'
+  },
+
+  // ── HYDRAULICS (101–111) ──
+  {
+    id:101, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'easy',
+    text:'What does a hydraulic accumulator store?',
+    options:['A) Filtered hydraulic fluid only','B) Pressurized fluid (using a gas pre-charge) to supplement pump flow on demand','C) Hydraulic fluid contamination for scheduled disposal','D) Pilot pressure for proportional valve control'],
+    answer:1,
+    explanation:'<strong>Accumulator = pressurized fluid storage.</strong> A bladder or piston-type accumulator uses nitrogen pre-charge to store hydraulic energy. On peak demand, it releases stored fluid to assist the pump. Also used for dampening pressure spikes and maintaining pressure during brief pump shutdowns.',
+    keyConcept:'Accumulator: stores pressurized fluid with nitrogen pre-charge. Supplements pump flow on demand, smooths pressure spikes. Always relieve accumulator pressure before servicing.'
+  },
+  {
+    id:102, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'easy',
+    text:'Which type of hydraulic pump is most commonly used as the main pump in heavy equipment because of its high efficiency and ability to produce variable flow?',
+    options:['A) External gear pump','B) Vane pump','C) Axial piston pump with variable displacement','D) Internal gear (gerotor) pump'],
+    answer:2,
+    explanation:'<strong>Axial piston pumps are the industry standard for heavy equipment.</strong> They offer high efficiency, high pressure capability, and can be built with variable displacement (servo-controlled swashplate). Gear pumps are simpler but fixed displacement. Vane pumps are less common in heavy equipment.',
+    keyConcept:'Heavy equipment main pump: axial piston, variable displacement. Swashplate angle controls flow (GPM). Maximum pressure set by relief valve. Gear pumps used for lower-pressure auxiliary circuits.'
+  },
+  {
+    id:103, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'medium',
+    text:'A hydraulic cylinder extends slowly but retracts quickly. The most likely cause is:',
+    options:['A) Low pump output pressure','B) Worn cylinder piston seals — fluid bypasses internally','C) Regenerative circuit active on the extend side, or insufficient flow to the cap end','D) Relief valve pressure set too high'],
+    answer:2,
+    explanation:'<strong>Slow extend, fast retract: flow imbalance between cap end and rod end.</strong> The cap end (extend side) has a larger area and requires more volume to move the same distance. If the pump is undersized or a regenerative circuit is active, extend speed suffers while retract is normal. Check for flow restriction on the cap-end port line.',
+    keyConcept:'Cylinder extend (cap end) requires more volume than retract (rod end) due to piston area difference. Slow extend = insufficient flow to cap end. Check flow, not pressure.'
+  },
+  {
+    id:104, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'medium',
+    text:'What is the function of a pilot-operated relief valve compared to a direct-acting relief valve?',
+    options:['A) Pilot-operated valves open immediately at set pressure with no pressure override','B) Pilot-operated valves maintain much closer pressure control with minimal pressure override (less chatter), making them suitable for high-flow systems','C) Direct-acting valves are used only in closed-loop circuits','D) Pilot-operated valves cannot be remotely adjusted'],
+    answer:1,
+    explanation:'<strong>Pilot-operated relief valves have much lower pressure override.</strong> A direct-acting relief valve can show 10–15% pressure override (cracking pressure to full-flow pressure). Pilot-operated types have very consistent cracking and full-flow pressure — critical in high-flow systems where pressure control accuracy matters.',
+    keyConcept:'Pilot-operated relief: consistent pressure, low override — used in high-flow circuits. Direct-acting: simpler but more pressure override. Both protect circuit from overpressure.'
+  },
+  {
+    id:105, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'medium',
+    text:'A hydraulic oil sample analysis shows a high ferrous (iron) particle count but normal silicon levels. What does this most likely indicate?',
+    options:['A) Dirt contamination entering through a breather or damaged seal','B) Wear on steel components — pump, motor, cylinder rods, or valve spools','C) Overheating causing fluid oxidation','D) Water contamination from a cooler leak'],
+    answer:1,
+    explanation:'<strong>High ferrous particles = metal wear from steel components.</strong> Iron particles come from pump internals, motor barrel/pistons, cylinder rods, or valve spools. Silicon indicates dirt ingestion (silica/sand). Water shows as a haze or separate phase in the sample. Ferrous count trending upward indicates accelerating wear — identify and replace the failing component.',
+    keyConcept:'Oil analysis: ferrous = steel component wear. Silicon = dirt ingestion. Water = cooler leak or condensation. Schedule oil changes and component inspection based on particle trends.'
+  },
+  {
+    id:106, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'hard',
+    text:'During a hydraulic pump flow test, the pump produces 80% of rated flow at rated speed and pressure. What does this indicate?',
+    options:['A) The pump is working correctly — 80% is the designed efficiency rating','B) The pump has significant internal bypass (worn pistons/barrel), delivering only 80% volumetric efficiency — below the acceptable threshold','C) The relief valve is set too low, bypassing 20% of flow','D) The system has a 20% flow demand from a parallel circuit'],
+    answer:1,
+    explanation:'<strong>Volumetric efficiency below 85% indicates a worn pump needing replacement.</strong> A new pump typically delivers 95–98% of rated flow. As internal clearances wear (piston/barrel, port plate), fluid bypasses internally. 80% volumetric efficiency means 20% of displacement is lost to internal leakage — the pump is due for replacement.',
+    keyConcept:'Pump volumetric efficiency = actual flow ÷ theoretical flow × 100%. New pump: 95–98%. Below 85% = replace. Test: flow meter on outlet at rated pressure and speed.'
+  },
+  {
+    id:107, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'hard',
+    text:'What is "hydraulic lock" and when is it most likely to occur?',
+    options:['A) When a cylinder is mechanically blocked from extending by a load','B) When incompressible hydraulic fluid is trapped in a cylinder with no path to return — usually when valves are closed and thermal expansion occurs','C) When a check valve becomes stuck in the closed position','D) When the hydraulic pump stalls under high load'],
+    answer:1,
+    explanation:'<strong>Hydraulic lock: trapped fluid with nowhere to go.</strong> Hydraulic fluid is incompressible. If a cylinder is in a hot environment (or exposed to solar heat) with all valves closed, fluid expands and pressure builds with no relief path. This can damage cylinder seals, bend cylinder rods, or crack hose fittings. Counterbalance valves include small thermal relief features for this reason.',
+    keyConcept:'Hydraulic lock: incompressible fluid trapped with valves closed + thermal expansion = extreme pressure. Prevent with thermal relief in counterbalance valves. Common in stationary cylinders exposed to heat.'
+  },
+  {
+    id:108, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'hard',
+    text:'A load-sensing hydraulic system maintains a standby pressure of approximately 200–300 PSI above load pressure. What controls this differential pressure?',
+    options:['A) The main system relief valve','B) The load-sensing signal line connecting the actuator port to the variable pump compensator','C) A fixed orifice in the return line','D) The charge pump pressure'],
+    answer:1,
+    explanation:'<strong>Load-sensing: pump margin controlled by LS signal line.</strong> The load-sensing signal (from the actuator work port) is fed back to the pump compensator. The compensator maintains a constant differential pressure (margin) of 200–300 PSI above load pressure. When no function is active, pump destrokes to standby. This system saves fuel by only producing pressure/flow on demand.',
+    keyConcept:'Load-sensing (LS): pump maintains constant pressure margin above load. LS signal = load pressure feedback. Margin typically 200–300 PSI. Much more efficient than fixed pressure systems.'
+  },
+  {
+    id:109, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'easy',
+    text:'What is the primary purpose of a hydraulic oil cooler on heavy equipment?',
+    options:['A) To increase hydraulic fluid viscosity during cold starts','B) To maintain hydraulic oil within its designed temperature range, preventing viscosity breakdown and component wear','C) To pressurize the hydraulic reservoir','D) To separate water from hydraulic fluid'],
+    answer:1,
+    explanation:'<strong>Hydraulic oil cooler: prevents overheating.</strong> Hydraulic systems generate heat through inefficiency (pressure drops, internal leakage). Excessive heat breaks down oil viscosity and additive packages, accelerates oxidation, and damages seals. Normal operating range is typically 60–80°C. The cooler maintains this range by transferring heat to ambient air or coolant.',
+    keyConcept:'Hydraulic oil temp range: 60–80°C. Above 90°C = system issue. Cooler location: after pump return or case drain. High temps cause: seal failure, viscosity loss, oxidation.'
+  },
+  {
+    id:110, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'medium',
+    text:'A counterbalance valve is used in a hydraulic circuit primarily to:',
+    options:['A) Balance flow equally between two parallel cylinders','B) Prevent an overrunning load from causing the cylinder to extend faster than pump flow allows (runaway)','C) Increase cylinder extend speed under heavy load','D) Balance pressure between rod-end and cap-end of a double-acting cylinder'],
+    answer:1,
+    explanation:'<strong>Counterbalance valve: prevents load-induced runaway.</strong> On a crane or lift with a suspended load, the load\'s weight tries to push fluid back through the control valve faster than the pump supplies it. The counterbalance valve (set above load-induced pressure) requires positive pump pressure to open — keeping the cylinder controlled at all times. Critical safety device.',
+    keyConcept:'Counterbalance valve: prevents runaway on overrunning loads (crane, lift, excavator stick under load). Set slightly above maximum load-induced pressure. Opening requires positive pump pressure signal.'
+  },
+  {
+    id:111, topic:'hydraulic', topicLabel:'Hydraulic Systems', diff:'hard',
+    text:'What is the difference between open-loop and closed-loop hydraulic circuits?',
+    options:['A) Open-loop uses a fixed pump; closed-loop uses a variable pump','B) Open-loop returns fluid to the reservoir after use; closed-loop circulates fluid directly between pump and motor/actuator without a reservoir (except for charge and case drain)','C) Closed-loop circuits have no relief valves','D) Open-loop circuits are used only for steering; closed-loop for travel'],
+    answer:1,
+    explanation:'<strong>Open-loop: fluid returns to tank. Closed-loop: fluid circulates directly pump-to-motor-to-pump.</strong> Closed-loop circuits are used for hydrostatic travel drives (zero-turn, crawler dozers) — they allow smooth bi-directional speed control without directional valves. They include a small charge pump to replenish leakage and cool fluid. Open-loop is used for work functions.',
+    keyConcept:'Open-loop: reservoir-pump-actuator-reservoir. Closed-loop: pump-motor-pump (no tank). Closed-loop used for hydrostatic drive. Requires charge pump for replenishment and cooling.'
+  },
+
+  // ── DIESEL ENGINE (112–122) ──
+  {
+    id:112, topic:'engine', topicLabel:'Diesel Engine', diff:'easy',
+    text:'What is the purpose of the engine oil pressure relief valve?',
+    options:['A) To maintain minimum oil pressure at idle','B) To prevent excessively high oil pressure from damaging the lubrication system — it bypasses oil back to the sump when pressure exceeds the set limit','C) To control oil flow to the turbocharger','D) To regulate oil temperature'],
+    answer:1,
+    explanation:'<strong>Oil pressure relief valve: protects from overpressure.</strong> Set typically at 50–80 PSI, it opens when oil pressure builds too high (cold thick oil at high RPM) and bypasses excess oil to the sump. Without it, extreme pressure could blow oil seals or damage the oil cooler. Not to be confused with the oil pressure sensor or gauge.',
+    keyConcept:'Oil pressure relief: opens when pressure is TOO HIGH, bypasses to sump. Set at ~50–80 PSI. Cold oil at high RPM most likely to trigger it. Different from bypass filter valve.'
+  },
+  {
+    id:113, topic:'engine', topicLabel:'Diesel Engine', diff:'easy',
+    text:'What is the purpose of the EGR (Exhaust Gas Recirculation) system on a modern diesel engine?',
+    options:['A) To increase engine power by recirculating exhaust gases for a second combustion cycle','B) To reduce NOx (nitrogen oxides) emissions by introducing cooled exhaust gas into the intake, lowering peak combustion temperature','C) To improve fuel economy by recovering exhaust energy','D) To preheat the intake air during cold starts'],
+    answer:1,
+    explanation:'<strong>EGR: lowers combustion temp = lower NOx.</strong> NOx forms at extremely high combustion temperatures. Recirculating inert exhaust gas into the intake dilutes the oxygen content and absorbs heat, reducing peak combustion temperature and NOx formation. EGR is part of the EPA Tier 4/Euro 6 emissions compliance strategy along with SCR/DEF.',
+    keyConcept:'EGR: reduces NOx by diluting intake charge with inert exhaust gas — lowers peak combustion temp. Can increase soot/PM emissions. Works with DPF and SCR in modern systems.'
+  },
+  {
+    id:114, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text:'A diesel engine has good power under light loads but experiences power loss, black smoke, and excessive exhaust back pressure under heavy load. The MOST likely cause is:',
+    options:['A) Worn injector tips causing poor fuel atomization','B) A clogged DPF (Diesel Particulate Filter) restricting exhaust flow','C) EGR valve stuck open at high load','D) Low fuel rail pressure'],
+    answer:1,
+    explanation:'<strong>Excessive back pressure + black smoke + power loss under load = plugged DPF.</strong> A clogged DPF increases exhaust restriction, reducing the engine\'s ability to expel burned gases. This causes power loss, elevated exhaust temperatures, and increased emissions. Solution: perform a forced DPF regeneration or remove and clean/replace the DPF.',
+    keyConcept:'DPF plugged: high back pressure, power loss, black smoke. Diagnose with back pressure sensor (manufacturer spec typically <3–4 PSI at rated load). Force regen or replace DPF.'
+  },
+  {
+    id:115, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text:'During a diesel engine compression test, cylinder 3 shows 250 PSI while all others show 420–430 PSI. Adding a small amount of oil to cylinder 3 and retesting shows 380 PSI. What is the most likely diagnosis?',
+    options:['A) Cylinder 3 injector is stuck open, flooding the cylinder','B) Cylinder 3 has worn piston rings — the oil temporarily sealed the rings, confirming ring wear','C) Cylinder 3 has a burned exhaust valve','D) Cylinder 3 has a cracked cylinder head'],
+    answer:1,
+    explanation:'<strong>Wet compression test: oil seals rings, pressure rises = ring wear.</strong> If adding oil significantly increases compression, the leak-down is past the piston rings. If oil doesn\'t help, the leak is through valves or head gasket. This is the fundamental wet vs. dry compression test interpretation — ring wear = pressure increases with oil. Valve/head leak = oil doesn\'t help.',
+    keyConcept:'Dry comp low, wet comp high = worn rings. Dry comp low, wet comp unchanged = burned valve or head gasket. Cylinder with low comp and high crankcase pressure = definitive ring wear.'
+  },
+  {
+    id:116, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text:'What does a diesel engine\'s "fuel trim" (injection quantity correction) data on a scan tool indicate when it shows a consistently high positive correction on all cylinders?',
+    options:['A) Injectors are delivering too much fuel — trim is reducing injection','B) The ECM is adding extra fuel to compensate for insufficient delivery — indicates low fuel pressure, restricted supply, or worn injectors','C) The engine is in cold-start enrichment mode','D) The throttle position sensor is reading high'],
+    answer:1,
+    explanation:'<strong>High positive fuel trim: ECM adding fuel = system delivering less than commanded.</strong> The ECM monitors rail pressure, engine speed, and fueling response. If the engine demands more fuel than it\'s getting (lean condition), it commands higher injection. Causes: low fuel supply pressure, clogged fuel filter, restricted lift pump, or worn injectors with reduced flow.',
+    keyConcept:'Positive fuel trim: ECM adding fuel = fuel delivery is low. Check: fuel supply pressure, filter restriction, lift pump output, rail pressure. Not injector-over-delivering — injectors are under-delivering.'
+  },
+  {
+    id:117, topic:'engine', topicLabel:'Diesel Engine', diff:'hard',
+    text:'A diesel engine exhibits "engine runaway" — the engine accelerates uncontrollably with no response to fuel shutoff. What is the most likely cause?',
+    options:['A) The fuel injection pump governor has failed, allowing maximum fuel delivery','B) The engine is burning crankcase oil, hydraulic fluid, or another external combustible that bypasses the fuel system — the ECM cannot reduce air-delivered fuel','C) The EGR valve is stuck open, increasing combustion efficiency','D) High boost pressure from a faulty turbocharger is igniting residual exhaust gases'],
+    answer:1,
+    explanation:'<strong>Runaway despite fuel shutoff = external combustible source.</strong> If an engine ingests engine oil (blown turbo seal, crankcase breather flooding air intake), hydraulic fluid, or methanol/DEF spill into the air intake, the fuel is outside ECM control. Emergency shutdown: air intake blockage (use the emergency air shutoff), or engage a load to stall the engine. Turning the key does nothing.',
+    keyConcept:'Engine runaway: engine burns external combustible bypassing ECM. Solution: block air intake or apply heavy load to stall. DO NOT rely on fuel shutoff. Check for blown turbo seals, breather issues.'
+  },
+  {
+    id:118, topic:'engine', topicLabel:'Diesel Engine', diff:'hard',
+    text:'What is the purpose of DEF (Diesel Exhaust Fluid) in a modern SCR (Selective Catalytic Reduction) emissions system?',
+    options:['A) To lubricate the DPF to improve regeneration efficiency','B) To inject urea solution into the exhaust stream, where it reacts with NOx over the SCR catalyst to produce harmless nitrogen and water vapour','C) To reduce PM (particulate matter) in the DPF','D) To cool EGR gases before they enter the intake manifold'],
+    answer:1,
+    explanation:'<strong>DEF (32.5% urea in water) converts NOx to N₂ + H₂O.</strong> DEF is injected into the exhaust stream before the SCR catalyst. Heat causes urea to decompose into ammonia (NH₃), which reacts with NOx on the SCR catalyst: NOx + NH₃ → N₂ + H₂O. If DEF quality is poor or dosing fails, NOx tailpipe emissions increase and the ECM will derate the engine.',
+    keyConcept:'DEF = 32.5% urea in water. SCR: DEF → ammonia → reacts with NOx → N₂ + H₂O. Low DEF level or quality: engine derate. Never mix DEF with other fluids. Freezes at -11°C.'
+  },
+  {
+    id:119, topic:'engine', topicLabel:'Diesel Engine', diff:'easy',
+    text:'What is the correct sequence for performing a diesel engine oil change on heavy equipment?',
+    options:['A) Drain cold, replace filter, fill with new oil, start and idle, recheck level','B) Run engine to operating temperature, shut down, drain oil while hot, replace filter, fill with new oil, start and idle briefly, recheck level after shutdown','C) Drain cold, fill with flush oil, run 5 minutes, drain and refill','D) Drain hot, fill to maximum mark on dipstick, start and run at high RPM'],
+    answer:1,
+    explanation:'<strong>Hot drain removes more contaminants than cold drain.</strong> Running the engine to temperature keeps particles in suspension. After hot drain: replace filter (engine off), fill to spec level, start and idle to fill filter and check for leaks, shut down and wait 5 minutes for oil to drain back, recheck level. Never overfill — foam and oil starvation result.',
+    keyConcept:'Oil change: warm engine → drain hot → replace filter → fill to spec → idle → recheck level (after 5 min). Never overfill. Pre-fill filter if accessible to reduce dry-start duration.'
+  },
+  {
+    id:120, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text:'A diesel engine coolant system has a pressure cap rated at 15 PSI. What is the PRIMARY benefit of a pressurized cooling system?',
+    options:['A) Higher pressure pushes coolant through the system faster, improving heat transfer','B) Pressurizing the system raises the boiling point of coolant, allowing higher operating temperatures without boiling','C) Higher system pressure prevents freeze plug failure in cold weather','D) The pressure cap regulates coolant flow to the heater core'],
+    answer:1,
+    explanation:'<strong>Pressure raises boiling point: 15 PSI cap raises boiling to ~125°C (from 100°C unpressurized).</strong> This allows the engine to operate at a higher efficient temperature (88–95°C) with a meaningful safety margin before boiling. Each 6.8 kPa (1 PSI) of pressure raises the boiling point approximately 0.6°C. The pressure cap also controls pressure relief and fresh coolant draw-back.',
+    keyConcept:'Pressurized cooling: raises boiling point. 15 PSI cap ≈ boiling point of ~125°C. Operating range: 85–95°C. Pressure cap rated for system — replace if creep is noted (losing coolant, overflow reservoir always full).'
+  },
+  {
+    id:121, topic:'engine', topicLabel:'Diesel Engine', diff:'hard',
+    text:'What is the function of the diesel engine\'s pre-combustion chamber (prechamber or indirect injection) compared to modern direct injection (DI)?',
+    options:['A) Prechambers provide higher power and efficiency — they are used on all modern high-output diesels','B) Prechambers (IDI) provided smoother, quieter combustion but were less fuel-efficient; modern DI engines inject directly into the cylinder, achieving much higher efficiency with common-rail systems','C) Prechambers are used in high-altitude applications only','D) DI engines require a prechamber for pilot injection'],
+    answer:1,
+    explanation:'<strong>IDI (prechamber): smoother, quieter — but less efficient. DI (direct): louder, harder starting cold, but significantly more efficient.</strong> Modern common-rail DI with pilot injection events has eliminated most noise drawbacks of DI. All modern heavy equipment diesel engines are direct injection (common-rail or unit injectors). IDI is found only on older equipment.',
+    keyConcept:'IDI (prechamber): smoother, quieter, less efficient. DI (direct injection): more efficient, common rail. Modern heavy equipment: always DI. Glow plugs still used for cold start aids on modern DI.'
+  },
+  {
+    id:122, topic:'engine', topicLabel:'Diesel Engine', diff:'medium',
+    text:'Diesel fuel gelling occurs at low temperatures. What additive or measure is used to prevent fuel gelling in cold Canadian winters?',
+    options:['A) Adding motor oil to diesel fuel to improve cold flow','B) Using winter-blend diesel (with lower CFPP), adding fuel conditioner/anti-gel additives, and maintaining heated fuel tanks or fuel heaters','C) Adding gasoline to diesel fuel to lower freezing point','D) Running the engine at high idle to keep fuel moving'],
+    answer:1,
+    explanation:'<strong>Winter diesel: lower CFPP, anti-gel additives, fuel heaters.</strong> Diesel waxing/gelling occurs when paraffin crystals form and plug fuel filters. The Cold Filter Plugging Point (CFPP) of winter-blend diesel is rated for expected ambient temperatures. Anti-gel additives depress the CFPP further. Fuel tank/filter heaters are standard equipment on heavy equipment in Canadian winters.',
+    keyConcept:'Diesel gelling: paraffin crystals block fuel filter. Prevention: winter-blend (CFPP-rated), anti-gel additive, fuel heater. CFPP must be below ambient temperature. Never add gasoline — damages injectors.'
+  },
+
+  // ── ELECTRICAL (123–131) ──
+  {
+    id:123, topic:'electrical', topicLabel:'Electrical Systems', diff:'easy',
+    text:'What does the term "J1939" refer to in heavy equipment electrical systems?',
+    options:['A) A battery specification standard for 24V systems','B) A SAE communication protocol (Controller Area Network/CAN bus) used for data communication between electronic control modules on heavy equipment','C) A connector standard for 12-pin diagnostic connectors','D) A hydraulic pressure specification for OEM systems'],
+    answer:1,
+    explanation:'<strong>J1939: SAE CAN bus standard for heavy equipment.</strong> J1939 is the dominant communication protocol for heavy-duty vehicles. It allows ECMs (engine, transmission, body controller, ABS, etc.) to share data over a two-wire bus (CAN High and CAN Low) at 250 kbps. Technicians use J1939-compatible diagnostic tools to read PGNs (Parameter Group Numbers) and fault codes.',
+    keyConcept:'J1939 = CAN bus for heavy equipment. Two wires: CAN High, CAN Low. 60-ohm terminating resistors at each bus end. Scan tool reads Parameter Group Numbers (PGNs). Total bus resistance: ~120 ohms.'
+  },
+  {
+    id:124, topic:'electrical', topicLabel:'Electrical Systems', diff:'easy',
+    text:'A technician measures 12.2V across a fully charged 12V battery at rest (surface charge removed). What does this indicate?',
+    options:['A) The battery is fully charged','B) The battery is approximately 50% discharged — resting voltage below 12.4V indicates a partially or significantly discharged battery','C) The battery has a shorted cell','D) The charging system is overcharging the battery'],
+    answer:1,
+    explanation:'<strong>12V battery resting voltage: 12.6–12.7V = full, 12.4V = 75%, 12.2V = 50%, 12.0V = 25%, below 11.8V = dead.</strong> Surface charge must be removed (15-second load or 30-minute rest after charging/driving). 12.2V indicates the battery is approximately half-charged and may not have sufficient CCA for reliable cold starting.',
+    keyConcept:'12V battery resting voltage guide: 12.6V=100%, 12.4V=75%, 12.2V=50%, 12.0V=25%, <11.8V=discharged. Always remove surface charge before testing. Fully charged = 12.6–12.7V.'
+  },
+  {
+    id:125, topic:'electrical', topicLabel:'Electrical Systems', diff:'medium',
+    text:'A CAN bus network on a machine has a measured resistance of 60 ohms between CAN High and CAN Low with the network powered off. What does this indicate?',
+    options:['A) Normal — 60 ohms is the correct total resistance for a properly terminated CAN bus','B) One terminating resistor has failed open — two 120-ohm resistors in parallel should give 60 ohms','C) A short circuit exists between CAN High and CAN Low','D) The CAN bus is missing both terminating resistors'],
+    answer:1,
+    explanation:'<strong>CAN bus: two 120-ohm terminating resistors in parallel = 60 ohms total. This is correct and expected.</strong> Each end of the CAN bus has a 120-ohm resistor. Two resistors in parallel: (120×120)/(120+120) = 7200/240 = 60 ohms. If you measure 120 ohms, one resistor is open. If you measure less than 60 ohms, there\'s a short. 60 ohms = healthy CAN bus.',
+    keyConcept:'CAN bus resistance: 60 ohms = healthy (two 120Ω in parallel). 120 ohms = one missing/open terminator. <60 ohms = short. Measure with network disconnected from all modules and powered off.'
+  },
+  {
+    id:126, topic:'electrical', topicLabel:'Electrical Systems', diff:'medium',
+    text:'When testing a solenoid valve coil with a multimeter, a technician measures infinite resistance (OL). What does this indicate?',
+    options:['A) The coil has shorted turns — normal resistance for a high-impedance solenoid','B) The coil winding is open (broken wire inside the coil) — the solenoid will not activate','C) The solenoid is double-wound and requires the second lead to be tested','D) The solenoid requires AC power, not DC'],
+    answer:1,
+    explanation:'<strong>OL (overload/infinite) resistance = open circuit in coil winding.</strong> A broken wire inside the solenoid coil means no current can flow, so the valve will never activate. A shorted coil would show LOWER than normal resistance. A good solenoid reads the specified coil resistance (typically 5–50 ohms depending on design). Replace the solenoid if open or shorted.',
+    keyConcept:'Solenoid coil test: measure resistance across coil terminals. OL = open coil (replace). Zero/near zero = shorted coil (replace). Good = matches spec (typically 5–50Ω). Also check for ground short: one lead to solenoid body.'
+  },
+  {
+    id:127, topic:'electrical', topicLabel:'Electrical Systems', diff:'hard',
+    text:'A machine\'s ECM has a fault code indicating "VGT actuator position feedback out of range — high." Which diagnosis approach is MOST appropriate?',
+    options:['A) Replace the VGT turbocharger immediately — high feedback codes always indicate actuator failure','B) Test the feedback signal voltage with the engine running, check for wiring faults (short to voltage), verify actuator mechanical freedom, and compare commanded vs. actual position with a scan tool','C) Clear the code and monitor — VGT codes are typically intermittent and self-resolve','D) Replace the ECM — out-of-range sensor codes indicate internal ECM failure'],
+    answer:1,
+    explanation:'<strong>VGT feedback high: diagnose before replacing.</strong> "Out of range high" on a position sensor means the feedback voltage is higher than the ECM expects. Causes: wiring short to voltage, sensor failure, or actuator mechanical binding (feedback reads max without moving). Use a scan tool to observe commanded vs. actual position. Test the feedback circuit voltage with key on.',
+    keyConcept:'VGT position feedback: normally 0.5–4.5V range. Out of range high = short to voltage or stuck actuator at max. Compare commanded vs. actual on scan tool. Check wiring before condemning VGT actuator.'
+  },
+  {
+    id:128, topic:'electrical', topicLabel:'Electrical Systems', diff:'hard',
+    text:'A machine has an intermittent electrical fault that only occurs when the machine body is hot and vibrating under load. The fault disappears at rest. What is the MOST likely cause and diagnostic approach?',
+    options:['A) An ECM software fault — reprogram the ECM after the machine cools','B) A heat- or vibration-sensitive wiring fault — chafed wire causing intermittent ground or short, loose connector pin, or cracked solder joint in a harness connector. Wiggle-test harnesses while monitoring live data.','C) The battery is failing and cannot maintain voltage under load','D) The fuel injector is heat-soaking and leaking back'],
+    answer:1,
+    explanation:'<strong>Intermittent, heat/vibration-dependent faults = wiring harness issue.</strong> These are among the hardest faults to diagnose. Techniques: wiggle-test harnesses while monitoring ECM data; use thermal imaging to find hot spots; flex connectors while monitoring circuit voltage. Look for chafed insulation on harnesses routed near exhaust or moving components. Repair or replace the affected harness section.',
+    keyConcept:'Intermittent fault: heat/vibration-dependent → harness problem. Wiggle-test connectors while monitoring live data. Look for chafe points near exhaust, pivot points, engine mounts. Document conditions when fault occurs.'
+  },
+  {
+    id:129, topic:'electrical', topicLabel:'Electrical Systems', diff:'medium',
+    text:'A machine\'s starter motor cranks slowly despite the battery being fully charged. What is the MOST likely cause?',
+    options:['A) Wrong battery group size installed','B) High resistance in the starter circuit — corroded battery cables, loose connections, or worn starter brushes causing excessive voltage drop','C) The starter solenoid is stuck in the engaged position','D) The engine has too much compression for the battery to turn over'],
+    answer:1,
+    explanation:'<strong>Slow cranking with good battery = excessive circuit resistance.</strong> A voltage drop test is the correct diagnostic: measure voltage drop across each section of the cranking circuit (battery positive cable, negative cable, ground strap, solenoid contacts). Maximum acceptable drop: 0.2V per connection, 0.5V per cable. High resistance dissipates voltage as heat instead of delivering it to the starter.',
+    keyConcept:'Slow crank with good battery: perform voltage drop test on cranking circuit. Max drop: 0.2V/connection, 0.5V/cable. Total circuit drop should be <1.0V. Common culprits: corroded cable ends, worn starter brushes, dirty ground strap.'
+  },
+  {
+    id:130, topic:'electrical', topicLabel:'Electrical Systems', diff:'easy',
+    text:'What does "continuity" testing with a multimeter confirm?',
+    options:['A) The voltage level across a component','B) That a complete electrical path exists between two points — the circuit is not broken','C) The exact resistance value of a circuit component','D) Whether a component can handle its rated current'],
+    answer:1,
+    explanation:'<strong>Continuity test: confirms unbroken circuit path.</strong> The meter sends a small current through the circuit. If the path is complete (resistance is low), the meter beeps. If open, no beep. Important: always test continuity with the circuit de-energized — testing live circuits damages the meter. Use for checking switch continuity, wire integrity, fuse condition, and relay contacts.',
+    keyConcept:'Continuity: confirms unbroken path. Meter beeps = path exists. No beep = open circuit. Always test de-energized. For resistance values, use Ohms mode. Continuity mode is for quick pass/fail.'
+  },
+  {
+    id:131, topic:'electrical', topicLabel:'Electrical Systems', diff:'hard',
+    text:'A machine has a fault code for "Alternator Output Low." Battery voltage at the battery posts with engine running is 12.8V. What is the MOST likely problem?',
+    options:['A) The battery has too high internal resistance, preventing it from accepting charge','B) The alternator output is low — suspect voltage regulator failure, worn brushes, failed diodes (rectifier), or excessive resistance in the charging circuit wiring','C) The battery is overcharged — 12.8V is above the normal charging voltage','D) The machine is using more current than normal — high electrical load reducing apparent voltage'],
+    answer:1,
+    explanation:'<strong>Normal charging voltage: 13.8–14.8V at battery. 12.8V = not charging.</strong> If battery voltage with engine running is only near resting battery voltage, the alternator is not producing output or the charging circuit has excessive resistance. Test: measure alternator output voltage directly at alternator output terminal. Also check: drive belt tension, diode trio (AC ripple = bad diodes), field circuit voltage.',
+    keyConcept:'Charging system voltage: 13.8–14.8V at battery with engine running. Below 13.5V = alternator not charging sufficiently. Test: alternator output terminal, belt, diodes (AC ripple test), voltage regulator.'
+  },
+
+  // ── POWERTRAIN (132–139) ──
+  {
+    id:132, topic:'powertrain', topicLabel:'Powertrain', diff:'easy',
+    text:'What is the purpose of a torque converter\'s stator?',
+    options:['A) To mechanically lock the torque converter at highway speed to improve efficiency','B) To redirect fluid returning from the turbine back to the pump in a direction that multiplies torque during high load, low-speed conditions','C) To cool the transmission fluid in the torque converter','D) To balance the rotating assembly of the torque converter'],
+    answer:1,
+    explanation:'<strong>Stator = torque multiplier.</strong> At low speed and high load, the stator (held by a one-way clutch) redirects returning fluid from the turbine to assist the pump. This fluid coupling creates torque multiplication — the converter can multiply engine torque by 2–3x at stall. As output speed approaches input speed, the one-way clutch releases and the stator spins freely.',
+    keyConcept:'Torque converter: pump (input), turbine (output), stator (multiplier). Stator multiplies torque at low speed/high load. Multiplication ratio = stall torque ratio. At coupling point, stator freewheels.'
+  },
+  {
+    id:133, topic:'powertrain', topicLabel:'Powertrain', diff:'medium',
+    text:'A powershift transmission shifts between gears roughly and with a noticeable engagement shock. The MOST likely cause is:',
+    options:['A) Low transmission oil level causing gear slip','B) Clutch packs worn or calibration (fill time, clutch engagement pressure) out of specification — causing abrupt clutch engagement instead of smooth overlap','C) High transmission operating temperature','D) Incorrect oil viscosity — too thin oil causing hydraulic pressure loss'],
+    answer:1,
+    explanation:'<strong>Rough powershift: clutch calibration or pack wear.</strong> Powershift transmissions shift by precisely overlapping clutch packs — one releases as the other engages. If calibration data is off (fill time too short, engagement pressure wrong) or clutch packs are worn thin, the overlap is poor and shifts are abrupt. Electronic transmissions can often be recalibrated via service software.',
+    keyConcept:'Powershift rough shift: clutch pack overlap issue. Check: transmission fluid level and condition, calibration data (fill time, clutch pressure), clutch pack thickness. Calibration corrects most shift quality issues.'
+  },
+  {
+    id:134, topic:'powertrain', topicLabel:'Powertrain', diff:'medium',
+    text:'What is the difference between a "wet disc" brake system and a "dry disc" brake system in heavy equipment?',
+    options:['A) Wet disc brakes are cooled by water; dry disc brakes are air-cooled','B) Wet disc brakes are immersed in oil (providing cooling and lubrication to the friction pack); dry disc brakes operate in air and use conventional friction material','C) Wet disc brakes use hydraulic fluid for actuation; dry disc brakes use air pressure','D) Wet disc brakes are used only in steering; dry disc brakes are used in travel drives'],
+    answer:1,
+    explanation:'<strong>Wet disc (oil-cooled): immersed in oil = better heat capacity, longer life, sealed from contamination.</strong> Heavy equipment final drives and service brakes commonly use oil-cooled wet disc designs. They require special friction-rated transmission fluid — never use regular oil. Dry disc brakes (like automotive disc brakes) are used on some equipment but have shorter life in heavy-duty applications.',
+    keyConcept:'Wet disc brake: immersed in oil, oil-cooled, long life. Requires special friction-compatible fluid — check OEM spec. Dry disc: air environment, conventional friction material. Heavy equipment: mostly wet disc.'
+  },
+  {
+    id:135, topic:'powertrain', topicLabel:'Powertrain', diff:'hard',
+    text:'A machine with a hydrostatic drive system loses tractive effort in both forward and reverse but the engine power appears normal. The MOST likely cause is:',
+    options:['A) Low charge pump pressure causing the hydrostatic loop to cavitate','B) The variable displacement pump swashplate is not responding to operator input — stuck at minimum displacement','C) The travel motor has seized — blocking flow in the circuit','D) Transmission oil temperature is too low, causing high viscosity'],
+    answer:0,
+    explanation:'<strong>Low charge pressure = hydrostatic drive weakness in both directions.</strong> The charge pump maintains circuit pre-charge pressure (typically 200–400 PSI) to prevent cavitation and replenish leakage. If charge pressure is low, the main pump cannot develop full displacement in either direction. Symptoms: weak in both forward and reverse, no fault codes on simpler systems. Check charge pressure with a gauge on the charge port.',
+    keyConcept:'Hydrostatic drive: charge pump maintains circuit pre-charge. Low charge pressure = weak in ALL directions. Test: charge pressure gauge on charge port. Spec typically 200–400 PSI. Low charge: worn charge pump, plugged filter, or circuit leak.'
+  },
+  {
+    id:136, topic:'powertrain', topicLabel:'Powertrain', diff:'hard',
+    text:'A differential lock on a machine is engaged but the machine still gets stuck — one wheel spins while the other has no movement. What has most likely failed?',
+    options:['A) The differential ring gear has broken teeth','B) The differential lock clutch pack has worn out or is not fully engaging — the lock is not effectively coupling both axle shafts','C) The transmission output shaft has broken','D) One axle shaft has snapped — the differential lock cannot compensate for a broken shaft'],
+    answer:1,
+    explanation:'<strong>Diff lock not working = lock clutch worn or not engaging.</strong> The differential lock clutch pack clamps the differential housing to one axle shaft, preventing relative rotation. Worn clutch packs or insufficient locking pressure allow the clutch to slip under load. Also check: diff lock solenoid operation, hydraulic pressure to the lock piston, and clutch pack thickness.',
+    keyConcept:'Differential lock: clutch pack clamps differential case to axle shaft. Worn pack = slips under load. Check: lock solenoid (voltage), hydraulic pressure to lock piston, clutch pack condition. Diff lock does not work if axle shaft is broken.'
+  },
+  {
+    id:137, topic:'powertrain', topicLabel:'Powertrain', diff:'medium',
+    text:'What is the purpose of a "final drive" reduction on heavy equipment?',
+    options:['A) To increase travel speed at the expense of pulling force','B) To reduce the output speed from the transmission and proportionally multiply torque at the drive wheels or sprockets to provide the high pulling force required','C) To disconnect the transmission from the drive wheels during engine braking','D) To filter transmission fluid before it reaches the drive axle'],
+    answer:1,
+    explanation:'<strong>Final drive: last gear reduction = maximum torque at wheels.</strong> Heavy equipment requires enormous ground-level torque that transmissions and torque converters alone cannot produce efficiently. The final drive (planetary gear set inside each wheel hub or sprocket drive) provides the last stage of speed reduction and torque multiplication. Ratio typically 10:1 to 30:1 depending on equipment.',
+    keyConcept:'Final drive: planetary gear reduction at each wheel/sprocket. Multiplies torque, reduces speed. Last mechanical reduction before ground contact. Check: final drive oil level and condition during PMs.'
+  },
+  {
+    id:138, topic:'powertrain', topicLabel:'Powertrain', diff:'easy',
+    text:'When checking transmission fluid level on most heavy equipment transmissions, when should the check be performed for an accurate reading?',
+    options:['A) With the engine off and cold — before starting the machine','B) With the engine running at idle, transmission warm (operating temperature), and selector in Park or Neutral as specified by the OEM','C) After running the machine at full speed for 30 minutes with all functions active','D) With the engine off and fluid at room temperature'],
+    answer:1,
+    explanation:'<strong>Transmission fluid check: warm, engine running, selector in specified position.</strong> Transmission fluid expands significantly with temperature. Cold fluid will read low, causing overfilling. Most OEMs specify checking with the fluid at operating temperature (70–90°C), engine idling, and selector in Neutral or Park. Always follow the specific OEM procedure — some transmissions have multiple check points.',
+    keyConcept:'Transmission fluid check: engine running, warm, selector per OEM spec. Cold fluid reads low — don\'t overfill. Each OEM has specific procedure (some require operating temp check, some have cold and hot ranges).'
+  },
+  {
+    id:139, topic:'powertrain', topicLabel:'Powertrain', diff:'hard',
+    text:'A crawler dozer has an erratic steering response — sometimes pulling left, sometimes right, with no consistent pattern. The operator reports it worsens when the hydraulic fluid is hot. What is the MOST likely cause?',
+    options:['A) Track tension is uneven between left and right sides','B) Worn steering clutch packs with heat-dependent friction coefficient change, or a control valve with internal leakage that worsens with thinner hot oil','C) Engine speed variation causing inconsistent pump output','D) Air contamination in the steering hydraulic circuit'],
+    answer:1,
+    explanation:'<strong>Hot-dependent steering erratic: steering clutch wear or control valve bypass.</strong> As oil gets hot, its viscosity drops. A worn control valve leaks more when oil is thin — causing inconsistent steering clutch pressure. Worn clutch packs have inconsistent friction at different temperatures. Diagnostic: measure clutch pack pressure hot vs. cold, check control valve internal leakage.',
+    keyConcept:'Steering clutch issue: erratic, worse when hot. Check: hydraulic oil type (correct viscosity), control valve leakage (measure hot pressure), clutch pack wear. Hot-dependent symptoms always suggest viscosity-related leakage.'
+  },
+
+  // ── BRAKES & STEERING (140–145) ──
+  {
+    id:140, topic:'brakes', topicLabel:'Brakes & Steering', diff:'easy',
+    text:'What is the function of a load-sensing valve (or load proportioning valve) in a hydraulic brake system on heavy equipment?',
+    options:['A) To increase front brake bias under light loads to improve stopping power','B) To reduce rear brake pressure relative to front when the machine is lightly loaded, preventing rear wheel lockup on slippery ground','C) To bypass the brake booster during emergency stops','D) To maintain constant brake line pressure regardless of load'],
+    answer:1,
+    explanation:'<strong>Load-sensing valve: reduces rear brake pressure when machine is light.</strong> A lightly loaded machine has much less weight on the rear axle. Without a load valve, full brake pressure to the rear could lock rear wheels on soft or slippery ground. The valve senses rear suspension load and proportions pressure accordingly — preventing rear lockup and maintaining steering control.',
+    keyConcept:'Load proportioning valve: reduces rear brake pressure proportional to rear load. Prevents rear lockup on light loads. Location: rear axle or between master cylinder and rear brakes. Test: inspect lever/rod travel.'
+  },
+  {
+    id:141, topic:'brakes', topicLabel:'Brakes & Steering', diff:'medium',
+    text:'A machine experiences brake fade during repeated downhill stops. What is the PRIMARY cause and how should it be addressed?',
+    options:['A) Air in the brake lines — bleed brakes immediately','B) Brake friction material overheating — the friction coefficient drops as temperature rises. Use engine braking (lower gear) on long grades to reduce brake heat buildup.','C) Brake fluid boiling — switch to higher-grade brake fluid','D) Brake disc thickness is below minimum — replace discs'],
+    answer:1,
+    explanation:'<strong>Brake fade: overheated friction material loses coefficient of friction.</strong> Heat is the enemy of brake friction. Repeated stops or prolonged braking on grades overheats pads/linings. Prevention: use engine braking (retarder, lower gear, exhaust brake) on long grades. Solution after fade occurs: allow brakes to cool with light application to allow air cooling. Check pad/disc condition after extreme heat events.',
+    keyConcept:'Brake fade: friction material overheating. Prevent: use engine braking, exhaust brake, or retarder on grades. Never ride brakes downhill. After severe heat: inspect pads, discs for cracks or glazing.'
+  },
+  {
+    id:142, topic:'brakes', topicLabel:'Brakes & Steering', diff:'medium',
+    text:'During a brake inspection, a technician finds the brake disc (rotor) has deep grooves and heat cracks radiating from the center outward. What action should be taken?',
+    options:['A) Apply anti-squeal compound to the rotor surface and reinstall','B) The rotor must be replaced — heat cracks indicate thermal fatigue that can cause catastrophic rotor fracture under load','C) Machine the rotor to remove the grooves if thickness is within spec','D) The cracks are normal from thermal cycling — no action needed'],
+    answer:1,
+    explanation:'<strong>Heat cracks (thermal cracks) on brake discs = replace immediately.</strong> Unlike surface scoring that can be machined, radial heat cracks indicate thermal fatigue. Under heavy braking stress, a cracked rotor can fracture suddenly. This is a safety-critical failure. Grooves can be machined if thickness is within spec, but heat cracks always require replacement.',
+    keyConcept:'Brake disc heat cracks: REPLACE — not machinable. Thermal fatigue = risk of sudden fracture. Grooves: measure thickness, machine if above min spec. Blueing/discoloration: inspect for cracks before machining.'
+  },
+  {
+    id:143, topic:'brakes', topicLabel:'Brakes & Steering', diff:'hard',
+    text:'A heavy equipment machine\'s brake accumulator (for spring-applied, hydraulically-released brakes) does not hold pressure when the engine is shut off — pressure drops to zero within 30 seconds. What is the MOST likely cause?',
+    options:['A) The accumulator nitrogen pre-charge has been lost — the bladder has failed or nitrogen has leaked','B) The brake circuit relief valve is set too low','C) The hydraulic pump output pressure is too high, overcharging the accumulator','D) The brake pedal return spring is fatigued'],
+    answer:0,
+    explanation:'<strong>Accumulator drops pressure rapidly = lost nitrogen pre-charge or failed bladder.</strong> An accumulator relies on nitrogen pressure to maintain stored hydraulic energy. If the bladder fails, fluid contacts the nitrogen chamber directly and nitrogen escapes. Without pre-charge, the accumulator has no energy storage. Test: with system depressurized and engine off, press brake pedal — if pressure drops immediately with first press, the accumulator is not holding charge.',
+    keyConcept:'Spring brake accumulator pressure loss: check nitrogen pre-charge. Bladder failure = nitrogen escapes into oil. Test: key off, count pedal applications before pressure warning light. Should be 3+ applications. Recharge nitrogen to spec or replace accumulator.'
+  },
+  {
+    id:144, topic:'brakes', topicLabel:'Brakes & Steering', diff:'hard',
+    text:'What is "brake torque verification" and when is it performed on heavy equipment with wet disc brakes?',
+    options:['A) A test performed by applying the brakes and measuring brake pedal effort required','B) A dynamometer or stall test performed at the factory after brake overhaul — measured at the wheels to confirm the brake pack produces specified clamping force and torque','C) Measuring disc rotor runout with a dial indicator','D) Verifying brake fluid pressure with a gauge'],
+    answer:1,
+    explanation:'<strong>Brake torque verification: confirms brakes meet minimum stopping torque spec after service.</strong> After wet disc brake servicing, manufacturers often specify a static torque test — apply brakes fully, attempt to drive the machine at low throttle, and verify the engine stalls or the machine does not move. Some use hydraulic test stands. This confirms the friction pack produces adequate clamping force before returning machine to service.',
+    keyConcept:'Brake torque test: post-service check. Apply brakes, apply throttle — machine should not move (or engine stalls). Confirms clutch pack and piston pressure are adequate. Required by OEM after brake overhaul.'
+  },
+  {
+    id:145, topic:'brakes', topicLabel:'Brakes & Steering', diff:'medium',
+    text:'A machine\'s ROPS (Roll-Over Protective Structure) has a visible crack in the main structural tube. What is the correct action?',
+    options:['A) The crack can be welded by a certified welder and returned to service','B) Remove the machine from service immediately — ROPS must be repaired or replaced by the OEM or an OEM-approved facility using certified procedures. Unauthorized welding voids ROPS certification.','C) Apply epoxy to the crack and monitor — light surface cracks are acceptable','D) Only remove from service if the crack is more than 25mm long'],
+    answer:1,
+    explanation:'<strong>Cracked ROPS: take out of service, repair per OEM procedure only.</strong> ROPS is a safety-critical certified structure. Its integrity depends on specific material, weld procedures, and quality control. A cracked ROPS must be repaired by the OEM or a facility with OEM authorization using certified welding procedures. Field welding by unauthorized personnel voids the ROPS certification and creates liability.',
+    keyConcept:'ROPS crack: REMOVE FROM SERVICE. Only OEM or OEM-authorized repair facility can repair/certify. Field welding voids ROPS cert. Document incident if rollover caused the crack. ROPS rating applies to specific machine weight.'
+  },
+
+  // ── SAFETY (146–150) ──
+  {
+    id:146, topic:'safety', topicLabel:'Safety & Tools', diff:'easy',
+    text:'Under Canadian occupational health and safety regulations, what is "WHMIS 2015" and what does it require?',
+    options:['A) Workplace Hazardous Materials Information System — requires that hazardous workplace products have Safety Data Sheets (SDS) and labels, and that workers receive training on the hazards of materials they work with','B) A federal regulation specifying minimum PPE requirements for heavy equipment operators','C) A voluntary certification for chemical safety in automotive shops','D) A transportation regulation for hazardous materials on public roads'],
+    answer:0,
+    explanation:'<strong>WHMIS 2015: Canada\'s hazard communication system.</strong> Aligned with the Globally Harmonized System (GHS), WHMIS 2015 requires: SDS (Safety Data Sheets) for all hazardous products, standardized labels with hazard symbols, and worker training. As a heavy equipment technician, you handle many WHMIS-regulated materials: diesel fuel, hydraulic fluid, engine oil, DEF, brake fluid, refrigerants, and cleaning solvents.',
+    keyConcept:'WHMIS 2015: SDS required for all hazardous products. Labels: product identifier, pictograms, hazard statements. Training required for all workers. SDS has 16 sections including first aid, fire, handling, storage.'
+  },
+  {
+    id:147, topic:'safety', topicLabel:'Safety & Tools', diff:'medium',
+    text:'A technician is preparing to work under a raised machine supported by a hydraulic jack. What is the MINIMUM requirement before working under the machine?',
+    options:['A) Ensure the hydraulic jack is rated for the machine weight and leave the jack in place as the only support','B) Lower the machine onto approved jack stands or blocking of sufficient rated capacity — never work under a machine supported only by a jack, hydraulic or mechanical','C) Chock the wheels and place a warning cone — the hydraulic jack is sufficient support','D) Set the parking brake and work under the machine with the engine running to maintain hydraulic pressure'],
+    answer:1,
+    explanation:'<strong>Never work under a machine supported only by a jack.</strong> Hydraulic jacks can lower slowly (seal leak) or fail suddenly. Mechanical jacks can tip. Approved blocking or jack stands (rated for the weight) must be used as secondary support. Block the machine — never trust a jack alone. This is one of the most fundamental safety rules in heavy equipment maintenance.',
+    keyConcept:'Working under raised machine: ALWAYS use jack stands or solid blocking rated for the weight. Never rely on jack alone. Set parking brake, chock wheels, lower onto stands. LOTO if working on any hydraulic system.'
+  },
+  {
+    id:148, topic:'safety', topicLabel:'Safety & Tools', diff:'medium',
+    text:'When performing a torque wrench calibration check, the technician finds the torque wrench reads 10% low compared to the certified torque tester. What should be done?',
+    options:['A) Add 10% to all torque specifications when using this wrench — the offset is acceptable','B) Remove the torque wrench from service and send it for recalibration or replacement — using an out-of-calibration torque wrench can result in loose or over-tightened critical fasteners','C) Use the wrench for non-critical fasteners only','D) Adjust the torque wrench by loosening the handle end by 10%'],
+    answer:1,
+    explanation:'<strong>Out-of-calibration torque wrench: remove from service.</strong> Torque wrenches should be calibrated at least annually or after being dropped. An offset of ±4% is typically the maximum acceptable tolerance. At 10% error, critical fasteners (cylinder head bolts, wheel hub nuts, connecting rod bolts) may be under-tightened and fail. Send for factory recalibration or replace.',
+    keyConcept:'Torque wrench calibration: check annually or after dropping. Acceptable tolerance: ±4%. Greater than ±4%: remove from service, recalibrate or replace. Critical fasteners torqued wrong = component failure risk.'
+  },
+  {
+    id:149, topic:'safety', topicLabel:'Safety & Tools', diff:'hard',
+    text:'A heavy equipment technician is required to perform confined space entry to inspect the inside of a fuel tank. What is required before entry?',
+    options:['A) Wear a dust mask and have another technician stand outside — no other requirements needed','B) Confined space entry permit, atmospheric testing (oxygen level, explosive gases, toxic gases), ventilation, lockout of all energy sources, attendant outside, rescue plan, and appropriate PPE including supplied air if required','C) Drain the tank completely — no further requirements since the hazard is removed','D) Test with a lit match to confirm no explosive vapours before entry'],
+    answer:1,
+    explanation:'<strong>Confined space entry: full permit-required procedure.</strong> A fuel tank is a permit-required confined space (PRCS) due to potential oxygen deficiency, explosive vapours (LEL), and toxic fumes (benzene, H₂S). Requires: hot work permit or lockout, atmospheric monitoring (O₂: 19.5–23.5%, LEL <10%, toxic gases <PEL), forced ventilation, trained attendant, rescue equipment, and appropriate respirator.',
+    keyConcept:'Confined space (fuel tank): permit required. Atmospheric test: O₂ 19.5–23.5%, LEL <10%, toxics <PEL. NEVER use ignition sources. Attendant outside at all times. Rescue plan before entry. Air-supplied respirator if vapours present.'
+  },
+  {
+    id:150, topic:'safety', topicLabel:'Safety & Tools', diff:'easy',
+    text:'What is the correct procedure for handling a suspected hydraulic injection injury (fluid injected under skin by pinhole leak)?',
+    options:['A) Apply ice and a compression bandage — treat like a normal puncture wound','B) Treat as a medical emergency — go to the emergency room immediately even if the wound looks small. Inform medical staff that hydraulic fluid was injected. Delayed treatment causes tissue necrosis and may require amputation.','C) Clean the wound with water and apply antiseptic — high-pressure fluid is sterile','D) Squeeze the wound to expel the injected fluid, then bandage'],
+    answer:1,
+    explanation:'<strong>Hydraulic injection: medical emergency — go to ER immediately.</strong> The wound may look like a small pin prick. Internally, fluid can track along tissue planes causing massive inflammation, tissue death, and nerve damage. Within hours, the injury can become limb-threatening. Surgeon must identify the fluid type — mineral oil vs. synthetic vs. water-based requires different treatment. Time is critical.',
+    keyConcept:'Hydraulic injection injury: small entry wound = massive internal damage. Immediate ER — tell staff it is hydraulic injection, what fluid type. Do NOT compress wound. Even if pain is mild initially, internal damage is occurring. Delay = possible amputation.'
   }
 ];
 

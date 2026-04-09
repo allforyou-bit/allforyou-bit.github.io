@@ -63,11 +63,11 @@ allforyou-bit.github.io/
 
 | 파일 | 문제 수 | 주제 |
 |------|---------|------|
-| 421a.html | **100문제** | Safety, Engine, Electrical, Hydraulics, Powertrain, Brakes |
-| 310t.html | **60문제** | Air Brakes, Engine, Drivetrain, DOT, Electrical |
-| 309a.html | **50문제** | Theory, CEC Code, Motors, Wiring, Safety |
-| 310s.html | **50문제** | Engine, Brakes, Electrical, Suspension, Transmission |
-| 308a.html | **40문제** | Cycle, Refrigerants, Components, Controls, Troubleshooting |
+| 421a.html | **150문제** | Safety, Engine, Electrical, Hydraulics, Powertrain, Brakes |
+| 310t.html | **100문제** | Air Brakes, Engine, Drivetrain, DOT, Electrical |
+| 309a.html | **80문제** | Theory, CEC Code, Motors, Wiring, Safety |
+| 310s.html | **80문제** | Engine, Brakes, Electrical, Suspension, Transmission |
+| 308a.html | **60문제** | Cycle, Refrigerants, Components, Controls, Troubleshooting |
 
 ---
 
@@ -120,11 +120,11 @@ allforyou-bit.github.io/
 - [x] 전체 20개 페이지 nav/footer 통일 ✅
 
 ### 중간 — 문제 은행 확장
-- [ ] 421A: 100 → 목표 없음 (현재 충분)
-- [ ] 310T: 60 → 80
-- [ ] 309A: 50 → 80
-- [ ] 310S: 50 → 80
-- [ ] 308A: 40 → 60
+- [x] 421A: 100 → 150 ✅
+- [x] 310T: 60 → 100 ✅
+- [x] 309A: 50 → 80 ✅
+- [x] 310S: 50 → 80 ✅
+- [x] 308A: 40 → 60 ✅
 
 ### AdSense 승인 후
 - [ ] 광고 단위 생성 및 플레이스홀더 교체
