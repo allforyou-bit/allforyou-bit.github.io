@@ -66,6 +66,30 @@ header p{font-size:.9rem;opacity:.85}
 .nav-btn:disabled{opacity:.4;cursor:not-allowed}
 footer{background:var(--primary);color:rgba(255,255,255,.75);text-align:center;padding:20px;font-size:.8rem;margin-top:40px}
 footer a{color:var(--accent);margin:0 8px;text-decoration:none}
+  /* ── MOCK EXAM ── */
+  .mock-launch-bar{display:flex;align-items:center;justify-content:space-between;background:#fff8e1;border:2px solid #f0a500;border-radius:10px;padding:12px 18px;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+  .mock-launch-bar p{font-size:.85rem;color:#5d4037;margin:0}
+  .mock-launch-bar strong{color:#b7770d}
+  .btn-mock{background:#f0a500;color:#fff;border:none;border-radius:8px;padding:10px 22px;font-weight:700;font-size:.88rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background .2s}
+  .btn-mock:hover{background:#d4930a}
+  .mock-count-btn{background:#f4f7fb;border:2px solid #dce3ec;border-radius:12px;padding:18px 10px;cursor:pointer;color:#1a3a5c;transition:all .2s;font-family:inherit;width:100%}
+  .mock-count-btn:hover{border-color:#f0a500;background:#fff8e1}
+  .mock-opt{background:#f4f7fb;border:2px solid #dce3ec;border-radius:8px;padding:12px 16px;cursor:pointer;text-align:left;font-family:inherit;font-size:.9rem;color:#2c3e50;transition:all .2s;width:100%;display:block}
+  .mock-opt:hover:not(:disabled){border-color:#2d6a9f;background:#eaf0f9}
+  .mock-opt.mock-c{background:#e8f9ef;border-color:#27ae60;color:#1a6636}
+  .mock-opt.mock-w{background:#fdecea;border-color:#e74c3c;color:#922b21}
+  .mock-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:400;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto}
+  .mock-panel{background:#fff;border-radius:16px;width:100%;max-width:680px;margin:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .mock-head{background:#1a3a5c;border-radius:16px 16px 0 0;padding:16px 20px;display:flex;align-items:center;gap:12px}
+  .mock-bar-wrap{height:5px;background:#dce3ec}
+  .mock-bar-fill{height:100%;background:#f0a500;transition:width .4s}
+  .mock-body{padding:24px}
+  .mock-q-text{font-size:.98rem;font-weight:600;color:#1a3a5c;line-height:1.65;margin-bottom:20px}
+  .mock-feedback{display:none;background:#f4f7fb;border-radius:10px;padding:14px 16px;margin-top:16px;border-left:4px solid #1a3a5c;font-size:.88rem;line-height:1.7}
+  .btn-mock-next{display:none;margin-top:14px;background:#1a3a5c;color:#fff;border:none;padding:13px 24px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.92rem;width:100%}
+  .btn-mock-next:hover{background:#2d6a9f}
+  .update-pill{display:inline-flex;align-items:center;gap:4px;background:#e8f9ef;color:#1a6636;font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:10px;border:1px solid #a9dfbf;margin-left:8px;vertical-align:middle}
+  .rsos-pill{display:inline-flex;align-items:center;gap:4px;background:#eaf0f9;color:#1a3a5c;font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:10px;border:1px solid #afc3dc;margin-left:4px;vertical-align:middle}
 </style>
 </head>
 <body>
@@ -83,6 +107,8 @@ footer a{color:var(--accent);margin:0 8px;text-decoration:none}
   <h1>309A Red Seal — Construction Electrician</h1>
   <p>Free Canada Certification Exam Practice Questions | 2026</p>
   <span class="badge">Canadian Electrical Code (CEC) Based</span>
+  <span class="update-pill">✓ Updated Apr 2026</span>
+  <span class="rsos-pill">2023 RSOS Aligned</span>
 </header>
 <div class="container">
   <div class="ad-banner">Advertisement — Google AdSense</div>
@@ -95,6 +121,12 @@ footer a{color:var(--accent);margin:0 8px;text-decoration:none}
     <div class="score-label">Questions Answered Correctly</div>
     <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
   </div>
+  <!-- MOCK EXAM LAUNCH BAR -->
+  <div class="mock-launch-bar">
+    <p><strong>📋 Mock Exam Mode</strong> — Simulate the real 309A exam with scored results, topic breakdown &amp; pass/fail at 70%</p>
+    <button class="btn-mock" onclick="openMockLaunch()">📋 Take Mock Exam</button>
+  </div>
+
   <div class="topic-tabs">
     <button class="tab-btn active" onclick="switchTopic('all',this)">All Topics</button>
     <button class="tab-btn" onclick="switchTopic('theory',this)">Electrical Theory</button>
@@ -670,6 +702,172 @@ function updateScore(){
   document.getElementById('progressBar').style.background=pct>=70?'#27ae60':pct>=50?'#f0a500':'#e74c3c';
 }
 loadQuestion();
+
+// ==============================
+//  MOCK EXAM MODE
+// ==============================
+const MOCK_PAGE_KEY = '309a';
+const MOCK_PASS = 70;
+let mockQs = [], mockIdx = 0, mockAns = {}, mockStart = 0;
+
+function openMockLaunch() { document.getElementById('mockLaunch').style.display = 'flex'; }
+function closeMockLaunch() { document.getElementById('mockLaunch').style.display = 'none'; }
+function exitMockExam() { if (confirm('Exit mock exam? Progress will be lost.')) { document.getElementById('mockOverlay').style.display = 'none'; document.body.style.overflow = ''; } }
+
+function buildMockQs(n) {
+  const byTopic = {};
+  questions.forEach(q => { if (!byTopic[q.topic]) byTopic[q.topic] = {easy:[],medium:[],hard:[]}; byTopic[q.topic][q.diff].push(q); });
+  const topics = Object.keys(byTopic);
+  const total = questions.length;
+  const alloc = {}; let allocated = 0;
+  topics.forEach((t,i) => {
+    const ts = byTopic[t].easy.length + byTopic[t].medium.length + byTopic[t].hard.length;
+    const share = i === topics.length-1 ? n - allocated : Math.round((ts/total)*n);
+    alloc[t] = Math.max(1, Math.min(share, ts));
+    allocated += alloc[t];
+  });
+  while (allocated > n) { const big = topics.reduce((a,b) => alloc[a]>alloc[b]?a:b); alloc[big]--; allocated--; }
+  while (allocated < n) { const t = topics.find(t => alloc[t] < byTopic[t].easy.length + byTopic[t].medium.length + byTopic[t].hard.length); if (!t) break; alloc[t]++; allocated++; }
+  const sel = [];
+  topics.forEach(t => {
+    const cnt = alloc[t];
+    const eN = Math.round(cnt*0.4), hN = Math.max(0,Math.round(cnt*0.2)), mN = cnt-eN-hN;
+    const e = [...byTopic[t].easy].sort(()=>Math.random()-.5);
+    const m = [...byTopic[t].medium].sort(()=>Math.random()-.5);
+    const h = [...byTopic[t].hard].sort(()=>Math.random()-.5);
+    sel.push(...e.slice(0,eN), ...m.slice(0,mN), ...h.slice(0,hN));
+  });
+  return sel.sort(()=>Math.random()-.5).slice(0,n);
+}
+
+function startMockExam(n) {
+  closeMockLaunch();
+  mockQs = buildMockQs(n); mockIdx = 0; mockAns = {}; mockStart = Date.now();
+  document.getElementById('mockOverlay').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  renderMockQ();
+}
+
+function renderMockQ() {
+  const q = mockQs[mockIdx], total = mockQs.length;
+  document.getElementById('mockProg').textContent = `Question ${mockIdx+1} of ${total}`;
+  document.getElementById('mockBarFill').style.width = (mockIdx/total*100) + '%';
+  document.getElementById('mockTopicBadge').textContent = q.topicLabel;
+  document.getElementById('mockDiffBadge').textContent = q.diff.charAt(0).toUpperCase()+q.diff.slice(1);
+  document.getElementById('mockQText').textContent = q.text;
+  document.getElementById('mockFeedback').style.display = 'none';
+  document.getElementById('mockNextBtn').style.display = 'none';
+  const optsEl = document.getElementById('mockOpts'); optsEl.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'mock-opt'; btn.textContent = opt;
+    btn.onclick = () => answerMockQ(i);
+    optsEl.appendChild(btn);
+  });
+}
+
+function answerMockQ(chosen) {
+  if (mockAns[mockIdx] !== undefined) return;
+  const q = mockQs[mockIdx]; mockAns[mockIdx] = chosen;
+  document.querySelectorAll('.mock-opt').forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.answer) btn.classList.add('mock-c');
+    else if (i === chosen) btn.classList.add('mock-w');
+  });
+  const isOk = chosen === q.answer;
+  const fb = document.getElementById('mockFeedback');
+  fb.style.display = 'block';
+  fb.style.borderLeftColor = isOk ? '#27ae60' : '#e74c3c';
+  fb.innerHTML = `<div style="font-weight:700;color:${isOk?'#27ae60':'#e74c3c'};margin-bottom:8px">${isOk?'✓ Correct!':'✗ Incorrect — Correct: '+q.options[q.answer]}</div>${q.explanation||''}${q.keyConcept?'<div style="margin-top:8px;color:#7f8c8d;font-size:.85rem"><strong>Key Concept:</strong> '+q.keyConcept+'</div>':''}`;
+  const nb = document.getElementById('mockNextBtn'); nb.style.display = 'block';
+  if (mockIdx === mockQs.length - 1) { nb.textContent = 'See My Results →'; nb.onclick = showMockResults; }
+  else { nb.textContent = `Next (${mockIdx+2}/${mockQs.length}) →`; nb.onclick = () => { mockIdx++; renderMockQ(); }; }
+}
+
+function showMockResults() {
+  let correct = 0; const ts = {};
+  mockQs.forEach((q, i) => {
+    if (!ts[q.topicLabel]) ts[q.topicLabel] = {c:0,t:0};
+    ts[q.topicLabel].t++;
+    if (mockAns[i] === q.answer) { correct++; ts[q.topicLabel].c++; }
+  });
+  const total = mockQs.length, pct = Math.round(correct/total*100), passed = pct >= MOCK_PASS;
+  const mins = Math.round((Date.now()-mockStart)/60000);
+  const prev = parseInt(localStorage.getItem('mockBest_'+MOCK_PAGE_KEY)||'0');
+  if (pct > prev) localStorage.setItem('mockBest_'+MOCK_PAGE_KEY, pct);
+  const isNewBest = pct > prev;
+  const wrong = mockQs.filter((_,i) => mockAns[i] !== mockQs[i].answer);
+  const topicRows = Object.entries(ts).map(([label,s]) => {
+    const p = Math.round(s.c/s.t*100), col = p>=70?'#27ae60':p>=50?'#f0a500':'#e74c3c';
+    return `<tr><td style="padding:8px 12px;border-bottom:1px solid #f0f4f9">${label}</td><td style="padding:8px 12px;text-align:center;border-bottom:1px solid #f0f4f9">${s.c}/${s.t}</td><td style="padding:8px 12px;text-align:center;font-weight:700;color:${col};border-bottom:1px solid #f0f4f9">${p}%</td></tr>`;
+  }).join('');
+  const wrongHTML = wrong.length ? `<details style="margin-top:16px"><summary style="cursor:pointer;padding:12px;background:#fdecea;border-radius:8px;font-weight:700;color:#922b21;list-style:none">▼ Review ${wrong.length} Wrong Answer(s)</summary>${wrong.map(q=>{const gi=mockQs.indexOf(q);return`<div style="border-left:3px solid #e74c3c;padding:12px 14px;margin:8px 0;background:#fafafa;border-radius:0 8px 8px 0;font-size:.87rem"><div style="font-weight:600;color:#1a3a5c;margin-bottom:6px">${q.text}</div><div style="color:#27ae60;margin-bottom:2px">✓ ${q.options[q.answer]}</div><div style="color:#e74c3c;margin-bottom:6px">✗ You chose: ${q.options[mockAns[gi]]}</div>${q.keyConcept?'<div style="color:#7f8c8d">'+q.keyConcept+'</div>':''}</div>`;}).join('')}</details>` : `<div style="color:#27ae60;text-align:center;padding:14px;font-weight:700;background:#e8f9ef;border-radius:8px;margin-top:12px">🏆 All answers correct!</div>`;
+  document.getElementById('mockBody').innerHTML = `
+    <div style="text-align:center;padding:24px 16px 16px">
+      <div style="font-size:3.5rem;line-height:1">${passed?'🏆':'📚'}</div>
+      <div style="font-size:3rem;font-weight:800;color:${passed?'#27ae60':'#e74c3c'};line-height:1.1;margin-top:8px">${pct}%</div>
+      <div style="font-size:1.1rem;font-weight:700;color:${passed?'#27ae60':'#e74c3c'};margin:8px 0">${passed?'✓ PASS':'✗ NEEDS IMPROVEMENT'}</div>
+      <div style="color:#7f8c8d;font-size:.88rem">${correct} / ${total} correct &nbsp;·&nbsp; ${mins || '<1'} min</div>
+      ${isNewBest&&pct>0?'<div style="background:#fff8e1;border:1px solid #f0a500;border-radius:8px;padding:8px 14px;margin-top:10px;font-size:.85rem;color:#b7770d">🌟 New Personal Best!</div>':''}
+    </div>
+    <div style="padding:0 16px">
+      <table style="width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:8px">
+        <tr style="background:#f4f7fb"><th style="padding:8px 12px;text-align:left">Topic</th><th style="padding:8px 12px">Score</th><th style="padding:8px 12px">%</th></tr>
+        ${topicRows}
+      </table>
+      ${wrongHTML}
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;padding-bottom:8px">
+        <button onclick="startMockExam(${mockQs.length})" style="background:#f0a500;color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.9rem">Try Again</button>
+        <button onclick="openMockLaunch()" style="background:#1a3a5c;color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.9rem">New Exam</button>
+      </div>
+      <div style="text-align:center;padding-bottom:16px"><button onclick="document.getElementById('mockOverlay').style.display='none';document.body.style.overflow=''" style="background:none;border:none;color:#7f8c8d;cursor:pointer;font-size:.85rem;text-decoration:underline">Back to Practice Mode</button></div>
+    </div>`;
+}
+
+// Auto-launch from URL param (?mock=25)
+(function(){
+  const p = new URLSearchParams(window.location.search).get('mock');
+  if (p) { const n = parseInt(p); if (n > 0) { setTimeout(() => startMockExam(Math.min(n, questions.length)), 600); } }
+})();
 </script>
+
+<!-- MOCK LAUNCH MODAL -->
+<div id="mockLaunch" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:400;align-items:center;justify-content:center;padding:16px">
+  <div style="background:#fff;border-radius:16px;width:100%;max-width:440px;padding:32px 28px;text-align:center">
+    <div style="font-size:2.4rem;margin-bottom:10px">📋</div>
+    <h2 style="color:#1a3a5c;font-size:1.2rem;margin-bottom:8px">309A Mock Exam</h2>
+    <p style="color:#7f8c8d;font-size:.88rem;line-height:1.6;margin-bottom:22px">Questions selected proportionally by topic — matching real 309A RSOS exam weighting.<br><strong style="color:#1a3a5c">Passing score: 70%</strong></p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px">
+      <button class="mock-count-btn" onclick="startMockExam(25)"><div style="font-size:1.6rem;font-weight:800;color:#1a3a5c">25</div><div style="font-size:.75rem;color:#7f8c8d;margin-top:4px">~20 min</div></button>
+      <button class="mock-count-btn" onclick="startMockExam(50)"><div style="font-size:1.6rem;font-weight:800;color:#1a3a5c">50</div><div style="font-size:.75rem;color:#7f8c8d;margin-top:4px">~40 min</div></button>
+      <button class="mock-count-btn" onclick="startMockExam(75)"><div style="font-size:1.6rem;font-weight:800;color:#1a3a5c">75</div><div style="font-size:.75rem;color:#7f8c8d;margin-top:4px">~60 min</div></button>
+    </div>
+    <button onclick="closeMockLaunch()" style="background:none;border:none;color:#7f8c8d;cursor:pointer;font-size:.85rem;text-decoration:underline">Cancel</button>
+  </div>
+</div>
+
+<!-- MOCK EXAM OVERLAY -->
+<div id="mockOverlay" class="mock-overlay">
+  <div class="mock-panel">
+    <div class="mock-head">
+      <div style="flex:1">
+        <div style="font-size:.68rem;letter-spacing:1px;color:rgba(255,255,255,.6);text-transform:uppercase;margin-bottom:2px">Mock Exam · 309A</div>
+        <div id="mockProg" style="font-weight:700;color:#fff;font-size:.95rem">Question 1 of 25</div>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center">
+        <span id="mockTopicBadge" style="background:rgba(255,255,255,.15);color:#fff;font-size:.68rem;padding:3px 9px;border-radius:10px"></span>
+        <span id="mockDiffBadge" style="background:#f0a500;color:#fff;font-size:.68rem;padding:3px 9px;border-radius:10px"></span>
+      </div>
+      <button onclick="exitMockExam()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:.82rem;margin-left:10px">✕ Exit</button>
+    </div>
+    <div class="mock-bar-wrap"><div id="mockBarFill" class="mock-bar-fill" style="width:0%"></div></div>
+    <div id="mockBody" class="mock-body">
+      <div id="mockQText" class="mock-q-text"></div>
+      <div id="mockOpts" style="display:flex;flex-direction:column;gap:10px"></div>
+      <div id="mockFeedback" class="mock-feedback"></div>
+      <button id="mockNextBtn" class="btn-mock-next">Next →</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>

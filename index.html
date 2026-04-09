@@ -115,6 +115,37 @@ nav a:hover{color:#f0a500}
 .how-step h4{color:#1a3a5c;font-size:.95rem;margin-bottom:6px}
 .how-step p{font-size:.82rem;color:#7f8c8d;line-height:1.6}
 
+/* UPDATE BADGE */
+.update-badge{display:inline-flex;align-items:center;gap:3px;background:#e8f9ef;color:#1a6636;font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:10px;border:1px solid #a9dfbf;white-space:nowrap}
+.rsos-badge{display:inline-flex;align-items:center;gap:3px;background:#eaf0f9;color:#1a3a5c;font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:10px;border:1px solid #afc3dc;white-space:nowrap}
+
+/* MOCK EXAM BUTTON */
+.tc-mock-btn{display:inline-flex;align-items:center;gap:5px;background:#eaf0f9;color:#1a3a5c;font-size:.78rem;font-weight:700;padding:7px 14px;border-radius:8px;margin-top:8px;margin-left:6px;cursor:pointer;border:2px solid #dce3ec;transition:all .2s;text-decoration:none}
+.tc-mock-btn:hover{background:#1a3a5c;color:#fff;border-color:#1a3a5c}
+.tc-badges{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
+
+/* BEST SCORES WIDGET */
+.best-scores-box{background:white;border-radius:14px;padding:24px 28px;box-shadow:0 2px 12px rgba(0,0,0,.07);margin-bottom:40px}
+.scores-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:14px}
+.score-tile{background:#f4f7fb;border-radius:10px;padding:14px;text-align:center;position:relative;overflow:hidden}
+.score-tile .st-trade{font-size:.68rem;font-weight:700;color:#7f8c8d;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.score-tile .st-val{font-size:1.7rem;font-weight:800;color:#b0bec5}
+.score-tile .st-label{font-size:.68rem;color:#b0bec5;margin-top:2px}
+.score-tile.has-score .st-val{color:#1a3a5c}
+.score-tile.pass .st-val{color:#27ae60}
+.score-tile.fail .st-val{color:#e74c3c}
+.score-tile .st-bar{height:3px;background:#dce3ec;border-radius:3px;margin-top:8px;overflow:hidden}
+.score-tile .st-fill{height:100%;background:#27ae60;border-radius:3px;transition:width .6s}
+
+/* MOCK EXAM LAUNCH SECTION */
+.mock-feature{background:linear-gradient(135deg,#1a3a5c,#2d6a9f);border-radius:16px;padding:32px;color:white;margin-bottom:40px;position:relative;overflow:hidden}
+.mock-feature::after{content:'📋';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:5rem;opacity:.08}
+.mock-feature h3{font-size:1.2rem;margin-bottom:8px}
+.mock-feature p{opacity:.88;font-size:.9rem;line-height:1.7;max-width:580px;margin-bottom:20px}
+.mock-trade-btns{display:flex;flex-wrap:wrap;gap:10px}
+.mock-trade-btn{background:rgba(255,255,255,.15);color:white;border:2px solid rgba(255,255,255,.25);border-radius:8px;padding:9px 16px;font-size:.82rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s;display:inline-block}
+.mock-trade-btn:hover{background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.5)}
+
 /* STREAK WIDGET */
 .streak-bar{background:linear-gradient(135deg,#f0a500,#e67e22);border-radius:14px;padding:20px 24px;color:white;display:flex;align-items:center;gap:20px;margin-bottom:40px;flex-wrap:wrap}
 .streak-icon{font-size:2.2rem;flex-shrink:0}
@@ -165,16 +196,16 @@ footer a:hover{color:white}
 
 <div class="hero">
   <h1>Pass Your <span>Red Seal Exam</span><br>with Free Practice Questions</h1>
-  <p>Canada's free study hub for skilled trades apprentices. 500+ exam-accurate questions for 5 trades — based on the 2023 Red Seal Occupational Standards.</p>
+  <p>Canada's free exam prep for skilled trades apprentices. 470+ exam-accurate questions across 5 trades + <strong style="color:#f0a500">full Mock Exam mode</strong> with scored results — based on the 2023 RSOS.</p>
   <div class="hero-btns">
-    <a href="/421a.html" class="btn-primary">Start Practicing Now →</a>
-    <a href="/study-guide.html" class="btn-secondary">Study Guide</a>
+    <a href="#mock-exam" class="btn-primary">📋 Take a Free Mock Exam</a>
+    <a href="#trades" class="btn-secondary">Browse by Topic</a>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="n" id="qCount">500+</div><div class="l">Practice Questions</div></div>
+    <div class="hero-stat"><div class="n">470+</div><div class="l">Practice Questions</div></div>
     <div class="hero-stat"><div class="n">5</div><div class="l">Trades Covered</div></div>
-    <div class="hero-stat"><div class="n">Free</div><div class="l">No Sign-Up Needed</div></div>
-    <div class="hero-stat"><div class="n">2026</div><div class="l">Updated for 2023 RSOS</div></div>
+    <div class="hero-stat"><div class="n">70%</div><div class="l">Pass Threshold</div></div>
+    <div class="hero-stat"><div class="n">2026</div><div class="l">Updated · 2023 RSOS</div></div>
   </div>
 </div>
 
@@ -207,7 +238,7 @@ footer a:hover{color:white}
   <div class="ad-banner">Advertisement — Google AdSense</div>
 
   <!-- TRADE CARDS -->
-  <div class="section-title">Choose Your Trade</div>
+  <div class="section-title" id="trades">Choose Your Trade</div>
   <div class="trades-grid">
 
     <a href="/421a.html" class="trade-card">
@@ -217,6 +248,7 @@ footer a:hover{color:white}
         <div class="tc-name">Heavy Equipment Technician</div>
       </div>
       <div class="tc-body">
+        <div class="tc-badges"><span class="update-badge">Updated Apr 2026</span><span class="rsos-badge">2023 RSOS</span></div>
         <div class="tc-desc">Diagnose and repair construction, mining, forestry and agricultural heavy equipment. Hydraulics, diesel engines, electrical, powertrain, and brakes.</div>
         <div class="tc-topics">
           <span class="tc-tag">Hydraulics</span>
@@ -226,9 +258,12 @@ footer a:hover{color:white}
         </div>
         <div class="tc-meta" style="margin-top:14px">
           <span class="tc-qcount">150 Questions</span>
-          <span style="font-size:.75rem;color:#aaa">All Levels</span>
+          <span id="best421a" style="font-size:.75rem;color:#aaa">—</span>
         </div>
-        <span class="tc-start">Start Practice →</span>
+        <div style="display:flex;flex-wrap:wrap;gap:0;margin-top:4px">
+          <span class="tc-start" style="margin-right:0">Practice →</span>
+          <span class="tc-mock-btn" onclick="event.preventDefault();window.location='/421a.html?mock=25'">📋 Mock Exam</span>
+        </div>
       </div>
     </a>
 
@@ -239,6 +274,7 @@ footer a:hover{color:white}
         <div class="tc-name">Truck & Transport Mechanic</div>
       </div>
       <div class="tc-body">
+        <div class="tc-badges"><span class="update-badge">Updated Apr 2026</span><span class="rsos-badge">2023 RSOS</span></div>
         <div class="tc-desc">Service and repair heavy trucks, trailers and transport equipment. Air brakes, diesel engines, electrical systems, and DOT compliance.</div>
         <div class="tc-topics">
           <span class="tc-tag">Air Brakes</span>
@@ -248,9 +284,12 @@ footer a:hover{color:white}
         </div>
         <div class="tc-meta" style="margin-top:14px">
           <span class="tc-qcount">100 Questions</span>
-          <span style="font-size:.75rem;color:#aaa">All Levels</span>
+          <span id="best310t" style="font-size:.75rem;color:#aaa">—</span>
         </div>
-        <span class="tc-start">Start Practice →</span>
+        <div style="display:flex;flex-wrap:wrap;gap:0;margin-top:4px">
+          <span class="tc-start" style="margin-right:0">Practice →</span>
+          <span class="tc-mock-btn" onclick="event.preventDefault();window.location='/310t.html?mock=25'">📋 Mock Exam</span>
+        </div>
       </div>
     </a>
 
@@ -261,6 +300,7 @@ footer a:hover{color:white}
         <div class="tc-name">Construction Electrician</div>
       </div>
       <div class="tc-body">
+        <div class="tc-badges"><span class="update-badge">Updated Apr 2026</span><span class="rsos-badge">2023 RSOS</span></div>
         <div class="tc-desc">Install, maintain and troubleshoot electrical systems in residential, commercial and industrial settings. Canadian Electrical Code, circuits, and safety.</div>
         <div class="tc-topics">
           <span class="tc-tag">CEC Code</span>
@@ -270,9 +310,12 @@ footer a:hover{color:white}
         </div>
         <div class="tc-meta" style="margin-top:14px">
           <span class="tc-qcount">80 Questions</span>
-          <span style="font-size:.75rem;color:#aaa">All Levels</span>
+          <span id="best309a" style="font-size:.75rem;color:#aaa">—</span>
         </div>
-        <span class="tc-start">Start Practice →</span>
+        <div style="display:flex;flex-wrap:wrap;gap:0;margin-top:4px">
+          <span class="tc-start" style="margin-right:0">Practice →</span>
+          <span class="tc-mock-btn" onclick="event.preventDefault();window.location='/309a.html?mock=25'">📋 Mock Exam</span>
+        </div>
       </div>
     </a>
 
@@ -283,6 +326,7 @@ footer a:hover{color:white}
         <div class="tc-name">Automotive Service Technician</div>
       </div>
       <div class="tc-body">
+        <div class="tc-badges"><span class="update-badge">Updated Apr 2026</span><span class="rsos-badge">2023 RSOS</span></div>
         <div class="tc-desc">Diagnose and repair passenger vehicles and light trucks. Engine, transmission, brakes, steering, suspension, and modern ADAS systems.</div>
         <div class="tc-topics">
           <span class="tc-tag">Engine</span>
@@ -292,9 +336,12 @@ footer a:hover{color:white}
         </div>
         <div class="tc-meta" style="margin-top:14px">
           <span class="tc-qcount">80 Questions</span>
-          <span style="font-size:.75rem;color:#aaa">All Levels</span>
+          <span id="best310s" style="font-size:.75rem;color:#aaa">—</span>
         </div>
-        <span class="tc-start">Start Practice →</span>
+        <div style="display:flex;flex-wrap:wrap;gap:0;margin-top:4px">
+          <span class="tc-start" style="margin-right:0">Practice →</span>
+          <span class="tc-mock-btn" onclick="event.preventDefault();window.location='/310s.html?mock=25'">📋 Mock Exam</span>
+        </div>
       </div>
     </a>
 
@@ -305,6 +352,7 @@ footer a:hover{color:white}
         <div class="tc-name">Refrigeration & AC Mechanic</div>
       </div>
       <div class="tc-body">
+        <div class="tc-badges"><span class="update-badge">Updated Apr 2026</span><span class="rsos-badge">2023 RSOS</span></div>
         <div class="tc-desc">Install and service commercial and industrial refrigeration and air conditioning systems. Refrigerants, compressors, controls and troubleshooting.</div>
         <div class="tc-topics">
           <span class="tc-tag">Refrigerants</span>
@@ -314,12 +362,35 @@ footer a:hover{color:white}
         </div>
         <div class="tc-meta" style="margin-top:14px">
           <span class="tc-qcount">60 Questions</span>
-          <span style="font-size:.75rem;color:#aaa">All Levels</span>
+          <span id="best308a" style="font-size:.75rem;color:#aaa">—</span>
         </div>
-        <span class="tc-start">Start Practice →</span>
+        <div style="display:flex;flex-wrap:wrap;gap:0;margin-top:4px">
+          <span class="tc-start" style="margin-right:0">Practice →</span>
+          <span class="tc-mock-btn" onclick="event.preventDefault();window.location='/308a.html?mock=25'">📋 Mock Exam</span>
+        </div>
       </div>
     </a>
 
+  </div>
+
+  <!-- BEST SCORES WIDGET -->
+  <div class="best-scores-box" id="bestScoresSection" style="display:none">
+    <div class="section-title" style="margin-bottom:0">My Best Mock Exam Scores</div>
+    <div class="scores-grid" id="scoresGrid"></div>
+  </div>
+
+  <!-- MOCK EXAM FEATURE SECTION -->
+  <div class="mock-feature" id="mock-exam">
+    <h3>📋 Simulate the Real Red Seal Exam</h3>
+    <p>Choose your trade and question count. Questions are proportionally drawn from each topic — matching real RSOS weighting. Get a full scored result with topic breakdown and pass/fail at 70%.</p>
+    <div class="mock-trade-btns">
+      <a href="/421a.html?mock=25" class="mock-trade-btn">🚜 421A · 25 Questions</a>
+      <a href="/310t.html?mock=25" class="mock-trade-btn">🚛 310T · 25 Questions</a>
+      <a href="/309a.html?mock=25" class="mock-trade-btn">⚡ 309A · 25 Questions</a>
+      <a href="/310s.html?mock=25" class="mock-trade-btn">🔧 310S · 25 Questions</a>
+      <a href="/308a.html?mock=25" class="mock-trade-btn">❄️ 308A · 25 Questions</a>
+    </div>
+    <div style="margin-top:14px;font-size:.8rem;opacity:.7">Also available: 50-question and 100-question exams — start on any trade page</div>
   </div>
 
   <!-- HOW IT WORKS -->
@@ -582,9 +653,44 @@ function updateStreakUI() {
   }
 }
 
+// ===== BEST SCORES WIDGET =====
+function loadBestScores() {
+  const trades = [
+    {key:'421a', label:'421A Heavy Equipment', elId:'best421a'},
+    {key:'310t', label:'310T Truck & Transport', elId:'best310t'},
+    {key:'309a', label:'309A Electrician', elId:'best309a'},
+    {key:'310s', label:'310S Automotive', elId:'best310s'},
+    {key:'308a', label:'308A HVAC', elId:'best308a'}
+  ];
+  let anyScore = false;
+  const grid = document.getElementById('scoresGrid');
+  if (grid) grid.innerHTML = '';
+  trades.forEach(t => {
+    const score = localStorage.getItem('mockBest_' + t.key);
+    // Update trade card mini score
+    const el = document.getElementById(t.elId);
+    if (el && score) { el.textContent = 'Best: ' + score + '%'; el.style.color = parseInt(score) >= 70 ? '#27ae60' : '#e74c3c'; el.style.fontWeight = '700'; }
+    // Build best scores grid tile
+    if (grid) {
+      const tile = document.createElement('div');
+      const pct = score ? parseInt(score) : null;
+      tile.className = 'score-tile' + (pct !== null ? (pct >= 70 ? ' has-score pass' : ' has-score fail') : '');
+      tile.innerHTML = `<div class="st-trade">${t.label}</div>
+        <div class="st-val">${pct !== null ? pct + '%' : '—'}</div>
+        <div class="st-label">${pct !== null ? (pct >= 70 ? 'PASS ✓' : 'Keep practicing') : 'Not taken'}</div>
+        ${pct !== null ? '<div class="st-bar"><div class="st-fill" style="width:' + pct + '%;background:' + (pct >= 70 ? '#27ae60' : '#e74c3c') + '"></div></div>' : ''}`;
+      if (grid) grid.appendChild(tile);
+      if (pct !== null) anyScore = true;
+    }
+  });
+  const section = document.getElementById('bestScoresSection');
+  if (section) section.style.display = anyScore ? 'block' : 'none';
+}
+
 // ===== INIT =====
 loadChallenge();
 updateStreakUI();
+loadBestScores();
 </script>
 </body>
 </html>
