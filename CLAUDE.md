@@ -28,11 +28,11 @@
 ```
 allforyou-bit.github.io/
 ├── index.html               ← 메인 홈페이지 (5개 trade 카드 + 8개 article 카드)
-├── 421a.html                ← 421A 퀴즈 (150문제) ✅
-├── 310t.html                ← 310T 퀴즈 (100문제) ✅
-├── 309a.html                ← 309A 퀴즈 (80문제) ✅
-├── 310s.html                ← 310S 퀴즈 (80문제) ✅
-├── 308a.html                ← 308A 퀴즈 (60문제) ✅
+├── 421a.html                ← 421A 퀴즈 (200문제) ✅
+├── 310t.html                ← 310T 퀴즈 (150문제) ✅
+├── 309a.html                ← 309A 퀴즈 (120문제) ✅
+├── 310s.html                ← 310S 퀴즈 (120문제) ✅
+├── 308a.html                ← 308A 퀴즈 (100문제) ✅
 ├── exam-guide.html          ← 시험 등록 가이드 (1,500단어+, FAQ Schema) ✅
 ├── study-guide.html         ← 학습 가이드
 ├── about.html               ← 소개 페이지 (저자 바이오, E-E-A-T) ✅
@@ -64,11 +64,11 @@ allforyou-bit.github.io/
 
 | 파일 | 문제 수 | 주제 |
 |------|---------|------|
-| 421a.html | **150문제** | Safety, Engine, Electrical, Hydraulics, Powertrain, Brakes |
-| 310t.html | **100문제** | Air Brakes, Engine, Drivetrain, DOT, Electrical |
-| 309a.html | **80문제** | Theory, CEC Code, Motors, Wiring, Safety |
-| 310s.html | **80문제** | Engine, Brakes, Electrical, Suspension, Transmission |
-| 308a.html | **60문제** | Cycle, Refrigerants, Components, Controls, Troubleshooting |
+| 421a.html | **200문제** | Safety, Engine, Electrical, Hydraulics, Powertrain, Brakes |
+| 310t.html | **150문제** | Air Brakes, Engine, Drivetrain, DOT, Electrical |
+| 309a.html | **120문제** | Theory, CEC Code, Motors, Wiring, Safety |
+| 310s.html | **120문제** | Engine, Brakes, Electrical, Suspension, Transmission |
+| 308a.html | **100문제** | Cycle, Refrigerants, Components, Controls, Troubleshooting |
 
 ---
 
