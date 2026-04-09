@@ -710,6 +710,7 @@ function showMockResults() {
       </div>
       <div style="text-align:center;padding-bottom:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <button onclick="shareMockScore(${pct},${total},'308A')" style="background:#27ae60;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.85rem">📢 Share Score</button>
+        <button onclick="downloadMockResults(${pct},${total},${correct},'308A')" style="background:#2d6a9f;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.85rem">⬇ Download Results</button>
         <button onclick="clearInterval(mockTimer);document.getElementById('mockOverlay').style.display='none';document.body.style.overflow=''" style="background:none;border:none;color:#7f8c8d;cursor:pointer;font-size:.85rem;text-decoration:underline">Back to Practice Mode</button>
       </div>
     </div>`;
@@ -737,6 +738,7 @@ function selectAnswer(idx,q){const wa=answered;_origSelectAnswer(idx,q);if(!wa&&
 let mockTimer=null;
 function startMockTimer(n){clearInterval(mockTimer);let secs=Math.min(n*90,10800);function tick(){const el=document.getElementById('mockTimerEl');if(!el)return;const m=Math.floor(secs/60),s=secs%60;el.textContent=`⏱ ${m}:${s.toString().padStart(2,'0')}`;el.style.background=secs<=300?'rgba(231,76,60,.5)':'rgba(255,255,255,.12)';if(secs<=0){clearInterval(mockTimer);showMockResults();}secs--;}tick();mockTimer=setInterval(tick,1000);}
 function shareMockScore(pct,total,name){const txt=`I scored ${pct}% on the ${name} Red Seal mock exam (${total} questions)! Free practice at allforyou-bit.github.io`;if(navigator.share){navigator.share({title:'Red Seal Exam Score',text:txt}).catch(()=>{});}else{navigator.clipboard.writeText(txt).then(()=>alert('Score copied! Share it with your study group.')).catch(()=>alert(txt));}}
+function downloadMockResults(pct,total,correct,name){const date=new Date().toLocaleDateString('en-CA');let txt=`RED SEAL ${name} MOCK EXAM RESULTS\nDate: ${date}  |  Score: ${pct}%  (${correct}/${total})  |  ${pct>=70?'PASS':'NEEDS IMPROVEMENT'}\n`+'='.repeat(60)+'\n\n';mockQs.forEach((q,i)=>{const ua=mockAns[i],ok=ua===q.answer;txt+=`Q${i+1}. [${ok?'CORRECT':'WRONG  '}] ${q.text}\n`;q.options.forEach((opt,j)=>{txt+=`   ${j===q.answer?'> ':(j===ua&&!ok?'X ':'  ')}${opt}\n`;});if(!ok&&q.explanation)txt+=`   Explanation: ${q.explanation}\n`;if(!ok&&q.keyConcept)txt+=`   Key Concept: ${q.keyConcept}\n`;txt+='\n';});txt+='\nDownloaded from allforyou-bit.github.io | Free Red Seal Exam Practice';const blob=new Blob([txt],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`RedSeal-${name}-Results-${date}.txt`;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);}
 </script>
 
 <!-- COOKIE CONSENT -->
