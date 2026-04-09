@@ -222,6 +222,7 @@
     font-size: 0.84rem;
   }
   .key-concept strong { color: #c07a00; }
+  @keyframes streakPop { 0%{transform:scale(.8);opacity:.6} 60%{transform:scale(1.12)} 100%{transform:scale(1);opacity:1} }
 
   /* NAVIGATION */
   .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
@@ -370,6 +371,7 @@
     <div style="margin-top:8px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
       <span id="streakCount" style="display:none;background:#fff3e0;color:#e65100;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px">🔥 1-day streak</span>
       <span id="todayCount" style="display:none;background:#e8f9ef;color:#1e8449;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px">✓ 0 correct today</span>
+      <span id="inRowStreak" style="display:none;background:linear-gradient(135deg,#ff6b35,#f0a500);color:#fff;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px;box-shadow:0 2px 8px rgba(240,165,0,.35)">🔥 3 in a row!</span>
     </div>
   </div>
 
@@ -2147,6 +2149,7 @@ let answered     = false;
 let totalCorrect = 0;
 let totalAnswered = 0;
 let filteredQs   = [];
+let correctStreak = 0;
 
 function getFiltered() {
   return questions.filter(q =>
@@ -2226,8 +2229,9 @@ function selectAnswer(idx, q) {
     else if (i === idx && i !== q.answer) { btn.classList.add('wrong'); }
   });
 
-  if (idx === q.answer) totalCorrect++;
+  if (idx === q.answer) { totalCorrect++; correctStreak++; } else { correctStreak = 0; }
   updateScore();
+  updateStreakBadge();
 
   const expBox = document.getElementById('explanationBox');
   expBox.innerHTML = `
@@ -2250,6 +2254,23 @@ function updateScore() {
   document.getElementById('progressBar').style.width = pct + '%';
   document.getElementById('progressBar').style.background =
     pct >= 70 ? '#27ae60' : pct >= 50 ? '#f0a500' : '#e74c3c';
+}
+
+function updateStreakBadge() {
+  const el = document.getElementById('inRowStreak');
+  if (!el) return;
+  if (correctStreak >= 3) {
+    const msg = correctStreak >= 10 ? `🔥 ${correctStreak} in a row! On fire!` :
+                correctStreak >= 5  ? `🔥 ${correctStreak} in a row! Great work!` :
+                                      `🔥 ${correctStreak} correct in a row!`;
+    el.textContent = msg;
+    el.style.display = 'inline-block';
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = 'streakPop .35s ease';
+  } else {
+    el.style.display = 'none';
+  }
 }
 
 // Init

@@ -68,6 +68,7 @@ header p{font-size:.9rem;opacity:.85}
 .explanation.show{display:block}
 .key-concept{background:#fff8e1;border:1px solid #f9c74f;border-radius:6px;padding:10px 14px;margin-top:10px;font-size:.84rem}
 .key-concept strong{color:#c07a00}
+@keyframes streakPop{0%{transform:scale(.8);opacity:.6}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
 .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
 .nav-btn{padding:10px 22px;border-radius:8px;border:none;font-size:.88rem;font-weight:700;cursor:pointer}
 .nav-btn.next{background:var(--primary);color:white}
@@ -135,6 +136,7 @@ footer a{color:var(--accent);margin:0 8px;text-decoration:none}
     <div style="margin-top:8px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
       <span id="streakCount" style="display:none;background:#fff3e0;color:#e65100;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px">🔥 1-day streak</span>
       <span id="todayCount" style="display:none;background:#e8f9ef;color:#1e8449;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px">✓ 0 correct today</span>
+      <span id="inRowStreak" style="display:none;background:linear-gradient(135deg,#ff6b35,#f0a500);color:#fff;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px;box-shadow:0 2px 8px rgba(240,165,0,.35)">🔥 3 in a row!</span>
     </div>
   </div>
   <!-- MOCK EXAM LAUNCH BAR -->
@@ -1023,7 +1025,7 @@ const questions=[
    explanation:'<strong>DCT low-speed jerk: clutch engagement adaptation values out of range from clutch wear or after clutch/TCM replacement.</strong> Dual-clutch transmissions learn clutch engagement points through adaptive control. Over time, clutch wear changes the engagement point. The TCM compensates via adaptive values. When wear exceeds the adaptation range, jerky or hesitant low-speed behaviour results. Adaptation reset (scan tool) allows the TCM to relearn. If adaptation reset does not resolve: clutch wear beyond service limit — clutch replacement needed.',
    keyConcept:'DCT (Dual-Clutch Transmission): two clutches (one for odd gears, one for even gears). Pre-selects next gear while current gear is engaged — fast shifts. Low-speed issue: wet DCT (fluid-cooled) vs dry DCT (air-cooled, more prone to low-speed issues). Adaptation/learning: TCM learns clutch engagement point (bite point). After clutch service or TCM replacement: adaptation reset required. Dry DCT: limited to smaller engines, not ideal for heavy city traffic (overheating). Wet DCT: handles more torque, better for city driving.'}
 ];
-let currentTopic='all',currentDiff='easy',currentIdx=0,answered=false,totalCorrect=0,totalAnswered=0,filteredQs=[];
+let currentTopic='all',currentDiff='easy',currentIdx=0,answered=false,totalCorrect=0,totalAnswered=0,filteredQs=[],correctStreak=0;
 function getFiltered(){return questions.filter(q=>(currentTopic==='all'||q.topic===currentTopic)&&(currentDiff==='all'||q.diff===currentDiff))}
 function switchTopic(t,btn){currentTopic=t;currentIdx=0;document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');loadQuestion()}
 function setDiff(d,btn){currentDiff=d;currentIdx=0;document.querySelectorAll('.diff-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');loadQuestion()}
@@ -1044,7 +1046,7 @@ function loadQuestion(){
 function selectAnswer(idx,q){
   if(answered)return;answered=true;totalAnswered++;
   document.querySelectorAll('.option-btn').forEach((btn,i)=>{btn.disabled=true;if(i===q.answer)btn.classList.add('correct');else if(i===idx&&i!==q.answer)btn.classList.add('wrong')});
-  if(idx===q.answer)totalCorrect++;updateScore();
+  if(idx===q.answer){totalCorrect++;correctStreak++;}else{correctStreak=0;}updateScore();updateStreakBadge();
   const exp=document.getElementById('explanationBox');
   exp.innerHTML=`<strong>${idx===q.answer?'✅ Correct!':'❌ Incorrect — Correct: '+['A','B','C','D'][q.answer]}</strong><br><br>${q.explanation}${q.keyConcept?`<div class="key-concept"><strong>💡 Key Concept:</strong> ${q.keyConcept}</div>`:''}`;
   exp.classList.add('show');document.getElementById('nextBtn').disabled=false;
@@ -1055,6 +1057,10 @@ function updateScore(){
   document.getElementById('scoreDisplay').textContent=`${totalCorrect} / ${totalAnswered}`;
   document.getElementById('progressBar').style.width=pct+'%';
   document.getElementById('progressBar').style.background=pct>=70?'#27ae60':pct>=50?'#f0a500':'#e74c3c';
+}
+function updateStreakBadge(){
+  const el=document.getElementById('inRowStreak');if(!el)return;
+  if(correctStreak>=3){const msg=correctStreak>=10?`🔥 ${correctStreak} in a row! On fire!`:correctStreak>=5?`🔥 ${correctStreak} in a row! Great work!`:`🔥 ${correctStreak} correct in a row!`;el.textContent=msg;el.style.display='inline-block';el.style.animation='none';void el.offsetWidth;el.style.animation='streakPop .35s ease';}else{el.style.display='none';}
 }
 loadQuestion();
 
