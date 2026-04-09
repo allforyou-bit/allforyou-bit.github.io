@@ -692,5 +692,12 @@ loadChallenge();
 updateStreakUI();
 loadBestScores();
 </script>
+
+<!-- COOKIE CONSENT -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a3a5c;color:#fff;padding:14px 20px;z-index:9999;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem">
+  <span>We use cookies including Google AdSense to improve your experience and display relevant ads. <a href="/privacy.html" style="color:#f0a500">Privacy Policy</a></span>
+  <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookieOk','1')" style="background:#f0a500;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:700;cursor:pointer;white-space:nowrap">Got it ✓</button>
+</div>
+<script>if(!localStorage.getItem('cookieOk')){const b=document.getElementById('cookieBanner');if(b)b.style.display='flex';}</script>
 </body>
 </html>

@@ -359,6 +359,10 @@
     <div class="score-num" id="scoreDisplay">0 / 0</div>
     <div class="score-label">Questions Answered Correctly</div>
     <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+    <div style="margin-top:8px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+      <span id="streakCount" style="display:none;background:#fff3e0;color:#e65100;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px">🔥 1-day streak</span>
+      <span id="todayCount" style="display:none;background:#e8f9ef;color:#1e8449;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px">✓ 0 correct today</span>
+    </div>
   </div>
 
   <!-- MOCK EXAM LAUNCH BAR -->
@@ -427,6 +431,16 @@
   <div class="ad-banner">
     📢 Advertisement — Google AdSense Rectangle (336x280)<br>
     <small>Place your &lt;ins class="adsbygoogle"&gt; tag here</small>
+  </div>
+
+  <!-- RELATED GUIDES -->
+  <div style="background:#fff;border-radius:12px;padding:22px;box-shadow:0 2px 10px rgba(0,0,0,.07);margin:24px 0">
+    <h3 style="color:#1a3a5c;font-size:1.05rem;margin-bottom:14px">📚 Related Study Guides</h3>
+    <div style="display:grid;gap:10px">
+      <a href="/how-to-become-heavy-equipment-technician-canada.html" style="display:block;background:#f4f7fb;border-radius:8px;padding:12px 16px;text-decoration:none;color:#1a3a5c;border-left:4px solid #f0a500;font-size:.9rem;font-weight:600">How to Become a Heavy Equipment Technician in Canada →</a>
+      <a href="/red-seal-421a-exam-tips.html" style="display:block;background:#f4f7fb;border-radius:8px;padding:12px 16px;text-decoration:none;color:#1a3a5c;border-left:4px solid #f0a500;font-size:.9rem;font-weight:600">7 Proven Tips to Pass the Red Seal 421A Exam →</a>
+      <a href="/heavy-equipment-technician-salary-canada.html" style="display:block;background:#f4f7fb;border-radius:8px;padding:12px 16px;text-decoration:none;color:#1a3a5c;border-left:4px solid #f0a500;font-size:.9rem;font-weight:600">Heavy Equipment Technician Salary Canada 2026 →</a>
+    </div>
   </div>
 
 </div>
@@ -1815,7 +1829,7 @@ let mockQs = [], mockIdx = 0, mockAns = {}, mockStart = 0;
 
 function openMockLaunch() { document.getElementById('mockLaunch').style.display = 'flex'; }
 function closeMockLaunch() { document.getElementById('mockLaunch').style.display = 'none'; }
-function exitMockExam() { if (confirm('Exit mock exam? Progress will be lost.')) { document.getElementById('mockOverlay').style.display = 'none'; document.body.style.overflow = ''; } }
+function exitMockExam() { if (confirm('Exit mock exam? Progress will be lost.')) { clearInterval(mockTimer); document.getElementById('mockOverlay').style.display = 'none'; document.body.style.overflow = ''; } }
 
 function buildMockQs(n) {
   const byTopic = {};
@@ -1848,6 +1862,7 @@ function startMockExam(n) {
   mockQs = buildMockQs(n); mockIdx = 0; mockAns = {}; mockStart = Date.now();
   document.getElementById('mockOverlay').style.display = 'flex';
   document.body.style.overflow = 'hidden';
+  if(typeof startMockTimer==='function') startMockTimer(n);
   renderMockQ();
 }
 
@@ -1923,7 +1938,10 @@ function showMockResults() {
         <button onclick="startMockExam(${total})" style="background:#f0a500;color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.9rem">Try Again</button>
         <button onclick="openMockLaunch()" style="background:#1a3a5c;color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.9rem">New Exam</button>
       </div>
-      <div style="text-align:center;padding-bottom:16px"><button onclick="document.getElementById('mockOverlay').style.display='none';document.body.style.overflow=''" style="background:none;border:none;color:#7f8c8d;cursor:pointer;font-size:.85rem;text-decoration:underline">Back to Practice Mode</button></div>
+      <div style="text-align:center;padding-bottom:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button onclick="shareMockScore(${pct},${total},'421A')" style="background:#27ae60;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.85rem">📢 Share Score</button>
+        <button onclick="clearInterval(mockTimer);document.getElementById('mockOverlay').style.display='none';document.body.style.overflow=''" style="background:none;border:none;color:#7f8c8d;cursor:pointer;font-size:.85rem;text-decoration:underline">Back to Practice Mode</button>
+      </div>
     </div>`;
 }
 
@@ -1932,7 +1950,67 @@ function showMockResults() {
   const p = new URLSearchParams(window.location.search).get('mock');
   if (p) { const n = parseInt(p); if (n > 0) { setTimeout(() => startMockExam(Math.min(n, questions.length)), 600); } }
 })();
+
+// ── STUDY STREAK ──
+(function(){
+  const today = new Date().toDateString();
+  const prev = localStorage.getItem('streakDate');
+  const yesterday = new Date(Date.now()-86400000).toDateString();
+  let streak = parseInt(localStorage.getItem('studyStreak')||'0');
+  if(prev===today){/* same day */}
+  else if(prev===yesterday){streak++;localStorage.setItem('studyStreak',streak);localStorage.setItem('streakDate',today);}
+  else{streak=1;localStorage.setItem('studyStreak',streak);localStorage.setItem('streakDate',today);}
+  const el=document.getElementById('streakCount');
+  if(el&&streak>=1){el.textContent=`🔥 ${streak}-day streak`;el.style.display='inline-block';}
+  // Restore today's correct count
+  const tc=parseInt(localStorage.getItem('todayCorrect_421a')||'0');
+  const tDate=localStorage.getItem('todayDate_421a');
+  if(tDate===today&&tc>0){const te=document.getElementById('todayCount');if(te){te.textContent=`✓ ${tc} correct today`;te.style.display='inline-block';}}
+})();
+
+// Track today's correct answers (hook into selectAnswer)
+const _origSelectAnswer = selectAnswer;
+function selectAnswer(idx, q) {
+  const wasAnswered = answered;
+  _origSelectAnswer(idx, q);
+  if(!wasAnswered && idx===q.answer){
+    const today=new Date().toDateString();
+    const tc=parseInt(localStorage.getItem('todayCorrect_421a')||'0')+1;
+    localStorage.setItem('todayCorrect_421a',tc);localStorage.setItem('todayDate_421a',today);
+    const te=document.getElementById('todayCount');if(te){te.textContent=`✓ ${tc} correct today`;te.style.display='inline-block';}
+  }
+}
+
+// ── MOCK EXAM TIMER ──
+let mockTimer = null;
+function startMockTimer(n){
+  clearInterval(mockTimer);
+  let secs = Math.min(n*90, 10800);
+  function tick(){
+    const el=document.getElementById('mockTimerEl');if(!el)return;
+    const m=Math.floor(secs/60),s=secs%60;
+    el.textContent=`⏱ ${m}:${s.toString().padStart(2,'0')}`;
+    el.style.background=secs<=300?'rgba(231,76,60,.5)':'rgba(255,255,255,.12)';
+    if(secs<=0){clearInterval(mockTimer);showMockResults();}
+    secs--;
+  }
+  tick();mockTimer=setInterval(tick,1000);
+}
+
+// ── SHARE SCORE ──
+function shareMockScore(pct,total,name){
+  const txt=`I scored ${pct}% on the ${name} Red Seal mock exam (${total} questions)! Free practice at allforyou-bit.github.io`;
+  if(navigator.share){navigator.share({title:'Red Seal Exam Score',text:txt}).catch(()=>{});}
+  else{navigator.clipboard.writeText(txt).then(()=>alert('Score copied! Share it with your study group.')).catch(()=>alert(txt));}
+}
 </script>
+
+<!-- COOKIE CONSENT -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a3a5c;color:#fff;padding:14px 20px;z-index:9999;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem">
+  <span>We use cookies including Google AdSense to improve your experience and display relevant ads. <a href="/privacy.html" style="color:#f0a500">Privacy Policy</a></span>
+  <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookieOk','1')" style="background:#f0a500;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:700;cursor:pointer;white-space:nowrap">Got it ✓</button>
+</div>
+<script>if(!localStorage.getItem('cookieOk')){const b=document.getElementById('cookieBanner');if(b)b.style.display='flex';}</script>
 
 <!-- MOCK LAUNCH MODAL -->
 <div id="mockLaunch" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:400;align-items:center;justify-content:center;padding:16px">
@@ -1961,7 +2039,8 @@ function showMockResults() {
         <span id="mockTopicBadge" style="background:rgba(255,255,255,.15);color:#fff;font-size:.68rem;padding:3px 9px;border-radius:10px"></span>
         <span id="mockDiffBadge" style="background:#f0a500;color:#fff;font-size:.68rem;padding:3px 9px;border-radius:10px"></span>
       </div>
-      <button onclick="exitMockExam()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:.82rem;margin-left:10px">✕ Exit</button>
+      <span id="mockTimerEl" style="color:#fff;font-size:.75rem;padding:4px 10px;border-radius:10px;font-weight:700;font-family:monospace;background:rgba(255,255,255,.12);margin-left:6px">⏱ --:--</span>
+      <button onclick="exitMockExam()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:.82rem;margin-left:6px">✕ Exit</button>
     </div>
     <div class="mock-bar-wrap"><div id="mockBarFill" class="mock-bar-fill" style="width:0%"></div></div>
     <div id="mockBody" class="mock-body">
