@@ -48,9 +48,9 @@
   :root { --primary:#1a3a5c; --accent:#f0a500; --green:#27ae60; --light:#f4f7fb; --card:#fff; --text:#2c3e50; --muted:#7f8c8d; --border:#dce3ec; }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:'Segoe UI',Arial,sans-serif; background:var(--light); color:var(--text); }
-  .site-nav { background:#1a3a5c; padding:14px 24px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
-  .site-nav a { color:white; text-decoration:none; font-weight:600; font-size:.88rem; }
-  .site-nav a:hover, .site-nav a.active { color:#f0a500; }
+  .site-nav{background:#1a3a5c;padding:0 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18);min-height:52px}
+  .site-nav a{color:white;text-decoration:none;font-weight:600;font-size:.88rem;padding:16px 0;display:inline-block}
+  .site-nav a:hover,.site-nav a.active{color:#f0a500}
   header { background:var(--primary); color:white; padding:28px 20px 22px; text-align:center; }
   header h1 { font-size:1.65rem; font-weight:700; margin-bottom:8px; }
   header p { font-size:.92rem; opacity:.85; }

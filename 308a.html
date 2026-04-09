@@ -22,9 +22,9 @@
 :root{--primary:#1a3a5c;--accent:#f0a500;--green:#27ae60;--red:#e74c3c;--light:#f4f7fb;--card:#fff;--text:#2c3e50;--muted:#7f8c8d;--border:#dce3ec}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',Arial,sans-serif;background:var(--light);color:var(--text)}
-nav{background:var(--primary);padding:14px 24px;display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-weight:600;font-size:0.88rem}
-nav a:hover{color:var(--accent)}
+nav{background:#1a3a5c;padding:0 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18);min-height:52px}
+nav a{color:white;text-decoration:none;font-weight:600;font-size:.88rem;padding:16px 0;display:inline-block}
+nav a:hover,nav a.active{color:#f0a500}
 header{background:linear-gradient(135deg,#1a3a5c,#2980b9);color:white;padding:30px 20px;text-align:center}
 header h1{font-size:1.5rem;margin-bottom:6px}
 header p{font-size:.9rem;opacity:.85}
@@ -109,8 +109,8 @@ footer a{color:var(--accent);margin:0 8px;text-decoration:none}
   <a href="/309a.html">309A – Electrician</a>
   <a href="/310s.html">310S – Automotive</a>
   <a href="/308a.html">308A – HVAC</a>
-  <a href="/study-guide.html">Study Guide</a>
   <a href="/exam-guide.html">Exam Guide</a>
+  <a href="/study-guide.html">Study Guide</a>
   <a href="/contact.html">Contact</a>
 </nav>
 <header>
