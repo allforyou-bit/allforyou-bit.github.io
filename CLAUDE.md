@@ -24,11 +24,11 @@
 
 ---
 
-## 현재 파일 구조 (총 31개 HTML)
+## 현재 파일 구조 (총 34개 HTML)
 
 ```
 allforyou-bit.github.io/
-├── index.html               ← 메인 홈페이지 (5개 trade 카드 + 16개 article 카드, 770+ 표기)
+├── index.html               ← 메인 홈페이지 (5개 trade 카드 + 20개 article 카드, 770+ 표기)
 ├── 421a.html                ← 421A 퀴즈 (220문제) ✅ FAQ Schema ✅
 ├── 310t.html                ← 310T 퀴즈 (165문제) ✅ FAQ Schema ✅
 ├── 309a.html                ← 309A 퀴즈 (135문제) ✅ FAQ Schema ✅
@@ -43,7 +43,7 @@ allforyou-bit.github.io/
 ├── disclaimer.html          ← 면책조항 ✅
 ├── 404.html                 ← 커스텀 404 페이지 ✅
 ├── ads.txt                  ← AdSense 소유권 인증
-├── sitemap.xml              ← 31개 URL
+├── sitemap.xml              ← 34개 URL
 ├── robots.txt               ← 검색엔진 설정
 ├── favicon.svg              ← RS 로고
 ├── .gitignore               ← .claude/settings.local.json 제외
@@ -64,12 +64,17 @@ allforyou-bit.github.io/
 │   ├── how-to-pass-red-seal-310s-exam.html
 │   └── how-to-pass-red-seal-308a-exam.html
 │
-└── [급여 가이드 기사 - 5개] ✅ (모두 FAQ Schema)
-    ├── heavy-equipment-technician-salary-canada.html
-    ├── truck-transport-mechanic-310t-salary-canada.html
-    ├── construction-electrician-309a-salary-canada.html
-    ├── automotive-service-technician-310s-salary-canada.html
-    └── hvac-refrigeration-mechanic-308a-salary-canada.html
+├── [급여 가이드 기사 - 5개] ✅ (모두 FAQ Schema)
+│   ├── heavy-equipment-technician-salary-canada.html
+│   ├── truck-transport-mechanic-310t-salary-canada.html
+│   ├── construction-electrician-309a-salary-canada.html
+│   ├── automotive-service-technician-310s-salary-canada.html
+│   └── hvac-refrigeration-mechanic-308a-salary-canada.html
+│
+└── [트래픽 기사 - 3개] ✅ (모두 FAQ Schema + BreadcrumbList + HowTo Schema)
+    ├── red-seal-exam-format-guide.html       ← 시험 형식 완전 가이드 (120~135문제, 시간, CBT)
+    ├── trades-in-demand-canada-2026.html     ← 캐나다 수요 직종 10개 + 급여 데이터
+    └── how-long-red-seal-apprenticeship-canada.html  ← 어프렌티스십 기간 (5개 trade 상세)
 ```
 
 ---
@@ -103,17 +108,17 @@ allforyou-bit.github.io/
 
 ---
 
-## 장문 기사 현황 (17개 완성)
+## 장문 기사 현황 (20개 완성)
 
 ### 커리어 가이드 (8개)
-1. **How to Become a Heavy Equipment Technician** — 421A 커리어 가이드
+1. **How to Become a Heavy Equipment Technician** — 421A 커리어 가이드 (HowTo Schema ✅)
 2. **7 Proven Tips to Pass the Red Seal 421A Exam** — 시험 전략
 3. **Heavy Equipment Technician Salary Canada 2026** — 주별 임금 데이터 (FAQ Schema)
 4. **What Is the Red Seal Certification?** — Red Seal 제도 전체 설명
-5. **How to Become a Truck & Transport Mechanic** — 310T 커리어 가이드
-6. **Construction Electrician Career Guide** — 309A 커리어 가이드
-7. **Automotive Service Technician Career Guide** — 310S 커리어 가이드
-8. **Refrigeration & AC Mechanic Career Guide** — 308A 커리어 가이드
+5. **How to Become a Truck & Transport Mechanic** — 310T 커리어 가이드 (HowTo Schema ✅)
+6. **Construction Electrician Career Guide** — 309A 커리어 가이드 (HowTo Schema ✅)
+7. **Automotive Service Technician Career Guide** — 310S 커리어 가이드 (HowTo Schema ✅)
+8. **Refrigeration & AC Mechanic Career Guide** — 308A 커리어 가이드 (HowTo Schema ✅)
 
 ### 시험 전략 기사 (4개, 모두 FAQ Schema)
 9. **How to Pass the Red Seal 310T Exam** — 310T 시험 팁
@@ -121,7 +126,7 @@ allforyou-bit.github.io/
 11. **How to Pass the Red Seal 310S Exam** — 310S 시험 팁
 12. **How to Pass the Red Seal 308A Exam** — 308A 시험 팁
 
-### 급여 가이드 (4개, 모두 FAQ Schema)
+### 급여 가이드 (5개, 모두 FAQ Schema)
 13. **Truck & Transport Mechanic Salary Canada 2026** — 310T 급여
 14. **Construction Electrician Salary Canada 2026** — 309A 급여
 15. **Automotive Service Technician Salary Canada 2026** — 310S 급여
@@ -129,6 +134,11 @@ allforyou-bit.github.io/
 
 ### 비교 가이드 (1개, FAQ Schema)
 17. **Which Red Seal Trade Should I Choose?** — 5개 trade 비교표
+
+### 트래픽 기사 (3개, 모두 Article + FAQ + BreadcrumbList Schema)
+18. **Red Seal Exam Format 2026** — 시험 형식, 문제 수, 시간, CBT, 재시험 정책
+19. **10 Skilled Trades in Demand in Canada 2026** — 수요 직종 + 급여 데이터
+20. **How Long Does a Red Seal Apprenticeship Take?** — 5개 trade 기간 + 임금 진행표
 
 ---
 
@@ -148,10 +158,11 @@ allforyou-bit.github.io/
 - [x] Google Search Console 등록 + HTML 태그 인증 완료
 - [x] Google AdSense 신청 완료 (심사 대기 중)
 - [x] ads.txt 설치 완료
-- [x] sitemap.xml 제출 완료 (31개 URL)
-- [x] IndexNow (Bing/Yandex) — 30개+ URL 제출 완료
-- [x] FAQ Schema (LD+JSON) — 전체 23개 페이지 (퀴즈 5 + 커리어 가이드 6 + 시험전략 5 + 급여 5 + 비교 1 + exam-guide 1)
-- [x] BreadcrumbList Schema — 19개 기사/가이드 페이지 전체
+- [x] sitemap.xml 제출 완료 (34개 URL)
+- [x] IndexNow (Bing/Yandex) — 34개 URL 제출 완료
+- [x] FAQ Schema (LD+JSON) — 전체 26개 페이지 (퀴즈 5 + 커리어 가이드 6 + 시험전략 5 + 급여 5 + 비교 1 + exam-guide 1 + 트래픽 기사 3)
+- [x] BreadcrumbList Schema — 19개 기사/가이드 페이지 전체 (+ 트래픽 기사 3개 포함)
+- [x] HowTo Schema — 5개 커리어 가이드 페이지 (421A, 310T, 309A, 310S, 308A)
 - [x] Article Schema — 장문 기사 전체
 - [x] terms.html + disclaimer.html (AdSense 정책 요구사항)
 - [x] robots.txt
