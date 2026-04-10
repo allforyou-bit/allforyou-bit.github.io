@@ -13,6 +13,7 @@
 - **플랫폼:** GitHub Pages (무료 호스팅)
 - **AdSense ID:** `ca-pub-6709396576574623`
 - **Google Search Console 인증코드:** `AySEYGsNWhilNyl3EpVTQu6a3p0l6E1ZCe7P0EUN8O8`
+- **IndexNow 키:** `c81bf78677cc427dbdd74c107c12d22b` (파일: c81bf78677cc427dbdd74c107c12d22b.txt)
 
 ## 사용자 정보
 
@@ -23,16 +24,16 @@
 
 ---
 
-## 현재 파일 구조 (총 22개 HTML)
+## 현재 파일 구조 (총 31개 HTML)
 
 ```
 allforyou-bit.github.io/
-├── index.html               ← 메인 홈페이지 (5개 trade 카드 + 8개 article 카드, 770+ 표기)
-├── 421a.html                ← 421A 퀴즈 (220문제) ✅
-├── 310t.html                ← 310T 퀴즈 (165문제) ✅
-├── 309a.html                ← 309A 퀴즈 (135문제) ✅
-├── 310s.html                ← 310S 퀴즈 (135문제) ✅
-├── 308a.html                ← 308A 퀴즈 (115문제) ✅
+├── index.html               ← 메인 홈페이지 (5개 trade 카드 + 16개 article 카드, 770+ 표기)
+├── 421a.html                ← 421A 퀴즈 (220문제) ✅ FAQ Schema ✅
+├── 310t.html                ← 310T 퀴즈 (165문제) ✅ FAQ Schema ✅
+├── 309a.html                ← 309A 퀴즈 (135문제) ✅ FAQ Schema ✅
+├── 310s.html                ← 310S 퀴즈 (135문제) ✅ FAQ Schema ✅
+├── 308a.html                ← 308A 퀴즈 (115문제) ✅ FAQ Schema ✅
 ├── exam-guide.html          ← 시험 등록 가이드 (1,500단어+, FAQ Schema) ✅
 ├── study-guide.html         ← 학습 가이드 (5개 trade 탭 포함) ✅
 ├── about.html               ← 소개 페이지 (저자 바이오, E-E-A-T) ✅
@@ -42,20 +43,33 @@ allforyou-bit.github.io/
 ├── disclaimer.html          ← 면책조항 ✅
 ├── 404.html                 ← 커스텀 404 페이지 ✅
 ├── ads.txt                  ← AdSense 소유권 인증
-├── sitemap.xml              ← 20개 URL
+├── sitemap.xml              ← 31개 URL
 ├── robots.txt               ← 검색엔진 설정
 ├── favicon.svg              ← RS 로고
 ├── .gitignore               ← .claude/settings.local.json 제외
 │
-└── [장문 기사 - 8개] ✅
-    ├── how-to-become-heavy-equipment-technician-canada.html
-    ├── red-seal-421a-exam-tips.html
+├── [커리어 가이드 기사 - 8개] ✅
+│   ├── how-to-become-heavy-equipment-technician-canada.html
+│   ├── how-to-become-truck-transport-mechanic-canada.html
+│   ├── construction-electrician-309a-career-canada.html
+│   ├── automotive-service-technician-310s-career-canada.html
+│   ├── hvac-refrigeration-mechanic-308a-career-canada.html
+│   ├── what-is-red-seal-certification-canada.html
+│   ├── red-seal-421a-exam-tips.html
+│   └── which-red-seal-trade-should-i-choose.html  ← 비교 가이드 (FAQ Schema)
+│
+├── [시험 전략 기사 - 4개] ✅ (모두 FAQ Schema)
+│   ├── how-to-pass-red-seal-310t-exam.html
+│   ├── how-to-pass-red-seal-309a-exam.html
+│   ├── how-to-pass-red-seal-310s-exam.html
+│   └── how-to-pass-red-seal-308a-exam.html
+│
+└── [급여 가이드 기사 - 5개] ✅ (모두 FAQ Schema)
     ├── heavy-equipment-technician-salary-canada.html
-    ├── what-is-red-seal-certification-canada.html
-    ├── how-to-become-truck-transport-mechanic-canada.html
-    ├── construction-electrician-309a-career-canada.html
-    ├── automotive-service-technician-310s-career-canada.html
-    └── hvac-refrigeration-mechanic-308a-career-canada.html
+    ├── truck-transport-mechanic-310t-salary-canada.html
+    ├── construction-electrician-309a-salary-canada.html
+    ├── automotive-service-technician-310s-salary-canada.html
+    └── hvac-refrigeration-mechanic-308a-salary-canada.html
 ```
 
 ---
@@ -82,24 +96,50 @@ allforyou-bit.github.io/
 - [x] **Download Mock Results** — Mock Exam 결과 .txt 파일 다운로드 (오답 하이라이트)
 - [x] **Download Study Sheet (PDF)** — 버튼 클릭 → 새 탭에 인쇄 최적화 HTML 오픈 → Ctrl+P로 PDF 저장. 토픽 필터 반영, 전문제+정답키+해설 포함
 - [x] **Cookie Consent 배너** — GDPR 컴플라이언스
-- [x] **Related Guides 섹션** — 각 퀴즈 페이지 하단 내부 링크
+- [x] **Related Guides 섹션** — 각 퀴즈 페이지 하단 내부 링크 (4개: career/exam-tip/salary/what-is-red-seal)
 - [x] **150단어+ 인트로 텍스트** — 콘텐츠 품질 (AdSense thin content 방지)
 - [x] **Freshness Badge** — "Updated April 2026" 뱃지
+- [x] **FAQ Schema** — 모든 5개 퀴즈 페이지 + 6개 exam-guide/salary 기사 포함
 
 ---
 
-## 장문 기사 현황 (8개 완성)
+## 장문 기사 현황 (17개 완성)
 
-모두 800~1,400단어, E-E-A-T 신호 포함, 실제 경험자 톤으로 작성됨.
-
+### 커리어 가이드 (8개)
 1. **How to Become a Heavy Equipment Technician** — 421A 커리어 가이드
 2. **7 Proven Tips to Pass the Red Seal 421A Exam** — 시험 전략
-3. **Heavy Equipment Technician Salary Canada 2026** — 주별 임금 데이터
+3. **Heavy Equipment Technician Salary Canada 2026** — 주별 임금 데이터 (FAQ Schema)
 4. **What Is the Red Seal Certification?** — Red Seal 제도 전체 설명
 5. **How to Become a Truck & Transport Mechanic** — 310T 커리어 가이드
 6. **Construction Electrician Career Guide** — 309A 커리어 가이드
 7. **Automotive Service Technician Career Guide** — 310S 커리어 가이드
 8. **Refrigeration & AC Mechanic Career Guide** — 308A 커리어 가이드
+
+### 시험 전략 기사 (4개, 모두 FAQ Schema)
+9. **How to Pass the Red Seal 310T Exam** — 310T 시험 팁
+10. **How to Pass the Red Seal 309A Exam** — 309A 시험 팁
+11. **How to Pass the Red Seal 310S Exam** — 310S 시험 팁
+12. **How to Pass the Red Seal 308A Exam** — 308A 시험 팁
+
+### 급여 가이드 (4개, 모두 FAQ Schema)
+13. **Truck & Transport Mechanic Salary Canada 2026** — 310T 급여
+14. **Construction Electrician Salary Canada 2026** — 309A 급여
+15. **Automotive Service Technician Salary Canada 2026** — 310S 급여
+16. **HVAC Mechanic Salary Canada 2026** — 308A 급여
+
+### 비교 가이드 (1개, FAQ Schema)
+17. **Which Red Seal Trade Should I Choose?** — 5개 trade 비교표
+
+---
+
+## 내부 링크 네트워크 (완성)
+
+각 퀴즈 페이지 Related Guides (4개 링크):
+- Career Guide → Exam Tips Article → Salary Guide → What Is Red Seal
+
+각 커리어 기사: salary + exam tips 양방향 연결
+각 급여 기사: career guide + related salary guides 연결
+비교 기사: what-is-red-seal, exam-guide, 421a.html에서 링크됨
 
 ---
 
@@ -108,23 +148,38 @@ allforyou-bit.github.io/
 - [x] Google Search Console 등록 + HTML 태그 인증 완료
 - [x] Google AdSense 신청 완료 (심사 대기 중)
 - [x] ads.txt 설치 완료
-- [x] sitemap.xml 제출 완료 (20개 URL)
-- [x] IndexNow (Bing/Yandex) 7개 URL 제출 완료
-- [x] FAQ Schema (LD+JSON) — 421a.html, exam-guide.html
+- [x] sitemap.xml 제출 완료 (31개 URL)
+- [x] IndexNow (Bing/Yandex) — 30개+ URL 제출 완료
+- [x] FAQ Schema (LD+JSON) — 5개 퀴즈 + exam-guide + 4개 시험 전략 + 4개 급여 + 비교 = 15개 페이지
 - [x] Article Schema — 장문 기사 전체
 - [x] terms.html + disclaimer.html (AdSense 정책 요구사항)
 - [x] robots.txt
 - [x] 쿠키 동의 배너 (GDPR)
 - [x] 전체 페이지 nav/footer 통일 (sticky nav, min-height:52px)
-- [x] 8개 기사 Related Guides 내부 링크 연결
+- [x] 완전한 내부 링크 네트워크 — 퀴즈↔커리어↔급여↔시험전략↔비교 양방향
 - [x] Open Graph (og:title/description/url/type) + Twitter Card 메타 태그 — 전체 페이지
 - [x] canonical 태그 — 전체 article 페이지 + 퀴즈 페이지
 - [x] nav 링크 순서 통일 — Home | 421A | 310T | 309A | 310S | 308A | Exam Guide | Study Guide | About
 - [x] 전 도 apprenticeship 연락처 URL 수정 (12개 province/territory)
 - [x] study-guide.html 전면 재작성 (5개 trade 탭 인터페이스)
-- [x] privacy.html nav/footer 표준화 + 제목 수정
 - [x] .gitignore 생성 (.claude/settings.local.json 제외)
 - [x] 팩트체크 완료 — 4개 오류 수정 (BC 기관명, Ontario College of Trades→STO, 310T 문제 수, Manitoba 중복)
+
+---
+
+## Search Console 수동 색인 요청 현황
+
+**완료된 것 (사용자가 직접 수행):**
+- URL 1~11: 완료 (2026-04-09)
+
+**남은 것 (내일 또는 다음 세션에 수행):**
+- URL 12: https://allforyou-bit.github.io/309a.html
+- URL 13: https://allforyou-bit.github.io/310s.html
+- URL 14: https://allforyou-bit.github.io/308a.html
+- URL 15: https://allforyou-bit.github.io/421a.html
+- 그 이후: 새로 추가된 17개 기사들도 요청
+
+**방법:** search.google.com/search-console → URL 검사 → URL 붙여넣기 → "색인 생성 요청" 클릭
 
 ---
 
@@ -145,23 +200,17 @@ allforyou-bit.github.io/
 - [ ] 광고 단위 생성 및 플레이스홀더 교체 (각 페이지 ad-banner div 2~3개)
 - [ ] 수익 모니터링 시작
 
-### 2순위 — Search Console 수동 색인 요청
-- [ ] 새 퀴즈 페이지들 색인 요청 (5개 퀴즈 페이지)
-- [ ] 8개 기사 전체 색인 요청
-- [ ] sitemap.xml 재제출 (최신 문제 수 반영 후)
+### 2순위 — Search Console 수동 색인 요청 (남은 것)
+- [ ] URL 12~15 색인 요청 (309a, 310s, 308a, 421a)
+- [ ] 새로 추가된 17개 기사들 색인 요청
+- [ ] sitemap.xml 재제출 확인
 
-### 3순위 — 트래픽 확대 (콘텐츠)
-- [ ] 새 기사 추가: "How to Pass the Red Seal 310T Exam" (310T 시험 팁)
-- [ ] 새 기사 추가: "Red Seal 309A Electrician Exam Tips"
-- [ ] 새 기사 추가: "310S Automotive Technician Salary Canada 2026"
-- [ ] 새 기사 추가: "308A HVAC Mechanic Salary Canada 2026"
-
-### 4순위 — 사용자 경험 개선
+### 3순위 — 사용자 경험 개선
 - [ ] 연속 정답 스트릭 카운터 ("🔥 3 in a row!") — 퀴즈 중 표시
 - [ ] 오답 신고 버튼 (사용자가 문제 오류 제보 가능)
 - [ ] 퀴즈 결과 이메일 전송 (EmailJS)
 
-### 5순위 — 장기 확장
+### 4순위 — 장기 확장
 - [ ] 새 trade 추가: 442A Ironworker, 403A Gas Fitter, 306A Sheet Metal Worker
 - [ ] 각 신규 trade에 퀴즈 + 커리어 기사 세트
 
