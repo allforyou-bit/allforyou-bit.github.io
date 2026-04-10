@@ -171,6 +171,80 @@ footer{background:#1a3a5c;color:rgba(255,255,255,.7);text-align:center;padding:2
 footer a{color:#f0a500;margin:0 8px;text-decoration:none}
 footer a:hover{color:white}
 
+/* WELCOME BACK BANNER */
+.welcome-back{background:linear-gradient(135deg,#0b4f26,#1a7a40);border-radius:14px;padding:16px 22px;color:white;display:flex;align-items:center;gap:14px;margin-bottom:24px;flex-wrap:wrap}
+.wb-icon{font-size:1.8rem;flex-shrink:0}
+.wb-text strong{display:block;font-size:.95rem;margin-bottom:2px}
+.wb-text span{font-size:.82rem;opacity:.88}
+.wb-cta{margin-left:auto;background:rgba(255,255,255,.18);color:white;border-radius:8px;padding:7px 14px;text-decoration:none;font-size:.8rem;font-weight:700;border:1px solid rgba(255,255,255,.3);white-space:nowrap}
+
+/* COUNTDOWN WIDGET */
+.countdown-box{background:white;border-radius:16px;padding:22px 26px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:40px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;border-left:5px solid #1a3a5c}
+@media(max-width:580px){.countdown-box{grid-template-columns:1fr}}
+.cd-left h3{color:#1a3a5c;font-size:.95rem;font-weight:700;margin-bottom:5px}
+.cd-left p{font-size:.82rem;color:#7f8c8d;line-height:1.5;margin-bottom:12px}
+.cd-setup{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cd-input{border:2px solid #dce3ec;border-radius:8px;padding:7px 12px;font-size:.85rem;color:#2c3e50;font-family:inherit;background:#f8fafd;cursor:pointer;flex:1;min-width:140px}
+.cd-input:focus{outline:none;border-color:#2d6a9f}
+.cd-btn{background:#f0a500;color:white;border:none;border-radius:8px;padding:8px 16px;font-weight:700;font-size:.84rem;cursor:pointer;font-family:inherit;white-space:nowrap}
+.cd-btn:hover{background:#d4930a}
+.cd-display{text-align:center;padding:12px 20px;background:#f4f7fb;border-radius:12px;min-width:130px;position:relative}
+.cd-reset{position:absolute;top:5px;right:8px;font-size:.65rem;color:#b0bec5;cursor:pointer;text-decoration:underline}
+.cd-reset:hover{color:#e74c3c}
+.cd-days{font-size:2.8rem;font-weight:900;color:#1a3a5c;line-height:1}
+.cd-days-label{font-size:.68rem;font-weight:700;color:#7f8c8d;letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+.cd-urgency{font-size:.74rem;font-weight:700;margin-top:5px}
+.cd-study-tip{font-size:.74rem;color:#27ae60;font-weight:600;margin-top:8px;padding:5px 10px;background:#e8f9ef;border-radius:6px}
+
+/* STUDY TIPS TICKER */
+.tips-ticker{background:#1a3a5c;border-radius:12px;padding:13px 20px;margin-bottom:28px;display:flex;align-items:center;gap:14px;overflow:hidden;cursor:pointer}
+.tips-label{font-size:.65rem;font-weight:800;color:#f0a500;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;flex-shrink:0;background:rgba(240,165,0,.15);padding:3px 8px;border-radius:8px;border:1px solid rgba(240,165,0,.3)}
+.tips-text{color:rgba(255,255,255,.9);font-size:.84rem;line-height:1.5;flex:1;transition:opacity .35s}
+.tips-text.fade{opacity:0}
+.tips-arrow{color:#f0a500;flex-shrink:0;font-size:.9rem}
+
+/* READINESS METER */
+.readiness-box{background:white;border-radius:16px;padding:24px 28px;box-shadow:0 2px 12px rgba(0,0,0,.07);margin-bottom:40px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+@media(max-width:500px){.readiness-box{grid-template-columns:1fr;text-align:center}}
+.readiness-ring{position:relative;width:96px;height:96px;flex-shrink:0;margin:0 auto}
+.readiness-ring svg{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:#e8ecf0;stroke-width:10}
+.ring-fill{fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1)}
+.ring-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.15rem;font-weight:900;color:#1a3a5c}
+.readiness-info h3{font-size:1rem;font-weight:700;color:#1a3a5c;margin-bottom:4px}
+.readiness-info .r-label{font-size:.82rem;color:#7f8c8d;margin-bottom:12px}
+.readiness-bars{display:flex;flex-direction:column;gap:7px}
+.r-bar-row{display:flex;align-items:center;gap:8px;font-size:.73rem}
+.r-bar-label{width:110px;color:#5d6d7e;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r-bar-bg{flex:1;height:7px;background:#f0f4f9;border-radius:4px;overflow:hidden}
+.r-bar-fill{height:100%;border-radius:4px;transition:width 1.2s ease}
+.r-bar-val{width:28px;text-align:right;font-weight:700;font-size:.73rem;color:#1a3a5c}
+
+/* ACHIEVEMENT BADGES */
+.badges-section{background:white;border-radius:16px;padding:22px 28px;box-shadow:0 2px 12px rgba(0,0,0,.07);margin-bottom:40px}
+.badges-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.badge{border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;flex:1;min-width:130px;transition:all .3s;position:relative;overflow:hidden}
+.badge.locked{background:#f4f7fb;border:2px dashed #dce3ec}
+.badge.unlocked{border:2px solid transparent}
+.badge.gold{background:linear-gradient(135deg,#fff8e1,#fffde7);border-color:#f0a500 !important;box-shadow:0 2px 10px rgba(240,165,0,.25)}
+.badge.blue{background:linear-gradient(135deg,#eaf0f9,#e3edf9);border-color:#2d6a9f !important;box-shadow:0 2px 10px rgba(45,106,159,.2)}
+.badge.green{background:linear-gradient(135deg,#e8f9ef,#f0fff4);border-color:#27ae60 !important;box-shadow:0 2px 10px rgba(39,174,96,.2)}
+.badge.red{background:linear-gradient(135deg,#fdecea,#fff0f0);border-color:#e74c3c !important;box-shadow:0 2px 10px rgba(231,76,60,.2)}
+.badge-icon{font-size:1.5rem;flex-shrink:0}
+.badge-name{font-size:.76rem;font-weight:800;color:#1a3a5c;display:block;margin-bottom:1px}
+.badge-desc{font-size:.68rem;color:#7f8c8d}
+.badge.locked .badge-name{color:#b0bec5}
+.badge.locked .badge-icon{filter:grayscale(1);opacity:.5}
+.badge-new{position:absolute;top:6px;right:6px;background:#e74c3c;color:white;font-size:.6rem;font-weight:800;padding:1px 5px;border-radius:6px;letter-spacing:.5px}
+
+/* ARTICLE FILTER TABS */
+.filter-tabs-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.filter-tab{background:#fff;border:2px solid #dce3ec;border-radius:20px;padding:6px 18px;font-size:.8rem;font-weight:700;color:#7f8c8d;cursor:pointer;transition:all .2s;font-family:inherit}
+.filter-tab:hover{border-color:#2d6a9f;color:#2d6a9f}
+.filter-tab.active{background:#1a3a5c;border-color:#1a3a5c;color:white}
+.article-card.hidden{display:none}
+.articles-count{font-size:.76rem;color:#aab;margin-left:auto}
+
 /* RESPONSIVE */
 @media(max-width:600px){
   .hero h1{font-size:1.55rem}
@@ -178,6 +252,9 @@ footer a:hover{color:white}
   .trades-grid{grid-template-columns:1fr}
   .streak-bar{flex-direction:column;text-align:center}
   .streak-days{margin-left:0}
+  .badges-row{flex-direction:column}
+  .badge{min-width:unset}
+  .readiness-box{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -203,14 +280,24 @@ footer a:hover{color:white}
     <a href="#trades" class="btn-secondary">Browse by Topic</a>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="n">770+</div><div class="l">Practice Questions</div></div>
-    <div class="hero-stat"><div class="n">5</div><div class="l">Trades Covered</div></div>
-    <div class="hero-stat"><div class="n">70%</div><div class="l">Pass Threshold</div></div>
-    <div class="hero-stat"><div class="n">2026</div><div class="l">Updated · 2023 RSOS</div></div>
+    <div class="hero-stat"><div class="n" id="stat1" data-target="770" data-suffix="+">770+</div><div class="l">Practice Questions</div></div>
+    <div class="hero-stat"><div class="n" id="stat2" data-target="5" data-suffix="">5</div><div class="l">Trades Covered</div></div>
+    <div class="hero-stat"><div class="n" id="stat3" data-target="70" data-suffix="%">70%</div><div class="l">Pass Threshold</div></div>
+    <div class="hero-stat"><div class="n" id="stat4" data-target="17" data-suffix=" Guides">17 Guides</div><div class="l">Free Articles</div></div>
   </div>
 </div>
 
 <div class="container">
+
+  <!-- WELCOME BACK (shown to returning visitors) -->
+  <div class="welcome-back" id="welcomeBack" style="display:none">
+    <div class="wb-icon">👋</div>
+    <div class="wb-text">
+      <strong id="welcomeMsg">Welcome back!</strong>
+      <span id="welcomeSub">Keep building your streak — you're closer than you think.</span>
+    </div>
+    <a href="#trades" class="wb-cta">Continue Studying →</a>
+  </div>
 
   <!-- STREAK WIDGET -->
   <div class="streak-bar" id="streakBar">
@@ -220,6 +307,32 @@ footer a:hover{color:white}
       <p>Study daily to build your streak. Every question makes you more prepared!</p>
     </div>
     <div class="streak-days" id="streakDots"></div>
+  </div>
+
+  <!-- EXAM COUNTDOWN -->
+  <div class="countdown-box" id="countdownBox">
+    <div class="cd-left">
+      <h3>📅 Exam Countdown</h3>
+      <p>Enter your Red Seal exam date and we'll track exactly how many days you have to prepare.</p>
+      <div class="cd-setup" id="cdSetup">
+        <input type="date" class="cd-input" id="examDateInput" title="Your exam date">
+        <button class="cd-btn" onclick="setExamDate()">Set My Exam Date</button>
+      </div>
+    </div>
+    <div class="cd-display" id="cdDisplay" style="display:none">
+      <span class="cd-reset" onclick="resetExamDate()">change</span>
+      <div class="cd-days" id="cdDays">—</div>
+      <div class="cd-days-label">Days to Go</div>
+      <div class="cd-urgency" id="cdUrgency"></div>
+      <div class="cd-study-tip" id="cdStudyTip"></div>
+    </div>
+  </div>
+
+  <!-- STUDY TIPS TICKER -->
+  <div class="tips-ticker" onclick="rotateTip()" title="Click for next tip">
+    <span class="tips-label">Study Tip</span>
+    <span class="tips-text" id="tipText">Loading tip...</span>
+    <span class="tips-arrow">›</span>
   </div>
 
   <!-- DAILY CHALLENGE -->
@@ -380,6 +493,45 @@ footer a:hover{color:white}
     <div class="scores-grid" id="scoresGrid"></div>
   </div>
 
+  <!-- READINESS METER (shown when mock scores exist) -->
+  <div class="readiness-box" id="readinessSection" style="display:none">
+    <div class="readiness-ring">
+      <svg viewBox="0 0 96 96" width="96" height="96">
+        <circle class="ring-bg" cx="48" cy="48" r="38"/>
+        <circle class="ring-fill" id="ringFill" cx="48" cy="48" r="38" stroke="#27ae60" stroke-dasharray="239" stroke-dashoffset="239"/>
+      </svg>
+      <div class="ring-text" id="ringText">—</div>
+    </div>
+    <div class="readiness-info">
+      <h3>Your Exam Readiness</h3>
+      <div class="r-label" id="readinessLabel">Take a mock exam to see your readiness score.</div>
+      <div class="readiness-bars" id="readinessBars"></div>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENT BADGES -->
+  <div class="badges-section" id="badgesSection">
+    <div class="section-title" style="margin-bottom:0">🏅 Your Achievements</div>
+    <div class="badges-row">
+      <div class="badge locked" id="badge1">
+        <div class="badge-icon">🎯</div>
+        <div><span class="badge-name">First Answer</span><span class="badge-desc">Answer your first challenge question</span></div>
+      </div>
+      <div class="badge locked" id="badge2">
+        <div class="badge-icon">🔥</div>
+        <div><span class="badge-name">On a Roll</span><span class="badge-desc">Achieve a 3-day study streak</span></div>
+      </div>
+      <div class="badge locked" id="badge3">
+        <div class="badge-icon">📋</div>
+        <div><span class="badge-name">Mock Taker</span><span class="badge-desc">Complete your first Mock Exam</span></div>
+      </div>
+      <div class="badge locked" id="badge4">
+        <div class="badge-icon">🏆</div>
+        <div><span class="badge-name">Score Master</span><span class="badge-desc">Score 80%+ on any Mock Exam</span></div>
+      </div>
+    </div>
+  </div>
+
   <!-- MOCK EXAM FEATURE SECTION -->
   <div class="mock-feature" id="mock-exam">
     <h3>📋 Simulate the Real Red Seal Exam</h3>
@@ -426,9 +578,16 @@ footer a:hover{color:white}
 
   <!-- ARTICLES -->
   <div class="section-title">Career & Certification Guides</div>
+  <div class="filter-tabs-row">
+    <button class="filter-tab active" data-filter="all" onclick="filterArticles('all')">All Guides <small>(17)</small></button>
+    <button class="filter-tab" data-filter="career" onclick="filterArticles('career')">Career Guides</button>
+    <button class="filter-tab" data-filter="exam" onclick="filterArticles('exam')">Exam Strategy</button>
+    <button class="filter-tab" data-filter="salary" onclick="filterArticles('salary')">Salary Guides</button>
+    <span class="articles-count" id="articlesCount"></span>
+  </div>
   <div class="trades-grid" style="margin-bottom:44px">
 
-    <a href="/how-to-become-heavy-equipment-technician-canada.html" class="article-card">
+    <a href="/how-to-become-heavy-equipment-technician-canada.html" class="article-card" data-category="career">
       <div class="ac-top-bar" style="background:#27ae60"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#e8f9ef;color:#1a6636">Career Guide · 421A</span>
@@ -438,7 +597,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,200 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/red-seal-421a-exam-tips.html" class="article-card">
+    <a href="/red-seal-421a-exam-tips.html" class="article-card" data-category="exam">
       <div class="ac-top-bar" style="background:#e74c3c"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#fdecea;color:#922b21">Exam Strategy · 421A</span>
@@ -448,7 +607,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,400 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/heavy-equipment-technician-salary-canada.html" class="article-card">
+    <a href="/heavy-equipment-technician-salary-canada.html" class="article-card" data-category="salary">
       <div class="ac-top-bar" style="background:#f0a500"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#fff8e1;color:#b7770d">Salary Guide · 421A</span>
@@ -458,7 +617,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,100 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/what-is-red-seal-certification-canada.html" class="article-card">
+    <a href="/what-is-red-seal-certification-canada.html" class="article-card" data-category="career">
       <div class="ac-top-bar" style="background:#8e44ad"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#f5eef8;color:#6c3483">Overview Guide</span>
@@ -468,7 +627,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,100 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/how-to-become-truck-transport-mechanic-canada.html" class="article-card">
+    <a href="/how-to-become-truck-transport-mechanic-canada.html" class="article-card" data-category="career">
       <div class="ac-top-bar" style="background:#16537e"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#d6eaf8;color:#154360">Career Guide · 310T</span>
@@ -478,7 +637,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,100 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/construction-electrician-309a-career-canada.html" class="article-card">
+    <a href="/construction-electrician-309a-career-canada.html" class="article-card" data-category="career">
       <div class="ac-top-bar" style="background:#7d3c98"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#f5eef8;color:#6c3483">Career Guide · 309A</span>
@@ -488,7 +647,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,100 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/automotive-service-technician-310s-career-canada.html" class="article-card">
+    <a href="/automotive-service-technician-310s-career-canada.html" class="article-card" data-category="career">
       <div class="ac-top-bar" style="background:#1e8449"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#e9f7ef;color:#1a5e34">Career Guide · 310S</span>
@@ -498,7 +657,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,100 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/hvac-refrigeration-mechanic-308a-career-canada.html" class="article-card">
+    <a href="/hvac-refrigeration-mechanic-308a-career-canada.html" class="article-card" data-category="career">
       <div class="ac-top-bar" style="background:#17a589"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#d5f5f6;color:#0e6655">Career Guide · 308A</span>
@@ -508,7 +667,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,300 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/truck-transport-mechanic-310t-salary-canada.html" class="article-card">
+    <a href="/truck-transport-mechanic-310t-salary-canada.html" class="article-card" data-category="salary">
       <div class="ac-top-bar" style="background:#16537e"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#d6eaf8;color:#154360">Salary Guide · 310T</span>
@@ -518,7 +677,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,200 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/construction-electrician-309a-salary-canada.html" class="article-card">
+    <a href="/construction-electrician-309a-salary-canada.html" class="article-card" data-category="salary">
       <div class="ac-top-bar" style="background:#7d3c98"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#f5eef8;color:#6c3483">Salary Guide · 309A</span>
@@ -528,7 +687,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,200 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/automotive-service-technician-310s-salary-canada.html" class="article-card">
+    <a href="/automotive-service-technician-310s-salary-canada.html" class="article-card" data-category="salary">
       <div class="ac-top-bar" style="background:#1e8449"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#e9f7ef;color:#1a5e34">Salary Guide · 310S</span>
@@ -538,7 +697,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,200 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/hvac-refrigeration-mechanic-308a-salary-canada.html" class="article-card">
+    <a href="/hvac-refrigeration-mechanic-308a-salary-canada.html" class="article-card" data-category="salary">
       <div class="ac-top-bar" style="background:#17a589"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#d5f5f6;color:#0e6655">Salary Guide · 308A</span>
@@ -548,7 +707,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,200 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/how-to-pass-red-seal-310t-exam.html" class="article-card">
+    <a href="/how-to-pass-red-seal-310t-exam.html" class="article-card" data-category="exam">
       <div class="ac-top-bar" style="background:#16537e"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#d6eaf8;color:#154360">Exam Strategy · 310T</span>
@@ -558,7 +717,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,500 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/how-to-pass-red-seal-309a-exam.html" class="article-card">
+    <a href="/how-to-pass-red-seal-309a-exam.html" class="article-card" data-category="exam">
       <div class="ac-top-bar" style="background:#7d3c98"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#f5eef8;color:#6c3483">Exam Strategy · 309A</span>
@@ -568,7 +727,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,500 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/how-to-pass-red-seal-310s-exam.html" class="article-card">
+    <a href="/how-to-pass-red-seal-310s-exam.html" class="article-card" data-category="exam">
       <div class="ac-top-bar" style="background:#1e8449"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#e9f7ef;color:#1a5e34">Exam Strategy · 310S</span>
@@ -578,7 +737,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,500 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/how-to-pass-red-seal-308a-exam.html" class="article-card">
+    <a href="/how-to-pass-red-seal-308a-exam.html" class="article-card" data-category="exam">
       <div class="ac-top-bar" style="background:#17a589"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#d5f5f6;color:#0e6655">Exam Strategy · 308A</span>
@@ -588,7 +747,7 @@ footer a:hover{color:white}
       <div class="ac-footer"><span>~1,500 words</span><span style="color:#27ae60;font-weight:700">2026 Updated</span></div>
     </a>
 
-    <a href="/which-red-seal-trade-should-i-choose.html" class="article-card">
+    <a href="/which-red-seal-trade-should-i-choose.html" class="article-card" data-category="career">
       <div class="ac-top-bar" style="background:linear-gradient(90deg,#f0a500,#1a3a5c)"></div>
       <div class="ac-body">
         <span class="ac-tag" style="background:#eaf0f9;color:#1a3a5c">Trade Comparison</span>
@@ -778,10 +937,218 @@ function loadBestScores() {
   if (section) section.style.display = anyScore ? 'block' : 'none';
 }
 
+// ===== ANIMATED HERO COUNTER =====
+function countUp(el, target, suffix, duration) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.floor(start) + suffix;
+    if (start >= target) clearInterval(timer);
+  }, 16);
+}
+function runHeroCounters() {
+  [['stat1',770,'+'],[' stat2',5,''],['stat3',70,'%'],['stat4',17,' Guides']].forEach(([id,n,sfx]) => {
+    const el = document.getElementById(id.trim());
+    if (el) setTimeout(() => countUp(el, n, sfx, 900), 200);
+  });
+}
+
+// ===== WELCOME BACK =====
+function showWelcomeBack() {
+  const days = JSON.parse(localStorage.getItem('rsStudyDays') || '[]');
+  const scores = ['421a','310t','309a','310s','308a'].map(k => localStorage.getItem('mockBest_'+k)).filter(Boolean);
+  if (days.length === 0 && scores.length === 0) return;
+  const banner = document.getElementById('welcomeBack');
+  if (!banner) return;
+  banner.style.display = 'flex';
+  const msgEl = document.getElementById('welcomeMsg');
+  const subEl = document.getElementById('welcomeSub');
+  const streak = parseInt(document.getElementById('streakCount').textContent) || days.length;
+  if (streak >= 7) { msgEl.textContent = 'Welcome back! 🔥 ' + streak + '-day streak — you\'re on fire!'; }
+  else if (streak >= 3) { msgEl.textContent = 'Welcome back! ' + streak + '-day streak going strong.'; }
+  else if (scores.length > 0) { msgEl.textContent = 'Welcome back!'; subEl.textContent = 'Best score so far: ' + Math.max(...scores.map(Number)) + '% — keep pushing for 70%!'; }
+  else { msgEl.textContent = 'Welcome back! Ready to study?'; }
+}
+
+// ===== EXAM COUNTDOWN =====
+function loadCountdown() {
+  const saved = localStorage.getItem('examDate');
+  if (saved) {
+    document.getElementById('cdSetup').style.display = 'none';
+    document.getElementById('cdDisplay').style.display = 'block';
+    renderCountdown(saved);
+  }
+}
+function setExamDate() {
+  const input = document.getElementById('examDateInput');
+  if (!input || !input.value) return;
+  localStorage.setItem('examDate', input.value);
+  document.getElementById('cdSetup').style.display = 'none';
+  document.getElementById('cdDisplay').style.display = 'block';
+  renderCountdown(input.value);
+}
+function resetExamDate() {
+  localStorage.removeItem('examDate');
+  document.getElementById('cdSetup').style.display = 'flex';
+  document.getElementById('cdDisplay').style.display = 'none';
+  document.getElementById('examDateInput').value = '';
+}
+function renderCountdown(dateStr) {
+  const target = new Date(dateStr);
+  const now = new Date();
+  now.setHours(0,0,0,0);
+  const diffMs = target - now;
+  const diffDays = Math.ceil(diffMs / 86400000);
+  const daysEl = document.getElementById('cdDays');
+  const urgEl = document.getElementById('cdUrgency');
+  const tipEl = document.getElementById('cdStudyTip');
+  if (diffDays <= 0) {
+    daysEl.textContent = '🎓'; urgEl.textContent = 'Good luck today!'; tipEl.textContent = 'Trust your preparation — you\'re ready.'; return;
+  }
+  daysEl.textContent = diffDays;
+  const weeks = Math.floor(diffDays / 7);
+  if (diffDays <= 7) { urgEl.textContent = '⚠️ Final week! Review weak topics only.'; urgEl.style.color='#e74c3c'; }
+  else if (diffDays <= 21) { urgEl.textContent = '🔴 ' + weeks + ' week(s) — intensive study time!'; urgEl.style.color='#e67e22'; }
+  else if (diffDays <= 60) { urgEl.textContent = '📅 ' + weeks + ' weeks — build steady momentum.'; urgEl.style.color='#f0a500'; }
+  else { urgEl.textContent = '✅ ' + weeks + ' weeks — great time to start!'; urgEl.style.color='#27ae60'; }
+  tipEl.textContent = '📚 ' + diffDays + ' days = ' + diffDays + ' hrs prep at 1 hr/day';
+}
+
+// ===== STUDY TIPS TICKER =====
+const studyTips = [
+  '💡 Hydraulics (~16%) is the #1 topic to master on the Red Seal 421A exam.',
+  '📖 The Canadian Electrical Code (CEC) is your most-tested reference for the 309A exam.',
+  '🔧 Air brakes (NSC Standard 11B) make up the largest single block on the 310T exam.',
+  '⚡ High positive fuel trim at idle + normal at highway speed = vacuum leak. Classic 310S question.',
+  '❄️ Superheat 8–15°F = correct charge. Above = undercharge. Below = overcharge. Know it for 308A.',
+  '🎯 No penalty for guessing on Red Seal exams — always answer every question.',
+  '📋 Mock Exams are your best prep tool. Simulate real time pressure before the big day.',
+  '🔥 Consistent daily study beats marathon cramming — even 30 minutes/day adds up fast.',
+  '🧠 Focus on understanding the WHY behind answers — Red Seal tests concepts, not memorization.',
+  '📊 Score below 60% on a topic? That\'s your signal to focus there — not the topics you\'re good at.',
+];
+let tipIdx = Math.floor(Math.random() * studyTips.length);
+function initTicker() {
+  const el = document.getElementById('tipText');
+  if (el) { el.textContent = studyTips[tipIdx]; setInterval(rotateTip, 6000); }
+}
+function rotateTip() {
+  const el = document.getElementById('tipText');
+  if (!el) return;
+  el.classList.add('fade');
+  setTimeout(() => {
+    tipIdx = (tipIdx + 1) % studyTips.length;
+    el.textContent = studyTips[tipIdx];
+    el.classList.remove('fade');
+  }, 380);
+}
+
+// ===== READINESS METER =====
+function updateReadiness() {
+  const trades = [
+    {key:'421a', label:'421A Heavy Equip'},
+    {key:'310t', label:'310T Truck'},
+    {key:'309a', label:'309A Electrician'},
+    {key:'310s', label:'310S Automotive'},
+    {key:'308a', label:'308A HVAC'},
+  ];
+  const scores = trades.map(t => { const s = localStorage.getItem('mockBest_'+t.key); return s ? parseInt(s) : null; });
+  const taken = scores.filter(s => s !== null);
+  if (taken.length === 0) return;
+  const avg = Math.round(taken.reduce((a,b)=>a+b,0)/taken.length);
+  const section = document.getElementById('readinessSection');
+  if (section) section.style.display = 'grid';
+  const circumference = 239;
+  const fill = document.getElementById('ringFill');
+  const ringText = document.getElementById('ringText');
+  if (fill) {
+    const color = avg >= 70 ? '#27ae60' : avg >= 50 ? '#f0a500' : '#e74c3c';
+    fill.style.stroke = color;
+    fill.style.strokeDasharray = circumference;
+    fill.style.strokeDashoffset = circumference;
+    setTimeout(() => { fill.style.strokeDashoffset = circumference - (avg/100*circumference); }, 150);
+  }
+  if (ringText) ringText.textContent = avg + '%';
+  const label = document.getElementById('readinessLabel');
+  if (label) label.textContent = avg >= 80 ? 'Excellent! You\'re exam-ready.' : avg >= 70 ? 'On track — keep pushing to 80%+!' : avg >= 50 ? 'Building up — more mock exams needed.' : 'Early stage — consistent practice is key.';
+  const barsEl = document.getElementById('readinessBars');
+  if (barsEl) {
+    barsEl.innerHTML = '';
+    trades.forEach((t,i) => {
+      if (scores[i] === null) return;
+      const color = scores[i] >= 70 ? '#27ae60' : scores[i] >= 50 ? '#f0a500' : '#e74c3c';
+      barsEl.innerHTML += `<div class="r-bar-row"><div class="r-bar-label">${t.label}</div><div class="r-bar-bg"><div class="r-bar-fill" style="width:${scores[i]}%;background:${color}"></div></div><div class="r-bar-val">${scores[i]}%</div></div>`;
+    });
+  }
+}
+
+// ===== ACHIEVEMENT BADGES =====
+function checkBadges() {
+  const days = JSON.parse(localStorage.getItem('rsStudyDays') || '[]');
+  const scores = ['421a','310t','309a','310s','308a'].map(k => localStorage.getItem('mockBest_'+k)).filter(Boolean);
+  const hasHighScore = scores.some(s => parseInt(s) >= 80);
+  const answered = localStorage.getItem('challengeAnswered') === '1';
+  let streak = 0;
+  const today = new Date();
+  for (let i = 0; i < 30; i++) {
+    const d = new Date(today); d.setDate(d.getDate()-i);
+    const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+    if (days.includes(key)) streak++; else break;
+  }
+  const setBadge = (id, unlocked, color) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const wasLocked = el.classList.contains('locked');
+    el.className = 'badge ' + (unlocked ? 'unlocked ' + color : 'locked');
+    if (unlocked && wasLocked) {
+      const n = document.createElement('span');
+      n.className = 'badge-new'; n.textContent = 'NEW';
+      el.appendChild(n);
+      setTimeout(() => n.remove(), 5000);
+    }
+  };
+  setBadge('badge1', answered, 'gold');
+  setBadge('badge2', streak >= 3, 'red');
+  setBadge('badge3', scores.length > 0, 'blue');
+  setBadge('badge4', hasHighScore, 'green');
+}
+
+// ===== ARTICLE FILTER =====
+function filterArticles(category) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  const activeTab = document.querySelector(`[data-filter="${category}"]`);
+  if (activeTab) activeTab.classList.add('active');
+  const cards = document.querySelectorAll('.article-card');
+  let visible = 0;
+  cards.forEach(card => {
+    const show = category === 'all' || card.dataset.category === category;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  const countEl = document.getElementById('articlesCount');
+  if (countEl && category !== 'all') countEl.textContent = visible + ' guides';
+  else if (countEl) countEl.textContent = '';
+}
+
+// Override answerChallenge to also unlock badge
+const _origAnswer = answerChallenge;
+answerChallenge = function(chosen) {
+  _origAnswer(chosen);
+  localStorage.setItem('challengeAnswered', '1');
+  checkBadges();
+};
+
 // ===== INIT =====
 loadChallenge();
 updateStreakUI();
 loadBestScores();
+loadCountdown();
+initTicker();
+updateReadiness();
+checkBadges();
+runHeroCounters();
+setTimeout(showWelcomeBack, 300);
 </script>
 
 <!-- COOKIE CONSENT -->
