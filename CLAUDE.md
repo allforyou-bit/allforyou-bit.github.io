@@ -43,7 +43,7 @@ allforyou-bit.github.io/
 ├── disclaimer.html          ← 면책조항 ✅
 ├── 404.html                 ← 커스텀 404 페이지 ✅
 ├── ads.txt                  ← AdSense 소유권 인증
-├── sitemap.xml              ← 34개 URL
+├── sitemap.xml              ← 33개 URL (404.html 제외)
 ├── robots.txt               ← 검색엔진 설정
 ├── favicon.svg              ← RS 로고
 ├── .gitignore               ← .claude/settings.local.json 제외
@@ -158,7 +158,7 @@ allforyou-bit.github.io/
 - [x] Google Search Console 등록 + HTML 태그 인증 완료
 - [x] Google AdSense 신청 완료 (심사 대기 중)
 - [x] ads.txt 설치 완료
-- [x] sitemap.xml 제출 완료 (34개 URL)
+- [x] sitemap.xml 제출 완료 (33개 URL — 404.html 제외)
 - [x] IndexNow (Bing/Yandex) — 34개 URL 제출 완료
 - [x] FAQ Schema (LD+JSON) — 전체 26개 페이지 (퀴즈 5 + 커리어 가이드 6 + 시험전략 5 + 급여 5 + 비교 1 + exam-guide 1 + 트래픽 기사 3)
 - [x] BreadcrumbList Schema — 19개 기사/가이드 페이지 전체 (+ 트래픽 기사 3개 포함)
