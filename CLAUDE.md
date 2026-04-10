@@ -150,7 +150,8 @@ allforyou-bit.github.io/
 - [x] ads.txt 설치 완료
 - [x] sitemap.xml 제출 완료 (31개 URL)
 - [x] IndexNow (Bing/Yandex) — 30개+ URL 제출 완료
-- [x] FAQ Schema (LD+JSON) — 5개 퀴즈 + exam-guide + 4개 시험 전략 + 4개 급여 + 비교 = 15개 페이지
+- [x] FAQ Schema (LD+JSON) — 전체 23개 페이지 (퀴즈 5 + 커리어 가이드 6 + 시험전략 5 + 급여 5 + 비교 1 + exam-guide 1)
+- [x] BreadcrumbList Schema — 19개 기사/가이드 페이지 전체
 - [x] Article Schema — 장문 기사 전체
 - [x] terms.html + disclaimer.html (AdSense 정책 요구사항)
 - [x] robots.txt
