@@ -124,6 +124,28 @@
   .btn-mock-next:hover{background:#2d6a9f}
   .update-pill{display:inline-flex;align-items:center;gap:4px;background:#e8f9ef;color:#1a6636;font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:10px;border:1px solid #a9dfbf;margin-left:8px;vertical-align:middle}
   .rsos-pill{display:inline-flex;align-items:center;gap:4px;background:#eaf0f9;color:#1a3a5c;font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:10px;border:1px solid #afc3dc;margin-left:4px;vertical-align:middle}
+  .wrong-tab-btn{background:#fdecea!important;border-color:#e74c3c!important;color:#c0392b!important}
+  .wrong-tab-btn.active{background:#e74c3c!important;color:#fff!important}
+  .topic-progress-panel{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+  .score-hist-wrap{margin-top:10px;padding-top:10px;border-top:1px solid #eee}
+  .score-hist-wrap label{font-size:.72rem;font-weight:700;color:var(--muted);display:block;margin-bottom:6px}
+  .score-hist-list{display:flex;flex-wrap:wrap;gap:6px}
+  .mode-switch-row{display:flex;gap:8px;margin-bottom:16px;align-items:center}
+  .mode-btn{padding:7px 16px;border-radius:20px;border:2px solid var(--primary);background:#fff;color:var(--primary);font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+  .mode-btn.active{background:var(--primary);color:#fff}
+  .flashcard-section{display:none;background:#fff;border-radius:14px;padding:24px;box-shadow:0 3px 14px rgba(0,0,0,.10);margin-bottom:20px}
+  .fc-counter{font-size:.78rem;color:var(--muted);margin-bottom:12px;text-align:center}
+  .fc-scene{width:100%;min-height:200px;perspective:900px;cursor:pointer;margin-bottom:16px}
+  .fc-card{width:100%;min-height:200px;position:relative;transform-style:preserve-3d;transition:transform .5s}
+  .fc-front,.fc-back{position:absolute;width:100%;min-height:200px;backface-visibility:hidden;border-radius:10px;padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+  .fc-front{background:#eaf0f9;border:2px solid var(--primary)}
+  .fc-back{background:#e8f9ef;border:2px solid var(--green);transform:rotateY(180deg)}
+  .fc-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+  .fc-btn{padding:9px 20px;border-radius:8px;border:none;font-size:.85rem;font-weight:700;cursor:pointer}
+  .fc-btn.know{background:#27ae60;color:#fff}
+  .fc-btn.again{background:#e74c3c;color:#fff}
+  .fc-nav{display:flex;gap:10px;justify-content:center;margin-top:10px}
+  .fc-nav button{padding:6px 14px;border-radius:6px;border:2px solid var(--border);background:#fff;cursor:pointer;font-size:.82rem;font-weight:600}
 </style>
 </head>
 <body>
@@ -193,8 +215,13 @@
     <div style="font-size:.78rem;color:var(--muted);margin-top:8px;" id="streakDisplay"></div>
   </div>
 
+  <div class="topic-progress-panel" id="topicProgressPanel"></div>
+
   <div class="mock-launch-bar">
-    <p>🎯 <strong>Mock Exam Mode</strong> — Simulate the real 276A exam with timed, randomly selected questions.</p>
+    <div>
+      <p>🎯 <strong>Mock Exam Mode</strong> — Simulate the real 276A exam with timed, randomly selected questions.</p>
+      <div class="score-hist-wrap"><label>📈 Recent Mock Scores:</label><div class="score-hist-list" id="scoreHistoryList"></div></div>
+    </div>
     <button class="btn-mock" onclick="openMockSetup()">▶ Start Mock Exam</button>
   </div>
   <div style="display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;">
@@ -210,6 +237,7 @@
     <button class="tab-btn" onclick="setTopic('gtaw',this)">GTAW</button>
     <button class="tab-btn" onclick="setTopic('fcaw',this)">FCAW</button>
     <button class="tab-btn" onclick="setTopic('theory',this)">Theory</button>
+    <button class="tab-btn wrong-tab-btn" id="wrongBankTabBtn" onclick="setTopic('wrongbank',this)">📕 Mistakes (0)</button>
   </div>
   <div class="difficulty-row">
     <span>Difficulty:</span>
@@ -217,6 +245,31 @@
     <button class="diff-btn easy" onclick="setDiff('easy',this)">Easy</button>
     <button class="diff-btn medium" onclick="setDiff('medium',this)">Medium</button>
     <button class="diff-btn hard" onclick="setDiff('hard',this)">Hard</button>
+  </div>
+
+  <div class="mode-switch-row">
+    <span style="font-size:.82rem;font-weight:700;color:var(--muted)">Mode:</span>
+    <button class="mode-btn active" data-mode="quiz" onclick="setQuizMode('quiz')">📝 Quiz</button>
+    <button class="mode-btn" data-mode="flashcard" onclick="setQuizMode('flashcard')">🃏 Flashcards</button>
+  </div>
+
+  <div class="flashcard-section" id="flashcardSection">
+    <div class="fc-counter" id="fcCounter">Card 1 / ?</div>
+    <div class="fc-scene" onclick="flipFlashcard()">
+      <div class="fc-card" id="fcCardInner">
+        <div class="fc-front" id="fcFront"><p style="color:var(--muted)">Loading...</p></div>
+        <div class="fc-back" id="fcBack"></div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.72rem;color:var(--muted);margin-bottom:8px">Tap card to flip</p>
+    <div class="fc-actions">
+      <button class="fc-btn know" onclick="fcMarkKnow()">✅ Got it</button>
+      <button class="fc-btn again" onclick="fcMarkAgain()">🔁 Again</button>
+    </div>
+    <div class="fc-nav">
+      <button onclick="fcNav(-1)">← Prev</button>
+      <button onclick="fcNav(1)">Next →</button>
+    </div>
   </div>
 
   <div class="question-card" id="questionCard"></div>
@@ -422,9 +475,17 @@ function updateStreakDisplay(){
 
 // ── FILTER ──
 function applyFilter(){
-  filtered=questions.filter(q=>(currentTopic==='all'||q.topic===currentTopic)&&(currentDiff==='all'||q.diff===currentDiff));
+  let base;
+  if(currentTopic==='wrongbank'){
+    const wb=JSON.parse(localStorage.getItem('wrongBank_276a')||'[]');
+    base=questions.filter(q=>wb.includes(q.id));
+  } else {
+    base=questions.filter(q=>currentTopic==='all'||q.topic===currentTopic);
+  }
+  filtered=currentDiff==='all'?base:base.filter(q=>q.diff===currentDiff);
   currentIdx=0; answered={};
   updateScore(); loadQuestion();
+  if(typeof fcQs!=='undefined'&&document.getElementById('flashcardSection')?.style.display==='block')initFlashcards();
 }
 function setTopic(t,btn){currentTopic=t;document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilter();}
 function setDiff(d,btn){currentDiff=d;document.querySelectorAll('.diff-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilter();}
@@ -453,10 +514,18 @@ function selectAnswer(i){
   if(answered[currentIdx]!==undefined)return;
   answered[currentIdx]=i;
   const q=filtered[currentIdx];
-  if(i===q.answer){
+  const isCorrect=i===q.answer;
+  if(isCorrect){
     const c=parseInt(localStorage.getItem('todayCorrect_'+MOCK_PAGE_KEY)||'0')+1;
     localStorage.setItem('todayCorrect_'+MOCK_PAGE_KEY,c);
   }
+  // Wrong bank
+  const wb=JSON.parse(localStorage.getItem('wrongBank_276a')||'[]');
+  if(!isCorrect){if(!wb.includes(q.id)){wb.push(q.id);localStorage.setItem('wrongBank_276a',JSON.stringify(wb));}}
+  else{const idx=wb.indexOf(q.id);if(idx>-1){wb.splice(idx,1);localStorage.setItem('wrongBank_276a',JSON.stringify(wb));}}
+  updateWrongBankTab();
+  // Topic stats
+  if(typeof recordTopicStat==='function')recordTopicStat(q.topic,isCorrect);
   updateScore(); loadQuestion(); updateStreakDisplay();
 }
 function navigate(dir){currentIdx=Math.max(0,Math.min(filtered.length-1,currentIdx+dir));loadQuestion();}
@@ -534,6 +603,7 @@ function showMockResults(){
   const pass=pct>=70;
   const best=parseInt(localStorage.getItem('mockBest_'+MOCK_PAGE_KEY)||'0');
   if(pct>best)localStorage.setItem('mockBest_'+MOCK_PAGE_KEY,pct);
+  if(typeof saveMockHistory==='function')saveMockHistory(pct,total);
   const wrong=mockAnswers.filter(a=>!a.correct);
   document.getElementById('mockBarFill').style.width='100%';
   document.getElementById('mockBody').innerHTML=`
@@ -565,7 +635,9 @@ function downloadMockResults(){
 }
 function closeMock(){clearInterval(mockTimer);document.getElementById('mockOverlay').style.display='none';}
 function downloadStudySheet(){
-  const qs=currentTopic==='all'?questions:questions.filter(q=>q.topic===currentTopic);
+  let qs;
+  if(currentTopic==='wrongbank'){const wb=JSON.parse(localStorage.getItem('wrongBank_276a')||'[]');qs=questions.filter(q=>wb.includes(q.id));}
+  else{qs=currentTopic==='all'?questions:questions.filter(q=>q.topic===currentTopic);}
   const letters=['A','B','C','D'];
   const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>276A Study Sheet</title><style>body{font-family:Arial,sans-serif;font-size:12px;line-height:1.5;padding:20px}h1{font-size:18px;margin-bottom:4px}.q{margin-bottom:16px;page-break-inside:avoid}.qt{font-weight:700;margin-bottom:4px}.ans{color:green;font-weight:700}.exp{color:#555;font-size:11px;margin-top:2px}@media print{.no-print{display:none}}</style></head><body><h1>276A Red Seal — Study Sheet</h1><p class="no-print">Press Ctrl+P to save as PDF</p><hr>${qs.map((q,i)=>`<div class="q"><div class="qt">${i+1}. ${q.text}</div>${q.options.map((o,j)=>`<div${j===q.answer?' class="ans"':''}>${letters[j]}) ${o.replace(/^[A-D]\)\s*/,'')}</div>`).join('')}<div class="exp">→ ${q.explanation}</div></div>`).join('')}</body></html>`;
   const w=window.open('','_blank');w.document.write(html);w.document.close();
@@ -573,10 +645,165 @@ function downloadStudySheet(){
 function acceptCookies(){localStorage.setItem('cookieOk','1');document.getElementById('cookieBanner').style.display='none';}
 function initCookieBanner(){if(!localStorage.getItem('cookieOk'))document.getElementById('cookieBanner').style.display='flex';}
 
+// ── Wrong Bank Tab ──────────────────────────────────────────────
+function updateWrongBankTab(){
+  const wb=JSON.parse(localStorage.getItem('wrongBank_276a')||'[]');
+  const btn=document.getElementById('wrongBankTabBtn');
+  if(btn){btn.textContent='📕 Mistakes ('+wb.length+')';}
+}
+
+// ── Topic Definitions & Stats ───────────────────────────────────
+const TOPIC_DEFS=[
+  {key:'safety',label:'Safety & Tools'},
+  {key:'ofc',label:'OFC'},
+  {key:'smaw',label:'SMAW'},
+  {key:'gmaw',label:'GMAW'},
+  {key:'gtaw',label:'GTAW'},
+  {key:'fcaw',label:'FCAW'},
+  {key:'theory',label:'Theory'}
+];
+
+function recordTopicStat(topic,correct){
+  const stats=JSON.parse(localStorage.getItem('topicStats_276a')||'{}');
+  if(!stats[topic])stats[topic]={c:0,t:0};
+  stats[topic].t++;
+  if(correct)stats[topic].c++;
+  localStorage.setItem('topicStats_276a',JSON.stringify(stats));
+  renderTopicProgress();
+}
+
+function renderTopicProgress(){
+  const panel=document.getElementById('topicProgressPanel');
+  if(!panel)return;
+  const stats=JSON.parse(localStorage.getItem('topicStats_276a')||'{}');
+  panel.innerHTML='<div style="font-weight:700;font-size:.85rem;margin-bottom:10px;color:#1a3a5c">📊 Topic Progress</div>'+
+    TOPIC_DEFS.map(td=>{
+      const s=stats[td.key]||{c:0,t:0};
+      const pct=s.t?Math.round(s.c/s.t*100):0;
+      const color=pct>=70?'#27ae60':pct>=50?'#f0a500':'#e74c3c';
+      return '<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:3px"><span>'+td.label+'</span><span style="color:'+color+'">'+pct+'% ('+s.c+'/'+s.t+')</span></div><div style="background:#dce3ec;border-radius:6px;height:7px;overflow:hidden"><div style="width:'+pct+'%;height:100%;background:'+color+';border-radius:6px;transition:width .4s"></div></div></div>';
+    }).join('')+
+    '<button onclick="resetTopicStats()" style="margin-top:6px;font-size:.72rem;background:none;border:1px solid #ccc;border-radius:4px;padding:3px 8px;cursor:pointer;color:#888">Reset Stats</button>';
+}
+
+function resetTopicStats(){
+  if(!confirm('Reset all topic progress?'))return;
+  localStorage.removeItem('topicStats_276a');
+  renderTopicProgress();
+}
+
+// ── Mock Score History ──────────────────────────────────────────
+function saveMockHistory(pct,total){
+  const hist=JSON.parse(localStorage.getItem('mockHistory_276a')||'[]');
+  hist.unshift({pct,total,date:new Date().toLocaleDateString()});
+  if(hist.length>5)hist.length=5;
+  localStorage.setItem('mockHistory_276a',JSON.stringify(hist));
+  renderScoreHistory();
+}
+
+function renderScoreHistory(){
+  const el=document.getElementById('scoreHistoryList');
+  if(!el)return;
+  const hist=JSON.parse(localStorage.getItem('mockHistory_276a')||'[]');
+  if(!hist.length){el.innerHTML='<span style="color:#aaa;font-size:.78rem">No mock exams yet</span>';return;}
+  el.innerHTML=hist.map(h=>{
+    const color=h.pct>=70?'#27ae60':h.pct>=50?'#f0a500':'#e74c3c';
+    return '<span style="display:inline-flex;align-items:center;gap:4px;background:#f4f7fb;border-radius:20px;padding:3px 10px;font-size:.78rem;font-weight:700;color:'+color+'">'+h.pct+'%<span style="font-weight:400;color:#888;font-size:.72rem">'+h.date+'</span></span>';
+  }).join('');
+}
+
+// ── Flashcard Mode ──────────────────────────────────────────────
+let fcIdx=0,fcQs=[],fcFlipped=false,fcKnownIds=new Set();
+
+function setQuizMode(mode){
+  const qcard=document.getElementById('questionCard');
+  const fcard=document.getElementById('flashcardSection');
+  const quizUI=document.querySelector('.score-box');
+  const navRow=document.querySelector('.nav-row');
+  const modeBtns=document.querySelectorAll('.mode-btn');
+  modeBtns.forEach(b=>b.classList.remove('active'));
+  document.querySelector('.mode-btn[data-mode="'+mode+'"]')?.classList.add('active');
+  if(mode==='flashcard'){
+    if(qcard)qcard.style.display='none';
+    if(quizUI)quizUI.style.display='none';
+    if(navRow)navRow.style.display='none';
+    if(fcard)fcard.style.display='block';
+    initFlashcards();
+  } else {
+    if(qcard)qcard.style.display='';
+    if(quizUI)quizUI.style.display='';
+    if(navRow)navRow.style.display='';
+    if(fcard)fcard.style.display='none';
+    applyFilter();
+  }
+}
+
+function initFlashcards(){
+  fcQs=[...filtered];
+  fcKnownIds=new Set();
+  fcIdx=0;
+  fcFlipped=false;
+  renderFlashcard();
+}
+
+function getRemaining(){return fcQs.filter(q=>!fcKnownIds.has(q.id));}
+
+function renderFlashcard(){
+  const rem=getRemaining();
+  const counter=document.getElementById('fcCounter');
+  const card=document.getElementById('fcCardInner');
+  const front=document.getElementById('fcFront');
+  const back=document.getElementById('fcBack');
+  if(!rem.length){
+    if(counter)counter.textContent='All done!';
+    if(front)front.innerHTML='<p style="font-size:1.1rem;font-weight:700;color:#27ae60">🎉 You\'ve reviewed all cards!</p>';
+    if(back)back.innerHTML='';
+    if(card)card.style.transform='';
+    fcFlipped=false;
+    return;
+  }
+  if(fcIdx>=rem.length)fcIdx=0;
+  const q=rem[fcIdx];
+  if(counter)counter.textContent='Card '+(fcIdx+1)+' / '+rem.length+' remaining';
+  if(front)front.innerHTML='<p style="font-size:.75rem;font-weight:600;color:#f0a500;margin-bottom:8px;text-transform:uppercase">'+(q.topicLabel||q.topic).toUpperCase()+'</p><p style="font-size:1rem;font-weight:600;line-height:1.5">'+(q.text||q.q)+'</p>';
+  if(back){const correctOpt=q.options[q.answer];const explanation=q.explanation||'';back.innerHTML='<p style="font-size:.72rem;font-weight:700;color:#27ae60;margin-bottom:6px">ANSWER</p><p style="font-size:.95rem;font-weight:700;color:#1a3a5c;margin-bottom:8px">'+correctOpt.replace(/^[A-D]\)\s*/,'')+'</p>'+(explanation?'<p style="font-size:.78rem;color:#555;line-height:1.5">'+explanation+'</p>':'');}
+  if(card)card.style.transform='';
+  fcFlipped=false;
+}
+
+function flipFlashcard(){
+  const card=document.getElementById('fcCardInner');
+  if(!card)return;
+  fcFlipped=!fcFlipped;
+  card.style.transform=fcFlipped?'rotateY(180deg)':'';
+}
+
+function fcNav(dir){
+  const rem=getRemaining();
+  if(!rem.length)return;
+  fcIdx=(fcIdx+dir+rem.length)%rem.length;
+  renderFlashcard();
+}
+
+function fcMarkKnow(){
+  const rem=getRemaining();
+  if(!rem.length)return;
+  fcKnownIds.add(rem[fcIdx].id);
+  if(fcIdx>=getRemaining().length)fcIdx=0;
+  renderFlashcard();
+}
+
+function fcMarkAgain(){
+  fcNav(1);
+}
+
 // ── INIT ──
 initStreak();
 applyFilter();
 initCookieBanner();
+updateWrongBankTab();
+renderTopicProgress();
+renderScoreHistory();
 </script>
 </body>
 </html>
