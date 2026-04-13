@@ -103,12 +103,12 @@ footer{background:#1a3a5c;color:rgba(255,255,255,.75);text-align:center;padding:
 footer a{color:#f0a500;margin:0 8px;text-decoration:none}
 
 .nav-brand{display:none;color:white;font-weight:800;font-size:.92rem;text-decoration:none;white-space:nowrap;align-items:center}
-.nav-toggle{display:none;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;padding:6px 8px;line-height:1;flex-shrink:0;margin-left:8px}
-.nav-links{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.nav-toggle{display:none;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;padding:0;line-height:1;flex-shrink:0;margin-left:auto;min-width:40px;text-align:center}
+.nav-links{display:flex;flex-wrap:nowrap;overflow:hidden;gap:18px;align-items:center}
 @media(max-width:860px){
   nav{flex-wrap:nowrap!important;padding:0 14px!important;gap:0!important;position:relative}
   .nav-brand{display:flex;margin-right:auto}
-  .nav-toggle{display:flex;align-items:center;justify-content:center}
+  .nav-toggle{display:flex;align-items:center;justify-content:center;height:52px}
   .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#1a3a5c;flex-direction:column;z-index:201;box-shadow:0 8px 24px rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.1);max-height:75vh;overflow-y:auto;gap:0}
   .nav-links.open{display:flex}
   .nav-links a{padding:13px 20px!important;border-bottom:1px solid rgba(255,255,255,.07)!important;font-size:.9rem!important;width:100%;display:block}

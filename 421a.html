@@ -607,6 +607,30 @@
 
 </div>
 
+<script>
+/* ── COMBO STREAK + REPORT ── */
+(function(){
+  var t=document.createElement('div');t.id='comboToast';
+  t.style.cssText='position:fixed;bottom:90px;left:50%;transform:translateX(-50%) scale(.85);background:linear-gradient(135deg,#ff6b35,#f0a500);color:white;padding:12px 26px;border-radius:30px;font-weight:800;font-size:1rem;z-index:9999;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap;box-shadow:0 4px 20px rgba(255,107,53,.45)';
+  document.body.appendChild(t);
+  var r=document.createElement('div');r.style.cssText='text-align:right;max-width:820px;margin:-4px auto 8px;padding:0 8px';
+  r.innerHTML='<button onclick="reportQuestion()" style="background:none;border:none;color:#b0bec5;font-size:.75rem;cursor:pointer;padding:4px 8px;font-family:inherit">⛔ Report issue</button>';
+  var qc=document.getElementById('questionCard');if(qc&&qc.parentNode)qc.parentNode.insertBefore(r,qc.nextSibling);
+})();
+window._cs=0;
+function showComboToast(n){
+  var t=document.getElementById('comboToast');if(!t)return;
+  t.textContent=(n>=5?'🔥🔥 ':'🔥 ')+n+' in a row!';
+  t.style.opacity='1';t.style.transform='translateX(-50%) scale(1)';
+  clearTimeout(t._tmr);t._tmr=setTimeout(function(){t.style.opacity='0';t.style.transform='translateX(-50%) scale(.85)';},2200);
+}
+function reportQuestion(){
+  var el=document.getElementById('qText')||document.querySelector('.q-text');
+  var qt=el?el.textContent.trim():'Unknown';
+  window.open('mailto:lidbil515@gmail.com?subject='+encodeURIComponent('Question Error Report')+'&body='+encodeURIComponent('Question: '+qt+'\n\nDescribe the error:'));
+}
+</script>
+
 <!-- EMAIL CAPTURE -->
 <div style="background:linear-gradient(135deg,#1a3a5c,#2d6a9f);border-radius:16px;padding:32px 24px;color:white;text-align:center;position:relative;overflow:hidden;max-width:900px;margin:0 auto 32px">
   <div style="position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:5rem;opacity:.07;pointer-events:none">📬</div>
@@ -2624,6 +2648,8 @@ function selectAnswer(idx, q) {
     }
     // Topic stats
     recordTopicStat(q.topic, isCorrect);
+    // Combo streak
+    if (isCorrect) { window._cs=(window._cs||0)+1; if(window._cs>=2) showComboToast(window._cs); } else { window._cs=0; }
   }
 }
 

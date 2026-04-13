@@ -147,9 +147,9 @@
   .fc-nav{display:flex;gap:10px;justify-content:center;margin-top:10px}
   .fc-nav button{padding:6px 14px;border-radius:6px;border:2px solid var(--border);background:#fff;cursor:pointer;font-size:.82rem;font-weight:600}
   .nav-brand{display:none;color:white;font-weight:800;font-size:.92rem;text-decoration:none;white-space:nowrap;align-items:center}
-  .nav-toggle{display:none;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;padding:6px 8px;line-height:1;flex-shrink:0;margin-left:8px}
-  .nav-links{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
-  @media(max-width:860px){.site-nav{flex-wrap:nowrap!important;padding:0 14px!important;gap:0!important;position:relative}.nav-brand{display:flex;margin-right:auto}.nav-toggle{display:flex;align-items:center;justify-content:center}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#1a3a5c;flex-direction:column;z-index:201;box-shadow:0 8px 24px rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.1);max-height:75vh;overflow-y:auto;gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px 20px!important;border-bottom:1px solid rgba(255,255,255,.07)!important;font-size:.9rem!important;width:100%;display:block}.topic-tabs{overflow-x:auto;flex-wrap:nowrap!important;-webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:none}.topic-tabs::-webkit-scrollbar{display:none}.tab-btn{white-space:nowrap;flex-shrink:0}.mode-switch-row{flex-wrap:wrap}.mock-launch-bar{flex-direction:column;align-items:flex-start}.fc-scene,.fc-card{min-height:150px!important}.fc-front,.fc-back{min-height:150px!important;padding:16px 14px!important}.question-card{padding:16px 14px!important}.difficulty-row{flex-wrap:wrap;gap:6px}header h1{font-size:1.25rem}.container{padding:14px 12px}}
+  .nav-toggle{display:none;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;padding:0;line-height:1;flex-shrink:0;margin-left:auto;min-width:40px;text-align:center}
+  .nav-links{display:flex;flex-wrap:nowrap;overflow:hidden;gap:18px;align-items:center}
+  @media(max-width:860px){.site-nav{flex-wrap:nowrap!important;padding:0 14px!important;gap:0!important;position:relative}.nav-brand{display:flex;margin-right:auto}.nav-toggle{display:flex;align-items:center;justify-content:center;height:52px}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#1a3a5c;flex-direction:column;z-index:201;box-shadow:0 8px 24px rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.1);max-height:75vh;overflow-y:auto;gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px 20px!important;border-bottom:1px solid rgba(255,255,255,.07)!important;font-size:.9rem!important;width:100%;display:block}.topic-tabs{overflow-x:auto;flex-wrap:nowrap!important;-webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:none}.topic-tabs::-webkit-scrollbar{display:none}.tab-btn{white-space:nowrap;flex-shrink:0}.mode-switch-row{flex-wrap:wrap}.mock-launch-bar{flex-direction:column;align-items:flex-start}.fc-scene,.fc-card{min-height:150px!important}.fc-front,.fc-back{min-height:150px!important;padding:16px 14px!important}.question-card{padding:16px 14px!important}.difficulty-row{flex-wrap:wrap;gap:6px}header h1{font-size:1.25rem}.container{padding:14px 12px}}
   @media(max-width:480px){.q-text{font-size:.93rem}.option-btn{font-size:.86rem;padding:10px 12px}}
 </style>
 </head>
@@ -294,6 +294,29 @@
   <span style="font-size:.84rem;">We use cookies to save your study progress. <a href="/privacy.html" style="color:#f0a500;">Privacy Policy</a></span>
   <button onclick="acceptCookies()" style="background:#f0a500;color:#fff;border:none;border-radius:6px;padding:8px 18px;font-weight:700;cursor:pointer;font-size:.84rem;">Accept</button>
 </div>
+<script>
+/* ── COMBO STREAK + REPORT ── */
+(function(){
+  var t=document.createElement('div');t.id='comboToast';
+  t.style.cssText='position:fixed;bottom:90px;left:50%;transform:translateX(-50%) scale(.85);background:linear-gradient(135deg,#ff6b35,#f0a500);color:white;padding:12px 26px;border-radius:30px;font-weight:800;font-size:1rem;z-index:9999;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap;box-shadow:0 4px 20px rgba(255,107,53,.45)';
+  document.body.appendChild(t);
+  var r=document.createElement('div');r.style.cssText='text-align:right;max-width:820px;margin:-4px auto 8px;padding:0 8px';
+  r.innerHTML='<button onclick="reportQuestion()" style="background:none;border:none;color:#b0bec5;font-size:.75rem;cursor:pointer;padding:4px 8px;font-family:inherit">⛔ Report issue</button>';
+  var qc=document.getElementById('questionCard');if(qc&&qc.parentNode)qc.parentNode.insertBefore(r,qc.nextSibling);
+})();
+window._cs=0;
+function showComboToast(n){
+  var t=document.getElementById('comboToast');if(!t)return;
+  t.textContent=(n>=5?'🔥🔥 ':'🔥 ')+n+' in a row!';
+  t.style.opacity='1';t.style.transform='translateX(-50%) scale(1)';
+  clearTimeout(t._tmr);t._tmr=setTimeout(function(){t.style.opacity='0';t.style.transform='translateX(-50%) scale(.85)';},2200);
+}
+function reportQuestion(){
+  var el=document.getElementById('qText')||document.querySelector('.q-text');
+  var qt=el?el.textContent.trim():'Unknown';
+  window.open('mailto:lidbil515@gmail.com?subject='+encodeURIComponent('Question Error Report')+'&body='+encodeURIComponent('Question: '+qt+'\n\nDescribe the error:'));
+}
+</script>
 <!-- EMAIL CAPTURE -->
 <div style="background:linear-gradient(135deg,#1a3a5c,#2d6a9f);border-radius:16px;padding:32px 24px;color:white;text-align:center;position:relative;overflow:hidden;max-width:900px;margin:0 auto 32px">
   <div style="position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:5rem;opacity:.07;pointer-events:none">📬</div>
@@ -443,7 +466,7 @@ function applyFilter(){let base;if(currentTopic==='wrongbank'){const wb=JSON.par
 function setTopic(t,btn){currentTopic=t;document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilter();}
 function setDiff(d,btn){currentDiff=d;document.querySelectorAll('.diff-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilter();}
 function loadQuestion(){const card=document.getElementById('questionCard');if(!filtered.length){card.innerHTML='<p style="color:var(--muted);text-align:center;padding:40px;">No questions match this filter.</p>';document.getElementById('qCounter').textContent='';return;}const q=filtered[currentIdx];const isAnswered=answered[currentIdx]!==undefined;const userAns=answered[currentIdx];const letters=['A','B','C','D'];card.innerHTML=`<div class="q-header"><span class="q-topic">${q.topicLabel}</span><span class="q-diff ${q.diff}">${q.diff.charAt(0).toUpperCase()+q.diff.slice(1)}</span></div><div class="q-number">Question ${currentIdx+1} of ${filtered.length}</div><div class="q-text">${q.text}</div><div class="options">${q.options.map((o,i)=>`<button class="option-btn${isAnswered?(i===q.answer?' reveal':(i===userAns?' wrong':'')):''}\" onclick="selectAnswer(${i})" ${isAnswered?'disabled':''}><span class="option-letter">${letters[i]}</span><span>${o.replace(/^[A-D]\)\s*/,'')}</span></button>`).join('')}</div><div class="explanation ${isAnswered?'show':''}">${isAnswered?`<strong>Explanation:</strong> ${q.explanation}<div class="key-concept"><strong>Key Concept:</strong> ${q.keyConcept}</div>`:''}</div>`;document.getElementById('prevBtn').disabled=currentIdx===0;document.getElementById('nextBtn').disabled=currentIdx===filtered.length-1;document.getElementById('qCounter').textContent=`${currentIdx+1} / ${filtered.length}`;}
-function selectAnswer(i){if(answered[currentIdx]!==undefined)return;answered[currentIdx]=i;const q=filtered[currentIdx];const isCorrect=i===q.answer;if(isCorrect){const c=parseInt(localStorage.getItem('todayCorrect_'+MOCK_PAGE_KEY)||'0')+1;localStorage.setItem('todayCorrect_'+MOCK_PAGE_KEY,c);}const wb=JSON.parse(localStorage.getItem('wrongBank_313a')||'[]');if(!isCorrect){if(!wb.includes(q.id)){wb.push(q.id);localStorage.setItem('wrongBank_313a',JSON.stringify(wb));}}else{const idx=wb.indexOf(q.id);if(idx>-1){wb.splice(idx,1);localStorage.setItem('wrongBank_313a',JSON.stringify(wb));}}updateWrongBankTab();if(typeof recordTopicStat==='function')recordTopicStat(q.topic,isCorrect);updateScore();loadQuestion();updateStreakDisplay();}
+function selectAnswer(i){if(answered[currentIdx]!==undefined)return;answered[currentIdx]=i;const q=filtered[currentIdx];const isCorrect=i===q.answer;if(isCorrect){const c=parseInt(localStorage.getItem('todayCorrect_'+MOCK_PAGE_KEY)||'0')+1;localStorage.setItem('todayCorrect_'+MOCK_PAGE_KEY,c);}const wb=JSON.parse(localStorage.getItem('wrongBank_313a')||'[]');if(!isCorrect){if(!wb.includes(q.id)){wb.push(q.id);localStorage.setItem('wrongBank_313a',JSON.stringify(wb));}}else{const idx=wb.indexOf(q.id);if(idx>-1){wb.splice(idx,1);localStorage.setItem('wrongBank_313a',JSON.stringify(wb));}}updateWrongBankTab();if(typeof recordTopicStat==='function')recordTopicStat(q.topic,isCorrect);if(isCorrect){window._cs=(window._cs||0)+1;if(window._cs>=2)showComboToast(window._cs);}else{window._cs=0;}updateScore();loadQuestion();updateStreakDisplay();}
 function navigate(dir){currentIdx=Math.max(0,Math.min(filtered.length-1,currentIdx+dir));loadQuestion();}
 function updateScore(){const realCorrect=Object.keys(answered).filter(i=>answered[i]===filtered[i]?.answer).length;const total=Object.keys(answered).length;document.getElementById('scoreDisplay').textContent=`${realCorrect} / ${total}`;document.getElementById('progressBar').style.width=filtered.length?`${((currentIdx+1)/filtered.length)*100}%`:'0%';}
 function buildMockQs(n){const byTopic={};questions.forEach(q=>{if(!byTopic[q.topic])byTopic[q.topic]=[];byTopic[q.topic].push(q);});const topics=Object.keys(byTopic);const perTopic=Math.floor(n/topics.length);let pool=[];topics.forEach(t=>{const sh=[...byTopic[t]].sort(()=>Math.random()-.5);pool=pool.concat(sh.slice(0,perTopic));});while(pool.length<n){const all=[...questions].sort(()=>Math.random()-.5);for(const q of all){if(!pool.includes(q)){pool.push(q);if(pool.length>=n)break;}}}return pool.slice(0,n).sort(()=>Math.random()-.5);}
