@@ -146,22 +146,31 @@
   .fc-btn.again{background:#e74c3c;color:#fff}
   .fc-nav{display:flex;gap:10px;justify-content:center;margin-top:10px}
   .fc-nav button{padding:6px 14px;border-radius:6px;border:2px solid var(--border);background:#fff;cursor:pointer;font-size:.82rem;font-weight:600}
+  .nav-brand{display:none;color:white;font-weight:800;font-size:.92rem;text-decoration:none;white-space:nowrap;align-items:center}
+  .nav-toggle{display:none;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;padding:6px 8px;line-height:1;flex-shrink:0;margin-left:8px}
+  .nav-links{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+  @media(max-width:860px){.site-nav{flex-wrap:nowrap!important;padding:0 14px!important;gap:0!important;position:relative}.nav-brand{display:flex;margin-right:auto}.nav-toggle{display:flex;align-items:center;justify-content:center}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#1a3a5c;flex-direction:column;z-index:201;box-shadow:0 8px 24px rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.1);max-height:75vh;overflow-y:auto;gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px 20px!important;border-bottom:1px solid rgba(255,255,255,.07)!important;font-size:.9rem!important;width:100%;display:block}.topic-tabs{overflow-x:auto;flex-wrap:nowrap!important;-webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:none}.topic-tabs::-webkit-scrollbar{display:none}.tab-btn{white-space:nowrap;flex-shrink:0}.mode-switch-row{flex-wrap:wrap}.mock-launch-bar{flex-direction:column;align-items:flex-start}.fc-scene,.fc-card{min-height:150px!important}.fc-front,.fc-back{min-height:150px!important;padding:16px 14px!important}.question-card{padding:16px 14px!important}.difficulty-row{flex-wrap:wrap;gap:6px}header h1{font-size:1.25rem}.container{padding:14px 12px}}
+  @media(max-width:480px){.q-text{font-size:.93rem}.option-btn{font-size:.86rem;padding:10px 12px}}
 </style>
 </head>
 <body>
 <nav class="site-nav">
-  <a href="/">🏠 Home</a>
-  <a href="/421a.html">421A – Heavy Equipment</a>
-  <a href="/310t.html">310T – Truck & Transport</a>
-  <a href="/309a.html">309A – Electrician</a>
-  <a href="/310s.html">310S – Automotive</a>
-  <a href="/308a.html">308A – HVAC</a>
-  <a href="/276a.html">276A – Welder</a>
-  <a href="/447a.html" class="active">447A – Plumber</a>
-  <a href="/313a.html">313A – Industrial Electrician</a>
-  <a href="/exam-guide.html">Exam Guide</a>
-  <a href="/study-guide.html">Study Guide</a>
-  <a href="/about.html">About</a>
+  <a href="/" class="nav-brand">🔧 Red Seal Prep</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'✕':'☰'">☰</button>
+  <div class="nav-links">
+    <a href="/">🏠 Home</a>
+    <a href="/421a.html">421A</a>
+    <a href="/310t.html">310T</a>
+    <a href="/309a.html">309A</a>
+    <a href="/310s.html">310S</a>
+    <a href="/308a.html">308A</a>
+    <a href="/276a.html">276A</a>
+    <a href="/447a.html" class="active">447A</a>
+    <a href="/313a.html">313A</a>
+    <a href="/exam-guide.html">Exam Guide</a>
+    <a href="/study-guide.html">Study Guide</a>
+    <a href="/about.html">About</a>
+  </div>
 </nav>
 <header>
   <h1>447A Red Seal — Plumber</h1>
