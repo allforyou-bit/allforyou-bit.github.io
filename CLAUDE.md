@@ -88,11 +88,14 @@ allforyou-bit.github.io/
 | 309a.html | **135문제** | Theory, CEC Code, Motors, Wiring Methods, Safety |
 | 310s.html | **135문제** | Engine, Brakes, Electrical, Suspension, Transmission |
 | 308a.html | **115문제** | Cycle, Refrigerants, Components, Controls, Troubleshooting |
-| **합계** | **770문제** | |
+| 276a.html | **120문제** | Safety, OFC, SMAW, GMAW, GTAW, FCAW, Theory |
+| 447a.html | **110문제** | Safety, DWV, Water Supply, Gas Piping, Fixtures, Code |
+| 313a.html | **110문제** | Safety, Motors, PLCs, Instrumentation, Power, Theory |
+| **합계** | **1,110문제** | |
 
 ---
 
-## 퀴즈 페이지 기능 현황 (모든 5개 퀴즈 페이지 동일)
+## 퀴즈 페이지 기능 현황 (모든 8개 퀴즈 페이지 동일)
 
 - [x] **Mock Exam 시스템** — 토픽/난이도 비례 출제, 결과 화면, URL 파라미터 자동 실행
 - [x] **Mock Exam 타이머** — 1.5분/문제, 5분 이하 빨간색 경고
@@ -104,7 +107,11 @@ allforyou-bit.github.io/
 - [x] **Related Guides 섹션** — 각 퀴즈 페이지 하단 내부 링크 (4개: career/exam-tip/salary/what-is-red-seal)
 - [x] **150단어+ 인트로 텍스트** — 콘텐츠 품질 (AdSense thin content 방지)
 - [x] **Freshness Badge** — "Updated April 2026" 뱃지
-- [x] **FAQ Schema** — 모든 5개 퀴즈 페이지 + 6개 exam-guide/salary 기사 포함
+- [x] **FAQ Schema** — 모든 퀴즈 페이지 + 기사 페이지 포함
+- [x] **Wrong Bank (📕 Mistakes 탭)** — 오답 자동 수집, 재학습 탭, 맞히면 자동 제거 (localStorage: wrongBank_{key})
+- [x] **Topic Progress Panel** — 토픽별 정답률 시각화 바 (localStorage: topicStats_{key})
+- [x] **Mock Score History** — 최근 5회 Mock 점수 표시 (localStorage: mockHistory_{key})
+- [x] **Flashcard Mode (🃏)** — 카드 플립 인터페이스, Got it / Again 버튼, 완료 시 "All done!" 메시지
 
 ---
 
