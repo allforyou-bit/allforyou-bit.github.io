@@ -2767,6 +2767,35 @@ function downloadStudySheet() {
 ${body}
 <div class="answer-key"><h2>📌 Answer Key with Explanations</h2>${keyHtml}</div>
 <div class="footer">Canada Red Seal Exam Prep · allforyou-bit.github.io · Free practice questions based on 2023 RSOS · Not affiliated with the official Red Seal Program</div>
+<!-- EXIT INTENT POPUP -->
+<div id="exitPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:10000;align-items:center;justify-content:center;padding:20px">
+  <div style="background:white;border-radius:20px;padding:36px 32px;max-width:440px;width:100%;position:relative;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <button onclick="document.getElementById(&apos;exitPopup&apos;).style.display=&apos;none&apos;;sessionStorage.setItem(&apos;exitShown&apos;,&apos;1&apos;)" style="position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#aaa;line-height:1">&times;</button>
+    <div style="font-size:2.5rem;margin-bottom:12px">&#128203;</div>
+    <h2 style="font-size:1.3rem;color:#1a3a5c;font-weight:800;margin-bottom:8px">Wait &#8212; Free Study Sheet!</h2>
+    <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:20px">Get our <strong>Red Seal Quick-Reference PDF</strong> &#8212; key formulas, codes and tips for your trade. Free, no spam.</p>
+    <form action="https://formsubmit.co/lidbil515@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:10px">
+      <input type="hidden" name="_subject" value="Exit Intent - Free Study Sheet">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="email" name="email" required placeholder="Your email address" style="border:2px solid #dce3ec;border-radius:8px;padding:11px 14px;font-size:.9rem;font-family:inherit;outline:none;width:100%">
+      <button type="submit" style="background:#f0a500;color:white;border:none;border-radius:8px;padding:12px;font-weight:700;font-size:.95rem;cursor:pointer">Send Me the PDF &#8594;</button>
+    </form>
+    <p style="font-size:.72rem;color:#aaa;margin-top:10px">Unsubscribe anytime. We respect your privacy.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var shown=false;var st=Date.now();
+  document.addEventListener("mouseleave",function(e){
+    if(e.clientY>5||shown||sessionStorage.getItem("exitShown"))return;
+    if(Date.now()-st<12000)return;
+    shown=true;
+    var p=document.getElementById("exitPopup");
+    if(p){p.style.display="flex";sessionStorage.setItem("exitShown","1");}
+  });
+})();
+</script>
 </body></html>`;
   const w = window.open('', '_blank');
   if (!w) { alert('Please allow pop-ups to use the study sheet download.'); return; }
