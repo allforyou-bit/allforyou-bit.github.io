@@ -55,6 +55,19 @@ li{margin-bottom:8px}
 .ad-banner{background:#e8ecf0;border:2px dashed #b0bec5;text-align:center;padding:18px;font-size:.8rem;color:#7f8c8d;margin:24px 0;border-radius:8px}
 footer{background:#1a3a5c;color:rgba(255,255,255,.75);text-align:center;padding:24px;font-size:.8rem;margin-top:40px}
 footer a{color:#f0a500;margin:0 8px;text-decoration:none}
+
+.nav-brand{display:none;color:white;font-weight:800;font-size:.92rem;text-decoration:none;white-space:nowrap;align-items:center}
+.nav-toggle{display:none;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;padding:6px 8px;line-height:1;flex-shrink:0;margin-left:8px}
+.nav-links{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+@media(max-width:860px){
+  nav{flex-wrap:nowrap!important;padding:0 14px!important;gap:0!important;position:relative}
+  .nav-brand{display:flex;margin-right:auto}
+  .nav-toggle{display:flex;align-items:center;justify-content:center}
+  .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#1a3a5c;flex-direction:column;z-index:201;box-shadow:0 8px 24px rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.1);max-height:75vh;overflow-y:auto;gap:0}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:13px 20px!important;border-bottom:1px solid rgba(255,255,255,.07)!important;font-size:.9rem!important;width:100%;display:block}
+  .container{padding:14px 12px}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://allforyou-bit.github.io/"},{"@type":"ListItem","position":2,"name":"Construction Electrician Career Guide","item":"https://allforyou-bit.github.io/construction-electrician-309a-career-canada.html"}]}</script>
 <script type="application/ld+json">
@@ -63,15 +76,19 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
 </head>
 <body>
 <nav>
-  <a href="/">🏠 Home</a>
-  <a href="/421a.html">421A – Heavy Equipment</a>
-  <a href="/310t.html">310T – Truck & Transport</a>
-  <a href="/309a.html">309A – Electrician</a>
-  <a href="/310s.html">310S – Automotive</a>
-  <a href="/308a.html">308A – HVAC</a>
-  <a href="/exam-guide.html">Exam Guide</a>
-  <a href="/study-guide.html">Study Guide</a>
-  <a href="/about.html">About</a>
+  <a href="/" class="nav-brand">🔧 Red Seal Prep</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'✕':'☰'">&#9776;</button>
+  <div class="nav-links">
+    <a href="/">&#127968; Home</a>
+    <a href="/421a.html">421A</a>
+    <a href="/310t.html">310T</a>
+    <a href="/309a.html">309A</a>
+    <a href="/310s.html">310S</a>
+    <a href="/308a.html">308A</a>
+    <a href="/exam-guide.html">Exam Guide</a>
+    <a href="/study-guide.html">Study Guide</a>
+    <a href="/about.html">About</a>
+  </div>
 </nav>
 <div class="hero">
   <h1>Construction Electrician Career Guide Canada</h1>
