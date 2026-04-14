@@ -530,6 +530,51 @@ function fcMarkKnow(){const rem=getRemaining();if(!rem.length)return;fcKnownIds.
 function fcMarkAgain(){fcNav(1);}
 initStreak();applyFilter();initCookieBanner();
 updateWrongBankTab();renderTopicProgress();renderScoreHistory();
+/* ── PROGRESS SAVE + RESUME TOAST ── */
+(function(){
+  var savedIdx = parseInt(localStorage.getItem('progress_313a') || '0');
+  if (savedIdx > 0) {
+    currentIdx = savedIdx;
+    if (typeof filtered !== 'undefined') {
+      if (currentIdx >= filtered.length) currentIdx = 0;
+    } else if (typeof filteredQs !== 'undefined') {
+      if (currentIdx >= filteredQs.length) currentIdx = 0;
+    }
+    if (typeof loadQuestion === 'function') loadQuestion();
+    if (savedIdx > 0) {
+      var rt = document.createElement('div');
+      rt.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1a3a5c;color:white;padding:12px 22px;border-radius:24px;font-size:.88rem;font-weight:600;z-index:9998;box-shadow:0 4px 16px rgba(0,0,0,.3);cursor:pointer;white-space:nowrap';
+      rt.innerHTML = '📌 Resumed from Q.' + (savedIdx + 1) + ' &nbsp;<span style="opacity:.6;font-size:.78rem">tap to dismiss</span>';
+      rt.onclick = function(){ if(rt.parentNode) rt.parentNode.removeChild(rt); };
+      document.body.appendChild(rt);
+      setTimeout(function(){ if(rt.parentNode) rt.parentNode.removeChild(rt); }, 4000);
+    }
+  }
+})();
+/* ── MOCK CTA after 25 answers ── */
+(function(){
+  var _ctaShown = false;
+  var _ansCount = 0;
+  var origSA = typeof selectAnswer !== 'undefined' ? selectAnswer : null;
+  if (!origSA) return;
+  var _wrapped = selectAnswer;
+  window.addEventListener('quizAnswered', function() {
+    _ansCount++;
+    if (_ansCount >= 25 && !_ctaShown && !sessionStorage.getItem('ctaShown313a')) {
+      _ctaShown = true;
+      sessionStorage.setItem('ctaShown313a','1');
+      var b = document.createElement('div');
+      b.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a3a5c,#2d6a9f);color:white;padding:16px 20px;z-index:9990;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;box-shadow:0 -4px 20px rgba(0,0,0,.25)';
+      b.innerHTML = '<span style="font-size:.92rem;font-weight:600">&#x1F4AA; You answered <strong>' + _ansCount + ' questions!</strong> Ready for a Mock Exam?</span>' +
+        '<div style="display:flex;gap:10px;flex-shrink:0">' +
+        '<a href="#mockSection" style="background:#f0a500;color:white;border:none;border-radius:8px;padding:10px 20px;font-weight:700;cursor:pointer;font-size:.88rem;text-decoration:none">Start Mock &#x2192;</a>' +
+        '<button onclick="this.parentNode.parentNode.remove()" style="background:rgba(255,255,255,.15);color:white;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:10px 14px;cursor:pointer;font-size:.88rem">Later</button>' +
+        '</div>';
+      document.body.appendChild(b);
+    }
+  });
+})();
+
 </script>
 </body>
 </html>

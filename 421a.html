@@ -2954,6 +2954,53 @@ function fcMarkAgain() { fcNav(1); }
   updateWrongBankTab();
   renderTopicProgress();
   renderScoreHistory();
+
+  /* ── PROGRESS SAVE: restore last position ── */
+  var savedIdx = parseInt(localStorage.getItem('progress_421a') || '0');
+  if (savedIdx > 0 && savedIdx < filteredQs.length) {
+    currentIdx = savedIdx;
+    loadQuestion();
+    // Show resume toast
+    var rt = document.createElement('div');
+    rt.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1a3a5c;color:white;padding:12px 22px;border-radius:24px;font-size:.88rem;font-weight:600;z-index:9998;box-shadow:0 4px 16px rgba(0,0,0,.3);cursor:pointer;white-space:nowrap';
+    rt.innerHTML = '📌 Resumed from Q.' + (savedIdx + 1) + ' &nbsp;<span style="opacity:.6;font-size:.78rem">tap to dismiss</span>';
+    rt.onclick = function(){ document.body.removeChild(rt); };
+    document.body.appendChild(rt);
+    setTimeout(function(){ if(rt.parentNode) rt.parentNode.removeChild(rt); }, 4000);
+  }
+})();
+
+/* ── PROGRESS SAVE: auto-save on navigate ── */
+var _origNav = navigate;
+function navigate(dir) {
+  _origNav(dir);
+  localStorage.setItem('progress_421a', currentIdx);
+}
+
+/* ── 25-QUESTION MOCK EXAM CTA ── */
+(function(){
+  var _shown = false;
+  var _origSelectAnswer2 = selectAnswer;
+  selectAnswer = function(idx, q) {
+    _origSelectAnswer2(idx, q);
+    if (_shown) return;
+    var tot = parseInt(localStorage.getItem('todayCorrect_421a') || '0') +
+              parseInt(localStorage.getItem('todayCorrect_310t') || '0') +
+              parseInt(localStorage.getItem('todayCorrect_309a') || '0');
+    var sessionAns = document.querySelectorAll('.option-btn.correct, .option-btn.wrong').length;
+    if (totalAnswered >= 25 && !sessionStorage.getItem('ctaShown421')) {
+      _shown = true;
+      sessionStorage.setItem('ctaShown421','1');
+      var b = document.createElement('div');
+      b.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a3a5c,#2d6a9f);color:white;padding:16px 20px;z-index:9990;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;box-shadow:0 -4px 20px rgba(0,0,0,.25)';
+      b.innerHTML = '<span style="font-size:.92rem;font-weight:600">&#x1F4AA; You\'ve answered <strong>' + totalAnswered + ' questions!</strong> Ready for a timed Mock Exam?</span>' +
+        '<div style="display:flex;gap:10px;flex-shrink:0">' +
+        '<button onclick="launchMock && launchMock()" style="background:#f0a500;color:white;border:none;border-radius:8px;padding:10px 20px;font-weight:700;cursor:pointer;font-size:.88rem">Start Mock Exam &#x2192;</button>' +
+        '<button onclick="this.parentNode.parentNode.remove()" style="background:rgba(255,255,255,.15);color:white;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:10px 14px;cursor:pointer;font-size:.88rem">Later</button>' +
+        '</div>';
+      document.body.appendChild(b);
+    }
+  };
 })();
 </script>
 
