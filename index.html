@@ -1088,7 +1088,7 @@ function countUp(el, target, suffix, duration) {
   }, 16);
 }
 function runHeroCounters() {
-  [['stat1',770,'+'],[' stat2',5,''],['stat3',70,'%'],['stat4',17,' Guides']].forEach(([id,n,sfx]) => {
+  [['stat1',1110,'+'],[' stat2',8,''],['stat3',70,'%'],['stat4',20,' Guides']].forEach(([id,n,sfx]) => {
     const el = document.getElementById(id.trim());
     if (el) setTimeout(() => countUp(el, n, sfx, 900), 200);
   });
