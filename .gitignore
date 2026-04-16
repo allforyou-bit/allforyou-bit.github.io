@@ -1,3 +1,6 @@
+# Secrets (never commit)
+secrets.txt
+
 # Claude Code local settings
 .claude/settings.local.json
 
