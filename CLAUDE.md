@@ -40,6 +40,9 @@
 - 파일명, 경로, 커밋 해시, 에러 메시지, 기술 용어(Schema, deploy, commit 등)는 영어 그대로
 - 보고 형식: 서론 없이 결과부터 / 이모지 최소화 (✅ ⚠️ 정도) / 체크리스트·표 형식 활용
 - secrets.txt 없으면 작업 중단하고 Kay에게 토큰 추가 요청
+- **모든 작업(커밋 포함) 완료 후 반드시 `scripts/notify_telegram.py`로 결과를 Telegram에 전송한다. 전송 실패 시 터미널에 에러 로그 출력.**
+- CLI: `python scripts/notify_telegram.py "작업명" "file1,file2" "커밋해시" "다음단계"`
+- 모듈: `from scripts.notify_telegram import notify` → `notify(task_name, files, commit, next_steps)`
 
 ## Monetization Status
 - Ko-fi `redsealexamprep`: installed on all content pages ✅
