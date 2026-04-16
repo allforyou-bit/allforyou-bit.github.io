@@ -34,6 +34,13 @@
 5. Nav order: Home | 421A | 310T | 309A | 310S | 308A | 276A | 447A | 313A | Exam Guide | Study Guide | About
 6. sitemap.xml: update lastmod when modifying pages, currently 45 URLs (no 404.html)
 
+## Telegram Notification Rules (REDSEAL_BOT_TOKEN)
+- Bot: @redsealtest_bot / Chat ID: 7836949810 / Token: secrets.txt
+- **모든 메시지 한국어로 작성**
+- 파일명, 경로, 커밋 해시, 에러 메시지, 기술 용어(Schema, deploy, commit 등)는 영어 그대로
+- 보고 형식: 서론 없이 결과부터 / 이모지 최소화 (✅ ⚠️ 정도) / 체크리스트·표 형식 활용
+- secrets.txt 없으면 작업 중단하고 Kay에게 토큰 추가 요청
+
 ## Monetization Status
 - Ko-fi `redsealexamprep`: installed on all content pages ✅
 - AdSense: pending approval ⏸

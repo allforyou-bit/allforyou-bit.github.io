@@ -94,7 +94,15 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
 1-8: All 8 salary pages ✅
 9: construction-electrician-309a-career-canada ✅
 
-**Remaining (17):** how-to-become-heavy-eq, how-to-become-truck, 310s/308a/276a/447a/313a career, which-red-seal-trade, what-is-red-seal, red-seal-421a-exam-tips, 7 exam-tip how-to-pass pages
+**Remaining — SEO 26개 중 17개:**
+how-to-become-heavy-eq, how-to-become-truck, 310s/308a/276a/447a/313a career, which-red-seal-trade, what-is-red-seal, red-seal-421a-exam-tips, 7 exam-tip how-to-pass pages
+
+**추가 필요 — Schema/구조 변경 33개 (2026-04-16):**
+- index.html (Organization schema 업데이트)
+- about.html (Organization schema 추가)
+- Breadcrumb UI 적용 31개 페이지
+
+**총 잔여: 50개** (기존 17 + 신규 33)
 
 ---
 
