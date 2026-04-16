@@ -65,6 +65,8 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
 - [x] IndexNow (Bing/Yandex) — 45 URLs submitted 2026-04-13
 - [x] FAQ Schema — all 43 content pages
 - [x] BreadcrumbList Schema — all article/guide pages
+- [x] Breadcrumb UI — 31 pages (nav > hero position, matches schema, accessible) — 2026-04-16
+- [x] Organization Schema — index.html (EducationalOrganization + logo/sameAs/contactPoint) + about.html — 2026-04-16
 - [x] HowTo Schema — 8 career guide pages
 - [x] Article Schema — all article pages (fixed heavy-eq salary + 421a exam tips 2026-04-15)
 - [x] Open Graph + Twitter Card — all pages
