@@ -10,7 +10,7 @@
 
 ---
 
-## File Count: 78 HTML
+## File Count: 80 HTML
 
 ### Quiz Pages (9)
 | File | Questions | Topics |
@@ -110,6 +110,14 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
   - 306A Sheet Metal Worker 4페이지 세트 신규 생성
   - 전 페이지 nav에 403A/306A 링크 추가
   - sitemap.xml: 76 URLs (10개 신규 추가)
+- [x] UX 최적화 Round 2 — 2026-04-17
+  - 전 9개 퀴즈 페이지: score/progress/mock 위젯을 문제 카드 아래로 이동 (모바일 1~2 스크롤 내 첫 문제 도달)
+  - 전 9개 퀴즈: Download Study Sheet → "Study Sheet — Coming Soon" (비활성 버튼)
+  - 전 78개 페이지: AdSense placeholder 텍스트 완전 제거 (주석만 유지)
+  - 기사 페이지 (48개): exit-intent 팝업 제거, 뉴스레터 문구 "Join fellow Red Seal candidates" 업데이트
+  - 403a.html, 306a.html: Coming Soon 퀴즈 랜딩 페이지 신규 생성 (exam structure + related articles)
+  - 전 페이지 nav: 403A/306A 링크 → 403a.html/306a.html (quiz landing page) 업데이트
+  - sitemap.xml: 78 URLs (403a.html, 306a.html 추가)
 - [x] HowTo Schema — 8 career guide pages
 - [x] Article Schema — all article pages (fixed heavy-eq salary + 421a exam tips 2026-04-15)
 - [x] Open Graph + Twitter Card — all pages
