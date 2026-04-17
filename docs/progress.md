@@ -10,9 +10,9 @@
 
 ---
 
-## File Count: 59 HTML
+## File Count: 78 HTML
 
-### Quiz Pages (8)
+### Quiz Pages (9)
 | File | Questions | Topics |
 |------|-----------|--------|
 | 421a.html | 220 | Safety, Engine, Electrical, Hydraulics, Powertrain, Brakes |
@@ -23,7 +23,8 @@
 | 276a.html | 120 | Safety, OFC, SMAW, GMAW, GTAW, FCAW, Theory |
 | 447a.html | 110 | Safety, DWV, Water Supply, Gas Piping, Fixtures, Code |
 | 313a.html | 110 | Safety, Motors, PLCs, Instrumentation, Power, Theory |
-| **Total** | **1,110** | |
+| 442a.html | 100 | Structural Steel, Rigging, Welding, Blueprints, Rebar, Safety, Tools |
+| **Total** | **1,210** | |
 
 ### Articles (42)
 **Career Guides (12):** how-to-become-heavy-equipment-technician-canada, how-to-become-truck-transport-mechanic-canada, construction-electrician-309a-career-canada, automotive-service-technician-310s-career-canada, hvac-refrigeration-mechanic-308a-career-canada, welder-276a-career-canada, plumber-447a-career-canada, industrial-electrician-313a-career-canada, 442a-ironworker-career-canada, what-is-red-seal-certification-canada, red-seal-421a-exam-tips, which-red-seal-trade-should-i-choose
@@ -32,7 +33,11 @@
 
 **Salary Guides (9):** heavy-equipment-technician-salary-canada, truck-transport-mechanic-310t-salary-canada, construction-electrician-309a-salary-canada, automotive-service-technician-310s-salary-canada, hvac-refrigeration-mechanic-308a-salary-canada, welder-276a-salary-canada, plumber-447a-salary-canada, industrial-electrician-313a-salary-canada, 442a-ironworker-salary-canada
 
-**Common Mistakes (9):** common-mistakes-{421a,310t,309a,310s,308a,276a,447a,313a,442a}-exam
+**Common Mistakes (11):** common-mistakes-{421a,310t,309a,310s,308a,276a,447a,313a,442a,403a,306a}-exam
+
+**403A Gas Fitter (4):** 403a-gas-fitter-career-canada, 403a-gas-fitter-salary-canada, how-to-pass-red-seal-403a-exam, common-mistakes-403a-exam
+
+**306A Sheet Metal Worker (4):** 306a-sheet-metal-worker-career-canada, 306a-sheet-metal-worker-salary-canada, how-to-pass-red-seal-306a-exam, common-mistakes-306a-exam
 
 **Comparison Articles (1):** red-seal-vs-provincial-certification
 
@@ -65,7 +70,7 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
 - [x] Google Search Console registered + HTML tag verified
 - [x] Google AdSense applied (pending approval)
 - [x] ads.txt installed
-- [x] sitemap.xml (62 URLs, updated 2026-04-16 with 13 new pages)
+- [x] sitemap.xml (76 URLs, updated 2026-04-17 with 10 new pages)
 - [x] IndexNow (Bing/Yandex) — 45 URLs submitted 2026-04-13
 - [x] FAQ Schema — all 43 content pages
 - [x] BreadcrumbList Schema — all article/guide pages
@@ -95,6 +100,16 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
   - practice-quizzes.html: 442A Coming Soon 카드 추가
   - 내부 링크: 8개 exam tips → Common Mistakes / 8개 career guide → Common Mistakes + Red Seal vs Provincial
   - sitemap.xml: 62 URLs (13개 신규 추가)
+- [x] UX 대폭 정리 + 신규 콘텐츠 — 2026-04-17
+  - 홈페이지 리라이트 (compact layout)
+  - 전 59개 페이지 nav 드롭다운 추가
+  - red-seal-trades.html: 카테고리 필터 + 11개 trade 섹션
+  - practice-quizzes.html: Study Streak + Exam Countdown 위젯
+  - 442a.html: 100문제 퀴즈 신규 생성 (7 topics)
+  - 403A Gas Fitter 4페이지 세트 신규 생성
+  - 306A Sheet Metal Worker 4페이지 세트 신규 생성
+  - 전 페이지 nav에 403A/306A 링크 추가
+  - sitemap.xml: 76 URLs (10개 신규 추가)
 - [x] HowTo Schema — 8 career guide pages
 - [x] Article Schema — all article pages (fixed heavy-eq salary + 421a exam tips 2026-04-15)
 - [x] Open Graph + Twitter Card — all pages
