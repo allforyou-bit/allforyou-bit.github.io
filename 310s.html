@@ -125,23 +125,27 @@ footer a{color:var(--accent);margin:0 8px;text-decoration:none}
 </style>
 </head>
 <body>
-<nav>
+<nav class="site-nav">
   <a href="/" class="nav-brand">🔧 Red Seal Prep</a>
-  <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'✕':'☰'">☰</button>
-  <div class="nav-links">
-    <a href="/">🏠 Home</a>
-    <a href="/421a.html">421A</a>
-    <a href="/310t.html">310T</a>
-    <a href="/309a.html">309A</a>
-    <a href="/310s.html" class="active">310S</a>
-    <a href="/308a.html">308A</a>
-    <a href="/276a.html">276A</a>
-    <a href="/447a.html">447A</a>
-    <a href="/313a.html">313A</a>
-    <a href="/exam-guide.html">Exam Guide</a>
-    <a href="/study-guide.html">Study Guide</a>
-    <a href="/red-seal-trades.html">Trades</a>
+  <button class="nav-toggle" id="navToggle">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="/">Home</a>
+    <div class="nav-dropdown" id="tradesDrop">
+      <button class="nav-drop-btn" id="tradesBtn">Trades ▾</button>
+      <div class="nav-drop-menu">
+        <a href="/421a.html">🚜 421A Heavy Equipment</a>
+        <a href="/310t.html">🚛 310T Truck &amp; Transport</a>
+        <a href="/309a.html">⚡ 309A Construction Electrician</a>
+        <a href="/310s.html">🔧 310S Automotive</a>
+        <a href="/308a.html">❄️ 308A HVAC/Refrigeration</a>
+        <a href="/276a.html">🔥 276A Welder</a>
+        <a href="/447a.html">🔩 447A Plumber</a>
+        <a href="/313a.html">⚡ 313A Industrial Electrician</a>
+        <a href="/442a.html">🏗️ 442A Ironworker</a>
+      </div>
+    </div>
     <a href="/practice-quizzes.html">Quizzes</a>
+    <a href="/red-seal-trades.html">Guides</a>
     <a href="/about.html">About</a>
   </div>
 </nav>
@@ -1647,5 +1651,14 @@ function fcMarkAgain(){
     </div>
   </div>
 </div>
+<script>
+(function(){
+  var nt=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
+  var td=document.getElementById('tradesDrop'),tb=document.getElementById('tradesBtn');
+  if(nt&&nl)nt.addEventListener('click',function(){var o=nl.classList.toggle('open');nt.textContent=o?'✕':'☰';});
+  if(tb&&td){tb.addEventListener('click',function(e){e.stopPropagation();td.classList.toggle('open');});
+  document.addEventListener('click',function(){if(td)td.classList.remove('open');});}
+})();
+</script>
 </body>
 </html>
