@@ -72,6 +72,11 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
   - heavy-equipment-technician-salary: 925w → 1,632w
   - construction-electrician-309a-career: 1,036w → 1,599w
   - sitemap lastmod 갱신 (9개 페이지)
+- [x] Revenue Infrastructure — 2026-04-17
+  - GA4 (G-FSSHZMWVLW) 전 48개 페이지 설치
+  - Amazon Associates (allforyoubit2-20) 24개 페이지에 상품 섹션 추가 (salary×8, exam-tips×8, career×8)
+  - Privacy Policy 업데이트: GA4, AdSense, Amazon Associates, Cookie 고지 추가
+  - sitemap.xml: 33개 URL lastmod → 2026-04-17
 - [x] AdSense Low Value 대응 Round 2 — 2026-04-16
   - 기사 4개 보강: 310s-career 1,593w / how-to-become-heavy-eq 1,600w / how-to-become-truck 1,682w / 421a-exam-tips 1,547w
   - 허브 페이지 신규: red-seal-trades.html (1,011w) + practice-quizzes.html (1,043w)
@@ -122,8 +127,8 @@ how-to-become-heavy-eq, how-to-become-truck, 310s/308a/276a/447a/313a career, wh
 |---------|--------|---------------|
 | Ko-fi (redsealexamprep) | ✅ Live | None |
 | AdSense (ca-pub-6709396576574623) | ⏸ Pending | Wait for approval email |
-| Amazon Associates | ⏸ Waiting | User needs tracking ID from affiliate-program.amazon.ca |
-| GA4 | ⏸ Waiting | User needs Measurement ID (G-XXXXXXXXXX) from analytics.google.com |
+| Amazon Associates (allforyoubit2-20) | ✅ Live | 24 pages with product sections (salary×8, exam-tips×8, career×8) |
+| GA4 (G-FSSHZMWVLW) | ✅ Live | Installed on all 48 pages — 2026-04-17 |
 
 ---
 
