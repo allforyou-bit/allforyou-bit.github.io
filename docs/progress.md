@@ -10,7 +10,7 @@
 
 ---
 
-## File Count: 46 HTML
+## File Count: 59 HTML
 
 ### Quiz Pages (8)
 | File | Questions | Topics |
@@ -25,12 +25,16 @@
 | 313a.html | 110 | Safety, Motors, PLCs, Instrumentation, Power, Theory |
 | **Total** | **1,110** | |
 
-### Articles (29)
-**Career Guides (11):** how-to-become-heavy-equipment-technician-canada, how-to-become-truck-transport-mechanic-canada, construction-electrician-309a-career-canada, automotive-service-technician-310s-career-canada, hvac-refrigeration-mechanic-308a-career-canada, welder-276a-career-canada, plumber-447a-career-canada, industrial-electrician-313a-career-canada, what-is-red-seal-certification-canada, red-seal-421a-exam-tips, which-red-seal-trade-should-i-choose
+### Articles (42)
+**Career Guides (12):** how-to-become-heavy-equipment-technician-canada, how-to-become-truck-transport-mechanic-canada, construction-electrician-309a-career-canada, automotive-service-technician-310s-career-canada, hvac-refrigeration-mechanic-308a-career-canada, welder-276a-career-canada, plumber-447a-career-canada, industrial-electrician-313a-career-canada, 442a-ironworker-career-canada, what-is-red-seal-certification-canada, red-seal-421a-exam-tips, which-red-seal-trade-should-i-choose
 
-**Exam Tips (7):** how-to-pass-red-seal-{310t,309a,310s,308a,276a,447a,313a}-exam
+**Exam Tips (8):** how-to-pass-red-seal-{310t,309a,310s,308a,276a,447a,313a,442a}-exam
 
-**Salary Guides (8):** heavy-equipment-technician-salary-canada, truck-transport-mechanic-310t-salary-canada, construction-electrician-309a-salary-canada, automotive-service-technician-310s-salary-canada, hvac-refrigeration-mechanic-308a-salary-canada, welder-276a-salary-canada, plumber-447a-salary-canada, industrial-electrician-313a-salary-canada
+**Salary Guides (9):** heavy-equipment-technician-salary-canada, truck-transport-mechanic-310t-salary-canada, construction-electrician-309a-salary-canada, automotive-service-technician-310s-salary-canada, hvac-refrigeration-mechanic-308a-salary-canada, welder-276a-salary-canada, plumber-447a-salary-canada, industrial-electrician-313a-salary-canada, 442a-ironworker-salary-canada
+
+**Common Mistakes (9):** common-mistakes-{421a,310t,309a,310s,308a,276a,447a,313a,442a}-exam
+
+**Comparison Articles (1):** red-seal-vs-provincial-certification
 
 **Traffic Articles (3):** red-seal-exam-format-guide, trades-in-demand-canada-2026, how-long-red-seal-apprenticeship-canada
 
@@ -61,7 +65,7 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
 - [x] Google Search Console registered + HTML tag verified
 - [x] Google AdSense applied (pending approval)
 - [x] ads.txt installed
-- [x] sitemap.xml (45 URLs, lastmod 2026-04-15 for recently updated pages)
+- [x] sitemap.xml (62 URLs, updated 2026-04-16 with 13 new pages)
 - [x] IndexNow (Bing/Yandex) — 45 URLs submitted 2026-04-13
 - [x] FAQ Schema — all 43 content pages
 - [x] BreadcrumbList Schema — all article/guide pages
@@ -83,6 +87,14 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
   - 퀴즈 8개 Related Articles 섹션 추가
   - 전 페이지(48개) nav + footer에 허브 링크 추가
   - sitemap: 47 URLs (신규 2개 추가), 전체 lastmod 갱신
+- [x] SEO 콘텐츠 확장 — 2026-04-16
+  - Common Mistakes 8개 (421A~313A) 신규 생성 (2,000~2,300w 각)
+  - Red Seal vs Provincial Certification 비교 기사 (2,284w)
+  - 442A Ironworker 4페이지 세트 (career 1,742w / salary 1,503w / exam tips 1,952w / mistakes 1,883w)
+  - hub 페이지: red-seal-trades.html 442A 섹션 + Red Seal vs Provincial 링크 추가
+  - practice-quizzes.html: 442A Coming Soon 카드 추가
+  - 내부 링크: 8개 exam tips → Common Mistakes / 8개 career guide → Common Mistakes + Red Seal vs Provincial
+  - sitemap.xml: 62 URLs (13개 신규 추가)
 - [x] HowTo Schema — 8 career guide pages
 - [x] Article Schema — all article pages (fixed heavy-eq salary + 421a exam tips 2026-04-15)
 - [x] Open Graph + Twitter Card — all pages
