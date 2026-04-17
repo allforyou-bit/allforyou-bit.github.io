@@ -67,11 +67,17 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
 - [x] BreadcrumbList Schema — all article/guide pages
 - [x] Breadcrumb UI — 31 pages (nav > hero position, matches schema, accessible) — 2026-04-16
 - [x] Organization Schema — index.html (EducationalOrganization + logo/sameAs/contactPoint) + about.html — 2026-04-16
-- [x] AdSense Low Value 대응 — 2026-04-16
+- [x] AdSense Low Value 대응 Round 1 — 2026-04-16
   - Quiz 7개 intro 확장 (80-160w → 400-500w, topic breakdown + exam strategy 추가)
   - heavy-equipment-technician-salary: 925w → 1,632w
   - construction-electrician-309a-career: 1,036w → 1,599w
   - sitemap lastmod 갱신 (9개 페이지)
+- [x] AdSense Low Value 대응 Round 2 — 2026-04-16
+  - 기사 4개 보강: 310s-career 1,593w / how-to-become-heavy-eq 1,600w / how-to-become-truck 1,682w / 421a-exam-tips 1,547w
+  - 허브 페이지 신규: red-seal-trades.html (1,011w) + practice-quizzes.html (1,043w)
+  - 퀴즈 8개 Related Articles 섹션 추가
+  - 전 페이지(48개) nav + footer에 허브 링크 추가
+  - sitemap: 47 URLs (신규 2개 추가), 전체 lastmod 갱신
 - [x] HowTo Schema — 8 career guide pages
 - [x] Article Schema — all article pages (fixed heavy-eq salary + 421a exam tips 2026-04-15)
 - [x] Open Graph + Twitter Card — all pages
@@ -107,7 +113,7 @@ how-to-become-heavy-eq, how-to-become-truck, 310s/308a/276a/447a/313a career, wh
 - about.html (Organization schema 추가)
 - Breadcrumb UI 적용 31개 페이지
 
-**총 잔여: 59개** (기존 17 + 신규 33 + AdSense 보강 9개 추가)
+**총 잔여: 약 60개** (sitemap 47 URLs 전체 재색인 권장)
 
 ---
 
