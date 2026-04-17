@@ -196,9 +196,7 @@
   <span class="update-pill">✓ Updated Apr 2026</span>
   <span class="rsos-pill">NPC / 2023 RSOS Aligned</span>
 </header>
-<div class="container">
-  <div class="ad-banner">📢 Advertisement — Google AdSense Banner (728x90)<br><small>Place your &lt;ins class="adsbygoogle"&gt; tag here</small></div>
-</div>
+<!-- AdSense banner placeholder -->
 <div class="container">
   <div class="intro-box">
 <h2>About the 447A Red Seal Exam — Plumber</h2>
@@ -237,23 +235,8 @@
     </table>
     <p style="font-size:.8rem;color:var(--muted);margin-top:6px;">* Approximate distribution. Passing score: 70%. Code: National Plumbing Code of Canada (NPC).</p>
   </div>
-  <div class="score-box">
-    <div class="score-num" id="scoreDisplay">0 / 0</div>
-    <div class="score-label">Questions Answered Correctly</div>
-    <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
-    <div style="font-size:.78rem;color:var(--muted);margin-top:8px;" id="streakDisplay"></div>
-  </div>
-  <div class="topic-progress-panel" id="topicProgressPanel"></div>
-
-  <div class="mock-launch-bar">
-    <div>
-      <p>🎯 <strong>Mock Exam Mode</strong> — Simulate the real 447A exam with timed questions.</p>
-      <div class="score-hist-wrap"><label>📈 Recent Mock Scores:</label><div class="score-hist-list" id="scoreHistoryList"></div></div>
-    </div>
-    <button class="btn-mock" onclick="openMockSetup()">▶ Start Mock Exam</button>
-  </div>
   <div style="display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;">
-    <button onclick="downloadStudySheet()" style="background:#27ae60;color:#fff;border:none;border-radius:8px;padding:9px 18px;font-weight:700;font-size:.84rem;cursor:pointer;">⬇ Download Study Sheet (PDF)</button>
+    <button disabled style="background:#95a5a6;color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:.82rem;font-weight:700;cursor:not-allowed;display:inline-flex;align-items:center;gap:6px">📄 Study Sheet — Coming Soon</button>
   </div>
   <div class="topic-tabs" id="topicTabs">
     <button class="tab-btn active" onclick="setTopic('all',this)">All Topics</button>
@@ -298,12 +281,28 @@
   </div>
 
   <div class="question-card" id="questionCard"></div>
+<div class="score-box">
+    <div class="score-num" id="scoreDisplay">0 / 0</div>
+    <div class="score-label">Questions Answered Correctly</div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+    <div style="font-size:.78rem;color:var(--muted);margin-top:8px;" id="streakDisplay"></div>
+  </div>
+  <div class="topic-progress-panel" id="topicProgressPanel"></div>
+
+  <div class="mock-launch-bar">
+    <div>
+      <p>🎯 <strong>Mock Exam Mode</strong> — Simulate the real 447A exam with timed questions.</p>
+      <div class="score-hist-wrap"><label>📈 Recent Mock Scores:</label><div class="score-hist-list" id="scoreHistoryList"></div></div>
+    </div>
+    <button class="btn-mock" onclick="openMockSetup()">▶ Start Mock Exam</button>
+  </div>
+
   <div class="nav-row">
     <button class="nav-btn prev" id="prevBtn" onclick="navigate(-1)" disabled>← Prev</button>
     <span id="qCounter" style="font-size:.85rem;color:var(--muted);"></span>
     <button class="nav-btn next" id="nextBtn" onclick="navigate(1)">Next →</button>
   </div>
-  <div class="ad-banner" style="margin-top:32px;">📢 Advertisement — Google AdSense Banner (728x90)<br><small>Place your &lt;ins class="adsbygoogle"&gt; tag here</small></div>
+  <!-- AdSense banner placeholder -->
   <div class="concept-section" style="margin-top:24px;">
     <h3>Related Guides</h3>
     <p style="font-size:.88rem;">

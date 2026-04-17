@@ -476,35 +476,6 @@
   </div>
 
   <!-- SCORE -->
-  <div class="score-box">
-    <div class="score-num" id="scoreDisplay">0 / 0</div>
-    <div class="score-label">Questions Answered Correctly</div>
-    <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
-    <div style="margin-top:8px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-      <span id="streakCount" style="display:none;background:#fff3e0;color:#e65100;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px">🔥 1-day streak</span>
-      <span id="todayCount" style="display:none;background:#e8f9ef;color:#1e8449;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px">✓ 0 correct today</span>
-      <span id="inRowStreak" style="display:none;background:linear-gradient(135deg,#ff6b35,#f0a500);color:#fff;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px;box-shadow:0 2px 8px rgba(240,165,0,.35)">🔥 3 in a row!</span>
-    </div>
-  </div>
-
-  <!-- TOPIC PROGRESS PANEL -->
-  <div class="topic-progress-panel">
-    <div class="tp-head">
-      <span class="tp-head-label">📊 Your Progress by Topic</span>
-      <button class="tp-reset-btn" onclick="resetTopicStats()">Reset</button>
-    </div>
-    <div id="topicProgressRows"></div>
-  </div>
-
-  <!-- MOCK EXAM LAUNCH BAR -->
-  <div class="mock-launch-bar">
-    <p><strong>📋 Mock Exam Mode</strong> — Simulate the real 421A exam with scored results, topic breakdown &amp; pass/fail at 70%</p>
-    <button class="btn-mock" onclick="openMockLaunch()">📋 Take Mock Exam</button>
-    <div class="score-hist-wrap" id="scoreHistWrap">
-      <div class="score-hist-label">📈 Recent Mock Scores:</div>
-      <div class="score-hist-chips" id="scoreHistChips"></div>
-    </div>
-  </div>
 
   <!-- TOPIC TABS -->
   <div class="topic-tabs" id="topicTabs">
@@ -529,7 +500,7 @@
 
   <!-- DOWNLOAD STUDY SHEET -->
   <div style="display:flex;justify-content:flex-end;margin-bottom:14px">
-    <button onclick="downloadStudySheet()" style="background:#1a3a5c;color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px" onmouseover="this.style.background='#2d6a9f'" onmouseout="this.style.background='#1a3a5c'">📄 Download Study Sheet (PDF)</button>
+    <button disabled style="background:#95a5a6;color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:.82rem;font-weight:700;cursor:not-allowed;display:inline-flex;align-items:center;gap:6px">📄 Study Sheet — Coming Soon</button>
   </div>
 
   <!-- CONCEPT: TORQUE CONVERTER (always visible when powertrain selected) -->
@@ -604,6 +575,36 @@
       <button class="nav-btn next" id="nextBtn" onclick="navigate(1)" disabled>Next →</button>
     </div>
   </div>
+<div class="score-box">
+    <div class="score-num" id="scoreDisplay">0 / 0</div>
+    <div class="score-label">Questions Answered Correctly</div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+    <div style="margin-top:8px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+      <span id="streakCount" style="display:none;background:#fff3e0;color:#e65100;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px">🔥 1-day streak</span>
+      <span id="todayCount" style="display:none;background:#e8f9ef;color:#1e8449;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px">✓ 0 correct today</span>
+      <span id="inRowStreak" style="display:none;background:linear-gradient(135deg,#ff6b35,#f0a500);color:#fff;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:10px;box-shadow:0 2px 8px rgba(240,165,0,.35)">🔥 3 in a row!</span>
+    </div>
+  </div>
+
+  <!-- TOPIC PROGRESS PANEL -->
+  <div class="topic-progress-panel">
+    <div class="tp-head">
+      <span class="tp-head-label">📊 Your Progress by Topic</span>
+      <button class="tp-reset-btn" onclick="resetTopicStats()">Reset</button>
+    </div>
+    <div id="topicProgressRows"></div>
+  </div>
+
+  <!-- MOCK EXAM LAUNCH BAR -->
+  <div class="mock-launch-bar">
+    <p><strong>📋 Mock Exam Mode</strong> — Simulate the real 421A exam with scored results, topic breakdown &amp; pass/fail at 70%</p>
+    <button class="btn-mock" onclick="openMockLaunch()">📋 Take Mock Exam</button>
+    <div class="score-hist-wrap" id="scoreHistWrap">
+      <div class="score-hist-label">📈 Recent Mock Scores:</div>
+      <div class="score-hist-chips" id="scoreHistChips"></div>
+    </div>
+  </div>
+
 
   <!-- AD SLOT MIDDLE -->
   <div class="ad-banner">

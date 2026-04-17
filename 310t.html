@@ -159,7 +159,7 @@ footer a{color:var(--accent);margin:0 8px;text-decoration:none}
   <span class="rsos-pill">2023 RSOS Aligned</span>
 </header>
 <div class="container">
-  <div class="ad-banner">Advertisement — Google AdSense</div>
+  <!-- AdSense banner placeholder -->
   <div class="intro-box">
 <h2>About the 310T Red Seal Exam — Truck &amp; Transport Mechanic</h2>
 <p>The <strong>310T Truck and Transport Mechanic Red Seal exam</strong> is Canada's nationally recognized certification for diagnosing, repairing, and maintaining heavy-duty trucks, trailers, and transport equipment. Passing the 310T gives you an Interprovincial Red Seal endorsement — meaning your ticket is recognized in every Canadian province and territory without re-examination.</p>
@@ -184,7 +184,41 @@ footer a{color:var(--accent);margin:0 8px;text-decoration:none}
 <p>This free tool includes <strong>165 questions</strong> across all 6 topic blocks at three difficulty levels — Easy, Medium, and Hard. Use <strong>Topic Filter</strong> to drill your weakest areas. Use <strong>Mock Exam Mode</strong> to simulate the real 130-question exam under timed conditions. Check <strong>Wrong Bank</strong> (📕 tab) to review every question you missed. After each session, review the full explanation — not just whether you got it right.</p>
 <p>Related reading: <a href="/how-to-pass-red-seal-310t-exam.html">How to Pass the 310T Red Seal Exam</a> | <a href="/truck-transport-mechanic-310t-salary-canada.html">310T Salary Guide</a> | <a href="/how-to-become-truck-transport-mechanic-canada.html">Truck &amp; Transport Mechanic Career Guide</a></p>
 </div>
-  <div class="score-box">
+
+  <div class="topic-tabs" id="topicTabs">
+    <button class="tab-btn active" onclick="switchTopic('all',this)">All Topics</button>
+    <button class="tab-btn" onclick="switchTopic('airbrakes',this)">Air Brakes</button>
+    <button class="tab-btn" onclick="switchTopic('engine',this)">Diesel Engine</button>
+    <button class="tab-btn" onclick="switchTopic('electrical',this)">Electrical</button>
+    <button class="tab-btn" onclick="switchTopic('drivetrain',this)">Drivetrain</button>
+    <button class="tab-btn" onclick="switchTopic('dot',this)">DOT Compliance</button>
+    <button class="tab-btn wrong-tab" id="wrongBankTab" onclick="switchTopic('wrongbank',this)">📕 Mistakes (<span id="wrongBankCount">0</span>)</button>
+  </div>
+  <div class="difficulty-row">
+    <span>Difficulty:</span>
+    <button class="diff-btn easy active" onclick="setDiff('easy',this)">Easy</button>
+    <button class="diff-btn medium" onclick="setDiff('medium',this)">Medium</button>
+    <button class="diff-btn hard" onclick="setDiff('hard',this)">Hard</button>
+    <button class="diff-btn" style="background:#e8eaf6;color:#3949ab" onclick="setDiff('all',this)">All</button>
+  </div>
+  <!-- DOWNLOAD STUDY SHEET -->
+  <div style="display:flex;justify-content:flex-end;margin-bottom:14px">
+    <button disabled style="background:#95a5a6;color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:.82rem;font-weight:700;cursor:not-allowed;display:inline-flex;align-items:center;gap:6px">📄 Study Sheet — Coming Soon</button>
+  </div>
+  <div class="mode-switch-row"><span class="ms-label">Mode:</span><button class="mode-btn active" id="studyModeBtn" onclick="setQuizMode('study')">📝 Study</button><button class="mode-btn" id="flashModeBtn" onclick="setQuizMode('flash')">🃏 Flashcard</button></div>
+  <div class="flashcard-section" id="flashcardSection"><div class="fc-mode-row"><h3>🃏 Flashcard Mode</h3><div class="fc-counters"><span id="fcCounter">Card 1 of 0</span><span class="fc-known-count" id="fcKnownCount"></span></div></div><div class="fc-hint-text">Tap the card to reveal the answer</div><div class="fc-wrap" onclick="flipFlashcard()"><div class="fc-card" id="fcCard"><div class="fc-front"><div class="fc-topic-lbl" id="fcTopicLbl"></div><div class="fc-q-text" id="fcQText">Loading...</div></div><div class="fc-back"><div class="fc-ans-text" id="fcAnsText"></div><div class="fc-key-text" id="fcKeyText"></div></div></div></div><div class="fc-nav-row"><button class="fc-btn-prev" onclick="fcNav(-1)">← Prev</button><button class="fc-btn-again" onclick="fcMarkAgain()">🔁 Review Again</button><button class="fc-btn-know" onclick="fcMarkKnow()">✓ Got It</button><button class="fc-btn-next" onclick="fcNav(1)">Next →</button></div></div>
+  <div class="question-card" id="questionCard">
+    <div class="q-header"><span class="q-topic" id="qTopic">Air Brakes</span><span class="q-diff medium" id="qDiff">Medium</span></div>
+    <div class="q-number" id="qNumber">Question 1</div>
+    <div class="q-text" id="qText">Loading...</div>
+    <div class="options" id="optionsContainer"></div>
+    <div class="explanation" id="explanationBox"></div>
+    <div class="nav-row">
+      <button class="nav-btn prev" id="prevBtn" onclick="navigate(-1)" disabled>← Previous</button>
+      <button class="nav-btn next" id="nextBtn" onclick="navigate(1)" disabled>Next →</button>
+    </div>
+  </div>
+<div class="score-box">
     <div class="score-num" id="scoreDisplay">0 / 0</div>
     <div class="score-label">Questions Answered Correctly</div>
     <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
@@ -206,39 +240,6 @@ footer a{color:var(--accent);margin:0 8px;text-decoration:none}
     <div class="score-hist-wrap" id="scoreHistWrap"><div class="score-hist-label">📈 Recent Mock Scores:</div><div class="score-hist-chips" id="scoreHistChips"></div></div>
   </div>
 
-  <div class="topic-tabs" id="topicTabs">
-    <button class="tab-btn active" onclick="switchTopic('all',this)">All Topics</button>
-    <button class="tab-btn" onclick="switchTopic('airbrakes',this)">Air Brakes</button>
-    <button class="tab-btn" onclick="switchTopic('engine',this)">Diesel Engine</button>
-    <button class="tab-btn" onclick="switchTopic('electrical',this)">Electrical</button>
-    <button class="tab-btn" onclick="switchTopic('drivetrain',this)">Drivetrain</button>
-    <button class="tab-btn" onclick="switchTopic('dot',this)">DOT Compliance</button>
-    <button class="tab-btn wrong-tab" id="wrongBankTab" onclick="switchTopic('wrongbank',this)">📕 Mistakes (<span id="wrongBankCount">0</span>)</button>
-  </div>
-  <div class="difficulty-row">
-    <span>Difficulty:</span>
-    <button class="diff-btn easy active" onclick="setDiff('easy',this)">Easy</button>
-    <button class="diff-btn medium" onclick="setDiff('medium',this)">Medium</button>
-    <button class="diff-btn hard" onclick="setDiff('hard',this)">Hard</button>
-    <button class="diff-btn" style="background:#e8eaf6;color:#3949ab" onclick="setDiff('all',this)">All</button>
-  </div>
-  <!-- DOWNLOAD STUDY SHEET -->
-  <div style="display:flex;justify-content:flex-end;margin-bottom:14px">
-    <button onclick="downloadStudySheet()" style="background:#1a3a5c;color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px" onmouseover="this.style.background='#2d6a9f'" onmouseout="this.style.background='#1a3a5c'">📄 Download Study Sheet (PDF)</button>
-  </div>
-  <div class="mode-switch-row"><span class="ms-label">Mode:</span><button class="mode-btn active" id="studyModeBtn" onclick="setQuizMode('study')">📝 Study</button><button class="mode-btn" id="flashModeBtn" onclick="setQuizMode('flash')">🃏 Flashcard</button></div>
-  <div class="flashcard-section" id="flashcardSection"><div class="fc-mode-row"><h3>🃏 Flashcard Mode</h3><div class="fc-counters"><span id="fcCounter">Card 1 of 0</span><span class="fc-known-count" id="fcKnownCount"></span></div></div><div class="fc-hint-text">Tap the card to reveal the answer</div><div class="fc-wrap" onclick="flipFlashcard()"><div class="fc-card" id="fcCard"><div class="fc-front"><div class="fc-topic-lbl" id="fcTopicLbl"></div><div class="fc-q-text" id="fcQText">Loading...</div></div><div class="fc-back"><div class="fc-ans-text" id="fcAnsText"></div><div class="fc-key-text" id="fcKeyText"></div></div></div></div><div class="fc-nav-row"><button class="fc-btn-prev" onclick="fcNav(-1)">← Prev</button><button class="fc-btn-again" onclick="fcMarkAgain()">🔁 Review Again</button><button class="fc-btn-know" onclick="fcMarkKnow()">✓ Got It</button><button class="fc-btn-next" onclick="fcNav(1)">Next →</button></div></div>
-  <div class="question-card" id="questionCard">
-    <div class="q-header"><span class="q-topic" id="qTopic">Air Brakes</span><span class="q-diff medium" id="qDiff">Medium</span></div>
-    <div class="q-number" id="qNumber">Question 1</div>
-    <div class="q-text" id="qText">Loading...</div>
-    <div class="options" id="optionsContainer"></div>
-    <div class="explanation" id="explanationBox"></div>
-    <div class="nav-row">
-      <button class="nav-btn prev" id="prevBtn" onclick="navigate(-1)" disabled>← Previous</button>
-      <button class="nav-btn next" id="nextBtn" onclick="navigate(1)" disabled>Next →</button>
-    </div>
-  </div>
   <!-- RELATED GUIDES -->
   <div style="background:#fff;border-radius:12px;padding:22px;box-shadow:0 2px 10px rgba(0,0,0,.07);margin:24px 0">
     <h3 style="color:#1a3a5c;font-size:1.05rem;margin-bottom:14px">📚 Related Study Guides</h3>
@@ -249,7 +250,7 @@ footer a{color:var(--accent);margin:0 8px;text-decoration:none}
       <a href="/what-is-red-seal-certification-canada.html" style="display:block;background:#f4f7fb;border-radius:8px;padding:12px 16px;text-decoration:none;color:#1a3a5c;border-left:4px solid #f0a500;font-size:.9rem;font-weight:600">What Is the Red Seal Certification? Complete Guide →</a>
     </div>
   </div>
-  <div class="ad-banner">Advertisement — Google AdSense</div>
+  <!-- AdSense banner placeholder -->
 </div>
 <script>
 /* ── COMBO STREAK + REPORT ── */
