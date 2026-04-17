@@ -13,8 +13,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="AySEYGsNWhilNyl3EpVTQu6a3p0l6E1ZCe7P0EUN8O8" />
-<title>Red Seal Trades Guide Canada 2026 | All 8 Trades — Quizzes, Salary & Career</title>
-<meta name="description" content="Complete guide to all 8 Red Seal trades covered on this site. Free practice quizzes, career guides, salary data, and exam tips for 421A, 310T, 309A, 310S, 308A, 276A, 447A, and 313A.">
+<title>Red Seal Trades Guide Canada 2026 | All 9 Trades — Quizzes, Salary & Career</title>
+<meta name="description" content="Complete guide to all 9 Red Seal trades covered on this site. Free practice quizzes, career guides, salary data, and exam tips for 421A, 310T, 309A, 310S, 308A, 276A, 447A, 313A, and 442A.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://allforyou-bit.github.io/red-seal-trades.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -58,6 +58,13 @@ li{margin-bottom:8px}
 .trade-links a:hover{background:#1a3a5c;color:white}
 .trade-links a.primary{background:#f0a500;color:white;border-color:#f0a500}
 .trade-links a.primary:hover{background:#d4920a}
+/* CATEGORY FILTER */
+.cat-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;align-items:center}
+.cat-filter-label{font-size:.78rem;font-weight:700;color:#7f8c8d;letter-spacing:.5px;text-transform:uppercase;margin-right:4px}
+.cat-btn{background:white;border:2px solid #dce4ef;color:#1a3a5c;font-size:.8rem;font-weight:700;padding:6px 14px;border-radius:20px;cursor:pointer;font-family:inherit;transition:all .15s}
+.cat-btn:hover{border-color:#1a3a5c;background:#eaf0f9}
+.cat-btn.active{background:#1a3a5c;color:white;border-color:#1a3a5c}
+.trade-links a.hidden{display:none}
 .highlight{background:#fff8e1;border-left:4px solid #f0a500;padding:14px 18px;border-radius:4px;margin:16px 0;font-size:.92rem}
 .highlight strong{color:#b7770d}
 .ad-banner{background:#e8ecf0;border:2px dashed #b0bec5;text-align:center;padding:18px;font-size:.8rem;color:#7f8c8d;margin:24px 0;border-radius:8px}
@@ -113,7 +120,7 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
 </nav>
 
 <div class="hero">
-  <h1>Red Seal Trades Guide — All 8 Covered Trades</h1>
+  <h1>Red Seal Trades Guide — All 9 Covered Trades</h1>
   <p>Free practice quizzes, career guides, salary data, and exam tips for every Red Seal trade on this site. Find your trade and start preparing.</p>
 </div>
 
@@ -142,7 +149,16 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
     </div>
   </div>
 
-  <h2 style="margin-bottom:20px">All 8 Red Seal Trades — Resources by Trade</h2>
+  <h2 style="margin-bottom:16px">All 9 Red Seal Trades — Resources by Trade</h2>
+  <div class="cat-filter">
+    <span class="cat-filter-label">Filter:</span>
+    <button class="cat-btn active" onclick="filterCat('all',this)">All Resources</button>
+    <button class="cat-btn" onclick="filterCat('quiz',this)">Practice Quiz</button>
+    <button class="cat-btn" onclick="filterCat('career',this)">Career Guide</button>
+    <button class="cat-btn" onclick="filterCat('salary',this)">Salary Guide</button>
+    <button class="cat-btn" onclick="filterCat('exam',this)">Exam Tips</button>
+    <button class="cat-btn" onclick="filterCat('mistakes',this)">Common Mistakes</button>
+  </div>
   <div class="trades-grid">
 
     <div class="trade-card">
@@ -151,10 +167,11 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
       <p>Diagnose and repair construction and mining equipment — excavators, haul trucks, motor graders, and dozers. One of Canada's highest-paying trades, especially in Alberta oil sands and BC mining.</p>
       <p style="font-size:.82rem;color:#888">220 practice questions · 4-year apprenticeship · $38–$75+/hr</p>
       <div class="trade-links">
-        <a href="/421a.html" class="primary">Practice Quiz</a>
-        <a href="/how-to-become-heavy-equipment-technician-canada.html">Career Guide</a>
-        <a href="/heavy-equipment-technician-salary-canada.html">Salary Guide</a>
-        <a href="/red-seal-421a-exam-tips.html">Exam Tips</a>
+        <a href="/421a.html" class="primary" data-cat="quiz">Practice Quiz</a>
+        <a href="/how-to-become-heavy-equipment-technician-canada.html" data-cat="career">Career Guide</a>
+        <a href="/heavy-equipment-technician-salary-canada.html" data-cat="salary">Salary Guide</a>
+        <a href="/red-seal-421a-exam-tips.html" data-cat="exam">Exam Tips</a>
+        <a href="/common-mistakes-421a-exam.html" data-cat="mistakes">Common Mistakes</a>
       </div>
     </div>
 
@@ -164,10 +181,11 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
       <p>Service and repair Class 6–8 commercial trucks, trailers, and transport equipment. Air brake systems are a core specialty. Strong demand driven by Canada's freight network.</p>
       <p style="font-size:.82rem;color:#888">165 practice questions · 4-year apprenticeship · $36–$58/hr</p>
       <div class="trade-links">
-        <a href="/310t.html" class="primary">Practice Quiz</a>
-        <a href="/how-to-become-truck-transport-mechanic-canada.html">Career Guide</a>
-        <a href="/truck-transport-mechanic-310t-salary-canada.html">Salary Guide</a>
-        <a href="/how-to-pass-red-seal-310t-exam.html">Exam Tips</a>
+        <a href="/310t.html" class="primary" data-cat="quiz">Practice Quiz</a>
+        <a href="/how-to-become-truck-transport-mechanic-canada.html" data-cat="career">Career Guide</a>
+        <a href="/truck-transport-mechanic-310t-salary-canada.html" data-cat="salary">Salary Guide</a>
+        <a href="/how-to-pass-red-seal-310t-exam.html" data-cat="exam">Exam Tips</a>
+        <a href="/common-mistakes-310t-exam.html" data-cat="mistakes">Common Mistakes</a>
       </div>
     </div>
 
@@ -177,10 +195,11 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
       <p>Install and maintain electrical systems in residential, commercial, and industrial buildings under the Canadian Electrical Code. Strong union presence; high demand driven by housing and clean energy infrastructure.</p>
       <p style="font-size:.82rem;color:#888">135 practice questions · 5-year apprenticeship · $44–$65/hr</p>
       <div class="trade-links">
-        <a href="/309a.html" class="primary">Practice Quiz</a>
-        <a href="/construction-electrician-309a-career-canada.html">Career Guide</a>
-        <a href="/construction-electrician-309a-salary-canada.html">Salary Guide</a>
-        <a href="/how-to-pass-red-seal-309a-exam.html">Exam Tips</a>
+        <a href="/309a.html" class="primary" data-cat="quiz">Practice Quiz</a>
+        <a href="/construction-electrician-309a-career-canada.html" data-cat="career">Career Guide</a>
+        <a href="/construction-electrician-309a-salary-canada.html" data-cat="salary">Salary Guide</a>
+        <a href="/how-to-pass-red-seal-309a-exam.html" data-cat="exam">Exam Tips</a>
+        <a href="/common-mistakes-309a-exam.html" data-cat="mistakes">Common Mistakes</a>
       </div>
     </div>
 
@@ -190,10 +209,11 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
       <p>Diagnose and repair passenger vehicles and light trucks — engine management, electrical systems, brakes, suspension, and drivetrain. Increasingly focused on EV and hybrid diagnostics.</p>
       <p style="font-size:.82rem;color:#888">135 practice questions · 4-year apprenticeship · $36–$55/hr</p>
       <div class="trade-links">
-        <a href="/310s.html" class="primary">Practice Quiz</a>
-        <a href="/automotive-service-technician-310s-career-canada.html">Career Guide</a>
-        <a href="/automotive-service-technician-310s-salary-canada.html">Salary Guide</a>
-        <a href="/how-to-pass-red-seal-310s-exam.html">Exam Tips</a>
+        <a href="/310s.html" class="primary" data-cat="quiz">Practice Quiz</a>
+        <a href="/automotive-service-technician-310s-career-canada.html" data-cat="career">Career Guide</a>
+        <a href="/automotive-service-technician-310s-salary-canada.html" data-cat="salary">Salary Guide</a>
+        <a href="/how-to-pass-red-seal-310s-exam.html" data-cat="exam">Exam Tips</a>
+        <a href="/common-mistakes-310s-exam.html" data-cat="mistakes">Common Mistakes</a>
       </div>
     </div>
 
@@ -203,10 +223,11 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
       <p>Install and service commercial refrigeration, HVAC, and process cooling systems. Strong demand across food processing, cold storage, and commercial real estate. High technical complexity.</p>
       <p style="font-size:.82rem;color:#888">115 practice questions · 4-year apprenticeship · $36–$58/hr</p>
       <div class="trade-links">
-        <a href="/308a.html" class="primary">Practice Quiz</a>
-        <a href="/hvac-refrigeration-mechanic-308a-career-canada.html">Career Guide</a>
-        <a href="/hvac-refrigeration-mechanic-308a-salary-canada.html">Salary Guide</a>
-        <a href="/how-to-pass-red-seal-308a-exam.html">Exam Tips</a>
+        <a href="/308a.html" class="primary" data-cat="quiz">Practice Quiz</a>
+        <a href="/hvac-refrigeration-mechanic-308a-career-canada.html" data-cat="career">Career Guide</a>
+        <a href="/hvac-refrigeration-mechanic-308a-salary-canada.html" data-cat="salary">Salary Guide</a>
+        <a href="/how-to-pass-red-seal-308a-exam.html" data-cat="exam">Exam Tips</a>
+        <a href="/common-mistakes-308a-exam.html" data-cat="mistakes">Common Mistakes</a>
       </div>
     </div>
 
@@ -216,10 +237,11 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
       <p>Join metal using SMAW, GMAW, GTAW, FCAW, and oxyfuel processes across industrial, construction, pipeline, and manufacturing sectors. Structural welding commands the highest wages.</p>
       <p style="font-size:.82rem;color:#888">120 practice questions · 3-year apprenticeship · $32–$55/hr</p>
       <div class="trade-links">
-        <a href="/276a.html" class="primary">Practice Quiz</a>
-        <a href="/welder-276a-career-canada.html">Career Guide</a>
-        <a href="/welder-276a-salary-canada.html">Salary Guide</a>
-        <a href="/how-to-pass-red-seal-276a-exam.html">Exam Tips</a>
+        <a href="/276a.html" class="primary" data-cat="quiz">Practice Quiz</a>
+        <a href="/welder-276a-career-canada.html" data-cat="career">Career Guide</a>
+        <a href="/welder-276a-salary-canada.html" data-cat="salary">Salary Guide</a>
+        <a href="/how-to-pass-red-seal-276a-exam.html" data-cat="exam">Exam Tips</a>
+        <a href="/common-mistakes-276a-exam.html" data-cat="mistakes">Common Mistakes</a>
       </div>
     </div>
 
@@ -229,10 +251,11 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
       <p>Install and maintain DWV systems, water supply, gas piping, and fixtures in residential, commercial, and industrial buildings under the National Plumbing Code. Strong union presence in most provinces.</p>
       <p style="font-size:.82rem;color:#888">110 practice questions · 4-5 year apprenticeship · $38–$62/hr</p>
       <div class="trade-links">
-        <a href="/447a.html" class="primary">Practice Quiz</a>
-        <a href="/plumber-447a-career-canada.html">Career Guide</a>
-        <a href="/plumber-447a-salary-canada.html">Salary Guide</a>
-        <a href="/how-to-pass-red-seal-447a-exam.html">Exam Tips</a>
+        <a href="/447a.html" class="primary" data-cat="quiz">Practice Quiz</a>
+        <a href="/plumber-447a-career-canada.html" data-cat="career">Career Guide</a>
+        <a href="/plumber-447a-salary-canada.html" data-cat="salary">Salary Guide</a>
+        <a href="/how-to-pass-red-seal-447a-exam.html" data-cat="exam">Exam Tips</a>
+        <a href="/common-mistakes-447a-exam.html" data-cat="mistakes">Common Mistakes</a>
       </div>
     </div>
 
@@ -242,11 +265,11 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
       <p>Install, commission, and troubleshoot electrical systems in industrial plants — motors, VFDs, PLCs, process instrumentation, and high-voltage distribution. One of the most technically demanding Red Seal trades.</p>
       <p style="font-size:.82rem;color:#888">110 practice questions · 4-5 year apprenticeship · $40–$68/hr</p>
       <div class="trade-links">
-        <a href="/313a.html" class="primary">Practice Quiz</a>
-        <a href="/industrial-electrician-313a-career-canada.html">Career Guide</a>
-        <a href="/industrial-electrician-313a-salary-canada.html">Salary Guide</a>
-        <a href="/how-to-pass-red-seal-313a-exam.html">Exam Tips</a>
-        <a href="/common-mistakes-313a-exam.html">Common Mistakes</a>
+        <a href="/313a.html" class="primary" data-cat="quiz">Practice Quiz</a>
+        <a href="/industrial-electrician-313a-career-canada.html" data-cat="career">Career Guide</a>
+        <a href="/industrial-electrician-313a-salary-canada.html" data-cat="salary">Salary Guide</a>
+        <a href="/how-to-pass-red-seal-313a-exam.html" data-cat="exam">Exam Tips</a>
+        <a href="/common-mistakes-313a-exam.html" data-cat="mistakes">Common Mistakes</a>
       </div>
     </div>
 
@@ -256,10 +279,10 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
       <p>Erect structural steel frames, place reinforcing rod (rebar) for concrete, rig and hoist heavy loads, and install pre-engineered metal buildings. One of the highest-paid and most physically demanding construction trades in Canada.</p>
       <p style="font-size:.82rem;color:#888">Practice quiz coming soon · 4 year apprenticeship · $40–$58/hr union</p>
       <div class="trade-links">
-        <a href="/442a-ironworker-career-canada.html">Career Guide</a>
-        <a href="/442a-ironworker-salary-canada.html">Salary Guide</a>
-        <a href="/how-to-pass-red-seal-442a-exam.html">Exam Tips</a>
-        <a href="/common-mistakes-442a-exam.html">Common Mistakes</a>
+        <a href="/442a-ironworker-career-canada.html" data-cat="career">Career Guide</a>
+        <a href="/442a-ironworker-salary-canada.html" data-cat="salary">Salary Guide</a>
+        <a href="/how-to-pass-red-seal-442a-exam.html" data-cat="exam">Exam Tips</a>
+        <a href="/common-mistakes-442a-exam.html" data-cat="mistakes">Common Mistakes</a>
       </div>
     </div>
 
@@ -317,6 +340,14 @@ footer a{color:#f0a500;margin:0 8px;text-decoration:none}
   if(tb&&td){tb.addEventListener('click',function(e){e.stopPropagation();td.classList.toggle('open');});
   document.addEventListener('click',function(){if(td)td.classList.remove('open');});}
 })();
+function filterCat(cat, btn) {
+  document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.querySelectorAll('.trade-links a[data-cat]').forEach(function(a){
+    if(cat==='all'||a.dataset.cat===cat){a.classList.remove('hidden');}
+    else{a.classList.add('hidden');}
+  });
+}
 </script>
 </body>
 </html>
