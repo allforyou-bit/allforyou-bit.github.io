@@ -12,19 +12,20 @@
 
 ## File Count: 80 HTML
 
-### Quiz Pages (9)
+### Quiz Pages (11)
 | File | Questions | Topics |
 |------|-----------|--------|
-| 421a.html | 220 | Safety, Engine, Electrical, Hydraulics, Powertrain, Brakes |
+| 421a.html | 300 | Safety, Engine, Electrical, Hydraulics, Powertrain, Brakes, PM |
 | 310t.html | 165 | Air Brakes, Engine, Drivetrain, DOT Compliance, Electrical |
 | 309a.html | 135 | Theory, CEC Code, Motors, Wiring Methods, Safety |
 | 310s.html | 135 | Engine, Brakes, Electrical, Suspension, Transmission |
 | 308a.html | 115 | Cycle, Refrigerants, Components, Controls, Troubleshooting |
 | 276a.html | 120 | Safety, OFC, SMAW, GMAW, GTAW, FCAW, Theory |
-| 447a.html | 110 | Safety, DWV, Water Supply, Gas Piping, Fixtures, Code |
-| 313a.html | 110 | Safety, Motors, PLCs, Instrumentation, Power, Theory |
-| 442a.html | 100 | Structural Steel, Rigging, Welding, Blueprints, Rebar, Safety, Tools |
-| **Total** | **1,210** | |
+| 447a.html | 135 | Safety, DWV, Water Supply, Gas Piping, Fixtures, Code |
+| 313a.html | 135 | Safety, Motors, PLCs, Instrumentation, Power, Theory |
+| 442a.html | 120 | Structural Steel, Rigging, Welding, Blueprints, Rebar, Safety, Tools |
+| 403a.html | 100 | Appliances, Gas Supply, Piping, Venting, Combustion, Safety & Code |
+| **Total** | **1,460** | |
 
 ### Articles (42)
 **Career Guides (12):** how-to-become-heavy-equipment-technician-canada, how-to-become-truck-transport-mechanic-canada, construction-electrician-309a-career-canada, automotive-service-technician-310s-career-canada, hvac-refrigeration-mechanic-308a-career-canada, welder-276a-career-canada, plumber-447a-career-canada, industrial-electrician-313a-career-canada, 442a-ironworker-career-canada, what-is-red-seal-certification-canada, red-seal-421a-exam-tips, which-red-seal-trade-should-i-choose
@@ -110,6 +111,13 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
   - 306A Sheet Metal Worker 4페이지 세트 신규 생성
   - 전 페이지 nav에 403A/306A 링크 추가
   - sitemap.xml: 76 URLs (10개 신규 추가)
+- [x] 403A 퀴즈 전환 + 421A 확장 — 2026-04-19
+  - 403a.html: Coming Soon → 100문제 퀴즈 (Appliances 22, Supply 18, Piping 16, Venting 16, Combustion 14, Safety 14)
+  - 421a.html: 220 → 300문제 (+80: Hydraulics, Diesel, Electrical, Powertrain, Brakes, PM)
+  - 447a.html: 110 → 135문제 (+25 hard/medium)
+  - 313a.html: 110 → 135문제 (+25 hard/medium)
+  - 442a.html: 100 → 120문제 (+20 hard/medium)
+  - 퀴즈 총 1,210 → 1,460문제
 - [x] UX 최적화 Round 2 — 2026-04-17
   - 전 9개 퀴즈 페이지: score/progress/mock 위젯을 문제 카드 아래로 이동 (모바일 1~2 스크롤 내 첫 문제 도달)
   - 전 9개 퀴즈: Download Study Sheet → "Study Sheet — Coming Soon" (비활성 버튼)
