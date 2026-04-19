@@ -407,6 +407,14 @@
     .score-box .score-num{font-size:1.6rem}
     .mock-panel{border-radius:10px}
   }
+
+  /* ── EXAM STRUCTURE ACCORDION ── */
+  .exam-accordion{margin-bottom:20px}
+  .exam-accordion summary{cursor:pointer;color:var(--primary);font-weight:700;font-size:.95rem;padding:12px 16px;background:var(--card);border-radius:8px;border-left:4px solid var(--accent);box-shadow:0 1px 5px rgba(0,0,0,.07);list-style:none;display:flex;justify-content:space-between;align-items:center}
+  .exam-accordion summary::-webkit-details-marker{display:none}
+  .exam-accordion summary::after{content:"▼";font-size:.75rem;opacity:.6;transition:transform .2s}
+  .exam-accordion[open] summary::after{transform:rotate(180deg)}
+  .exam-accordion .concept-section{border-radius:0 0 8px 8px;margin-top:0;box-shadow:0 2px 6px rgba(0,0,0,.06)}
 </style>
 </head>
 <body>
@@ -459,6 +467,8 @@
   </div>
 
   <!-- EXAM STRUCTURE -->
+  <details class="exam-accordion">
+    <summary>Exam Structure — Topic Breakdown</summary>
   <div class="concept-section">
     <h3>Exam Structure — Topic Breakdown</h3>
     <table class="structure-table">
@@ -473,6 +483,7 @@
     </table>
     <p style="font-size:0.8rem;color:var(--muted);margin-top:6px;">* Approximate distribution based on 2023 RSOS weighting. Passing score is typically 70%.</p>
   </div>
+  </details>
 
   <!-- SCORE -->
 
@@ -673,6 +684,7 @@ async function submitEmail(e){e.preventDefault();const btn=document.getElementBy
     <a href="/heavy-equipment-technician-salary-canada.html" style="background:white;border-radius:8px;padding:16px;text-decoration:none;color:#1a3a5c;font-size:.87rem;font-weight:600;border-left:4px solid #f0a500;display:block;box-shadow:0 1px 6px rgba(0,0,0,.07)">421A Salary Guide 2026<span style="display:block;font-size:.78rem;color:#7f8c8d;font-weight:400;margin-top:4px">Province-by-province wage data</span></a>
     <a href="/red-seal-421a-exam-tips.html" style="background:white;border-radius:8px;padding:16px;text-decoration:none;color:#1a3a5c;font-size:.87rem;font-weight:600;border-left:4px solid #f0a500;display:block;box-shadow:0 1px 6px rgba(0,0,0,.07)">7 Tips to Pass the 421A Exam<span style="display:block;font-size:.78rem;color:#7f8c8d;font-weight:400;margin-top:4px">Exam strategy &amp; study tips</span></a>
     <a href="/red-seal-trades.html" style="background:white;border-radius:8px;padding:16px;text-decoration:none;color:#1a3a5c;font-size:.87rem;font-weight:600;border-left:4px solid #f0a500;display:block;box-shadow:0 1px 6px rgba(0,0,0,.07)">All Red Seal Trades Guide<span style="display:block;font-size:.78rem;color:#7f8c8d;font-weight:400;margin-top:4px">Compare all 8 Red Seal trades</span></a>
+    <a href="/common-mistakes-421a-exam.html" style="background:white;border-radius:8px;padding:16px;text-decoration:none;color:#1a3a5c;font-size:.87rem;font-weight:600;border-left:4px solid #f0a500;display:block;box-shadow:0 1px 6px rgba(0,0,0,.07)">421A Common Exam Mistakes<span style="display:block;font-size:.78rem;color:#7f8c8d;font-weight:400;margin-top:4px">Avoid the top errors on exam day</span></a>
   </div>
 </div>
 </div>

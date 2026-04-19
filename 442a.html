@@ -162,6 +162,14 @@
   .nav-links{display:flex;flex-wrap:nowrap;overflow:hidden;gap:18px;align-items:center}
   @media(max-width:860px){.site-nav{flex-wrap:nowrap!important;padding:0 14px!important;gap:0!important;position:relative}.nav-brand{display:flex;margin-right:auto}.nav-toggle{display:flex;align-items:center;justify-content:center;height:52px}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#1a3a5c;flex-direction:column;z-index:201;box-shadow:0 8px 24px rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.1);max-height:75vh;overflow-y:auto;gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px 20px!important;border-bottom:1px solid rgba(255,255,255,.07)!important;font-size:.9rem!important;width:100%;display:block}.topic-tabs{overflow-x:auto;flex-wrap:nowrap!important;-webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:none}.topic-tabs::-webkit-scrollbar{display:none}.tab-btn{white-space:nowrap;flex-shrink:0}.mode-switch-row{flex-wrap:wrap}.mock-launch-bar{flex-direction:column;align-items:flex-start}.fc-scene,.fc-card{min-height:150px!important}.fc-front,.fc-back{min-height:150px!important;padding:16px 14px!important}.question-card{padding:16px 14px!important}.difficulty-row{flex-wrap:wrap;gap:6px}header h1{font-size:1.25rem}.container{padding:14px 12px}}
   @media(max-width:480px){.q-text{font-size:.93rem}.option-btn{font-size:.86rem;padding:10px 12px}}
+
+  /* ── EXAM STRUCTURE ACCORDION ── */
+  .exam-accordion{margin-bottom:20px}
+  .exam-accordion summary{cursor:pointer;color:var(--primary);font-weight:700;font-size:.95rem;padding:12px 16px;background:var(--card);border-radius:8px;border-left:4px solid var(--accent);box-shadow:0 1px 5px rgba(0,0,0,.07);list-style:none;display:flex;justify-content:space-between;align-items:center}
+  .exam-accordion summary::-webkit-details-marker{display:none}
+  .exam-accordion summary::after{content:"▼";font-size:.75rem;opacity:.6;transition:transform .2s}
+  .exam-accordion[open] summary::after{transform:rotate(180deg)}
+  .exam-accordion .concept-section{border-radius:0 0 8px 8px;margin-top:0;box-shadow:0 2px 6px rgba(0,0,0,.06)}
 </style>
 </head>
 <body>
@@ -224,7 +232,9 @@
 <p>Related reading: <a href="/how-to-pass-red-seal-442a-exam.html">How to Pass the 442A Exam</a> | <a href="/442a-ironworker-salary-canada.html">Ironworker Salary Guide</a> | <a href="/442a-ironworker-career-canada.html">Ironworker Career Guide</a></p>
 </div>
 
-  <div class="concept-section">
+  <details class="exam-accordion">
+    <summary>Exam Structure — Topic Breakdown</summary>
+    <div class="concept-section">
     <h3>Exam Structure — Topic Breakdown</h3>
     <table class="structure-table">
       <tr><th>Block</th><th>Topic</th><th>Approx. Questions</th></tr>
@@ -238,6 +248,7 @@
     </table>
     <p style="font-size:.8rem;color:var(--muted);margin-top:6px;">* Approximate distribution based on 2023 RSOS. Passing score is 70%.</p>
   </div>
+  </details>
 
   <div class="concept-section">
     <h3>Sling Angle Derating — Quick Reference</h3>
