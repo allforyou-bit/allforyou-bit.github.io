@@ -118,6 +118,15 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
   - 403a.html, 306a.html: Coming Soon 퀴즈 랜딩 페이지 신규 생성 (exam structure + related articles)
   - 전 페이지 nav: 403A/306A 링크 → 403a.html/306a.html (quiz landing page) 업데이트
   - sitemap.xml: 78 URLs (403a.html, 306a.html 추가)
+- [x] SEO + UX Round 3 — 2026-04-18
+  - AdSense placeholder 완전 제거: 14개 기사 + 421a.html (주석 유지)
+  - 뉴스레터 허위 숫자 제거: 9개 퀴즈 "Join fellow Red Seal candidates"
+  - og:image + twitter:card summary_large_image: 전 71개 페이지 추가
+  - Exam Structure 표 accordion 변환: 421a, 276a, 313a, 442a, 447a
+  - 내부 링크 보강: 3개 salary 페이지에 common-mistakes/exam-tips 추가
+  - 421a.html Related Articles: common-mistakes-421a 링크 추가
+  - Ko-fi 이미지 최적화: loading=lazy + dimensions (13개 페이지)
+  - sitemap.xml: 71개 URL lastmod 2026-04-18 갱신
 - [x] HowTo Schema — 8 career guide pages
 - [x] Article Schema — all article pages (fixed heavy-eq salary + 421a exam tips 2026-04-15)
 - [x] Open Graph + Twitter Card — all pages
