@@ -12,7 +12,7 @@
 
 ## File Count: 80 HTML
 
-### Quiz Pages (11)
+### Quiz Pages (12)
 | File | Questions | Topics |
 |------|-----------|--------|
 | 421a.html | 300 | Safety, Engine, Electrical, Hydraulics, Powertrain, Brakes, PM |
@@ -25,7 +25,8 @@
 | 313a.html | 135 | Safety, Motors, PLCs, Instrumentation, Power, Theory |
 | 442a.html | 120 | Structural Steel, Rigging, Welding, Blueprints, Rebar, Safety, Tools |
 | 403a.html | 100 | Appliances, Gas Supply, Piping, Venting, Combustion, Safety & Code |
-| **Total** | **1,460** | |
+| 306a.html | 100 | Layout & Pattern Dev, Fabrication, Welding, HVAC, Safety, Tools |
+| **Total** | **1,560** | |
 
 ### Articles (42)
 **Career Guides (12):** how-to-become-heavy-equipment-technician-canada, how-to-become-truck-transport-mechanic-canada, construction-electrician-309a-career-canada, automotive-service-technician-310s-career-canada, hvac-refrigeration-mechanic-308a-career-canada, welder-276a-career-canada, plumber-447a-career-canada, industrial-electrician-313a-career-canada, 442a-ironworker-career-canada, what-is-red-seal-certification-canada, red-seal-421a-exam-tips, which-red-seal-trade-should-i-choose
@@ -111,6 +112,10 @@ index, exam-guide, study-guide, about, contact, privacy, terms, disclaimer, 404
   - 306A Sheet Metal Worker 4페이지 세트 신규 생성
   - 전 페이지 nav에 403A/306A 링크 추가
   - sitemap.xml: 76 URLs (10개 신규 추가)
+- [x] 306A 퀴즈 전환 — 2026-04-19
+  - 306a.html: Coming Soon → 100문제 퀴즈 (Layout 20, Fabrication 24, Welding 16, HVAC 20, Safety 12, Tools 8)
+  - 퀴즈 총 1,460 → 1,560문제
+  - sitemap.xml: 306a.html lastmod 2026-04-19 갱신
 - [x] 403A 퀴즈 전환 + 421A 확장 — 2026-04-19
   - 403a.html: Coming Soon → 100문제 퀴즈 (Appliances 22, Supply 18, Piping 16, Venting 16, Combustion 14, Safety 14)
   - 421a.html: 220 → 300문제 (+80: Hydraulics, Diesel, Electrical, Powertrain, Brakes, PM)
