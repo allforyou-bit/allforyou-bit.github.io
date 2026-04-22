@@ -1448,7 +1448,9 @@ ${body}
   w.focus();
 }
 function updateWrongBankTab(){const wb=JSON.parse(localStorage.getItem('wrongBank_309a')||'[]');const el=document.getElementById('wrongBankCount');if(el)el.textContent=wb.length;}
-const TOPIC_DEFS=[{key:'theory',label:'Electrical Theory'},{key:'code',label:'CEC Code'},{key:'motors',label:'Motors & Controls'},{key:'safety',label:'Safety'},{key:'wiring',label:'Wiring Methods'}];
+const TOPIC_DEFS=[{key:'theory',label:'Electrical Theory'},{key:'code',label:'CEC Code'},{key:'motors',label:'Motors & Controls'},{key:'safety',label:'Safety'},{key:'wiring',label:'Wiring Methods'},
+  {key:'cec',label:'CEC Code (Specific)'}
+];
 function recordTopicStat(topic,correct){const ts=JSON.parse(localStorage.getItem('topicStats_309a')||'{}');if(!ts[topic])ts[topic]={c:0,t:0};ts[topic].t++;if(correct)ts[topic].c++;localStorage.setItem('topicStats_309a',JSON.stringify(ts));renderTopicProgress();}
 function renderTopicProgress(){const ts=JSON.parse(localStorage.getItem('topicStats_309a')||'{}');const el=document.getElementById('topicProgressRows');if(!el)return;el.innerHTML=TOPIC_DEFS.map(({key,label})=>{const s=ts[key]||{c:0,t:0};const pct=s.t>0?Math.round(s.c/s.t*100):0;const color=s.t===0?'#dce3ec':pct>=70?'#27ae60':pct>=50?'#f0a500':'#e74c3c';return`<div class="tp-row"><div class="tp-label">${label}</div><div class="tp-bar-wrap"><div class="tp-bar" style="width:${pct}%;background:${color}"></div></div><div class="tp-pct">${s.t>0?pct+'%':'—'}</div></div>`;}).join('');}
 function resetTopicStats(){if(!confirm('Reset your topic progress?'))return;localStorage.removeItem('topicStats_309a');renderTopicProgress();}
