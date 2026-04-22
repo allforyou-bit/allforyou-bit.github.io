@@ -25,7 +25,7 @@ CLI (레거시):
   python scripts/notify_telegram.py "작업명" "file1.html,file2.html" "커밋해시" "다음할일"
 """
 
-import sys, os, urllib.request, urllib.parse, json
+import sys, os, urllib.request, urllib.parse, json, html
 from pathlib import Path
 
 BASE_DIR  = Path(__file__).resolve().parent.parent
@@ -118,36 +118,38 @@ def send_telegram(
     next_step   : 다음 단계 자유 텍스트
     kay_check   : Kay 확인 요청 사항 리스트 (없으면 None 또는 빈 리스트)
     """
+    def e(s): return html.escape(str(s))  # HTML-escape user text
+
     token = _load_token()
 
     lines = [
         DIVIDER,
-        title,
+        e(title),
         DIVIDER,
-        f"\U0001f4ca 작업 범위: {scope}",
+        f"\U0001f4ca 작업 범위: {e(scope)}",
         "\U0001f4dd 변경 내용:",
     ]
     for bullet in changes:
-        lines.append(f"  \u00b7 {bullet}")
+        lines.append(f"  \u00b7 {e(bullet)}")
 
-    lines.append(f"\U0001f50d 검증 결과: {validation}")
-    lines.append(f"\u26a0\ufe0f 경고: {warnings}")
+    lines.append(f"\U0001f50d 검증 결과: {e(validation)}")
+    lines.append(f"\u26a0\ufe0f 경고: {e(warnings)}")
     lines.append("")
 
     file_count = len(files) if files else 0
     lines.append(f"\U0001f4c1 수정 파일 ({file_count}):")
     for f in (files or []):
-        lines.append(f"  \u00b7 {f}")
+        lines.append(f"  \u00b7 {e(f)}")
 
     lines.append("")
-    lines.append(f"\U0001f516 commit: <code>{commit}</code>")
-    lines.append(f"\U0001f680 push: {push_status}")
-    lines.append(f"\u27a1\ufe0f 다음 단계: {next_step}")
+    lines.append(f"\U0001f516 commit: <code>{e(commit)}</code>")
+    lines.append(f"\U0001f680 push: {e(push_status)}")
+    lines.append(f"\u27a1\ufe0f 다음 단계: {e(next_step)}")
 
     if kay_check:
         lines.append(f"\U0001f464 Kay 확인 요청:")
         for item in kay_check:
-            lines.append(f"  \u00b7 {item}")
+            lines.append(f"  \u00b7 {e(item)}")
 
     lines.append(DIVIDER)
 
