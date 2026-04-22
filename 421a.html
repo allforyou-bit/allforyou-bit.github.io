@@ -2368,503 +2368,10 @@ const questions = [
    options:['A) Maximum backlash is preferred — it reduces gear-to-gear friction and heat generation','B) Backlash at maximum limit indicates significant gear and bearing wear in the final drive. While still within specification, this finding should be documented, the final drive oil should be inspected for metallic debris, and the machine should be scheduled for final drive replacement before the next major interval to prevent catastrophic failure in the field.','C) Backlash measurement is not meaningful for planetary gears — only ring gear condition matters','D) Maximum backlash requires immediate final drive disassembly and rebuild — the machine must not operate'],
    answer:1,
    explanation:'<strong>Backlash at maximum spec = advanced wear — schedule replacement, inspect oil.</strong> Backlash is the free play between mating gear teeth. New gears have minimum backlash; as gear flanks wear, backlash increases. Maximum specification is the engineering limit before tooth contact geometry becomes unsafe. At maximum, while technically still legal to operate, the wear rate accelerates (less tooth engagement area), oil analysis will show elevated iron/chromium particles, and the next inspection may find it over-limit. Proactive replacement prevents unplanned downtime. Planetary final drives on dozers are expensive to replace in the field.',
-   keyConcept:'Final drive backlash: measured at output flange/track sprocket with dial indicator. Spec typically 0.05–0.35mm (varies by model). Over spec = gears must be replaced. At maximum spec: oil sample (elevated metals = replace now), document and monitor closely, plan replacement at next available opportunity. Final drive oil analysis: critical condition monitoring. Look for: iron (gear/bearing wear), chromium (roller bearing wear), lead (plain bearing), silicon (dirt ingestion via seal failure). Change final drive oil on schedule — missed oil changes are #1 cause of premature final drive failure.'}
-];
+   keyConcept:'Final drive backlash: measured at output flange/track sprocket with dial indicator. Spec typically 0.05–0.35mm (varies by model). Over spec = gears must be replaced. At maximum spec: oil sample (elevated metals = replace now), document and monitor closely, plan replacement at next available opportunity. Final drive oil analysis: critical condition monitoring. Look for: iron (gear/bearing wear), chromium (roller bearing wear), lead (plain bearing), silicon (dirt ingestion via seal failure). Change final drive oil on schedule — missed oil changes are #1 cause of premature final drive failure.'},
 
-// =============================================
-//  STATE
-// =============================================
-let currentTopic = 'all';
-let currentDiff  = 'easy';
-let currentIdx   = 0;
-let answered     = false;
-let totalCorrect = 0;
-let totalAnswered = 0;
-let filteredQs   = [];
-let correctStreak = 0;
-
-function getFiltered() {
-  let base;
-  if (currentTopic === 'wrongbank') {
-    const wb = JSON.parse(localStorage.getItem('wrongBank_421a') || '[]');
-    base = questions.filter(q => wb.includes(q.id));
-  } else {
-    base = questions.filter(q => currentTopic === 'all' || q.topic === currentTopic);
-  }
-  return currentDiff === 'all' ? base : base.filter(q => q.diff === currentDiff);
-}
-
-function switchTopic(topic, btn) {
-  currentTopic = topic;
-  currentIdx   = 0;
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('torqueConceptBox').style.display = (topic === 'powertrain') ? 'block' : 'none';
-  loadQuestion();
-  if (document.getElementById('flashModeBtn') && document.getElementById('flashModeBtn').classList.contains('active')) initFlashcards();
-}
-
-function setDiff(diff, btn) {
-  currentDiff = diff;
-  currentIdx  = 0;
-  document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  loadQuestion();
-  if (document.getElementById('flashModeBtn') && document.getElementById('flashModeBtn').classList.contains('active')) initFlashcards();
-}
-
-function loadQuestion() {
-  filteredQs = getFiltered();
-  answered   = false;
-
-  if (filteredQs.length === 0) {
-    document.getElementById('qText').textContent = 'No questions match this filter. Please select a different topic or difficulty.';
-    document.getElementById('optionsContainer').innerHTML = '';
-    document.getElementById('explanationBox').classList.remove('show');
-    document.getElementById('qNumber').textContent = 'No questions';
-    document.getElementById('nextBtn').disabled = true;
-    document.getElementById('prevBtn').disabled = true;
-    return;
-  }
-
-  if (currentIdx >= filteredQs.length) currentIdx = 0;
-  if (currentIdx < 0) currentIdx = filteredQs.length - 1;
-
-  const q = filteredQs[currentIdx];
-
-  document.getElementById('qTopic').textContent = q.topicLabel;
-  const diffEl = document.getElementById('qDiff');
-  diffEl.textContent = q.diff.charAt(0).toUpperCase() + q.diff.slice(1);
-  diffEl.className = 'q-diff ' + q.diff;
-  document.getElementById('qNumber').textContent = `Question ${currentIdx + 1} of ${filteredQs.length}`;
-  document.getElementById('qText').textContent = q.text;
-  document.getElementById('explanationBox').classList.remove('show');
-  document.getElementById('explanationBox').innerHTML = '';
-
-  const opts = document.getElementById('optionsContainer');
-  opts.innerHTML = '';
-  q.options.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'option-btn';
-    btn.innerHTML = `<span class="option-letter">${['A','B','C','D'][i]})</span><span>${opt.substring(3)}</span>`;
-    btn.onclick = () => selectAnswer(i, q);
-    opts.appendChild(btn);
-  });
-
-  document.getElementById('prevBtn').disabled = (currentIdx === 0);
-  document.getElementById('nextBtn').disabled = true;
-}
-
-function selectAnswer(idx, q) {
-  if (answered) return;
-  answered = true;
-  totalAnswered++;
-
-  const btns = document.querySelectorAll('.option-btn');
-  btns.forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === q.answer) { btn.classList.add('correct'); }
-    else if (i === idx && i !== q.answer) { btn.classList.add('wrong'); }
-  });
-
-  if (idx === q.answer) { totalCorrect++; correctStreak++; } else { correctStreak = 0; }
-  updateScore();
-  updateStreakBadge();
-
-  const expBox = document.getElementById('explanationBox');
-  expBox.innerHTML = `
-    <strong>${idx === q.answer ? '✅ Correct!' : '❌ Incorrect — Correct answer: ' + ['A','B','C','D'][q.answer]}</strong><br><br>
-    ${q.explanation}
-    ${q.keyConcept ? `<div class="key-concept"><strong>💡 Key Concept:</strong> ${q.keyConcept}</div>` : ''}
-  `;
-  expBox.classList.add('show');
-  document.getElementById('nextBtn').disabled = false;
-}
-
-function navigate(dir) {
-  currentIdx += dir;
-  loadQuestion();
-}
-
-function updateScore() {
-  const pct = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
-  document.getElementById('scoreDisplay').textContent = `${totalCorrect} / ${totalAnswered}`;
-  document.getElementById('progressBar').style.width = pct + '%';
-  document.getElementById('progressBar').style.background =
-    pct >= 70 ? '#27ae60' : pct >= 50 ? '#f0a500' : '#e74c3c';
-}
-
-function updateStreakBadge() {
-  const el = document.getElementById('inRowStreak');
-  if (!el) return;
-  if (correctStreak >= 3) {
-    const msg = correctStreak >= 10 ? `🔥 ${correctStreak} in a row! On fire!` :
-                correctStreak >= 5  ? `🔥 ${correctStreak} in a row! Great work!` :
-                                      `🔥 ${correctStreak} correct in a row!`;
-    el.textContent = msg;
-    el.style.display = 'inline-block';
-    el.style.animation = 'none';
-    void el.offsetWidth;
-    el.style.animation = 'streakPop .35s ease';
-  } else {
-    el.style.display = 'none';
-  }
-}
-
-// Init
-loadQuestion();
-
-// ==============================
-//  MOCK EXAM MODE
-// ==============================
-const MOCK_PAGE_KEY = '421a';
-const MOCK_PASS = 70;
-let mockQs = [], mockIdx = 0, mockAns = {}, mockStart = 0;
-
-function openMockLaunch() { document.getElementById('mockLaunch').style.display = 'flex'; }
-function closeMockLaunch() { document.getElementById('mockLaunch').style.display = 'none'; }
-function exitMockExam() { if (confirm('Exit mock exam? Progress will be lost.')) { clearInterval(mockTimer); document.getElementById('mockOverlay').style.display = 'none'; document.body.style.overflow = ''; } }
-
-function buildMockQs(n) {
-  const byTopic = {};
-  questions.forEach(q => { if (!byTopic[q.topic]) byTopic[q.topic] = {easy:[],medium:[],hard:[]}; byTopic[q.topic][q.diff].push(q); });
-  const topics = Object.keys(byTopic);
-  const total = questions.length;
-  const alloc = {}; let allocated = 0;
-  topics.forEach((t,i) => {
-    const ts = byTopic[t].easy.length + byTopic[t].medium.length + byTopic[t].hard.length;
-    const share = i === topics.length-1 ? n - allocated : Math.round((ts/total)*n);
-    alloc[t] = Math.max(1, Math.min(share, ts));
-    allocated += alloc[t];
-  });
-  while (allocated > n) { const big = topics.reduce((a,b) => alloc[a]>alloc[b]?a:b); alloc[big]--; allocated--; }
-  while (allocated < n) { const t = topics.find(t => alloc[t] < byTopic[t].easy.length + byTopic[t].medium.length + byTopic[t].hard.length); if (!t) break; alloc[t]++; allocated++; }
-  const sel = [];
-  topics.forEach(t => {
-    const cnt = alloc[t];
-    const eN = Math.round(cnt*0.4), hN = Math.max(0,Math.round(cnt*0.2)), mN = cnt-eN-hN;
-    const e = [...byTopic[t].easy].sort(()=>Math.random()-.5);
-    const m = [...byTopic[t].medium].sort(()=>Math.random()-.5);
-    const h = [...byTopic[t].hard].sort(()=>Math.random()-.5);
-    sel.push(...e.slice(0,eN), ...m.slice(0,mN), ...h.slice(0,hN));
-  });
-  return sel.sort(()=>Math.random()-.5).slice(0,n);
-}
-
-function startMockExam(n) {
-  closeMockLaunch();
-  mockQs = buildMockQs(n); mockIdx = 0; mockAns = {}; mockStart = Date.now();
-  document.getElementById('mockOverlay').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-  if(typeof startMockTimer==='function') startMockTimer(n);
-  renderMockQ();
-}
-
-function renderMockQ() {
-  const q = mockQs[mockIdx], total = mockQs.length;
-  document.getElementById('mockProg').textContent = `Question ${mockIdx+1} of ${total}`;
-  document.getElementById('mockBarFill').style.width = (mockIdx/total*100) + '%';
-  document.getElementById('mockTopicBadge').textContent = q.topicLabel;
-  document.getElementById('mockDiffBadge').textContent = q.diff.charAt(0).toUpperCase()+q.diff.slice(1);
-  document.getElementById('mockQText').textContent = q.text;
-  document.getElementById('mockFeedback').style.display = 'none';
-  document.getElementById('mockNextBtn').style.display = 'none';
-  const optsEl = document.getElementById('mockOpts'); optsEl.innerHTML = '';
-  q.options.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'mock-opt'; btn.textContent = opt;
-    btn.onclick = () => answerMockQ(i);
-    optsEl.appendChild(btn);
-  });
-}
-
-function answerMockQ(chosen) {
-  if (mockAns[mockIdx] !== undefined) return;
-  const q = mockQs[mockIdx]; mockAns[mockIdx] = chosen;
-  document.querySelectorAll('.mock-opt').forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === q.answer) btn.classList.add('mock-c');
-    else if (i === chosen) btn.classList.add('mock-w');
-  });
-  const isOk = chosen === q.answer;
-  const fb = document.getElementById('mockFeedback');
-  fb.style.display = 'block';
-  fb.style.borderLeftColor = isOk ? '#27ae60' : '#e74c3c';
-  fb.innerHTML = `<div style="font-weight:700;color:${isOk?'#27ae60':'#e74c3c'};margin-bottom:8px">${isOk?'✓ Correct!':'✗ Incorrect — Correct: '+q.options[q.answer]}</div>${q.explanation||''}${q.keyConcept?'<div style="margin-top:8px;color:#7f8c8d;font-size:.85rem"><strong>Key Concept:</strong> '+q.keyConcept+'</div>':''}`;
-  const nb = document.getElementById('mockNextBtn'); nb.style.display = 'block';
-  if (mockIdx === mockQs.length - 1) { nb.textContent = 'See My Results →'; nb.onclick = showMockResults; }
-  else { nb.textContent = `Next (${mockIdx+2}/${mockQs.length}) →`; nb.onclick = () => { mockIdx++; renderMockQ(); }; }
-}
-
-function showMockResults() {
-  let correct = 0; const ts = {};
-  mockQs.forEach((q, i) => {
-    if (!ts[q.topicLabel]) ts[q.topicLabel] = {c:0,t:0};
-    ts[q.topicLabel].t++;
-    if (mockAns[i] === q.answer) { correct++; ts[q.topicLabel].c++; }
-  });
-  const total = mockQs.length, pct = Math.round(correct/total*100), passed = pct >= MOCK_PASS;
-  const mins = Math.round((Date.now()-mockStart)/60000);
-  const prev = parseInt(localStorage.getItem('mockBest_'+MOCK_PAGE_KEY)||'0');
-  if (pct > prev) localStorage.setItem('mockBest_'+MOCK_PAGE_KEY, pct);
-  const isNewBest = pct > prev;
-  saveMockHistory(pct, total);
-  const wrong = mockQs.filter((_,i) => mockAns[i] !== mockQs[i].answer);
-  const topicRows = Object.entries(ts).map(([label,s]) => {
-    const p = Math.round(s.c/s.t*100), col = p>=70?'#27ae60':p>=50?'#f0a500':'#e74c3c';
-    return `<tr><td style="padding:8px 12px;border-bottom:1px solid #f0f4f9">${label}</td><td style="padding:8px 12px;text-align:center;border-bottom:1px solid #f0f4f9">${s.c}/${s.t}</td><td style="padding:8px 12px;text-align:center;font-weight:700;color:${col};border-bottom:1px solid #f0f4f9">${p}%</td></tr>`;
-  }).join('');
-  const wrongHTML = wrong.length ? `<details style="margin-top:16px"><summary style="cursor:pointer;padding:12px;background:#fdecea;border-radius:8px;font-weight:700;color:#922b21;list-style:none">▼ Review ${wrong.length} Wrong Answer(s)</summary>${wrong.map(q=>{const gi=mockQs.indexOf(q);return`<div style="border-left:3px solid #e74c3c;padding:12px 14px;margin:8px 0;background:#fafafa;border-radius:0 8px 8px 0;font-size:.87rem"><div style="font-weight:600;color:#1a3a5c;margin-bottom:6px">${q.text}</div><div style="color:#27ae60;margin-bottom:2px">✓ ${q.options[q.answer]}</div><div style="color:#e74c3c;margin-bottom:6px">✗ You chose: ${q.options[mockAns[gi]]}</div>${q.keyConcept?'<div style="color:#7f8c8d">'+q.keyConcept+'</div>':''}</div>`;}).join('')}</details>` : `<div style="color:#27ae60;text-align:center;padding:14px;font-weight:700;background:#e8f9ef;border-radius:8px;margin-top:12px">🏆 All answers correct!</div>`;
-  document.getElementById('mockBody').innerHTML = `
-    <div style="text-align:center;padding:24px 16px 16px">
-      <div style="font-size:3.5rem;line-height:1">${passed?'🏆':'📚'}</div>
-      <div style="font-size:3rem;font-weight:800;color:${passed?'#27ae60':'#e74c3c'};line-height:1.1;margin-top:8px">${pct}%</div>
-      <div style="font-size:1.1rem;font-weight:700;color:${passed?'#27ae60':'#e74c3c'};margin:8px 0">${passed?'✓ PASS':'✗ NEEDS IMPROVEMENT'}</div>
-      <div style="color:#7f8c8d;font-size:.88rem">${correct} / ${total} correct &nbsp;·&nbsp; ${mins || '<1'} min</div>
-      ${isNewBest&&pct>0?'<div style="background:#fff8e1;border:1px solid #f0a500;border-radius:8px;padding:8px 14px;margin-top:10px;font-size:.85rem;color:#b7770d">🌟 New Personal Best!</div>':''}
-    </div>
-    <div style="padding:0 16px">
-      <table style="width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:8px">
-        <tr style="background:#f4f7fb"><th style="padding:8px 12px;text-align:left">Topic</th><th style="padding:8px 12px">Score</th><th style="padding:8px 12px">%</th></tr>
-        ${topicRows}
-      </table>
-      ${wrongHTML}
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;padding-bottom:8px">
-        <button onclick="startMockExam(${total})" style="background:#f0a500;color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.9rem">Try Again</button>
-        <button onclick="openMockLaunch()" style="background:#1a3a5c;color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.9rem">New Exam</button>
-      </div>
-      <div style="text-align:center;padding-bottom:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <button onclick="shareMockScore(${pct},${total},'421A')" style="background:#27ae60;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.85rem">📢 Share Score</button>
-        <button onclick="downloadMockResults(${pct},${total},${correct},'421A')" style="background:#2d6a9f;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.85rem">⬇ Download Results</button>
-        <button onclick="clearInterval(mockTimer);document.getElementById('mockOverlay').style.display='none';document.body.style.overflow=''" style="background:none;border:none;color:#7f8c8d;cursor:pointer;font-size:.85rem;text-decoration:underline">Back to Practice Mode</button>
-      </div>
-    </div>`;
-}
-
-// Auto-launch from URL param (?mock=25)
-(function(){
-  const p = new URLSearchParams(window.location.search).get('mock');
-  if (p) { const n = parseInt(p); if (n > 0) { setTimeout(() => startMockExam(Math.min(n, questions.length)), 600); } }
-})();
-
-// ── STUDY STREAK ──
-(function(){
-  const today = new Date().toDateString();
-  const prev = localStorage.getItem('streakDate');
-  const yesterday = new Date(Date.now()-86400000).toDateString();
-  let streak = parseInt(localStorage.getItem('studyStreak')||'0');
-  if(prev===today){/* same day */}
-  else if(prev===yesterday){streak++;localStorage.setItem('studyStreak',streak);localStorage.setItem('streakDate',today);}
-  else{streak=1;localStorage.setItem('studyStreak',streak);localStorage.setItem('streakDate',today);}
-  const el=document.getElementById('streakCount');
-  if(el&&streak>=1){el.textContent=`🔥 ${streak}-day streak`;el.style.display='inline-block';}
-  // Restore today's correct count
-  const tc=parseInt(localStorage.getItem('todayCorrect_421a')||'0');
-  const tDate=localStorage.getItem('todayDate_421a');
-  if(tDate===today&&tc>0){const te=document.getElementById('todayCount');if(te){te.textContent=`✓ ${tc} correct today`;te.style.display='inline-block';}}
-})();
-
-// Track today correct + wrong bank + topic stats
-const _origSelectAnswer = selectAnswer;
-function selectAnswer(idx, q) {
-  const wasAnswered = answered;
-  _origSelectAnswer(idx, q);
-  if (!wasAnswered) {
-    const isCorrect = idx === q.answer;
-    // Today's correct count
-    if (isCorrect) {
-      const today=new Date().toDateString();
-      const tc=parseInt(localStorage.getItem('todayCorrect_421a')||'0')+1;
-      localStorage.setItem('todayCorrect_421a',tc);localStorage.setItem('todayDate_421a',today);
-      const te=document.getElementById('todayCount');if(te){te.textContent=`✓ ${tc} correct today`;te.style.display='inline-block';}
-    }
-    // Wrong bank
-    if (!isCorrect) {
-      const wb = JSON.parse(localStorage.getItem('wrongBank_421a')||'[]');
-      if (!wb.includes(q.id)) { wb.push(q.id); localStorage.setItem('wrongBank_421a', JSON.stringify(wb)); }
-      updateWrongBankTab();
-    } else {
-      const wb = JSON.parse(localStorage.getItem('wrongBank_421a')||'[]');
-      const fi = wb.indexOf(q.id);
-      if (fi > -1) { wb.splice(fi, 1); localStorage.setItem('wrongBank_421a', JSON.stringify(wb)); }
-      updateWrongBankTab();
-    }
-    // Topic stats
-    recordTopicStat(q.topic, isCorrect);
-    // Combo streak
-    if (isCorrect) { window._cs=(window._cs||0)+1; if(window._cs>=2) showComboToast(window._cs); } else { window._cs=0; }
-  }
-}
-
-// ── MOCK EXAM TIMER ──
-let mockTimer = null;
-function startMockTimer(n){
-  clearInterval(mockTimer);
-  let secs = Math.min(n*90, 10800);
-  function tick(){
-    const el=document.getElementById('mockTimerEl');if(!el)return;
-    const m=Math.floor(secs/60),s=secs%60;
-    el.textContent=`⏱ ${m}:${s.toString().padStart(2,'0')}`;
-    el.style.background=secs<=300?'rgba(231,76,60,.5)':'rgba(255,255,255,.12)';
-    if(secs<=0){clearInterval(mockTimer);showMockResults();}
-    secs--;
-  }
-  tick();mockTimer=setInterval(tick,1000);
-}
-
-// ── SHARE SCORE ──
-function shareMockScore(pct,total,name){
-  const txt=`I scored ${pct}% on the ${name} Red Seal mock exam (${total} questions)! Free practice at allforyou-bit.github.io`;
-  if(navigator.share){navigator.share({title:'Red Seal Exam Score',text:txt}).catch(()=>{});}
-  else{navigator.clipboard.writeText(txt).then(()=>alert('Score copied! Share it with your study group.')).catch(()=>alert(txt));}
-}
-
-function downloadMockResults(pct,total,correct,name){
-  const date=new Date().toLocaleDateString('en-CA');
-  const passed=pct>=70;
-  let txt=`RED SEAL ${name} MOCK EXAM RESULTS\n`;
-  txt+=`Date: ${date}  |  Score: ${pct}%  (${correct}/${total})  |  ${passed?'PASS':'NEEDS IMPROVEMENT'}\n`;
-  txt+='='.repeat(60)+'\n\n';
-  mockQs.forEach((q,i)=>{
-    const ua=mockAns[i],ok=ua===q.answer;
-    txt+=`Q${i+1}. [${ok?'CORRECT':'WRONG  '}] ${q.text}\n`;
-    q.options.forEach((opt,j)=>{const mark=j===q.answer?'> ':(j===ua&&!ok?'X ':'  ');txt+=`   ${mark}${opt}\n`;});
-    if(!ok&&q.explanation)txt+=`   Explanation: ${q.explanation}\n`;
-    if(!ok&&q.keyConcept)txt+=`   Key Concept: ${q.keyConcept}\n`;
-    txt+='\n';
-  });
-  txt+=`\nDownloaded from allforyou-bit.github.io | Free Red Seal Exam Practice`;
-  const blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
-  const url=URL.createObjectURL(blob);const a=document.createElement('a');
-  a.href=url;a.download=`RedSeal-${name}-Results-${date}.txt`;
-  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
-}
-
-// ── DOWNLOAD STUDY SHEET ──
-function downloadStudySheet() {
-  let qs;
-  if (currentTopic === 'all') { qs = questions; }
-  else if (currentTopic === 'wrongbank') {
-    const wb = JSON.parse(localStorage.getItem('wrongBank_421a')||'[]');
-    qs = questions.filter(q => wb.includes(q.id));
-  } else { qs = questions.filter(q => q.topic === currentTopic); }
-  const topicLabel = currentTopic === 'all' ? 'All Topics' : currentTopic === 'wrongbank' ? 'Mistakes Review' : (qs[0] ? qs[0].topicLabel : 'All Topics');
-  const tradeName = '421A Heavy Equipment Technician';
-  const date = new Date().toLocaleDateString('en-CA');
-  const letters = ['A','B','C','D','E'];
-  const groups = {};
-  qs.forEach(q => {
-    if (!groups[q.topicLabel]) groups[q.topicLabel] = [];
-    groups[q.topicLabel].push(q);
-  });
-  let body = '';
-  const ansKey = [];
-  let n = 1;
-  Object.keys(groups).forEach(tl => {
-    body += `<div class="section-title">${tl} — ${groups[tl].length} questions</div>`;
-    groups[tl].forEach(q => {
-      body += `<div class="q"><div class="qn">Q${n}. <span class="diff diff-${q.diff}">${q.diff}</span></div>`;
-      body += `<div class="qt">${q.text}</div>`;
-      q.options.forEach(opt => { body += `<div class="opt">${opt}</div>`; });
-      body += `</div>`;
-      ansKey.push({n, answer: letters[q.answer], text: q.options[q.answer], expl: (q.explanation||'').replace(/<[^>]+>/g,''), key: q.keyConcept||''});
-      n++;
-    });
-  });
-  let keyHtml = '';
-  ansKey.forEach(a => {
-    keyHtml += `<div class="ak"><strong>Q${a.n}.</strong> <span class="correct">${a.answer}) ${a.text}</span>`;
-    if (a.expl) keyHtml += `<div class="expl">${a.expl}</div>`;
-    if (a.key) keyHtml += `<div class="kc"><strong>Key Concept:</strong> ${a.key}</div>`;
-    keyHtml += `</div>`;
-  });
-  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
-<title>Red Seal 421A Practice Exam — 220 Free Heavy Equipment Technician Questions 2026</title>
-<style>
-  body{font-family:Arial,sans-serif;max-width:820px;margin:0 auto;padding:20px 24px;color:#2c3e50;font-size:12.5px;line-height:1.5}
-  .print-tip{background:#1a3a5c;color:#fff;padding:12px 16px;border-radius:8px;margin-bottom:20px;font-size:13px}
-  .print-tip button{background:#f0a500;color:#fff;border:none;padding:6px 14px;border-radius:6px;font-weight:700;cursor:pointer;margin-left:12px}
-  h1{color:#1a3a5c;border-bottom:3px solid #f0a500;padding-bottom:8px;font-size:17px;margin-bottom:4px}
-  .meta{color:#7f8c8d;font-size:11px;margin-bottom:16px}
-  .section-title{background:#1a3a5c;color:#fff;padding:7px 12px;border-left:4px solid #f0a500;margin:22px 0 12px;font-size:13px;font-weight:700}
-  .q{margin:0 0 14px;padding:10px 12px;border:1px solid #e0e6ef;border-radius:6px;page-break-inside:avoid}
-  .qn{font-weight:700;color:#1a3a5c;margin-bottom:4px}
-  .diff{font-size:10px;padding:1px 7px;border-radius:9px;font-weight:600}
-  .diff-easy{background:#d5f5e3;color:#1e8449}
-  .diff-medium{background:#fdebd0;color:#d35400}
-  .diff-hard{background:#fadbd8;color:#c0392b}
-  .qt{font-weight:600;margin-bottom:8px;font-size:13px}
-  .opt{margin:2px 0 2px 16px;color:#2c3e50}
-  .answer-key{margin-top:36px;border-top:3px solid #1a3a5c;padding-top:16px}
-  .answer-key h2{color:#1a3a5c;font-size:15px;margin-bottom:12px}
-  .ak{margin:8px 0;padding:8px 10px;background:#f9fbfd;border-radius:4px;page-break-inside:avoid}
-  .correct{color:#27ae60;font-weight:700}
-  .expl{font-size:11px;color:#555;margin:4px 0 2px 12px}
-  .kc{font-size:11px;color:#b7770d;margin:2px 0 0 12px}
-  .footer{margin-top:24px;border-top:1px solid #ddd;padding-top:10px;color:#aaa;font-size:10px;text-align:center}
-  @media print{.print-tip{display:none}body{padding:8px 12px;font-size:11px}.q{page-break-inside:avoid;margin-bottom:10px}}
-</style></head><body>
-<div class="print-tip">📄 <strong>Save as PDF:</strong> Press Ctrl+P (Windows) or ⌘+P (Mac) → Choose "Save as PDF" as the printer <button onclick="window.print()">🖨 Print / Save PDF</button></div>
-<h1>📋 ${tradeName} Red Seal Practice — Study Sheet</h1>
-<div class="meta">Based on 2023 Red Seal Occupational Standard (RSOS) · ${qs.length} questions${currentTopic!=='all'?' · Topic: '+topicLabel:''} · Generated ${date} · allforyou-bit.github.io</div>
-${body}
-<div class="answer-key"><h2>📌 Answer Key with Explanations</h2>${keyHtml}</div>
-<div class="footer">Canada Red Seal Exam Prep · allforyou-bit.github.io · Free practice questions based on 2023 RSOS · Not affiliated with the official Red Seal Program</div>
-<!-- EXIT INTENT POPUP -->
-<div id="exitPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:10000;align-items:center;justify-content:center;padding:20px">
-  <div style="background:white;border-radius:20px;padding:36px 32px;max-width:440px;width:100%;position:relative;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)">
-    <button onclick="document.getElementById(&apos;exitPopup&apos;).style.display=&apos;none&apos;;sessionStorage.setItem(&apos;exitShown&apos;,&apos;1&apos;)" style="position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#aaa;line-height:1">&times;</button>
-    <div style="font-size:2.5rem;margin-bottom:12px">&#128203;</div>
-    <h2 style="font-size:1.3rem;color:#1a3a5c;font-weight:800;margin-bottom:8px">Wait &#8212; Free Study Sheet!</h2>
-    <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:20px">Get our <strong>Red Seal Quick-Reference PDF</strong> &#8212; key formulas, codes and tips for your trade. Free, no spam.</p>
-    <form action="https://formsubmit.co/lidbil515@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:10px">
-      <input type="hidden" name="_subject" value="Exit Intent - Free Study Sheet">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="email" name="email" required placeholder="Your email address" style="border:2px solid #dce3ec;border-radius:8px;padding:11px 14px;font-size:.9rem;font-family:inherit;outline:none;width:100%">
-      <button type="submit" style="background:#f0a500;color:white;border:none;border-radius:8px;padding:12px;font-weight:700;font-size:.95rem;cursor:pointer">Send Me the PDF &#8594;</button>
-    </form>
-    <p style="font-size:.72rem;color:#aaa;margin-top:10px">Unsubscribe anytime. We respect your privacy.</p>
-  </div>
-</div>
-<script>
-(function(){
-  var shown=false;var st=Date.now();
-  document.addEventListener("mouseleave",function(e){
-    if(e.clientY>5||shown||sessionStorage.getItem("exitShown"))return;
-    if(Date.now()-st<12000)return;
-    shown=true;
-    var p=document.getElementById("exitPopup");
-    if(p){p.style.display="flex";sessionStorage.setItem("exitShown","1");}
-  });
-})();
-<\/script>
-</body></html>`;
-  const w = window.open('', '_blank');
-  if (!w) { alert('Please allow pop-ups to use the study sheet download.'); return; }
-  w.document.write(html);
-  w.document.close();
-  w.focus();
-}
-
-// ── WRONG BANK ──
-function updateWrongBankTab() {
-  const wb = JSON.parse(localStorage.getItem('wrongBank_421a')||'[]');
-  const el = document.getElementById('wrongBankCount');
-  if (el) el.textContent = wb.length;
-}
-
-// ── TOPIC PROGRESS ──
-const TOPIC_DEFS_421a = [
-  {key:'safety',     label:'Safety & Tools'},
-  {key:'engine',     label:'Diesel Engine'},
-  {key:'electrical', label:'Electrical'},
-  {key:'hydraulic',  label:'Hydraulics'},
-  {key:'powertrain', label:'Powertrain'},
-  {key:'brakes',     label:'Brakes & Steering'},
-// ── PHASE 3 ADDITIONS: 80 QUESTIONS (2026-04-18) ──
-
-  // ── HYDRAULICS (20 questions, IDs 221-240) ──
+// ── PHASE 3 ADDITIONS (2026-04-18) ──
+// ── HYDRAULICS (20 questions, IDs 221-240) ──
   {id:221,topic:'hydraulic',topicLabel:'Hydraulic Systems',diff:'hard',
   text:"A excavator boom cylinder extends slowly and lacks power on one side only. Full system pressure is available at the main relief valve. The other work functions operate normally. What is the MOST likely cause?",
   options:['A) Low hydraulic fluid level','B) Worn hydraulic pump','C) Section control valve spool worn or stuck, or a boom cylinder piston seal bypassing internally','D) Main relief valve set too low'],
@@ -3429,7 +2936,500 @@ const TOPIC_DEFS_421a = [
   answer:2,
   explanation:'<strong>Rod surface pitting in the seal area affects seal life and performance.</strong> The rod wiper seal and rod seal rely on a smooth rod surface to function. Pits create pathways for oil leakage and accelerate seal wear. Mild pitting can sometimes be polished, but >0.3mm pits in the seal zone typically require hard chrome re-plating or rod replacement. Replacing seals on a pitted rod will result in premature seal failure. Evaluate severity before deciding on repair.',
   keyConcept:'Cylinder rod pitting: pits in seal zone compromise sealing. Evaluate depth and location. Options: polish minor pits, hard chrome re-plate, or replace rod. New seals on pitted rod = short service life.'}
+];
 
+// =============================================
+//  STATE
+// =============================================
+let currentTopic = 'all';
+let currentDiff  = 'easy';
+let currentIdx   = 0;
+let answered     = false;
+let totalCorrect = 0;
+let totalAnswered = 0;
+let filteredQs   = [];
+let correctStreak = 0;
+
+function getFiltered() {
+  let base;
+  if (currentTopic === 'wrongbank') {
+    const wb = JSON.parse(localStorage.getItem('wrongBank_421a') || '[]');
+    base = questions.filter(q => wb.includes(q.id));
+  } else {
+    base = questions.filter(q => currentTopic === 'all' || q.topic === currentTopic);
+  }
+  return currentDiff === 'all' ? base : base.filter(q => q.diff === currentDiff);
+}
+
+function switchTopic(topic, btn) {
+  currentTopic = topic;
+  currentIdx   = 0;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('torqueConceptBox').style.display = (topic === 'powertrain') ? 'block' : 'none';
+  loadQuestion();
+  if (document.getElementById('flashModeBtn') && document.getElementById('flashModeBtn').classList.contains('active')) initFlashcards();
+}
+
+function setDiff(diff, btn) {
+  currentDiff = diff;
+  currentIdx  = 0;
+  document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  loadQuestion();
+  if (document.getElementById('flashModeBtn') && document.getElementById('flashModeBtn').classList.contains('active')) initFlashcards();
+}
+
+function loadQuestion() {
+  filteredQs = getFiltered();
+  answered   = false;
+
+  if (filteredQs.length === 0) {
+    document.getElementById('qText').textContent = 'No questions match this filter. Please select a different topic or difficulty.';
+    document.getElementById('optionsContainer').innerHTML = '';
+    document.getElementById('explanationBox').classList.remove('show');
+    document.getElementById('qNumber').textContent = 'No questions';
+    document.getElementById('nextBtn').disabled = true;
+    document.getElementById('prevBtn').disabled = true;
+    return;
+  }
+
+  if (currentIdx >= filteredQs.length) currentIdx = 0;
+  if (currentIdx < 0) currentIdx = filteredQs.length - 1;
+
+  const q = filteredQs[currentIdx];
+
+  document.getElementById('qTopic').textContent = q.topicLabel;
+  const diffEl = document.getElementById('qDiff');
+  diffEl.textContent = q.diff.charAt(0).toUpperCase() + q.diff.slice(1);
+  diffEl.className = 'q-diff ' + q.diff;
+  document.getElementById('qNumber').textContent = `Question ${currentIdx + 1} of ${filteredQs.length}`;
+  document.getElementById('qText').textContent = q.text;
+  document.getElementById('explanationBox').classList.remove('show');
+  document.getElementById('explanationBox').innerHTML = '';
+
+  const opts = document.getElementById('optionsContainer');
+  opts.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.innerHTML = `<span class="option-letter">${['A','B','C','D'][i]})</span><span>${opt.substring(3)}</span>`;
+    btn.onclick = () => selectAnswer(i, q);
+    opts.appendChild(btn);
+  });
+
+  document.getElementById('prevBtn').disabled = (currentIdx === 0);
+  document.getElementById('nextBtn').disabled = true;
+}
+
+function selectAnswer(idx, q) {
+  if (answered) return;
+  answered = true;
+  totalAnswered++;
+
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.answer) { btn.classList.add('correct'); }
+    else if (i === idx && i !== q.answer) { btn.classList.add('wrong'); }
+  });
+
+  if (idx === q.answer) { totalCorrect++; correctStreak++; } else { correctStreak = 0; }
+  updateScore();
+  updateStreakBadge();
+
+  const expBox = document.getElementById('explanationBox');
+  expBox.innerHTML = `
+    <strong>${idx === q.answer ? '✅ Correct!' : '❌ Incorrect — Correct answer: ' + ['A','B','C','D'][q.answer]}</strong><br><br>
+    ${q.explanation}
+    ${q.keyConcept ? `<div class="key-concept"><strong>💡 Key Concept:</strong> ${q.keyConcept}</div>` : ''}
+  `;
+  expBox.classList.add('show');
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function navigate(dir) {
+  currentIdx += dir;
+  loadQuestion();
+}
+
+function updateScore() {
+  const pct = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+  document.getElementById('scoreDisplay').textContent = `${totalCorrect} / ${totalAnswered}`;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressBar').style.background =
+    pct >= 70 ? '#27ae60' : pct >= 50 ? '#f0a500' : '#e74c3c';
+}
+
+function updateStreakBadge() {
+  const el = document.getElementById('inRowStreak');
+  if (!el) return;
+  if (correctStreak >= 3) {
+    const msg = correctStreak >= 10 ? `🔥 ${correctStreak} in a row! On fire!` :
+                correctStreak >= 5  ? `🔥 ${correctStreak} in a row! Great work!` :
+                                      `🔥 ${correctStreak} correct in a row!`;
+    el.textContent = msg;
+    el.style.display = 'inline-block';
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = 'streakPop .35s ease';
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+// Init
+loadQuestion();
+
+// ==============================
+//  MOCK EXAM MODE
+// ==============================
+const MOCK_PAGE_KEY = '421a';
+const MOCK_PASS = 70;
+let mockQs = [], mockIdx = 0, mockAns = {}, mockStart = 0;
+
+function openMockLaunch() { document.getElementById('mockLaunch').style.display = 'flex'; }
+function closeMockLaunch() { document.getElementById('mockLaunch').style.display = 'none'; }
+function exitMockExam() { if (confirm('Exit mock exam? Progress will be lost.')) { clearInterval(mockTimer); document.getElementById('mockOverlay').style.display = 'none'; document.body.style.overflow = ''; } }
+
+function buildMockQs(n) {
+  const byTopic = {};
+  questions.forEach(q => { if (!byTopic[q.topic]) byTopic[q.topic] = {easy:[],medium:[],hard:[]}; byTopic[q.topic][q.diff].push(q); });
+  const topics = Object.keys(byTopic);
+  const total = questions.length;
+  const alloc = {}; let allocated = 0;
+  topics.forEach((t,i) => {
+    const ts = byTopic[t].easy.length + byTopic[t].medium.length + byTopic[t].hard.length;
+    const share = i === topics.length-1 ? n - allocated : Math.round((ts/total)*n);
+    alloc[t] = Math.max(1, Math.min(share, ts));
+    allocated += alloc[t];
+  });
+  while (allocated > n) { const big = topics.reduce((a,b) => alloc[a]>alloc[b]?a:b); alloc[big]--; allocated--; }
+  while (allocated < n) { const t = topics.find(t => alloc[t] < byTopic[t].easy.length + byTopic[t].medium.length + byTopic[t].hard.length); if (!t) break; alloc[t]++; allocated++; }
+  const sel = [];
+  topics.forEach(t => {
+    const cnt = alloc[t];
+    const eN = Math.round(cnt*0.4), hN = Math.max(0,Math.round(cnt*0.2)), mN = cnt-eN-hN;
+    const e = [...byTopic[t].easy].sort(()=>Math.random()-.5);
+    const m = [...byTopic[t].medium].sort(()=>Math.random()-.5);
+    const h = [...byTopic[t].hard].sort(()=>Math.random()-.5);
+    sel.push(...e.slice(0,eN), ...m.slice(0,mN), ...h.slice(0,hN));
+  });
+  return sel.sort(()=>Math.random()-.5).slice(0,n);
+}
+
+function startMockExam(n) {
+  closeMockLaunch();
+  mockQs = buildMockQs(n); mockIdx = 0; mockAns = {}; mockStart = Date.now();
+  document.getElementById('mockOverlay').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  if(typeof startMockTimer==='function') startMockTimer(n);
+  renderMockQ();
+}
+
+function renderMockQ() {
+  const q = mockQs[mockIdx], total = mockQs.length;
+  document.getElementById('mockProg').textContent = `Question ${mockIdx+1} of ${total}`;
+  document.getElementById('mockBarFill').style.width = (mockIdx/total*100) + '%';
+  document.getElementById('mockTopicBadge').textContent = q.topicLabel;
+  document.getElementById('mockDiffBadge').textContent = q.diff.charAt(0).toUpperCase()+q.diff.slice(1);
+  document.getElementById('mockQText').textContent = q.text;
+  document.getElementById('mockFeedback').style.display = 'none';
+  document.getElementById('mockNextBtn').style.display = 'none';
+  const optsEl = document.getElementById('mockOpts'); optsEl.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'mock-opt'; btn.textContent = opt;
+    btn.onclick = () => answerMockQ(i);
+    optsEl.appendChild(btn);
+  });
+}
+
+function answerMockQ(chosen) {
+  if (mockAns[mockIdx] !== undefined) return;
+  const q = mockQs[mockIdx]; mockAns[mockIdx] = chosen;
+  document.querySelectorAll('.mock-opt').forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.answer) btn.classList.add('mock-c');
+    else if (i === chosen) btn.classList.add('mock-w');
+  });
+  const isOk = chosen === q.answer;
+  const fb = document.getElementById('mockFeedback');
+  fb.style.display = 'block';
+  fb.style.borderLeftColor = isOk ? '#27ae60' : '#e74c3c';
+  fb.innerHTML = `<div style="font-weight:700;color:${isOk?'#27ae60':'#e74c3c'};margin-bottom:8px">${isOk?'✓ Correct!':'✗ Incorrect — Correct: '+q.options[q.answer]}</div>${q.explanation||''}${q.keyConcept?'<div style="margin-top:8px;color:#7f8c8d;font-size:.85rem"><strong>Key Concept:</strong> '+q.keyConcept+'</div>':''}`;
+  const nb = document.getElementById('mockNextBtn'); nb.style.display = 'block';
+  if (mockIdx === mockQs.length - 1) { nb.textContent = 'See My Results →'; nb.onclick = showMockResults; }
+  else { nb.textContent = `Next (${mockIdx+2}/${mockQs.length}) →`; nb.onclick = () => { mockIdx++; renderMockQ(); }; }
+}
+
+function showMockResults() {
+  let correct = 0; const ts = {};
+  mockQs.forEach((q, i) => {
+    if (!ts[q.topicLabel]) ts[q.topicLabel] = {c:0,t:0};
+    ts[q.topicLabel].t++;
+    if (mockAns[i] === q.answer) { correct++; ts[q.topicLabel].c++; }
+  });
+  const total = mockQs.length, pct = Math.round(correct/total*100), passed = pct >= MOCK_PASS;
+  const mins = Math.round((Date.now()-mockStart)/60000);
+  const prev = parseInt(localStorage.getItem('mockBest_'+MOCK_PAGE_KEY)||'0');
+  if (pct > prev) localStorage.setItem('mockBest_'+MOCK_PAGE_KEY, pct);
+  const isNewBest = pct > prev;
+  saveMockHistory(pct, total);
+  const wrong = mockQs.filter((_,i) => mockAns[i] !== mockQs[i].answer);
+  const topicRows = Object.entries(ts).map(([label,s]) => {
+    const p = Math.round(s.c/s.t*100), col = p>=70?'#27ae60':p>=50?'#f0a500':'#e74c3c';
+    return `<tr><td style="padding:8px 12px;border-bottom:1px solid #f0f4f9">${label}</td><td style="padding:8px 12px;text-align:center;border-bottom:1px solid #f0f4f9">${s.c}/${s.t}</td><td style="padding:8px 12px;text-align:center;font-weight:700;color:${col};border-bottom:1px solid #f0f4f9">${p}%</td></tr>`;
+  }).join('');
+  const wrongHTML = wrong.length ? `<details style="margin-top:16px"><summary style="cursor:pointer;padding:12px;background:#fdecea;border-radius:8px;font-weight:700;color:#922b21;list-style:none">▼ Review ${wrong.length} Wrong Answer(s)</summary>${wrong.map(q=>{const gi=mockQs.indexOf(q);return`<div style="border-left:3px solid #e74c3c;padding:12px 14px;margin:8px 0;background:#fafafa;border-radius:0 8px 8px 0;font-size:.87rem"><div style="font-weight:600;color:#1a3a5c;margin-bottom:6px">${q.text}</div><div style="color:#27ae60;margin-bottom:2px">✓ ${q.options[q.answer]}</div><div style="color:#e74c3c;margin-bottom:6px">✗ You chose: ${q.options[mockAns[gi]]}</div>${q.keyConcept?'<div style="color:#7f8c8d">'+q.keyConcept+'</div>':''}</div>`;}).join('')}</details>` : `<div style="color:#27ae60;text-align:center;padding:14px;font-weight:700;background:#e8f9ef;border-radius:8px;margin-top:12px">🏆 All answers correct!</div>`;
+  document.getElementById('mockBody').innerHTML = `
+    <div style="text-align:center;padding:24px 16px 16px">
+      <div style="font-size:3.5rem;line-height:1">${passed?'🏆':'📚'}</div>
+      <div style="font-size:3rem;font-weight:800;color:${passed?'#27ae60':'#e74c3c'};line-height:1.1;margin-top:8px">${pct}%</div>
+      <div style="font-size:1.1rem;font-weight:700;color:${passed?'#27ae60':'#e74c3c'};margin:8px 0">${passed?'✓ PASS':'✗ NEEDS IMPROVEMENT'}</div>
+      <div style="color:#7f8c8d;font-size:.88rem">${correct} / ${total} correct &nbsp;·&nbsp; ${mins || '<1'} min</div>
+      ${isNewBest&&pct>0?'<div style="background:#fff8e1;border:1px solid #f0a500;border-radius:8px;padding:8px 14px;margin-top:10px;font-size:.85rem;color:#b7770d">🌟 New Personal Best!</div>':''}
+    </div>
+    <div style="padding:0 16px">
+      <table style="width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:8px">
+        <tr style="background:#f4f7fb"><th style="padding:8px 12px;text-align:left">Topic</th><th style="padding:8px 12px">Score</th><th style="padding:8px 12px">%</th></tr>
+        ${topicRows}
+      </table>
+      ${wrongHTML}
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;padding-bottom:8px">
+        <button onclick="startMockExam(${total})" style="background:#f0a500;color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.9rem">Try Again</button>
+        <button onclick="openMockLaunch()" style="background:#1a3a5c;color:#fff;border:none;padding:13px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.9rem">New Exam</button>
+      </div>
+      <div style="text-align:center;padding-bottom:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button onclick="shareMockScore(${pct},${total},'421A')" style="background:#27ae60;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.85rem">📢 Share Score</button>
+        <button onclick="downloadMockResults(${pct},${total},${correct},'421A')" style="background:#2d6a9f;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.85rem">⬇ Download Results</button>
+        <button onclick="clearInterval(mockTimer);document.getElementById('mockOverlay').style.display='none';document.body.style.overflow=''" style="background:none;border:none;color:#7f8c8d;cursor:pointer;font-size:.85rem;text-decoration:underline">Back to Practice Mode</button>
+      </div>
+    </div>`;
+}
+
+// Auto-launch from URL param (?mock=25)
+(function(){
+  const p = new URLSearchParams(window.location.search).get('mock');
+  if (p) { const n = parseInt(p); if (n > 0) { setTimeout(() => startMockExam(Math.min(n, questions.length)), 600); } }
+})();
+
+// ── STUDY STREAK ──
+(function(){
+  const today = new Date().toDateString();
+  const prev = localStorage.getItem('streakDate');
+  const yesterday = new Date(Date.now()-86400000).toDateString();
+  let streak = parseInt(localStorage.getItem('studyStreak')||'0');
+  if(prev===today){/* same day */}
+  else if(prev===yesterday){streak++;localStorage.setItem('studyStreak',streak);localStorage.setItem('streakDate',today);}
+  else{streak=1;localStorage.setItem('studyStreak',streak);localStorage.setItem('streakDate',today);}
+  const el=document.getElementById('streakCount');
+  if(el&&streak>=1){el.textContent=`🔥 ${streak}-day streak`;el.style.display='inline-block';}
+  // Restore today's correct count
+  const tc=parseInt(localStorage.getItem('todayCorrect_421a')||'0');
+  const tDate=localStorage.getItem('todayDate_421a');
+  if(tDate===today&&tc>0){const te=document.getElementById('todayCount');if(te){te.textContent=`✓ ${tc} correct today`;te.style.display='inline-block';}}
+})();
+
+// Track today correct + wrong bank + topic stats
+const _origSelectAnswer = selectAnswer;
+function selectAnswer(idx, q) {
+  const wasAnswered = answered;
+  _origSelectAnswer(idx, q);
+  if (!wasAnswered) {
+    const isCorrect = idx === q.answer;
+    // Today's correct count
+    if (isCorrect) {
+      const today=new Date().toDateString();
+      const tc=parseInt(localStorage.getItem('todayCorrect_421a')||'0')+1;
+      localStorage.setItem('todayCorrect_421a',tc);localStorage.setItem('todayDate_421a',today);
+      const te=document.getElementById('todayCount');if(te){te.textContent=`✓ ${tc} correct today`;te.style.display='inline-block';}
+    }
+    // Wrong bank
+    if (!isCorrect) {
+      const wb = JSON.parse(localStorage.getItem('wrongBank_421a')||'[]');
+      if (!wb.includes(q.id)) { wb.push(q.id); localStorage.setItem('wrongBank_421a', JSON.stringify(wb)); }
+      updateWrongBankTab();
+    } else {
+      const wb = JSON.parse(localStorage.getItem('wrongBank_421a')||'[]');
+      const fi = wb.indexOf(q.id);
+      if (fi > -1) { wb.splice(fi, 1); localStorage.setItem('wrongBank_421a', JSON.stringify(wb)); }
+      updateWrongBankTab();
+    }
+    // Topic stats
+    recordTopicStat(q.topic, isCorrect);
+    // Combo streak
+    if (isCorrect) { window._cs=(window._cs||0)+1; if(window._cs>=2) showComboToast(window._cs); } else { window._cs=0; }
+  }
+}
+
+// ── MOCK EXAM TIMER ──
+let mockTimer = null;
+function startMockTimer(n){
+  clearInterval(mockTimer);
+  let secs = Math.min(n*90, 10800);
+  function tick(){
+    const el=document.getElementById('mockTimerEl');if(!el)return;
+    const m=Math.floor(secs/60),s=secs%60;
+    el.textContent=`⏱ ${m}:${s.toString().padStart(2,'0')}`;
+    el.style.background=secs<=300?'rgba(231,76,60,.5)':'rgba(255,255,255,.12)';
+    if(secs<=0){clearInterval(mockTimer);showMockResults();}
+    secs--;
+  }
+  tick();mockTimer=setInterval(tick,1000);
+}
+
+// ── SHARE SCORE ──
+function shareMockScore(pct,total,name){
+  const txt=`I scored ${pct}% on the ${name} Red Seal mock exam (${total} questions)! Free practice at allforyou-bit.github.io`;
+  if(navigator.share){navigator.share({title:'Red Seal Exam Score',text:txt}).catch(()=>{});}
+  else{navigator.clipboard.writeText(txt).then(()=>alert('Score copied! Share it with your study group.')).catch(()=>alert(txt));}
+}
+
+function downloadMockResults(pct,total,correct,name){
+  const date=new Date().toLocaleDateString('en-CA');
+  const passed=pct>=70;
+  let txt=`RED SEAL ${name} MOCK EXAM RESULTS\n`;
+  txt+=`Date: ${date}  |  Score: ${pct}%  (${correct}/${total})  |  ${passed?'PASS':'NEEDS IMPROVEMENT'}\n`;
+  txt+='='.repeat(60)+'\n\n';
+  mockQs.forEach((q,i)=>{
+    const ua=mockAns[i],ok=ua===q.answer;
+    txt+=`Q${i+1}. [${ok?'CORRECT':'WRONG  '}] ${q.text}\n`;
+    q.options.forEach((opt,j)=>{const mark=j===q.answer?'> ':(j===ua&&!ok?'X ':'  ');txt+=`   ${mark}${opt}\n`;});
+    if(!ok&&q.explanation)txt+=`   Explanation: ${q.explanation}\n`;
+    if(!ok&&q.keyConcept)txt+=`   Key Concept: ${q.keyConcept}\n`;
+    txt+='\n';
+  });
+  txt+=`\nDownloaded from allforyou-bit.github.io | Free Red Seal Exam Practice`;
+  const blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);const a=document.createElement('a');
+  a.href=url;a.download=`RedSeal-${name}-Results-${date}.txt`;
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+}
+
+// ── DOWNLOAD STUDY SHEET ──
+function downloadStudySheet() {
+  let qs;
+  if (currentTopic === 'all') { qs = questions; }
+  else if (currentTopic === 'wrongbank') {
+    const wb = JSON.parse(localStorage.getItem('wrongBank_421a')||'[]');
+    qs = questions.filter(q => wb.includes(q.id));
+  } else { qs = questions.filter(q => q.topic === currentTopic); }
+  const topicLabel = currentTopic === 'all' ? 'All Topics' : currentTopic === 'wrongbank' ? 'Mistakes Review' : (qs[0] ? qs[0].topicLabel : 'All Topics');
+  const tradeName = '421A Heavy Equipment Technician';
+  const date = new Date().toLocaleDateString('en-CA');
+  const letters = ['A','B','C','D','E'];
+  const groups = {};
+  qs.forEach(q => {
+    if (!groups[q.topicLabel]) groups[q.topicLabel] = [];
+    groups[q.topicLabel].push(q);
+  });
+  let body = '';
+  const ansKey = [];
+  let n = 1;
+  Object.keys(groups).forEach(tl => {
+    body += `<div class="section-title">${tl} — ${groups[tl].length} questions</div>`;
+    groups[tl].forEach(q => {
+      body += `<div class="q"><div class="qn">Q${n}. <span class="diff diff-${q.diff}">${q.diff}</span></div>`;
+      body += `<div class="qt">${q.text}</div>`;
+      q.options.forEach(opt => { body += `<div class="opt">${opt}</div>`; });
+      body += `</div>`;
+      ansKey.push({n, answer: letters[q.answer], text: q.options[q.answer], expl: (q.explanation||'').replace(/<[^>]+>/g,''), key: q.keyConcept||''});
+      n++;
+    });
+  });
+  let keyHtml = '';
+  ansKey.forEach(a => {
+    keyHtml += `<div class="ak"><strong>Q${a.n}.</strong> <span class="correct">${a.answer}) ${a.text}</span>`;
+    if (a.expl) keyHtml += `<div class="expl">${a.expl}</div>`;
+    if (a.key) keyHtml += `<div class="kc"><strong>Key Concept:</strong> ${a.key}</div>`;
+    keyHtml += `</div>`;
+  });
+  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Red Seal 421A Practice Exam — 220 Free Heavy Equipment Technician Questions 2026</title>
+<style>
+  body{font-family:Arial,sans-serif;max-width:820px;margin:0 auto;padding:20px 24px;color:#2c3e50;font-size:12.5px;line-height:1.5}
+  .print-tip{background:#1a3a5c;color:#fff;padding:12px 16px;border-radius:8px;margin-bottom:20px;font-size:13px}
+  .print-tip button{background:#f0a500;color:#fff;border:none;padding:6px 14px;border-radius:6px;font-weight:700;cursor:pointer;margin-left:12px}
+  h1{color:#1a3a5c;border-bottom:3px solid #f0a500;padding-bottom:8px;font-size:17px;margin-bottom:4px}
+  .meta{color:#7f8c8d;font-size:11px;margin-bottom:16px}
+  .section-title{background:#1a3a5c;color:#fff;padding:7px 12px;border-left:4px solid #f0a500;margin:22px 0 12px;font-size:13px;font-weight:700}
+  .q{margin:0 0 14px;padding:10px 12px;border:1px solid #e0e6ef;border-radius:6px;page-break-inside:avoid}
+  .qn{font-weight:700;color:#1a3a5c;margin-bottom:4px}
+  .diff{font-size:10px;padding:1px 7px;border-radius:9px;font-weight:600}
+  .diff-easy{background:#d5f5e3;color:#1e8449}
+  .diff-medium{background:#fdebd0;color:#d35400}
+  .diff-hard{background:#fadbd8;color:#c0392b}
+  .qt{font-weight:600;margin-bottom:8px;font-size:13px}
+  .opt{margin:2px 0 2px 16px;color:#2c3e50}
+  .answer-key{margin-top:36px;border-top:3px solid #1a3a5c;padding-top:16px}
+  .answer-key h2{color:#1a3a5c;font-size:15px;margin-bottom:12px}
+  .ak{margin:8px 0;padding:8px 10px;background:#f9fbfd;border-radius:4px;page-break-inside:avoid}
+  .correct{color:#27ae60;font-weight:700}
+  .expl{font-size:11px;color:#555;margin:4px 0 2px 12px}
+  .kc{font-size:11px;color:#b7770d;margin:2px 0 0 12px}
+  .footer{margin-top:24px;border-top:1px solid #ddd;padding-top:10px;color:#aaa;font-size:10px;text-align:center}
+  @media print{.print-tip{display:none}body{padding:8px 12px;font-size:11px}.q{page-break-inside:avoid;margin-bottom:10px}}
+</style></head><body>
+<div class="print-tip">📄 <strong>Save as PDF:</strong> Press Ctrl+P (Windows) or ⌘+P (Mac) → Choose "Save as PDF" as the printer <button onclick="window.print()">🖨 Print / Save PDF</button></div>
+<h1>📋 ${tradeName} Red Seal Practice — Study Sheet</h1>
+<div class="meta">Based on 2023 Red Seal Occupational Standard (RSOS) · ${qs.length} questions${currentTopic!=='all'?' · Topic: '+topicLabel:''} · Generated ${date} · allforyou-bit.github.io</div>
+${body}
+<div class="answer-key"><h2>📌 Answer Key with Explanations</h2>${keyHtml}</div>
+<div class="footer">Canada Red Seal Exam Prep · allforyou-bit.github.io · Free practice questions based on 2023 RSOS · Not affiliated with the official Red Seal Program</div>
+<!-- EXIT INTENT POPUP -->
+<div id="exitPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:10000;align-items:center;justify-content:center;padding:20px">
+  <div style="background:white;border-radius:20px;padding:36px 32px;max-width:440px;width:100%;position:relative;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <button onclick="document.getElementById(&apos;exitPopup&apos;).style.display=&apos;none&apos;;sessionStorage.setItem(&apos;exitShown&apos;,&apos;1&apos;)" style="position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#aaa;line-height:1">&times;</button>
+    <div style="font-size:2.5rem;margin-bottom:12px">&#128203;</div>
+    <h2 style="font-size:1.3rem;color:#1a3a5c;font-weight:800;margin-bottom:8px">Wait &#8212; Free Study Sheet!</h2>
+    <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:20px">Get our <strong>Red Seal Quick-Reference PDF</strong> &#8212; key formulas, codes and tips for your trade. Free, no spam.</p>
+    <form action="https://formsubmit.co/lidbil515@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:10px">
+      <input type="hidden" name="_subject" value="Exit Intent - Free Study Sheet">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="email" name="email" required placeholder="Your email address" style="border:2px solid #dce3ec;border-radius:8px;padding:11px 14px;font-size:.9rem;font-family:inherit;outline:none;width:100%">
+      <button type="submit" style="background:#f0a500;color:white;border:none;border-radius:8px;padding:12px;font-weight:700;font-size:.95rem;cursor:pointer">Send Me the PDF &#8594;</button>
+    </form>
+    <p style="font-size:.72rem;color:#aaa;margin-top:10px">Unsubscribe anytime. We respect your privacy.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var shown=false;var st=Date.now();
+  document.addEventListener("mouseleave",function(e){
+    if(e.clientY>5||shown||sessionStorage.getItem("exitShown"))return;
+    if(Date.now()-st<12000)return;
+    shown=true;
+    var p=document.getElementById("exitPopup");
+    if(p){p.style.display="flex";sessionStorage.setItem("exitShown","1");}
+  });
+})();
+<\/script>
+</body></html>`;
+  const w = window.open('', '_blank');
+  if (!w) { alert('Please allow pop-ups to use the study sheet download.'); return; }
+  w.document.write(html);
+  w.document.close();
+  w.focus();
+}
+
+// ── WRONG BANK ──
+function updateWrongBankTab() {
+  const wb = JSON.parse(localStorage.getItem('wrongBank_421a')||'[]');
+  const el = document.getElementById('wrongBankCount');
+  if (el) el.textContent = wb.length;
+}
+
+// ── TOPIC PROGRESS ──
+const TOPIC_DEFS_421a = [
+
+  {key:'safety',     label:'Safety & Tools'},
+  {key:'engine',     label:'Diesel Engine'},
+  {key:'electrical', label:'Electrical'},
+  {key:'hydraulic',  label:'Hydraulics'},
+  {key:'powertrain', label:'Powertrain'},
+  {key:'brakes',     label:'Brakes & Steering'}
 ];
 
 function recordTopicStat(topic, correct) {
