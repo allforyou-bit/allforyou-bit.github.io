@@ -926,6 +926,15 @@ function recordTopicStat(topic, correct) {
   renderTopicProgress();
 }
 
+const TOPIC_DEFS_306a = [
+  {key:'fabrication',label:'Sheet Metal Fabrication'},
+  {key:'hvac',label:'HVAC Ductwork'},
+  {key:'layout',label:'Layout & Pattern Development'},
+  {key:'welding',label:'Welding & Joining'},
+  {key:'safety',label:'Safety & Code'},
+  {key:'tools',label:'Tools & Equipment'}
+];
+
 function renderTopicProgress() {
   const stats = JSON.parse(localStorage.getItem('topicStats_' + MOCK_PAGE_KEY) || '{}');
   const container = document.getElementById('topicProgressBars');
