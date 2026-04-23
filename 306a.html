@@ -156,6 +156,7 @@
   @media(max-width:860px){.site-nav{flex-wrap:nowrap!important;padding:0 14px!important;gap:0!important;position:relative}.nav-brand{display:flex;margin-right:auto}.nav-toggle{display:flex;align-items:center;justify-content:center;height:52px}.nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#1a3a5c;flex-direction:column;z-index:201;box-shadow:0 8px 24px rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.1);max-height:75vh;overflow-y:auto;gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px 20px!important;border-bottom:1px solid rgba(255,255,255,.07)!important;font-size:.9rem!important;width:100%;display:block}.topic-tabs{overflow-x:auto;flex-wrap:nowrap!important;padding-bottom:6px;scrollbar-width:none}.tab-btn{white-space:nowrap;flex-shrink:0}.mode-switch-row{flex-wrap:wrap}.mock-launch-bar{flex-direction:column;align-items:flex-start}.question-card{padding:16px 14px!important}.difficulty-row{flex-wrap:wrap;gap:6px}header h1{font-size:1.25rem}.container{padding:14px 12px}.nav-drop-btn{width:100%;text-align:left;padding:13px 20px!important;border-bottom:1px solid rgba(255,255,255,.07)!important;font-size:.9rem!important}.nav-drop-menu{position:static;box-shadow:none;border-radius:0;padding:0;display:none;background:rgba(255,255,255,.05)}.nav-drop-menu a{padding-left:36px!important}.nav-dropdown.open .nav-drop-menu{display:block}}
   @media(max-width:480px){.q-text{font-size:.93rem}.option-btn{font-size:.86rem;padding:10px 12px}}
 </style>
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <nav class="site-nav">
@@ -164,19 +165,19 @@
   <div class="nav-links" id="navLinks">
     <a href="/">Home</a>
     <div class="nav-dropdown" id="tradesDrop">
-      <button class="nav-drop-btn" id="tradesBtn">Trades &#x25BE;</button>
+            <button class="nav-drop-btn" id="tradesBtn" aria-haspopup="true">Trades ▾</button>
       <div class="nav-drop-menu">
-        <a href="/421a.html">&#x1F69C; 421A Heavy Equipment</a>
-        <a href="/310t.html">&#x1F69B; 310T Truck &amp; Transport</a>
-        <a href="/309a.html">&#x26A1; 309A Construction Electrician</a>
-        <a href="/310s.html">&#x1F527; 310S Automotive</a>
-        <a href="/308a.html">&#x2744;&#xFE0F; 308A HVAC/Refrigeration</a>
-        <a href="/276a.html">&#x1F525; 276A Welder</a>
-        <a href="/447a.html">&#x1F529; 447A Plumber</a>
-        <a href="/313a.html">&#x26A1; 313A Industrial Electrician</a>
-        <a href="/442a.html">&#x1F3D7;&#xFE0F; 442A Ironworker</a>
-        <a href="/403a.html">&#x1F525; 403A Gas Fitter</a>
-        <a href="/306a.html">&#x1F529; 306A Sheet Metal</a>
+        <a href="/276a.html">276A Welder</a>
+        <a href="/306a.html" class="active">306A Sheet Metal Worker</a>
+        <a href="/308a.html">308A HVAC/Refrigeration</a>
+        <a href="/309a.html">309A Construction Electrician</a>
+        <a href="/310s.html">310S Automotive Service Tech</a>
+        <a href="/310t.html">310T Truck &amp; Transport Mechanic</a>
+        <a href="/313a.html">313A Industrial Electrician</a>
+        <a href="/403a.html">403A Gas Fitter (Class A)</a>
+        <a href="/421a.html">421A Heavy Equipment Tech</a>
+        <a href="/442a.html">442A Ironworker</a>
+        <a href="/447a.html">447A Plumber</a>
       </div>
     </div>
     <a href="/practice-quizzes.html">Quizzes</a>
