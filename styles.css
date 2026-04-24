@@ -8,6 +8,8 @@
   --hero-padding-desktop: 64px 32px;
   --nav-height: 64px;
   --trade-badge-bg: #f59e0b;
+  /* Text contrast override — replaces per-page --muted: #7f8c8d (was 3.6:1, WCAG fail) */
+  --muted: #4a5568 !important; /* #4a5568 on #fff: 7.0:1 (AAA) */
 }
 
 /* ── PAGE HERO ─────────────────────────────────────────────────── */
