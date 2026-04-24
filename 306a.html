@@ -1207,5 +1207,14 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 function toggleNav() { document.getElementById('navMenu').classList.toggle('open'); }
 </script>
+<script>
+(function(){
+  var nt=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
+  var td=document.getElementById('tradesDrop'),tb=document.getElementById('tradesBtn');
+  if(nt&&nl)nt.addEventListener('click',function(){var o=nl.classList.toggle('open');nt.textContent=o?'✕':'☰';});
+  if(tb&&td){tb.addEventListener('click',function(e){e.stopPropagation();td.classList.toggle('open');});
+  document.addEventListener('click',function(){if(td)td.classList.remove('open');});}
+})();
+</script>
 </body>
 </html>
