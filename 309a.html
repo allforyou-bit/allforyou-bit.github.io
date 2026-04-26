@@ -283,21 +283,11 @@ function reportQuestion(){
 </script>
 <!-- EMAIL CAPTURE -->
 <div style="background:linear-gradient(135deg,#1a3a5c,#2d6a9f);border-radius:16px;padding:32px 24px;color:white;text-align:center;position:relative;overflow:hidden;max-width:900px;margin:0 auto 32px">
-  <div style="position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:5rem;opacity:.07;pointer-events:none">📬</div>
-  <p style="font-size:.7rem;font-weight:800;color:#f0a500;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">FREE WEEKLY TIPS</p>
-  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px">Get New Practice Questions Every Week</h3>
-  <p style="font-size:.88rem;opacity:.88;margin-bottom:22px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.65">Join fellow Red Seal candidates. Get exam tips and new questions — free.</p>
-  <form id="ecForm" onsubmit="submitEmail(event)" style="display:flex;gap:10px;max-width:420px;margin:0 auto 12px;flex-wrap:wrap;justify-content:center">
-    <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" style="flex:1;min-width:200px;padding:12px 16px;border-radius:8px;border:none;font-size:.9rem;color:#2c3e50;font-family:inherit">
-    <button type="submit" id="ecBtn" style="background:#f0a500;color:white;border:none;border-radius:8px;padding:12px 22px;font-weight:700;font-size:.88rem;cursor:pointer;white-space:nowrap;font-family:inherit">Get Free Tips →</button>
-  </form>
-  <div id="ecSuccess" style="display:none;background:rgba(255,255,255,.15);border-radius:8px;padding:12px 20px;font-size:.9rem;font-weight:600;max-width:380px;margin:0 auto">✅ You're in! First tips arrive within 24 hours.</div>
-  <p style="font-size:.72rem;opacity:.6;margin-top:10px">No spam · Unsubscribe anytime · Free forever</p>
+  <p style="font-size:.7rem;font-weight:800;color:#f0a500;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">📬 NEWSLETTER</p>
+  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:12px">Newsletter Coming Soon</h3>
+  <p style="font-size:.88rem;opacity:.88;margin-bottom:16px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.65">I'm focused on perfecting the site first — more practice questions, better study resources, and design improvements. The newsletter will launch once everything is solid. Thanks for your patience!</p>
+  <p style="font-size:.78rem;opacity:.65;margin:0">In the meantime, explore the full quiz library below.</p>
 </div>
-<script>
-async function submitEmail(e){e.preventDefault();const btn=document.getElementById('ecBtn');const email=document.getElementById('ecForm').querySelector('input[type="email"]').value;btn.textContent='Subscribing...';btn.disabled=true;try{const r=await fetch('https://formsubmit.co/ajax/lidbil515@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email,_subject:'New Subscriber \u2014 Red Seal Prep',_captcha:'false'})});if(r.ok){document.getElementById('ecForm').style.display='none';document.getElementById('ecSuccess').style.display='block';localStorage.setItem('rsEmailSub','1');}else{btn.textContent='Try Again';btn.disabled=false;}}catch(err){btn.textContent='Try Again';btn.disabled=false;}}
-(function(){if(localStorage.getItem('rsEmailSub')){const f=document.getElementById('ecForm'),s=document.getElementById('ecSuccess');if(f&&s){f.style.display='none';s.style.display='block';}}})();
-</script>
 
 
 <!-- RELATED ARTICLES -->
@@ -1433,7 +1423,8 @@ ${body}
   </div>
 </div>
 <script>
-(function(){
+// [2026-04-26] Newsletter on hold — popup display disabled. HTML/CSS preserved for future re-enable.
+(function(){return;
   var shown=false;var st=Date.now();
   document.addEventListener("mouseleave",function(e){
     if(e.clientY>5||shown||sessionStorage.getItem("exitShown"))return;
