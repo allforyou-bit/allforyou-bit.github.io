@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>건강하모니 자료실</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: #f3f7f4; color: #22332a; padding: 24px;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #17201b; color: #e8f0ea; }
+    .card { background: #1f2b24 !important; box-shadow: 0 8px 30px rgba(0,0,0,.4) !important; }
+    .note { color: #9fb3a7 !important; }
+  }
+  .card {
+    background: #fff; border-radius: 18px; padding: 44px 34px; max-width: 460px; width: 100%;
+    text-align: center; box-shadow: 0 8px 30px rgba(34,51,42,.10);
+  }
+  .logo { font-size: 40px; margin-bottom: 14px; }
+  h1 { font-size: 24px; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .sub { font-size: 15px; line-height: 1.6; margin-bottom: 28px; opacity: .85; }
+  .btn {
+    display: block; background: #2e7d5b; color: #fff; text-decoration: none;
+    padding: 16px 20px; border-radius: 12px; font-size: 17px; font-weight: 700;
+  }
+  .btn:active { transform: scale(.98); }
+  .note { font-size: 12.5px; color: #6b7d72; margin-top: 22px; line-height: 1.6; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="logo">🌿</div>
+    <h1>건강하모니 자료실</h1>
+    <p class="sub">유튜브 <strong>건강하모니</strong> 채널에서 안내드린<br>무료 자료를 이곳에서 받으실 수 있습니다.</p>
+    <a class="btn" href="./sleep-check-free.pdf">📋 잠들기 전 점검 8가지 — 무료 PDF 받기</a>
+    <p class="note">본 자료는 일반적인 건강 정보이며, 의학적 진단이나 처방을 대신하지 않습니다.<br>증상이 지속되면 반드시 전문의와 상담하세요.</p>
+  </main>
+</body>
+</html>
