@@ -1,29 +1,93 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>자료실</title>
+<title>Red Seal practice questions &amp; 건강하모니 자료실</title>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="This address has moved. Free Red Seal practice questions are now at redsealquiz.ca. 건강하모니 자료실은 아래에 있습니다.">
 <style>
-  :root { color-scheme: light dark; }
-  body {
-    font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-    min-height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center;
-    background: #f6f6f4; color: #333;
+  :root { color-scheme: light dark; --ink:#1a3a5c; --sub:#646f70; --line:#e3e7ea; --bg:#f6f6f4; --card:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e8edf2; --sub:#9aa4ad; --line:#2b3138; --bg:#16181b; --card:#1e2126; }
   }
-  @media (prefers-color-scheme: dark) { body { background: #1b1b19; color: #ddd; } }
-  main { text-align: center; padding: 24px; }
-  h1 { font-size: 20px; font-weight: 600; }
-  p { font-size: 14px; opacity: .7; }
-  a { color: #2e7d5b; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Segoe UI", Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.6; -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 620px; margin: 0 auto; padding: 32px 20px 56px; }
+  .note {
+    font-size: .8rem; color: var(--sub); border-left: 3px solid #f0a500;
+    padding: 6px 0 6px 12px; margin: 0 0 26px;
+  }
+  h1 { font-size: 1.35rem; margin: 0 0 6px; }
+  .lede { color: var(--sub); font-size: .93rem; margin: 0 0 18px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px 18px; margin-bottom: 22px;
+  }
+  .trades { display: grid; gap: 8px; margin-top: 14px; }
+  .trades a {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    min-height: 48px; padding: 10px 14px; border-radius: 8px; text-decoration: none;
+    background: rgba(240,165,0,.10); border-left: 4px solid #f0a500;
+    color: var(--ink); font-weight: 600; font-size: .9rem;
+  }
+  .trades a span { color: var(--sub); font-weight: 400; font-size: .8rem; white-space: nowrap; }
+  .all {
+    display: inline-flex; align-items: center; min-height: 48px; margin-top: 14px;
+    background: #f0a500; color: #1a3a5c; padding: 12px 22px; border-radius: 8px;
+    font-weight: 800; text-decoration: none; font-size: .92rem;
+  }
+  h2 { font-size: 1.05rem; margin: 0 0 4px; }
+  .ko a { color: #2e7d5b; font-weight: 600; }
+  footer { color: var(--sub); font-size: .76rem; text-align: center; margin-top: 30px; }
 </style>
 </head>
 <body>
-  <main>
-    <h1>콘텐츠 채널 자료실</h1>
-    <p>영상 설명란에 안내된 링크로 접속해 주세요.</p>
-    <p><a href="/harmony/">건강하모니 자료실 →</a></p>
-    <p style="margin-top:28px;font-size:13px">Looking for the Red Seal practice quizzes?<br>The quiz site has moved to <a href="https://redsealquiz.ca/">redsealquiz.ca</a></p>
-  </main>
+<main>
+
+  <p class="note">
+    This address has moved. The Red Seal practice questions are now at
+    <strong>redsealquiz.ca</strong> &mdash; pick your trade below.<br>
+    이 주소는 이전되었습니다. 건강하모니 자료실은 아래에 있습니다.
+  </p>
+
+  <div class="card">
+    <h1>Free Red Seal practice questions</h1>
+    <p class="lede">
+      1,718 questions across 11 Canadian Red Seal trades, every answer explained.
+      Free to read, no account needed.
+    </p>
+    <div class="trades">
+      <a href="https://redsealquiz.ca/421a.html">421A Heavy Duty Equipment Technician <span>421 questions</span></a>
+      <a href="https://redsealquiz.ca/310t.html">310T Truck &amp; Transport Mechanic <span>165 questions</span></a>
+      <a href="https://redsealquiz.ca/310s.html">310S Automotive Service Technician <span>139 questions</span></a>
+      <a href="https://redsealquiz.ca/309a.html">309A Construction Electrician <span>135 questions</span></a>
+      <a href="https://redsealquiz.ca/306a.html">306A Plumber <span>135 questions</span></a>
+      <a href="https://redsealquiz.ca/442a.html">442A Industrial Electrician <span>135 questions</span></a>
+      <a href="https://redsealquiz.ca/456a.html">456A Welder <span>120 questions</span></a>
+      <a href="https://redsealquiz.ca/420b.html">420B Ironworker <span>120 questions</span></a>
+      <a href="https://redsealquiz.ca/308a.html">308A Sheet Metal Worker <span>120 questions</span></a>
+      <a href="https://redsealquiz.ca/313a.html">313A Refrigeration &amp; AC Mechanic <span>116 questions</span></a>
+      <a href="https://redsealquiz.ca/gasfitter-class-a.html">Gasfitter (Class A) <span>112 questions</span></a>
+    </div>
+    <a class="all" href="https://redsealquiz.ca/">All trades and free mock exams &rarr;</a>
+  </div>
+
+  <div class="card ko">
+    <h2>건강하모니 자료실</h2>
+    <p class="lede">영상 설명란에 안내된 자료는 여기에 있습니다.</p>
+    <p><a href="/harmony/">건강하모니 자료실로 이동 &rarr;</a></p>
+  </div>
+
+  <footer>
+    Independent, unofficial study resource &mdash; not affiliated with or endorsed by
+    the CCDA, the Red Seal Program, or any provincial or territorial apprenticeship authority.
+  </footer>
+
+</main>
 </body>
 </html>

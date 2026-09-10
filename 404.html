@@ -9,9 +9,41 @@
   // 지금도 들어오므로, 없는 경로는 전부 현재 퀴즈 도메인으로 그대로 넘긴다.
   location.replace("https://redsealquiz.ca" + location.pathname + location.search);
 </script>
-<meta http-equiv="refresh" content="0; url=https://redsealquiz.ca/">
+<!-- No meta refresh. It cannot carry the path, so it could only ever dump a
+     visitor on the home page - and it would do that while they were reading
+     this list. Anyone with JavaScript has already been forwarded to their exact
+     page by the line above; anyone without gets to choose. -->
+<style>
+  body{margin:0;background:#f6f6f4;color:#1a3a5c;line-height:1.6;
+       font-family:"Segoe UI",Arial,sans-serif;-webkit-text-size-adjust:100%}
+  @media (prefers-color-scheme:dark){body{background:#16181b;color:#e8edf2}}
+  main{max-width:560px;margin:0 auto;padding:34px 20px}
+  h1{font-size:1.2rem;margin:0 0 8px}
+  p{color:#646f70;font-size:.9rem;margin:0 0 16px}
+  ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+  a{display:flex;align-items:center;min-height:48px;padding:10px 14px;border-radius:8px;
+    background:rgba(240,165,0,.12);border-left:4px solid #f0a500;color:inherit;
+    text-decoration:none;font-weight:600;font-size:.9rem}
+</style>
 </head>
 <body>
-  <p>This page has moved. Redirecting to <a href="https://redsealquiz.ca/">redsealquiz.ca</a>…</p>
+  <main>
+    <h1>This page has moved to redsealquiz.ca</h1>
+    <p>Taking you there now. If nothing happens, pick your trade:</p>
+    <ul>
+      <li><a href="https://redsealquiz.ca/421a.html">421A Heavy Duty Equipment Technician</a></li>
+      <li><a href="https://redsealquiz.ca/310t.html">310T Truck &amp; Transport Mechanic</a></li>
+      <li><a href="https://redsealquiz.ca/310s.html">310S Automotive Service Technician</a></li>
+      <li><a href="https://redsealquiz.ca/309a.html">309A Construction Electrician</a></li>
+      <li><a href="https://redsealquiz.ca/306a.html">306A Plumber</a></li>
+      <li><a href="https://redsealquiz.ca/442a.html">442A Industrial Electrician</a></li>
+      <li><a href="https://redsealquiz.ca/456a.html">456A Welder</a></li>
+      <li><a href="https://redsealquiz.ca/420b.html">420B Ironworker</a></li>
+      <li><a href="https://redsealquiz.ca/308a.html">308A Sheet Metal Worker</a></li>
+      <li><a href="https://redsealquiz.ca/313a.html">313A Refrigeration &amp; AC Mechanic</a></li>
+      <li><a href="https://redsealquiz.ca/gasfitter-class-a.html">Gasfitter (Class A)</a></li>
+      <li><a href="https://redsealquiz.ca/">All trades and free mock exams</a></li>
+    </ul>
+  </main>
 </body>
 </html>
