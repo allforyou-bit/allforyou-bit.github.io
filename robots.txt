@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://allforyou-bit.github.io/sitemap.xml
